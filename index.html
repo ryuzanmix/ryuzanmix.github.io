@@ -2,48 +2,132 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>歌ってみたMIX依頼 | 竜山はるるん</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>歌ってみたMIX依頼ページ | 竜山はるるん</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #fefefe;
+      color: #333;
+      line-height: 1.7;
+    }
+    header {
+      background: linear-gradient(135deg, #ffdce0, #ffe4f0);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0 0;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    section {
+      margin-bottom: 2rem;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #cc3366;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    ul, ol {
+      padding-left: 1.2rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #999;
+    }
+    a {
+      color: #cc3366;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #cc3366;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .cta-button:hover {
+      background: #b52c5a;
+    }
+    @media screen and (max-width: 600px) {
+      header h1 { font-size: 1.6rem; }
+      header p { font-size: 1rem; }
+      main { padding: 1rem; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>🎤 歌ってみたMIX依頼ページ</h1>
-        <p>あなたの歌声を、もっと魅力的に。<br>18〜25歳女性に選ばれる安心MIX🎧</p>
-        <img src="images/header_irasutoya.png" alt="ヘッダーイラスト" style="max-width: 100%; height: auto;">
-    </header>
-    <main>
-        <section>
-            <h2>🌟 ごあいさつ</h2>
-            <p>こんにちは！MIX師の<strong>竜山はるるん</strong>です☺️ VOCALOID・アニメ・ゲーム楽曲の「歌ってみた」MIXをメインに、<strong>100曲以上の実績</strong>で、あなたの声を一番魅力的に引き出します！</p>
-            <img src="images/self_intro_irasutoya.png" alt="自己紹介イラスト" style="max-width: 300px;">
-        </section>
-        <section>
-            <h2>🎶 サービス一覧</h2>
-            <ul>
-                <li><strong>歌ってみたMIX：</strong> ￥5,000〜（EQ・コンプ・空間処理・タイミング補正など）</li>
-                <li><strong>マスタリング：</strong> ￥3,000〜（音圧調整・全体バランス）</li>
-                <li><strong>動画エンコード：</strong> ￥1,000〜（YouTube投稿用に最適化）</li>
-            </ul>
-        </section>
-        <section>
-            <h2>📥 ご依頼の流れ</h2>
-            <ol>
-                <li>フォームまたはX（旧Twitter）DMからご連絡</li>
-                <li>音源確認・お見積り</li>
-                <li>制作・仮提出</li>
-                <li>確認・修正後、納品✨</li>
-            </ol>
-            <p>※納期目安：通常1〜2週間（ご希望あればご相談ください）</p>
-        </section>
-        <section>
-            <h2>📫 お問い合わせ</h2>
-            <p>🎧 ご依頼・ご相談は <a href="https://x.com/ryuzanmix" target="_blank">X（旧Twitter）DM</a> にてお気軽にどうぞ！</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 竜山はるるん</p>
-    </footer>
+  <header>
+    <h1>あなたの歌声を、もっと輝かせるMIXを。</h1>
+    <p>歌ってみたMIX・マスタリング・動画エンコード｜竜山はるるん</p>
+  </header>
+  <main>
+    <section>
+      <h2>ごあいさつ</h2>
+      <p>
+        はじめまして、MIX師の<strong>竜山 はるるん</strong>です☺<br>
+        ボカロ・アニメ・ゲーム系などの「歌ってみた」を中心に、<strong>100曲以上の実績</strong>と丁寧な仕上げで、あなたの表現を全力でサポートいたします。<br>
+        初めての方でも安心してご依頼いただけるよう、ガイド付きで対応しております。お気軽にご相談ください。
+      </p>
+    </section>
+    <section>
+      <h2>サービス内容</h2>
+      <ul>
+        <li><strong>歌ってみたMIX：</strong> ￥5,000〜（EQ、コンプ、空間系、タイミング補正、基本修正2回まで）</li>
+        <li><strong>マスタリング：</strong> ￥3,000〜（音圧・音質の最終調整）</li>
+        <li><strong>動画エンコード：</strong> ￥1,000〜（YouTubeなどに最適なフォーマットに変換）</li>
+        <li><strong>ハモリ生成・調整：</strong> +￥1,500〜（希望があれば対応可）</li>
+      </ul>
+    </section>
+    <section>
+      <h2>ご依頼の流れ</h2>
+      <ol>
+        <li>お問い合わせ（XのDMやフォームなど）</li>
+        <li>音源とご希望の確認（納期・雰囲気・ご希望など）</li>
+        <li>仮見積りと日程提案</li>
+        <li>作業開始（途中確認あり）</li>
+        <li>仕上がり確認・修正 → 納品（wavまたはmp3）</li>
+      </ol>
+      <p>※納期の目安は通常7〜10日ほどです。お急ぎの場合はご相談ください。</p>
+    </section>
+    <section>
+      <h2>ご相談・ご依頼</h2>
+      <p>
+        ご依頼・ご質問は、<a href="https://x.com/ryuzanmix" target="_blank">X（旧Twitter）のDM</a>までお気軽にどうぞ♪<br>
+        または、後日掲載予定のフォームからもお送りいただけます。
+      </p>
+      <a class="cta-button" href="https://x.com/ryuzanmix" target="_blank">DMで相談する</a>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 竜山はるるん - All Rights Reserved.
+  </footer>
 </body>
 </html>
