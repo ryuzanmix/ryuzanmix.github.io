@@ -1,133 +1,251 @@
-
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>歌ってみたMIX依頼ページ | 竜山はるるん</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Noto Sans JP', sans-serif;
-      background: #fefefe;
-      color: #333;
-      line-height: 1.7;
-    }
-    header {
-      background: linear-gradient(135deg, #ffdce0, #ffe4f0);
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      font-size: 2rem;
-      margin: 0;
-    }
-    header p {
-      font-size: 1.1rem;
-      margin: 0.5rem 0 0;
-    }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-    section {
-      margin-bottom: 2rem;
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    h2 {
-      color: #cc3366;
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-    }
-    ul, ol {
-      padding-left: 1.2rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #999;
-    }
-    a {
-      color: #cc3366;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .cta-button {
-      display: inline-block;
-      background: #cc3366;
-      color: #fff;
-      padding: 0.8rem 1.5rem;
-      border-radius: 30px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-    .cta-button:hover {
-      background: #b52c5a;
-    }
-    @media screen and (max-width: 600px) {
-      header h1 { font-size: 1.6rem; }
-      header p { font-size: 1rem; }
-      main { padding: 1rem; }
-    }
-  </style>
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ryuzan Mix Salon | 歌ってみたMIX・動画エンコード専門サロン</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon256.png" sizes="32x32">
+<link rel="icon" type="image/png" href="favicon256.png" sizes="192x192">
+<link rel="apple-touch-icon" href="favicon256.png">
+
+<meta name="description" content="Ryuzan Mix Salon は高品質な歌ってみたボーカルMIXと動画エンコードを提供するオンラインサロンです。透明な料金設定・24時間以内の丁寧サポート・50曲以上の実績サンプルで安心してご依頼いただけます。">
+<meta name="keywords" content="歌ってみた,MIX,ボーカルミックス,動画エンコード,ハモリ作成,リピーター割,YouTube,TikTok,ラベンダーサロン">
+<link rel="canonical" href="https://ryuzanmix.github.io/">
+<meta name="robots" content="index,follow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ryuzanmix.github.io/">
+<meta property="og:title" content="Ryuzan Mix Salon | 歌ってみたMIXサロン">
+<meta property="og:description" content="歌声をもっと可愛く、艶やかに。分かりやすい価格と豊富な実績で安心のボーカルMIXサービス。">
+<meta property="og:image" content="og-image.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://x.com/ryuzanmix">
+<meta property="twitter:title" content="Ryuzan Mix Salon | 歌ってみたMIXサロン">
+<meta property="twitter:description" content="歌声をもっと可愛く、艶やかに。分かりやすい価格と豊富な実績で安心のボーカルMIXサービス。">
+<meta property="twitter:image" content="og-image.jpg">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="css2" rel="stylesheet">
+
+<style>
+:root{
+  --accent:#b28fdd;
+  --accent-dark:#9f79d2;
+  --bg:#fdfafc;
+  --card:#ffffff;
+  --text:#3f3f3f;
+  --text-light:#707070;
+  --shadow:0 4px 14px rgba(0,0,0,.1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+a{color:var(--accent);text-decoration:none;}
+/* -------- HERO -------- */
+.hero{
+  background:linear-gradient(135deg,#c9b4e8 0%,#ece4f7 40%,#ffffff 100%);
+  padding:80px 20px 100px;
+  border-radius:0 0 48px 48px;
+}
+.hero-inner{
+  max-width:1100px;margin:auto;
+  display:flex;flex-wrap:wrap;align-items:center;gap:40px;
+}
+.hero-text{flex:1 1 380px;text-align:left;}
+.hero-text .logo{width:150px;height:auto;margin-bottom:20px;}
+.hero-text h1{font-size:2.6rem;font-weight:700;color:var(--accent-dark);margin-bottom:14px;}
+.hero-text .tagline{font-size:1.1rem;font-weight:600;margin-bottom:24px;}
+.hero-illust{flex:1 1 380px;text-align:center;}
+.hero-illust img{
+  width:100%;max-width:480px;height:auto;
+  border-radius:24px;box-shadow:var(--shadow);
+}
+button.cta{
+  background:var(--accent);border:none;color:#fff;padding:15px 36px;
+  border-radius:34px;font-size:1rem;cursor:pointer;
+  transition:all .3s;box-shadow:var(--shadow);
+}
+button.cta:hover{background:var(--accent-dark);transform:translateY(-3px);}
+@media(max-width:600px){
+  .hero{padding:60px 16px 80px;}
+  .hero-text,.hero-illust{text-align:center;}
+  .hero-text h1{font-size:2.2rem;}
+}
+
+/* -------- COMMON SECTION -------- */
+section{padding:70px 20px;max-width:1100px;margin:auto;}
+.section-title{
+  font-size:2rem;font-weight:700;margin-bottom:38px;text-align:center;
+  color:var(--accent-dark);position:relative;
+}
+.section-title::after{
+  content:'';display:block;width:160px;height:8px;margin:14px auto 0;
+  background:linear-gradient(90deg,transparent 0%,var(--accent) 50%,transparent 100%);
+  border-radius:4px;
+}
+
+/* Cards */
+.cards{display:grid;gap:26px;}
+@media(min-width:700px){
+  .cards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+}
+.card{background:var(--card);padding:30px;border-radius:22px;box-shadow:var(--shadow);transition:transform .25s;}
+.card:hover{transform:translateY(-4px);}
+.card h3{font-size:1.2rem;margin-bottom:10px;color:var(--accent-dark);}
+.card p{font-size:.95rem;color:var(--text-light);}
+
+/* Playlist */
+.playlist-wrapper{position:relative;padding-top:56.25%;margin-bottom:40px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
+.playlist-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+
+/* Price */
+.price-table{width:100%;border-collapse:collapse;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
+.price-table th{background:var(--accent);color:#fff;padding:16px;text-align:left;font-weight:600;}
+.price-table td{padding:16px;border-bottom:1px solid #ece6f5;}
+.price-table tr:last-child td{border-bottom:none;}
+.price-table td:last-child{text-align:right;font-weight:700;}
+
+/* Workflow */
+.workflow{display:flex;flex-direction:column;gap:24px;}
+.workflow-step{display:flex;gap:18px;align-items:flex-start;background:var(--card);padding:24px;border-radius:20px;box-shadow:var(--shadow);}
+.workflow-step span{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;flex-shrink:0;}
+
+/* FAQ */
+.faq-item{margin-bottom:22px;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;}
+.faq-item summary{cursor:pointer;list-style:none;font-weight:600;padding:18px 22px;background:var(--card);color:var(--accent-dark);}
+.faq-item[open] summary{border-bottom:1px solid #ece6f5;}
+.faq-item p{padding:18px 22px;background:var(--card);color:var(--text-light);}
+
+/* Contact & Footer */
+.contact{text-align:center;display:flex;flex-direction:column;gap:14px;}
+footer{text-align:center;padding:42px 0;color:var(--text-light);font-size:.85rem;}
+</style>
 </head>
+
 <body>
-  <header>
-    <h1>あなたの歌声を、もっと輝かせるMIXを。</h1>
-    <p>歌ってみたMIX・マスタリング・動画エンコード｜竜山はるるん</p>
-  </header>
-  <main>
-    <section>
-      <h2>ごあいさつ</h2>
-      <p>
-        はじめまして、MIX師の<strong>竜山 はるるん</strong>です☺<br>
-        ボカロ・アニメ・ゲーム系などの「歌ってみた」を中心に、<strong>100曲以上の実績</strong>と丁寧な仕上げで、あなたの表現を全力でサポートいたします。<br>
-        初めての方でも安心してご依頼いただけるよう、ガイド付きで対応しております。お気軽にご相談ください。
-      </p>
-    </section>
-    <section>
-      <h2>サービス内容</h2>
-      <ul>
-        <li><strong>歌ってみたMIX：</strong> ￥5,000〜（EQ、コンプ、空間系、タイミング補正、基本修正2回まで）</li>
-        <li><strong>マスタリング：</strong> ￥3,000〜（音圧・音質の最終調整）</li>
-        <li><strong>動画エンコード：</strong> ￥1,000〜（YouTubeなどに最適なフォーマットに変換）</li>
-        <li><strong>ハモリ生成・調整：</strong> +￥1,500〜（希望があれば対応可）</li>
-      </ul>
-    </section>
-    <section>
-      <h2>ご依頼の流れ</h2>
-      <ol>
-        <li>お問い合わせ（XのDMやフォームなど）</li>
-        <li>音源とご希望の確認（納期・雰囲気・ご希望など）</li>
-        <li>仮見積りと日程提案</li>
-        <li>作業開始（途中確認あり）</li>
-        <li>仕上がり確認・修正 → 納品（wavまたはmp3）</li>
-      </ol>
-      <p>※納期の目安は通常7〜10日ほどです。お急ぎの場合はご相談ください。</p>
-    </section>
-    <section>
-      <h2>ご相談・ご依頼</h2>
-      <p>
-        ご依頼・ご質問は、<a href="https://x.com/ryuzanmix" target="_blank">X（旧Twitter）のDM</a>までお気軽にどうぞ♪<br>
-        または、後日掲載予定のフォームからもお送りいただけます。
-      </p>
-      <a class="cta-button" href="https://x.com/ryuzanmix" target="_blank">DMで相談する</a>
-    </section>
-  </main>
-  <footer>
-    &copy; 2025 竜山はるるん - All Rights Reserved.
-  </footer>
-</body>
-</html>
+
+<!-- -------- HERO -------- -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <img src="logo.png" alt="Ryuzan Mix Salon ロゴ" class="logo">
+      <h1>Ryuzan Mix Salon</h1>
+      <p class="tagline">“歌声トリートメント” 専門の<br>ボーカルMIX &amp; エンコードサロン</p>
+      <a href="#contact"><button class="cta">まずはDMで相談 →</button></a>
+    </div>
+
+    <div class="hero-illust">
+      <img src="header_illustration_vtuber.png" alt="">
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- 1. 理由 -->
+<section id="reasons">
+  <h2 class="section-title">選ばれる 5 つの理由</h2>
+  <div class="cards">
+    <article class="card"><h3>料金が明確で安心</h3><p>税込み固定価格で予算オーバーの心配なし。オプションもお見積り時に必ず提示します。</p></article>
+    <article class="card"><h3>やさしいコミュニケーション</h3><p>DM は<strong>24 時間以内</strong>に返信。敬語＋絵文字で初心者さんにも安心感を。</p></article>
+    <article class="card"><h3>豊富な実績＋サンプル</h3><p>50 曲超のサンプルをプレイリストで公開。仕上がりを耳で確認できます。</p></article>
+    <article class="card"><h3>明確な納期＆修正</h3><p>通常納期 2〜3 週間／無料修正 2 回。進捗はスクショ付きで共有します。</p></article>
+    <article class="card"><h3>コスパ抜群の高品質</h3><p>有料プラグイン多数使用。お手頃価格で艶やかに仕上げます。</p></article>
+  </div>
+</section>
+
+<!-- 2. サンプル -->
+<section id="playlist">
+  <h2 class="section-title">実績＋サンプル</h2>
+  <div class="playlist-wrapper">
+<iframe width="560" height="315"
+  src="https://www.youtube.com/embed/videoseries?list=PL2_Tymt_5rAqeauBL94ZcWzlmo4m7FrV9"
+  title="YouTube video playlist"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
+  </div>
+</section>
+
+<!-- 3. 料金 -->
+<section id="prices">
+  <h2 class="section-title">料金プラン</h2>
+  <table class="price-table">
+    <thead><tr><th>コース</th><th>内容</th><th>料金</th></tr></thead>
+    <tbody>
+      <tr><td>フルコーラス MIX</td><td>ボーカルMIX・ハモリ作成・マスタリング</td><td>¥5,000</td></tr>
+      <tr><td>ワンコーラス MIX</td><td>1 番のみの MIX</td><td>¥3,000</td></tr>
+      <tr><td>ハモリ作成のみ</td><td>既存音源にコーラス追加</td><td>無料</td></tr>
+      <tr><td>コラボ追加（1 名）</td><td>デュエット／ユニゾン対応</td><td>+¥2,000</td></tr>
+      <tr><td>動画エンコード</td><td>YouTube・TikTok・X 用 mp4</td><td>+¥1,000</td></tr>
+      <tr><td>ピッチ補正なし</td><td>自然派割引</td><td>▲¥1,000</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:14px;color:var(--text-light);">🎁 <strong>リピーター割</strong>：いつでも 500 円 OFF</p>
+</section>
+
+<!-- 4. フロー -->
+<section id="workflow">
+  <h2 class="section-title">ご依頼フロー</h2>
+  <div class="workflow">
+    <div class="workflow-step"><span>1</span><p>DM でご相談 &amp; お見積り（24 時間以内に返信）</p></div>
+    <div class="workflow-step"><span>2</span><p>録音データ提出（GigaFile／Google Drive など）</p></div>
+    <div class="workflow-step"><span>3</span><p>MIX → ご確認 → 後払い → 納品（mp3 / wav / mp4）</p></div>
+  </div>
+</section>
+
+<!-- 5. FAQ -->
+<section id="faq">
+  <h2 class="section-title">よくある質問</h2>
+
+  <div class="faq-item">
+    <details><summary>頭出し（スタート位置合わせ）はどうやるの？</summary>
+      <p>Audacity や GarageBand などの無料アプリで先頭の無音をカットし、波形がゼロから始まるようにしてください。難しい場合は無加工で送っていただければ当サロンが代行します😊</p>
+    </details>
+  </div>
+
+  <div class="faq-item">
+    <details><summary>ギガファイル便の使い方がわからない</summary>
+      <p>PC は <code>gigafile.nu</code> にファイルをドラッグ → 「URL をコピー」→ DM へ貼付。スマホは「ファイルを選択」→ アップ後リンクを共有で OK。Wi-Fi 環境推奨です。</p>
+    </details>
+  </div>
+
+  <div class="faq-item">
+    <details><summary>修正は何回まで？</summary>
+      <p>無料 2 回まで対応いたします。追加は 1 回 +¥1,000 ですが、多くのお客様が 1 回以内で完結しています。</p>
+    </details>
+  </div>
+
+  <div class="faq-item">
+    <details><summary>ヘッドホン録音でも大丈夫？</summary>
+      <p>ノイズ除去で整えられる範囲なら問題ありません。まずはサンプルをお送りいただき状態に応じてアドバイスします。</p>
+    </details>
+  </div>
+
+  <div class="faq-item">
+    <details><summary>相談だけでもいい？</summary>
+      <p>もちろん大歓迎！お気軽に DM でご相談ください。</p>
+    </details>
+  </div>
+</section>
+</main>
+
+<!-- 6. Contact -->
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <div class="contact">
+    <p>X（DM）：<a href="https://x.com/ryuzanmix" target="_blank">@ryuzanmix</a></p>
+    <p>E-mail：<a href="mailto:ryuzan.mix@gmail.com">ryuzan.mix@gmail.com</a></p>
+    <button class="cta" onclick="window.open(&#39;https://x.com/ryuzanmix&#39;,&#39;_blank&#39;)">DMで相談する</button>
+  </div>
+</section>
+
+<footer>Copyright ©️ 2025 Ryuzan Mix Salon</footer>
+
+
+
+</body></html>
