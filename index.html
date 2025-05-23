@@ -78,7 +78,7 @@ button.cta{
 }
 button.cta:hover{background:var(--accent-dark);transform:translateY(-3px);}
 @media(max-width:600px){
-  .hero{padding:60px 16px 80px;}
+  .hero{padding:60px 16px 60px;}
   .hero-text,.hero-illust{text-align:center;}
   .hero-text h1{font-size:2.2rem;}
 }
@@ -130,6 +130,16 @@ section{padding:10px 10px;max-width:1100px;margin:auto;}
 /* Contact & Footer */
 .contact{text-align:center;display:flex;flex-direction:column;gap:14px;}
 footer{text-align:center;padding:42px 0;color:var(--text-light);font-size:.85rem;}
+
+
+
+
+
+
+
+
+
+
 </style>
 
 <script type="application/ld+json">
@@ -165,6 +175,8 @@ footer{text-align:center;padding:42px 0;color:var(--text-light);font-size:.85rem
 <br><br>
       <a href="#contact"><button class="cta">ご相談・ご依頼はこちら</button></a><br>
       <a href='#prices'>▶︎ 詳しい料金・進行の流れはこちら</a>
+
+
     </div>
 
     <div class="hero-illust">
@@ -185,22 +197,79 @@ footer{text-align:center;padding:42px 0;color:var(--text-light);font-size:.85rem
   </div>
 <div style="text-align: left;">こちらのMIXは、歌い手さんの柔らかい歌声を生かすように、自然さ重視で仕上げました☺️</div>
 <br>
-<p style="color: var(--text-light); font-size: 0.95rem;">
+<div style="color: var(--text-light); font-size: 0.95rem;">
 初めての方も安心してご依頼いただけるよう、<br>MIX内容・納期・価格を明確にご案内しています。
-</p>
+</div>
 </section>
 
-  <!--    <img src="header_illustration_vtuber.png" alt="歌ってみたMIX専門サロンのイラスト"> -->
     </div>
   </div>
 </header>
 
-<main>
 
+<style>
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px; /* 間隔を狭く */
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.about-box {
+  flex: 1 1 48.5%; /* 横幅揃え＆間隔配慮 */
+  background-color: #fff8ff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(180, 150, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 10px; /* 最低高さで縦を揃える */
+  box-sizing: border-box;
+}
+
+.about-box h2 {
+  font-size: 1.2em;
+  color: #7d5fff;
+  margin-bottom: 12px;
+}
+
+.about-box p {
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+/* モバイル：縦並び */
+@media (max-width: 768px) {
+  .about-box {
+    flex: 1 1 100%;
+  }
+}
+</style>
+
+<div class="about-section">
+  <div class="about-box">
+    <h2>🎧 竜山つむぎについて</h2>
+    <p>やさしさで“声”を整える、歌声トリートメント専門のMIX師です。<br>
+    「録音ミスがある」「リズムやピッチに自信がない」そんな不安も、まるごと大丈夫。<br>
+    自然体のあなたの歌を、そっと支えるように仕上げます😊</p>
+  </div>
+  <div class="about-box">
+    <h2>🍊 活動実績と対応範囲</h2>
+    <p>歌ってみたMIX：50曲以上（ボカロ・J-POP中心）<br>
+    SNSアカウント：<a href="https://x.com/ryuzanmix">@ryuzanmix</a><br>
+    初心者〜中級者・オーディション提出音源まで対応<br>
+    使用機材：Cubase Pro / Melodyne / RX / Neutron 他</p>
+  </div>
+</div>
 
 
 <!-- 1. 理由 -->
 <section id="reasons">
+  <br>
   <h2 class="section-title">選ばれる 5 つの理由</h2>
   <div class="cards">
     <article class="card"><h3><i class="fa-solid fa-tags" style="color: #2e8b57; font-size: 1.3em; vertical-align: middle;"></i> 料金が明確で安心
@@ -213,63 +282,48 @@ footer{text-align:center;padding:42px 0;color:var(--text-light);font-size:.85rem
 </section>
 
 <!-- 3. 料金 -->
-<section id="prices">
-  <h2 class="section-title">料金プラン</h2>
-<table class="price-table">
-  <thead>
-    <tr>
-      <th>コース</th>
-      <th>内容</th>
-      <th>料金</th>
-      <th>備考</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>⭐フルコーラス MIX</td>
-      <td>ノイズ除去・ピッチ、タイミング補正・ミキシング・マスタリング</td>
-      <td>¥5,000</td>
-      <td style="text-align: left;">初心者の方におすすめ◎</td>
-    </tr>
-    <tr>
-      <td>ワンコーラス MIX</td>
-      <td>フルコーラス内容で、1番サビまでのMIX</td>
-      <td>¥3,000</td>
-      <td style="text-align: left;">「お試しにちょうどいい」構成</td>
-    </tr>
-    <tr>
-      <td>動画エンコード<br><div style="font-size: 12px;">(オプション)</div></td>
-      <td>YouTube・TikTok・X 用 mp4</td>
-      <td>+¥1,000</td>
-      <td style="text-align: left;">画質設定込みで安心</td>
-    </tr>
-    <tr>
-      <td>コラボ追加（1 名）<br><div style="font-size: 12px;">(オプション)</div></td>
-      <td>デュエット／ユニゾン対応</td>
-      <td>+¥2,000</td>
-      <td style="text-align: left;">パート分けにも対応◎</td>
-    </tr>
-    <tr>
-      <td>ピッチ補正なし<br><div style="font-size: 12px;">(オプション)</div></td>
-      <td>自然派割引</td>
-      <td>▲¥1,000</td>
-      <td style="text-align: left;">手直しなしでOKな方へ◎</td>
-    </tr>
-  </tbody>
-</table>
-
-  <p style="margin-top:14px;color:var(--text-light);">🎁 <strong>リピーター割</strong>：いつでも 500 円 OFF</p>
+<section id="pricing">
+  <br>
+  <h2 class="section-title">🛠 料金とご依頼の流れ</h2>
+  <table  class="price-table">
+    <thead>
+      <tr>
+        <th>プラン</th><th>内容</th><th>料金</th><th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>⭐ フルコーラス MIX</td><td>ノイズ除去・補正・マスタリング全対応</td><td>￥5,000</td><td>初心者の方におすすめ◎</td></tr>
+      <tr><td>ワンコーラス MIX</td><td>1番のみのMIX／お試しにも</td><td>￥3,000</td><td>軽めに依頼したい方へ</td></tr>
+      <tr><td>🎬 動画エンコード</td><td>YouTube・X向け</td><td>+￥1,000</td><td>高画質・音声調整込み</td></tr>
+      <tr><td>👥 コラボ追加（1名）</td><td>デュエット・ユニゾン対応</td><td>+￥2,000</td><td>要パート指定◎</td></tr>
+      <tr><td>🔈 ピッチ補正なし</td><td>自然派割引</td><td>▲￥1,000</td><td>手直しなしOKな方</td></tr>
+    </tbody>
+  </table>
+  <p>🎁 <strong>リピーター割</strong>：いつでも500円引き</p>
 <br>
-  <h4>🔰 よくあるご依頼例</h4>
-・フルコーラスMIX（￥5,000）＋動画エンコード（￥1,000）＝￥6,000<br>
-・ワンコーラスMIX（￥3,000）＋動画エンコード（￥1,000）＝￥4,000<br>
-・ピッチ補正なしで少しお得に：￥5,000 → ￥4,000<br>
+  <h3>💬 よくあるご依頼例</h3>
+<p>
+・フルコーラス MIX（￥5,000）＋動画エンコード（￥1,000）＝￥6,000</br>
+・ワンコーラス MIX（￥3,000）＋ピッチ補正なし（▲￥1,000）＝￥2,000</br>
+・コラボ対応＋エンコードまで含めて：￥8,000目安</br>
+  </p>
+  <br>
+  <h3>📩 ご相談・ご依頼方法</h3>
+<p>
+・XのDM、またはメール（ryuzan.mix@gmail.com）でお気軽にご連絡ください</br>
+・内容確認・サンプル提出後、お見積もりをお送りします</br>
+・ご納得後、制作スタート（通常納期：2〜3週間）</br>
 <br>
-  <p style="color: var(--text-light); font-size: 0.95rem;">
-全プラン税込・後払い対応。MIX初心者の方にもわかりやすい料金体系で安心してご利用いただけます。
 </p>
 </section>
-
+<section id="message">
+  <h2>🧡 最後にひとこと</h2>
+  <p>
+    「MIXを頼むのが初めてで不安…」<br>
+    そんな方こそ、安心してご相談いただけたら嬉しいです。<br>
+    あなたの歌声の魅力を、そっと引き出せますように。
+  </p>
+</section>
 <!-- 4. フロー -->
 <section id="workflow">
   <h2 class="section-title">ご依頼フロー</h2>
