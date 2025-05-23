@@ -17,6 +17,9 @@
 <link rel="canonical" href="https://ryuzanmix.github.io/">
 <meta name="robots" content="index,follow">
 
+<!-- Font Awesome 6（最新版）CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ryuzanmix.github.io/">
@@ -52,7 +55,7 @@ a{color:var(--accent);text-decoration:none;}
 /* -------- HERO -------- */
 .hero{
   background:linear-gradient(135deg,#c9b4e8 0%,#ece4f7 40%,#ffffff 100%);
-  padding:80px 20px 100px;
+  padding:10px 10px 10px;
   border-radius:0 0 48px 48px;
 }
 .hero-inner{
@@ -62,7 +65,7 @@ a{color:var(--accent);text-decoration:none;}
 .hero-text{flex:1 1 380px;text-align:left;}
 .hero-text .logo{width:150px;height:auto;margin-bottom:20px;}
 .hero-text h1{font-size:2.6rem;font-weight:700;color:var(--accent-dark);margin-bottom:14px;}
-.hero-text .tagline{font-size:1.1rem;font-weight:600;margin-bottom:24px;}
+.hero-text .tagline{font-size:1.1rem;font-weight:600;margin-bottom:10px;}
 .hero-illust{flex:1 1 380px;text-align:center;}
 .hero-illust img{
   width:100%;max-width:480px;height:auto;
@@ -81,9 +84,9 @@ button.cta:hover{background:var(--accent-dark);transform:translateY(-3px);}
 }
 
 /* -------- COMMON SECTION -------- */
-section{padding:70px 20px;max-width:1100px;margin:auto;}
+section{padding:10px 10px;max-width:1100px;margin:auto;}
 .section-title{
-  font-size:2rem;font-weight:700;margin-bottom:38px;text-align:center;
+  font-size:1.5rem;font-weight:700;margin-bottom:10px;text-align:center;
   color:var(--accent-dark);position:relative;
 }
 .section-title::after{
@@ -99,11 +102,11 @@ section{padding:70px 20px;max-width:1100px;margin:auto;}
 }
 .card{background:var(--card);padding:30px;border-radius:22px;box-shadow:var(--shadow);transition:transform .25s;}
 .card:hover{transform:translateY(-4px);}
-.card h3{font-size:1.2rem;margin-bottom:10px;color:var(--accent-dark);}
+.card h3{font-size:1.1rem;margin-bottom:10px;color:var(--accent-dark);}
 .card p{font-size:.95rem;color:var(--text-light);}
 
 /* Playlist */
-.playlist-wrapper{position:relative;padding-top:56.25%;margin-bottom:40px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
+.playlist-wrapper{position:relative;padding-top:56.25%;margin-bottom:0px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
 .playlist-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
 
 /* Price */
@@ -158,28 +161,14 @@ footer{text-align:center;padding:42px 0;color:var(--text-light);font-size:.85rem
     <div class="hero-text">
       <img src="ryuzan-mix-salon-logo.png" alt="Ryuzan Mix Salon ロゴ" class="logo" loading="lazy">
       <h1>Ryuzan Mix Salon</h1>
-      <p class="tagline">“歌声トリートメント” 専門の<br>ボーカルMIX &amp; エンコードサロン</p>
-      <a href="#contact"><button class="cta">まずはDMで相談 →</button></a>
+      <p class="tagline">“歌声トリートメント” 専門の<br>ボーカルMIX &amp; エンコードサロン</p><p>初心者さんも録音ミスも、まるごと大丈夫です☺️</p>
+<br><br>
+      <a href="#contact"><button class="cta">ご相談・ご依頼はこちら</button></a><br>
+      <a href='#prices'>▶︎ 詳しい料金・進行の流れはこちら</a>
     </div>
 
     <div class="hero-illust">
-      <img src="header_illustration_vtuber.png" alt="歌ってみたMIX専門サロンのイラスト">
-    </div>
-  </div>
-</header>
 
-<main>
-<!-- 1. 理由 -->
-<section id="reasons">
-  <h2 class="section-title">選ばれる 5 つの理由</h2>
-  <div class="cards">
-    <article class="card"><h3>料金が明確で安心</h3><p>税込み固定価格で予算オーバーの心配なし。オプションもお見積り時に必ず提示します。</p></article>
-    <article class="card"><h3>やさしいコミュニケーション</h3><p>DM は<strong>24 時間以内</strong>に返信。敬語＋絵文字で初心者さんにも安心感を。</p></article>
-    <article class="card"><h3>豊富な実績＋サンプル</h3><p>50 曲超のサンプルをプレイリストで公開。仕上がりを耳で確認できます。</p></article>
-    <article class="card"><h3>明確な納期＆修正</h3><p>通常納期 2〜3 週間／無料修正 2 回。進捗はスクショ付きで共有します。</p></article>
-    <article class="card"><h3>コスパ抜群の高品質</h3><p>有料プラグイン多数使用。お手頃価格で艶やかに仕上げます。</p></article>
-  </div>
-</section>
 
 <!-- 2. サンプル -->
 <section id="playlist">
@@ -194,27 +183,89 @@ footer{text-align:center;padding:42px 0;color:var(--text-light);font-size:.85rem
   allowfullscreen>
 </iframe>
   </div>
+<div style="text-align: left;">こちらのMIXは、歌い手さんの柔らかい歌声を生かすように、自然さ重視で仕上げました☺️</div>
+<br>
 <p style="color: var(--text-light); font-size: 0.95rem;">
-初めての方も安心してご依頼いただけるよう、MIX内容・納期・価格を明確にご案内しています。
+初めての方も安心してご依頼いただけるよう、<br>MIX内容・納期・価格を明確にご案内しています。
 </p>
+</section>
+
+  <!--    <img src="header_illustration_vtuber.png" alt="歌ってみたMIX専門サロンのイラスト"> -->
+    </div>
+  </div>
+</header>
+
+<main>
+
+
+
+<!-- 1. 理由 -->
+<section id="reasons">
+  <h2 class="section-title">選ばれる 5 つの理由</h2>
+  <div class="cards">
+    <article class="card"><h3><i class="fa-solid fa-tags" style="color: #2e8b57; font-size: 1.3em; vertical-align: middle;"></i> 料金が明確で安心
+</h3><p>税込み固定価格で予算オーバーの心配なし。オプションもお見積り時に必ず提示します。</p></article>
+    <article class="card"><h3><i class="fa-solid fa-comments" style="color: #c39bd3; font-size: 1.3em; vertical-align: middle;"></i> やさしいコミュニケーション</h3><p>DM は<strong>24 時間以内</strong>に返信。敬語＋絵文字で初心者さんにも安心感を。</p></article>
+    <article class="card"><h3><i class="fa-solid fa-music" style="color: #3498db; font-size: 1.3em; vertical-align: middle;"></i> 豊富な実績とサンプル</h3><p>50 曲超のサンプルをプレイリストで公開。仕上がりを耳で確認できます。</p></article>
+    <article class="card"><h3><i class="fa-solid fa-clock" style="color: #34495e; font-size: 1.3em; vertical-align: middle;"></i> 明確な納期＆修正</h3><p>通常納期 2〜3 週間／無料修正 2 回。進捗はスクショ付きで共有します。</p></article>
+    <article class="card"><h3><i class="fa-solid fa-gem" style="color: #8e44ad; font-size: 1.3em; vertical-align: middle;"></i> コスパ抜群の高品質</h3><p>有料プラグイン多数使用。お手頃価格で艶やかに仕上げます。</p></article>
+  </div>
 </section>
 
 <!-- 3. 料金 -->
 <section id="prices">
   <h2 class="section-title">料金プラン</h2>
-  <table class="price-table">
-    <thead><tr><th>コース</th><th>内容</th><th>料金</th></tr></thead>
-    <tbody>
-      <tr><td>フルコーラス MIX</td><td>ボーカルMIX・ハモリ作成・マスタリング</td><td>¥5,000</td></tr>
-      <tr><td>ワンコーラス MIX</td><td>1 番のみの MIX</td><td>¥3,000</td></tr>
-      <tr><td>ハモリ作成のみ</td><td>既存音源にコーラス追加</td><td>無料</td></tr>
-      <tr><td>コラボ追加（1 名）</td><td>デュエット／ユニゾン対応</td><td>+¥2,000</td></tr>
-      <tr><td>動画エンコード</td><td>YouTube・TikTok・X 用 mp4</td><td>+¥1,000</td></tr>
-      <tr><td>ピッチ補正なし</td><td>自然派割引</td><td>▲¥1,000</td></tr>
-    </tbody>
-  </table>
+<table class="price-table">
+  <thead>
+    <tr>
+      <th>コース</th>
+      <th>内容</th>
+      <th>料金</th>
+      <th>備考</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>⭐フルコーラス MIX</td>
+      <td>ノイズ除去・ピッチ、タイミング補正・ミキシング・マスタリング</td>
+      <td>¥5,000</td>
+      <td style="text-align: left;">初心者の方におすすめ◎</td>
+    </tr>
+    <tr>
+      <td>ワンコーラス MIX</td>
+      <td>フルコーラス内容で、1番サビまでのMIX</td>
+      <td>¥3,000</td>
+      <td style="text-align: left;">「お試しにちょうどいい」構成</td>
+    </tr>
+    <tr>
+      <td>動画エンコード<br><div style="font-size: 12px;">(オプション)</div></td>
+      <td>YouTube・TikTok・X 用 mp4</td>
+      <td>+¥1,000</td>
+      <td style="text-align: left;">画質設定込みで安心</td>
+    </tr>
+    <tr>
+      <td>コラボ追加（1 名）<br><div style="font-size: 12px;">(オプション)</div></td>
+      <td>デュエット／ユニゾン対応</td>
+      <td>+¥2,000</td>
+      <td style="text-align: left;">パート分けにも対応◎</td>
+    </tr>
+    <tr>
+      <td>ピッチ補正なし<br><div style="font-size: 12px;">(オプション)</div></td>
+      <td>自然派割引</td>
+      <td>▲¥1,000</td>
+      <td style="text-align: left;">手直しなしでOKな方へ◎</td>
+    </tr>
+  </tbody>
+</table>
+
   <p style="margin-top:14px;color:var(--text-light);">🎁 <strong>リピーター割</strong>：いつでも 500 円 OFF</p>
-<p style="color: var(--text-light); font-size: 0.95rem;">
+<br>
+  <h4>🔰 よくあるご依頼例</h4>
+・フルコーラスMIX（￥5,000）＋動画エンコード（￥1,000）＝￥6,000<br>
+・ワンコーラスMIX（￥3,000）＋動画エンコード（￥1,000）＝￥4,000<br>
+・ピッチ補正なしで少しお得に：￥5,000 → ￥4,000<br>
+<br>
+  <p style="color: var(--text-light); font-size: 0.95rem;">
 全プラン税込・後払い対応。MIX初心者の方にもわかりやすい料金体系で安心してご利用いただけます。
 </p>
 </section>
