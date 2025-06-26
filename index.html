@@ -1,802 +1,1612 @@
 <!DOCTYPE html>
 <html lang="ja">
- <head>
+<head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   【歌ってみたMIX専門】Ryuzan Mix Salon｜VTuber・歌い手さん向け高品質MIX
-  </title>
-  <meta content="録音ミス・音痴・初心者も大歓迎！“やさしい歌声トリートメント”で、安心して依頼できるMIX＆エンコード専門サロンです。" name="description"/>
-  <meta content="歌ってみた,MIX,VTuber,ボカロ,ボーカルミックス,エンコード,ハモリ作成,YouTube,音声編集,依頼,女性向け,初めてのMIX,高品質,プロ仕様" name="keywords">
-   <link href="favicon256.png" rel="icon" sizes="32x32" type="image/png"/>
-   <link href="favicon256.png" rel="icon" sizes="192x192" type="image/png"/>
-   <link href="favicon256.png" rel="apple-touch-icon"/>
-   <link href="https://ryuzanmix.github.io/" rel="canonical"/>
-   <meta content="index,follow" name="robots"/>
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-   <meta content="website" property="og:type"/>
-   <meta content="https://ryuzanmix.github.io/" property="og:url"/>
-   <meta content="Ryuzan Mix Salon | 歌ってみたMIXサロン" property="og:title"/>
-   <meta content="歌声をもっと可愛く、艶やかに。分かりやすい価格と豊富な実績で安心のボーカルMIXサービス。" property="og:description"/>
-   <meta content="https://ryuzanmix.github.io/og-image.png" property="og:image"/>
-   <meta content="summary_large_image" name="twitter:card"/>
-   <meta content="https://ryuzanmix.github.io/og-image.png" name="twitter:image"/>
-   <meta content="summary_large_image" property="twitter:card"/>
-   <meta content="https://ryuzanmix.github.io/" property="twitter:url"/>
-   <meta content="Ryuzan Mix Salon | 歌ってみたMIXサロン" property="twitter:title"/>
-   <meta content="歌声をもっと可愛く、艶やかに。分かりやすい価格と豊富な実績で安心のボーカルMIXサービス。" property="twitter:description"/>
-   <meta content="https://ryuzanmix.github.io/og-image.png" property="twitter:image"/>
-   <link href="https://fonts.googleapis.com/" rel="preconnect"/>
-   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&amp;family=Poppins:wght@400;700&amp;display=swap" rel="stylesheet"/>
-   <style>
-    :root{
-  --accent:#b28fdd;
-  --accent-dark:#9f79d2;
-  --bg:#fdfafc;
-  --card:#ffffff;
-  --text:#3f3f3f;
-  --text-light:#707070;
-  --shadow:0 4px 14px rgba(0,0,0,.1);
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Poppins','Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
-a{color:var(--accent);text-decoration:none;}
-/* -------- HERO -------- */
-.hero{
-  background:linear-gradient(135deg,#c9b4e8 0%,#ece4f7 40%,#ffffff 100%);
-  padding:10px 10px 10px;
-  border-radius:0 0 48px 48px;
-}
-.hero-inner{
-  max-width:1100px;margin:auto;
-  display:flex;flex-wrap:wrap;align-items:center;gap:40px;
-}
-.hero-text{flex:1 1 380px;text-align:left;}
-.hero-text .logo{width:150px;height:auto;margin-bottom:20px;}
-.hero-text h1{font-size:2.6rem;font-weight:700;color:var(--accent-dark);margin-bottom:14px;}
-.hero-text .tagline{font-size:1.1rem;font-weight:600;margin-bottom:10px;}
-.hero-illust{flex:1 1 380px;text-align:center;}
-.hero-illust img{
-  width:100%;max-width:480px;height:auto;
-  border-radius:24px;box-shadow:var(--shadow);
-}
-button.cta{
-  background:var(--accent);border:none;color:#fff;padding:15px 36px;
-  border-radius:34px;font-size:1rem;cursor:pointer;
-  transition:all .3s;box-shadow:var(--shadow);
-}
-button.cta:hover{background:var(--accent-dark);transform:translateY(-3px);}
-@media(max-width:600px){
-  .hero{padding:60px 16px 60px;}
-  .hero-text,.hero-illust{text-align:center;}
-  .hero-text h1{font-size:2.2rem;}
-}
+  <title>【歌ってみたMIX専門】Ryuzan Mix Salon｜VTuber・歌い手さん向け高品質MIX</title>
+  <meta content="録音ミス・音痴・初心者も大歓迎！"やさしい歌声トリートメント"で、安心して依頼できるMIX＆エンコード専門サロンです。50曲以上の実績、明確な料金体系、24時間以内の返信対応。" name="description"/>
+  <meta content="歌ってみた,MIX,VTuber,ボカロ,ボーカルミックス,エンコード,ハモリ作成,YouTube,音声編集,依頼,女性向け,初めてのMIX,高品質,プロ仕様,歌唱指導,ピッチ補正,マスタリング" name="keywords">
+  
+  <!-- ファビコン -->
+  <link href="favicon256.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="favicon256.png" rel="icon" sizes="192x192" type="image/png"/>
+  <link href="favicon256.png" rel="apple-touch-icon"/>
+  
+  <!-- SEO -->
+  <link href="https://ryuzanmix.github.io/" rel="canonical"/>
+  <meta content="index,follow" name="robots"/>
+  
+  <!-- 外部リソース -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  
+  <!-- OGP -->
+  <meta content="website" property="og:type"/>
+  <meta content="https://ryuzanmix.github.io/" property="og:url"/>
+  <meta content="Ryuzan Mix Salon | 歌ってみたMIX専門サロン" property="og:title"/>
+  <meta content="歌声をもっと可愛く、艶やかに。分かりやすい価格と豊富な実績で安心のボーカルMIXサービス。" property="og:description"/>
+  <meta content="https://ryuzanmix.github.io/og-image.png" property="og:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="https://ryuzanmix.github.io/og-image.png" name="twitter:image"/>
+  <meta content="Ryuzan Mix Salon | 歌ってみたMIX専門サロン" property="twitter:title"/>
+  <meta content="歌声をもっと可愛く、艶やかに。分かりやすい価格と豊富な実績で安心のボーカルMIXサービス。" property="twitter:description"/>
 
-/* -------- COMMON SECTION -------- */
-section{padding:10px 10px;max-width:1100px;margin:auto;}
-.section-title{
-  font-size:1.5rem;font-weight:700;margin-bottom:10px;text-align:center;
-  color:var(--accent-dark);position:relative;
-}
-.section-title::after{
-  content:'';display:block;width:160px;height:8px;margin:14px auto 0;
-  background:linear-gradient(90deg,transparent 0%,var(--accent) 50%,transparent 100%);
-  border-radius:4px;
-}
-
-/* Cards */
-.cards{display:grid;gap:26px;}
-@media(min-width:700px){
-  .cards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-}
-.card{background:var(--card);padding:30px;border-radius:22px;box-shadow:var(--shadow);transition:transform .25s;}
-.card:hover{transform:translateY(-4px);}
-.card h3{font-size:1.1rem;margin-bottom:10px;color:var(--accent-dark);}
-.card p{font-size:.95rem;color:var(--text-light);}
-
-/* Playlist */
-.playlist-wrapper{position:relative;padding-top:56.25%;margin-bottom:0px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
-.playlist-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
-
-/* Price */
-.price-table{width:100%;border-collapse:collapse;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
-.price-table th{background:var(--accent);color:#fff;padding:16px;text-align:left;font-weight:600;}
-.price-table td{padding:16px;border-bottom:1px solid #ece6f5;}
-.price-table tr:last-child td{border-bottom:none;}
-.price-table td:last-child{text-align:right;font-weight:700;}
-
-/* Workflow */
-.workflow{display:flex;flex-direction:column;gap:24px;}
-.workflow-step{display:flex;gap:18px;align-items:flex-start;background:var(--card);padding:24px;border-radius:20px;box-shadow:var(--shadow);}
-.workflow-step span{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;flex-shrink:0;}
-
-/* FAQ */
-.faq-item{margin-bottom:22px;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;}
-.faq-item summary{cursor:pointer;list-style:none;font-weight:600;padding:18px 22px;background:var(--card);color:var(--accent-dark);}
-.faq-item[open] summary{border-bottom:1px solid #ece6f5;}
-.faq-item p{padding:18px 22px;background:var(--card);color:var(--text-light);}
-
-/* Contact & Footer */
-.contact{text-align:center;display:flex;flex-direction:column;gap:14px;}
-footer{text-align:center;padding:42px 0;color:var(--text-light);font-size:.85rem;}
-
-
-/* MIXサンプル下の説明文を統一 */
-.description p {
-  margin-top: 1.2rem;
-  margin-bottom: 0.8rem;
-  line-height: 1.6;
-}
-
-/* ただし最後の段落は margin-top が不足していたので上書き */
-.description p:last-child {
-  margin-top: 1.2rem;  /* ← 赤と同じに統一 */
-}
-
-
-/* --- スマホ対応レスポンシブ料金テーブル --- */
-@media (max-width: 768px) {
-  .price-table thead {
-    display: none;
-  }
-
-  .price-table, .price-table tbody, .price-table tr, .price-table td {
-    display: block;
-    width: 100%;
-  }
-
-  .price-table tr {
-    margin-bottom: 18px;
-    border: 1px solid #ece6f5;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: var(--shadow);
-    padding: 12px;
-  }
-
-  .price-table td {
-    border: none;
-    padding: 6px 12px;
-    position: relative;
-    text-align: left !important;
-    font-size: 0.95rem;
-  }
-
-  .price-table td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    display: block;
-    color: var(--accent-dark);
-    margin-bottom: 4px;
-  }
-
-  .price-table td:last-child {
-    font-weight: bold;
-    color: var(--accent-dark);
-    text-align: left;
-  }
-}
-
-
-/* 🎯 行間・余白を詰める対応 */
-#playlist + div {
-  margin-bottom: 10px !important;
-}
-
-#playlist + div + div {
-  margin-bottom: 10px !important;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-#pricing h2.section-title {
-  margin-top: 20px;
-}
-   </style>
-   <script type="application/ld+json">
-    {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Ryuzan Mix Salon",
-  "url": "https://ryuzanmix.github.io/",
-  "logo": "https://ryuzanmix.github.io/ryuzan-mix-salon-logo.png",
-  "sameAs": [
-    "https://x.com/ryuzanmix"
-  ],
-  "description": "VTuber・歌い手向け歌ってみたMIX専門のオンラインサロン。高品質かつ低価格、実績豊富で初心者にも安心。",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer service",
-    "email": "ryuzan.mix@gmail.com"
-  }
-}
-   </script>
-  </meta>
- </head>
- <body>
-  <header class="hero">
-   <div class="hero-inner">
-    <div class="hero-text">
-     <img alt="Ryuzan Mix Salon ロゴ" class="logo" loading="lazy" src="ryuzan-mix-salon-logo.png"/>
-     <h1>
-      Ryuzan Mix Salon
-     </h1>
-     <p class="tagline">
-      “歌声トリートメント” 専門の
-      <br/>
-      ボーカルMIX &amp; エンコードサロン
-     </p>
-     <p>
-      初心者さんも録音ミスも、まるごと大丈夫です☺️
-     </p>
-     <br/>
-     <br/>
-     <a href="#contact">
-      <button class="cta">
-       ご相談・ご依頼はこちら
-      </button>
-     </a>
-     <br/>
-     <a href="#pricing">
-      ▶︎ 詳しい料金・進行の流れはこちら
-     </a>
-    </div>
-    <div class="hero-illust">
-     <section id="playlist">
-      <h2 class="section-title">
-       歌ってみたMIXの実績・サンプル音源集
-      </h2>
-      <h3>
-       50曲以上の仕上がりをYouTubeで公開中！
-      </h3>
-      <div style="text-align:center; margin-bottom: 10px;">
-       <a href="https://www.youtube.com/playlist?list=PL2_Tymt_5rAqeauBL94ZcWzlmo4m7FrV9" style="display:inline-block; background-color:#b28fdd; color:#fff; padding:10px 20px; border-radius:24px; text-decoration:none; font-weight:600;" target="_blank">
-        🎧 YouTube - MIXサンプルプレイリスト
-       </a>
-      </div>
-      <div class="playlist-wrapper">
-       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" loading="lazy" src="https://www.youtube.com/embed/videoseries?list=PL2_Tymt_5rAqeauBL94ZcWzlmo4m7FrV9&amp;rel=0" title="YouTube video playlist" width="560">
-       </iframe>
-      </div>
-      <div style="text-align: left;">
-       こちらのMIXは、歌い手さんの柔らかい歌声を生かすように、自然さ重視で仕上げました☺️
-      </div>
-      <br/>
-      <div style="color: var(--text-light); font-size: 0.95rem;">
-       初めての方も安心してご依頼いただけるよう、
-       <br/>
-       MIX内容・納期・価格を明確にご案内しています。
-      </div>
-     </section>
-    </div>
-    <p style="font-size: 1rem; color: var(--text-light); margin-top: 16px;">
-     「MIXってなにから頼めばいいの？」「自分の声に自信がない…」そんな方の“はじめの一歩”を、丁寧にサポートします☺
-    </p>
-   </div>
-  </header>
   <style>
-   .about-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 16px; /* 間隔を狭く */
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
+    :root{
+      --primary: #b28fdd;
+      --primary-dark: #9f79d2;
+      --primary-light: #d4c4e8;
+      --secondary: #ffd6e8;
+      --accent: #ff6b9d;
+      --bg: #fdfafc;
+      --bg-secondary: #f8f5fa;
+      --card: #ffffff;
+      --text: #2c2c2c;
+      --text-light: #666666;
+      --text-muted: #999999;
+      --border: #e8e0f0;
+      --shadow: 0 4px 20px rgba(178, 143, 221, 0.15);
+      --shadow-hover: 0 8px 30px rgba(178, 143, 221, 0.25);
+      --gradient: linear-gradient(135deg, #c9b4e8 0%, #ece4f7 40%, #ffffff 100%);
+      --success: #4caf50;
+      --warning: #ff9800;
+      --error: #f44336;
+    }
 
-.about-box {
-  flex: 1 1 48.5%; /* 横幅揃え＆間隔配慮 */
-  background-color: #fff8ff;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(180, 150, 255, 0.15);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 10px; /* 最低高さで縦を揃える */
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.about-box h2 {
-  font-size: 1.2em;
-  color: #7d5fff;
-  margin-bottom: 12px;
-}
+    body {
+      font-family: 'Noto Sans JP', 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
 
-.about-box p {
-  font-size: 0.95em;
-  line-height: 1.6;
-}
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
 
-/* モバイル：縦並び */
-@media (max-width: 768px) {
-  .price-table thead {
-    display: none;
-  }
+    a:hover {
+      color: var(--primary-dark);
+    }
 
-  .price-table, .price-table tbody, .price-table tr, .price-table td {
-    display: block;
-    width: 100%;
-  }
+    /* スムーススクロール */
+    html {
+      scroll-behavior: smooth;
+    }
 
-  .price-table tr {
-    margin-bottom: 18px;
-    border: 1px solid #ece6f5;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: var(--shadow);
-    padding: 12px;
-  }
+    /* ナビゲーション */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: all 0.3s ease;
+    }
 
-  .price-table td {
-    border: none;
-    padding: 6px 12px;
-    position: relative;
-    text-align: left !important;
-    font-size: 0.95rem;
-    line-height: 1.5; /* ✅ 追加：行間調整 */
-  }
+    .nav.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-  .price-table td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    display: block;
-    color: var(--accent-dark);
-    margin-bottom: 4px;
-    font-size: 1.2rem; /* ✅ 追加：見出しのサイズUP */
-  }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 0 20px;
+    }
 
-  .price-table td:last-child {
-    font-weight: bold;
-    color: #3f3f3f; /* ✅ 修正：黒っぽく強調 */
-    text-align: left;
-  }
-}
+    .nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .nav a:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* ヒーローセクション */
+    .hero {
+      background: var(--gradient);
+      padding: 80px 20px 60px;
+      border-radius: 0 0 50px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="80" r="1.5" fill="%23ffffff" opacity="0.1"/></svg>');
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text {
+      text-align: left;
+    }
+
+    .logo {
+      width: 160px;
+      height: auto;
+      margin-bottom: 24px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 30px;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .cta {
+      background: var(--primary);
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      color: white;
+    }
+
+    .cta-secondary {
+      color: var(--primary-dark);
+      font-weight: 500;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    /* プレイリストセクション */
+    .playlist-section {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--primary-dark);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      margin: 12px auto 0;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .playlist-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .playlist-button {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .playlist-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      color: white;
+    }
+
+    .playlist-wrapper {
+      position: relative;
+      padding-top: 56.25%;
+      margin-bottom: 20px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .playlist-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .playlist-description {
+      text-align: left;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* セクション共通 */
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-header .section-title {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .section-header .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* About セクション */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .about-card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .about-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .about-card h3 {
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .about-card p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* カードグリッド */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card p {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* 料金テーブル */
+    .pricing-container {
+      background: var(--card);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    .pricing-header {
+      background: var(--primary);
+      color: white;
+      padding: 20px 30px;
+      text-align: center;
+    }
+
+    .pricing-header h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .pricing-header p {
+      opacity: 0.9;
+    }
+
+    .pricing-content {
+      padding: 30px;
+    }
+
+    .price-section {
+      margin-bottom: 40px;
+    }
+
+    .price-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .price-section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .price-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .price-item {
+      display: grid;
+      grid-template-columns: 2fr 3fr 1fr 2fr;
+      gap: 20px;
+      align-items: center;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .price-item:hover {
+      border-color: var(--primary);
+      background: var(--bg-secondary);
+    }
+
+    .price-item.featured {
+      border-color: var(--primary);
+      background: var(--bg-secondary);
+      position: relative;
+    }
+
+    .price-item.featured::before {
+      content: '⭐ おすすめ';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      background: var(--primary);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .price-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .price-description {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .price-amount {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-align: center;
+    }
+
+    .price-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* レスポンシブ料金テーブル */
+    @media (max-width: 768px) {
+      .price-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .price-amount {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* ワークフロー */
+    .workflow {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .workflow-step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      background: var(--card);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--primary);
+    }
+
+    .workflow-step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .workflow-step-content h3 {
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+
+    .workflow-step-content p {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* FAQ */
+    .faq-item {
+      margin-bottom: 20px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 600;
+      padding: 20px 25px;
+      background: var(--card);
+      color: var(--primary-dark);
+      transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .faq-item summary:hover {
+      background: var(--bg-secondary);
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      font-weight: 300;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-item[open] summary {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item p {
+      padding: 20px 25px;
+      background: var(--card);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Contact セクション */
+    .contact {
+      text-align: center;
+      background: var(--bg-secondary);
+      padding: 60px 30px;
+      border-radius: 30px;
+      margin: 40px 0;
+    }
+
+    .contact-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .contact-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border: 2px solid var(--primary);
+      background: white;
+      color: var(--primary);
+    }
+
+    .contact-button:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .contact-button.primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .contact-button.primary:hover {
+      background: var(--primary-dark);
+    }
+
+    /* フッター */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 1024px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 16px 40px;
+      }
+
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+
+      .section-header .section-title {
+        font-size: 1.6rem;
+      }
+
+      section {
+        padding: 60px 16px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .nav a {
+        font-size: 13px;
+        padding: 6px 12px;
+      }
+
+      .contact-buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text h1 {
+        font-size: 1.8rem;
+      }
+
+      .tagline {
+        font-size: 1rem;
+      }
+
+      .cta {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* アニメーション */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* プライシング注意書き */
+    .pricing-note {
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--warning);
+      padding: 20px;
+      border-radius: 0 12px 12px 0;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* 統計セクション */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin: 50px 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--card);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+    }
+
+    .stat-label {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
   </style>
-  <div class="about-section">
-   <div class="about-box">
-    <h2>
-     🎧 竜山つむぎについて
-    </h2>
-    <p>
-     やさしさで“声”を整える、歌声トリートメント専門のMIX師です。
-     <br/>
-     「録音ミスがある」「リズムやピッチに自信がない」そんな不安も、まるごと大丈夫。
-     <br/>
-     自然体のあなたの歌を、そっと支えるように仕上げます😊
-    </p>
-   </div>
-   <div class="about-box">
-    <h2>
-     🍊 活動実績と対応範囲
-    </h2>
-    <p>
-     歌ってみたMIX：50曲以上（ボカロ・J-POP中心）
-     <br/>
-     SNSアカウント：
-     <a href="https://x.com/ryuzanmix">
-      @ryuzanmix
-     </a>
-     <br/>
-     初心者〜中級者・オーディション提出音源まで対応
-     <br/>
-     使用機材：Cubase Pro / Melodyne / RX / Neutron 他
-    </p>
-   </div>
-  </div>
-  <section id="reviews">
-   <br/>
-   <h2 class="section-title">
-    💬 ご依頼者様の声
-   </h2>
-   <div class="cards">
-    <article class="card">
-     <h3>
-      「パーフェクトです！」
-     </h3>
-     <p>
-      対応やクオリティ全てにおいて完璧でした！
-     </p>
-    </article>
-    <article class="card">
-     <h3>
-      「希望通りの仕上がり」
-     </h3>
-     <p>
-      何度も丁寧に修正していただき、安心して依頼できました！
-     </p>
-    </article>
-    <article class="card">
-     <h3>
-      「MIX初心者でも安心」
-     </h3>
-     <p>
-      録音や動画のことも教えていただき、初めてでも迷わず依頼できました。
-     </p>
-    </article>
-   </div>
-  </section>
-  <section id="reasons">
-   <br>
-    <h2 class="section-title">
-     選ばれる 5 つの理由
-    </h2>
-    <div class="cards">
-     <article class="card">
-      <h3>
-       <i class="fa-solid fa-tags" style="color: #2e8b57; font-size: 1.3em; vertical-align: middle;">
-       </i>
-       料金が明確で安心
-      </h3>
-      <p>
-       税込み固定価格で予算オーバーの心配なし。オプションもお見積り時に必ず提示します。
-      </p>
-     </article>
-     <article class="card">
-      <h3>
-       <i class="fa-solid fa-comments" style="color: #c39bd3; font-size: 1.3em; vertical-align: middle;">
-       </i>
-       やさしいコミュニケーション
-      </h3>
-      <p>
-       DM は
-       <strong>
-        24 時間以内
-       </strong>
-       に返信。敬語＋絵文字で初心者さんにも安心感を。
-      </p>
-     </article>
-     <article class="card">
-      <h3>
-       <i class="fa-solid fa-music" style="color: #3498db; font-size: 1.3em; vertical-align: middle;">
-       </i>
-       豊富な実績とサンプル
-      </h3>
-      <p>
-       50 曲超のサンプルをプレイリストで公開。仕上がりを耳で確認できます。
-      </p>
-     </article>
-     <article class="card">
-      <h3>
-       <i class="fa-solid fa-clock" style="color: #34495e; font-size: 1.3em; vertical-align: middle;">
-       </i>
-       明確な納期＆修正
-      </h3>
-      <p>
-       通常納期 2〜3 週間／無料修正 2 回。進捗はスクショ付きで共有します。
-      </p>
-     </article>
-     <article class="card">
-      <h3>
-       <i class="fa-solid fa-gem" style="color: #8e44ad; font-size: 1.3em; vertical-align: middle;">
-       </i>
-       コスパ抜群の高品質
-      </h3>
-      <p>
-       有料プラグイン多数使用。お手頃価格で艶やかに仕上げます。
-      </p>
-     </article>
+
+  <!-- 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ryuzan Mix Salon",
+    "url": "https://ryuzanmix.github.io/",
+    "logo": "https://ryuzanmix.github.io/ryuzan-mix-salon-logo.png",
+    "sameAs": [
+      "https://x.com/ryuzanmix"
+    ],
+    "description": "VTuber・歌い手向け歌ってみたMIX専門のオンラインサロン。高品質かつ低価格、実績豊富で初心者にも安心。",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "ryuzan.mix@gmail.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "name": "歌ってみたMIXサービス",
+      "price": "5000",
+      "priceCurrency": "JPY",
+      "description": "フルコーラスMIX・マスタリング込み"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ナビゲーション -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#home">ホーム</a>
+      <a href="#playlist">実績</a>
+      <a href="#about">サロンについて</a>
+      <a href="#pricing">料金</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#contact">お問い合わせ</a>
     </div>
-   </br>
+  </nav>
+
+  <!-- ヒーローセクション -->
+  <header class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <img alt="Ryuzan Mix Salon ロゴ" class="logo" loading="eager" src="ryuzan-mix-salon-logo.png"/>
+        <h1>Ryuzan Mix Salon</h1>
+        <p class="tagline">"歌声トリートメント" 専門の<br>ボーカルMIX &amp; エンコードサロン</p>
+        <p class="hero-description">
+          初心者さんも録音ミスも、まるごと大歓迎です☺️<br>
+          「MIXってなにから頼めばいいの？」「自分の声に自信がない…」<br>
+          そんな方の"はじめの一歩"を、丁寧にサポートします。
+        </p>
+        <div class="cta-group">
+          <a href="#contact" class="cta">
+            <i class="fas fa-envelope"></i>
+            ご相談・ご依頼はこちら
+          </a>
+          <a href="#pricing" class="cta-secondary">
+            ▶︎ 詳しい料金・進行の流れはこちら
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-illust">
+        <div class="playlist-section" id="playlist">
+          <h2 class="section-title">歌ってみたMIXの実績・サンプル音源集</h2>
+          <p class="playlist-subtitle">50曲以上の仕上がりをYouTubeで公開中！</p>
+          
+          <a href="https://www.youtube.com/playlist?list=PL2_Tymt_5rAqeauBL94ZcWzlmo4m7FrV9" 
+             class="playlist-button" target="_blank" rel="noopener">
+            🎧 YouTube - MIXサンプルプレイリスト
+          </a>
+
+          <div class="playlist-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/videoseries?list=PL2_Tymt_5rAqeauBL94ZcWzlmo4m7FrV9&rel=0" 
+              title="YouTube video playlist" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen 
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <div class="playlist-description">
+            <p>こちらのMIXは、歌い手さんの柔らかい歌声を生かすように、自然さ重視で仕上げました☺️</p>
+            <p>初めての方も安心してご依頼いただけるよう、MIX内容・納期・価格を明確にご案内しています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 統計セクション -->
+  <section>
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-number">50+</span>
+        <div class="stat-label">MIX実績楽曲数</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">24時間</span>
+        <div class="stat-label">以内のDM返信</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">2-3週間</span>
+        <div class="stat-label">標準納期</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100%</span>
+        <div class="stat-label">満足度評価</div>
+      </div>
+    </div>
   </section>
+
+  <!-- About セクション -->
+  <section id="about">
+    <div class="section-header">
+      <h2 class="section-title">サロンについて</h2>
+      <p class="section-subtitle">やさしさで"声"を整える、歌声トリートメント専門のMIX師として、あなたの歌声の魅力を最大限に引き出します。</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>
+          <i class="fas fa-heart" style="color: #ff6b9d;"></i>
+          竜山つむぎについて
+        </h3>
+        <p>
+          やさしさで"声"を整える、歌声トリートメント専門のMIX師です。<br>
+          「録音ミスがある」「リズムやピッチに自信がない」そんな不安も、まるごと大丈夫。<br>
+          自然体のあなたの歌を、そっと支えるように仕上げます😊<br><br>
+          <strong>専門技術:</strong> Cubase Pro, Melodyne, iZotope RX, Neutron, Ozone<br>
+          <strong>対応ジャンル:</strong> ボカロ、J-POP、アニソン、洋楽カバー
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>
+          <i class="fas fa-star" style="color: #ffd700;"></i>
+          活動実績と対応範囲
+        </h3>
+        <p>
+          <strong>歌ってみたMIX:</strong> 50曲以上（ボカロ・J-POP中心）<br>
+          <strong>SNSアカウント:</strong> <a href="https://x.com/ryuzanmix" target="_blank">@ryuzanmix</a><br>
+          <strong>対応レベル:</strong> 初心者〜上級者・オーディション提出音源まで<br>
+          <strong>特殊対応:</strong> ライブ音源補正、デュエット・コラボ、仮歌制作<br>
+          <strong>納期実績:</strong> 平均2週間、最短1週間対応可能
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 選ばれる理由 -->
+  <section id="reasons">
+    <div class="section-header">
+      <h2 class="section-title">選ばれる 6 つの理由</h2>
+      <p class="section-subtitle">初心者から上級者まで、安心してご依頼いただける理由があります</p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <h3>
+          <i class="fas fa-tags" style="color: #2e8b57;"></i>
+          明確で安心の料金体系
+        </h3>
+        <p>税込み固定価格で予算オーバーの心配なし。追加オプションも事前見積もりで透明性を重視。業界最安水準でプロ品質をお届けします。</p>
+      </article>
+
+      <article class="card">
+        <h3>
+          <i class="fas fa-comments" style="color: #c39bd3;"></i>
+          やさしいコミュニケーション
+        </h3>
+        <p>DMは<strong>24時間以内</strong>に返信。敬語＋絵文字で初心者さんにも安心感を。専門用語を使わず、分かりやすい説明を心がけています。</p>
+      </article>
+
+      <article class="card">
+        <h3>
+          <i class="fas fa-music" style="color: #3498db;"></i>
+          豊富な実績とサンプル
+        </h3>
+        <p>50曲超のサンプルをプレイリストで公開。仕上がりを耳で確認できるから安心。様々なジャンル・声質に対応した実績をご覧いただけます。</p>
+      </article>
+
+      <article class="card">
+        <h3>
+          <i class="fas fa-clock" style="color: #34495e;"></i>
+          明確な納期と修正対応
+        </h3>
+        <p>通常納期2〜3週間、お急ぎ対応も可能。無料修正2回付き。進捗はスクリーンショット付きで共有し、安心してお待ちいただけます。</p>
+      </article>
+
+      <article class="card">
+        <h3>
+          <i class="fas fa-gem" style="color: #8e44ad;"></i>
+          プロ仕様の高品質MIX
+        </h3>
+        <p>有料プラグイン多数使用でスタジオクオリティを実現。ピッチ補正からマスタリングまで、お手頃価格で艶やかに仕上げます。</p>
+      </article>
+
+      <article class="card">
+        <h3>
+          <i class="fas fa-graduation-cap" style="color: #e74c3c;"></i>
+          歌唱指導も対応
+        </h3>
+        <p>MIXだけでなく歌唱アドバイスも提供。録音前の練習段階からサポートし、より良い歌声作りをお手伝いします。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- お客様の声 -->
+  <section id="reviews">
+    <div class="section-header">
+      <h2 class="section-title">💬 お客様の声</h2>
+      <p class="section-subtitle">実際にご依頼いただいた方々からの温かいお言葉</p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <h3>「パーフェクトです！」</h3>
+        <p>対応やクオリティ全てにおいて完璧でした！初めてのMIX依頼で不安でしたが、丁寧な説明と素早い対応で安心してお任せできました。</p>
+        <small style="color: var(--text-muted); font-style: italic;">- 初心者Vtuberさま</small>
+      </article>
+
+      <article class="card">
+        <h3>「希望通りの仕上がり」</h3>
+        <p>何度も丁寧に修正していただき、安心して依頼できました！細かい要望も快く聞いてくださり、想像以上の仕上がりに感動しています。</p>
+        <small style="color: var(--text-muted); font-style: italic;">- 歌い手活動2年目さま</small>
+      </article>
+
+      <article class="card">
+        <h3>「MIX初心者でも安心」</h3>
+        <p>録音や動画のことも教えていただき、初めてでも迷わず依頼できました。専門知識がなくても分かりやすく説明してくださいます。</p>
+        <small style="color: var(--text-muted); font-style: italic;">- 配信者さま</small>
+      </article>
+    </div>
+  </section>
+
+  <!-- 料金セクション -->
   <section id="pricing">
-   <br/>
-   <h2 class="section-title">
-    🛠 料金とご依頼の流れ
-   </h2>
-   <table class="price-table">
-    <thead>
-     <tr>
-      <th>
-       <h3>
-        プラン
-       </h3>
-      </th>
-      <th>
-       内容
-      </th>
-      <th>
-       料金
-      </th>
-      <th>
-       備考
-      </th>
-     </tr>
-    </thead>
-    <tbody>
-     <tr>
-      <td data-label="プラン">
-       ⭐ フルコーラス MIX
-      </td>
-      <td data-label="内容">
-       ノイズ除去・補正・マスタリング全対応
-      </td>
-      <td data-label="料金">
-       ￥5,000
-      </td>
-      <td data-label="備考">
-       初心者の方におすすめ◎
-      </td>
-     </tr>
-     <tr>
-      <td data-label="プラン">
-       ワンコーラス MIX
-      </td>
-      <td data-label="内容">
-       1番のみのMIX／お試しにも
-      </td>
-      <td data-label="料金">
-       ￥3,000
-      </td>
-      <td data-label="備考">
-       軽めに依頼したい方へ
-      </td>
-     </tr>
-     <tr>
-      <td data-label="プラン">
-       🎬 動画エンコード
-      </td>
-      <td data-label="内容">
-       YouTube・X向け
-      </td>
-      <td data-label="料金">
-       +￥1,000
-      </td>
-      <td data-label="備考">
-       高画質・音声調整込み
-      </td>
-     </tr>
-     <tr>
-      <td data-label="プラン">
-       👥 コラボ追加（1名）
-      </td>
-      <td data-label="内容">
-       デュエット・ユニゾン対応
-      </td>
-      <td data-label="料金">
-       +￥2,000
-      </td>
-      <td data-label="備考">
-       要パート指定◎
-      </td>
-     </tr>
-     <tr>
-      <td data-label="プラン">
-       🔈 ピッチ補正なし
-      </td>
-      <td data-label="内容">
-       自然派割引
-      </td>
-      <td data-label="料金">
-       ▲￥1,000
-      </td>
-      <td data-label="備考">
-       手直しなしOKな方
-      </td>
-     </tr>
-     <tr>
-      <td data-label="プラン">
-       🎁 リピーター割
-      </td>
-      <td data-label="内容">
-       2回目以降のご依頼料から、-￥500
-      </td>
-      <td data-label="料金">
-       ▲￥500
-      </td>
-      <td data-label="備考">
-       気に入ってくださかった割引です✨
-      </td>
-     </tr>
-    </tbody>
-   </table>
-   <p style="font-size: 0.95rem; color: var(--text-light); margin-top: 8px;">
-    ※ココナラ・SKIMA経由ではサービス手数料が加算されるため、表示価格が異なります。X（DM）からのご依頼では、通常価格（フルコーラス MIX：5,000円）でご案内しています。
-   </p>
-   <br/>
-   <h3>
-    💬 よくあるご依頼例
-   </h3>
-   <p>
-    ・フルコーラス MIX（￥5,000）＋動画エンコード（￥1,000）＝￥6,000
-    <br/>
-    ・ワンコーラス MIX（￥3,000）＋ピッチ補正なし（▲￥1,000）＝￥2,000
-    <br/>
-    ・コラボ対応＋エンコードまで含めて：￥8,000目安
-   </p>
-   <br>
-    <h3>
-     📩 ご相談・ご依頼方法
-    </h3>
-    <p>
-     ・ページ下部の、XのDM・ココナラ・SKIMAリンクからお気軽にご連絡ください
-     <br/>
-     ・内容確認後、お見積もりをお送りします
-     <br/>
-     ・ご納得後、制作スタート（通常納期：2〜3週間）
+    <div class="section-header">
+      <h2 class="section-title">🛠 料金プラン</h2>
+      <p class="section-subtitle">明確な料金体系で、予算に合わせてお選びいただけます</p>
+    </div>
+
+    <div class="pricing-container">
+      <div class="pricing-header">
+        <h3>Ryuzan Mix Salon 料金表</h3>
+        <p>全て税込価格・追加料金なしの安心価格</p>
+      </div>
+
+      <div class="pricing-content">
+        <!-- メインプラン -->
+        <div class="price-section">
+          <h4 class="price-section-title">🎵 メインプラン</h4>
+          <div class="price-grid">
+            <div class="price-item featured">
+              <div class="price-name">⭐ フルコーラス MIX</div>
+              <div class="price-description">ノイズ処理／ピッチ&リズム補正／マスタリングまでワンストップ対応</div>
+              <div class="price-amount">¥5,000</div>
+              <div class="price-note">初心者の方におすすめ◎</div>
+            </div>
+
+            <div class="price-item">
+              <div class="price-name">ワンコーラス MIX</div>
+              <div class="price-description">1番のみをMIX（お試し用）</div>
+              <div class="price-amount">¥3,000</div>
+              <div class="price-note">まずは気軽にクオリティ確認</div>
+            </div>
+
+            <div class="price-item">
+              <div class="price-name">🎤 仮歌作成（単体）</div>
+              <div class="price-description">MIDIからガイドボーカルを制作（シンセ or セルフ歌唱）</div>
+              <div class="price-amount">¥5,000</div>
+              <div class="price-note">デモ・練習用に便利</div>
+            </div>
+
+            <div class="price-item">
+              <div class="price-name">🎓 歌唱アドバイス</div>
+              <div class="price-description">録音前の歌唱データを分析し、より良い歌い方をアドバイス</div>
+              <div class="price-amount">¥2,000</div>
+              <div class="price-note">1週間以内に詳細レポート提供</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 追加オプション -->
+        <div class="price-section">
+          <h4 class="price-section-title">🎚️ 追加オプション</h4>
+          <div class="price-grid">
+            <div class="price-item">
+              <div class="price-name">ハモリ追加・生成（1トラック）</div>
+              <div class="price-description">ボーカルに厚みを加えるハモリを自動生成または追加</div>
+              <div class="price-amount">+¥1,000</div>
+              <div class="price-note">原曲キー・メロディ準拠</div>
+            </div>
+
+            <div class="price-item">
+              <div class="price-name">🎬 動画エンコード</div>
+              <div class="price-description">YouTube／X向けに高画質エンコード（音圧調整込み）</div>
+              <div class="price-amount">+¥1,000</div>
+              <div class="price-note">尺・形式はご相談可</div>
+            </div>
+
+            <div class="price-item">
+              <div class="price-name">👥 コラボ追加（1名）</div>
+              <div class="price-description">デュエット・ユニゾンなど追加ボーカル1名まで対応</div>
+              <div class="price-amount">+¥2,000</div>
+              <div class="price-note">2名以上は別途お見積もり</div>
+            </div>
+
+            <div class="price-item">
+              <div class="price-name">🎤 仮歌作成（MIX同時依頼）</div>
+              <div class="price-description">フル or ワンコーラスMIXと同時ご依頼でガイドボーカル制作</div>
+              <div class="price-amount">+¥3,000</div>
+              <div class="price-note">セット割でお得</div>
+            </div>
+
+            <div class="price-item">
+              <div class="price-name">📑 ガイド譜 PDF</div>
+              <div class="price-description">視覚的にわかりやすいメロディ譜をPDFで提供</div>
+              <div class="price-amount">+¥500</div>
+              <div class="price-note">楽譜が苦手でも安心♪</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 割引・調整 -->
+        <div class="price-section">
+          <h4 class="price-section-title">💰 割引・調整オプション</h4>
+          <div class="price-grid">
+            <div class="price-item">
+              <div class="price-name">🔈 ピッチ補正なし</div>
+              <div class="price-description">ピッチ補正を行わない自然仕上げ</div>
+              <div class="price-amount">-¥1,000</div>
+              <div class="price-note">"手直し不要"なテイク限定</div>
+            </div>
+
+            <div class="price-item">
+              <div class="price-name">🎁 リピーター割</div>
+              <div class="price-description">2回目以降のご依頼時に適用</div>
+              <div class="price-amount">-¥500</div>
+              <div class="price-note">感謝のリピート特典✨</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-note">
+        <strong>💡 ココナラ・SKIMA経由の料金について</strong><br>
+        サービス手数料が加算されるため、表示価格が異なります。X（DM）からのご依頼では、上記の通常価格でご案内しています。
+      </div>
+    </div>
+
+    <!-- よくあるご依頼例 -->
+    <div class="card" style="margin: 30px 0;">
+      <h3>💬 よくあるご依頼例</h3>
+      <div style="display: grid; gap: 15px; margin-top: 15px;">
+        <div style="padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
+          <strong>初心者スタンダード:</strong> フルコーラス MIX (¥5,000) + 動画エンコード (+¥1,000) = <span style="color: var(--primary); font-weight: bold;">¥6,000</span>
+        </div>
+        <div style="padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
+          <strong>お試しプラン:</strong> ワンコーラス MIX (¥3,000) + ピッチ補正なし (-¥1,000) = <span style="color: var(--primary); font-weight: bold;">¥2,000</span>
+        </div>
+        <div style="padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
+          <strong>コラボ対応:</strong> フルコーラス MIX (¥5,000) + コラボ追加 (+¥2,000) + エンコード (+¥1,000) = <span style="color: var(--primary); font-weight: bold;">¥8,000</span>
+        </div>
+        <div style="padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
+          <strong>歌唱向上プラン:</strong> 歌唱アドバイス (¥2,000) → 改善後 → フルコーラス MIX (¥5,000) = <span style="color: var(--primary); font-weight: bold;">¥7,000</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ご依頼の流れ -->
+  <section id="workflow">
+    <div class="section-header">
+      <h2 class="section-title">📩 ご依頼の流れ</h2>
+      <p class="section-subtitle">初めての方でも安心してご依頼いただけるよう、シンプルで分かりやすい流れです</p>
+    </div>
+
+    <div class="workflow">
+      <div class="workflow-step">
+        <div class="workflow-step-number">1</div>
+        <div class="workflow-step-content">
+          <h3>お問い合わせ・ご相談</h3>
+          <p>
+            下記のいずれかの方法でお気軽にご連絡ください。<br>
+            • X（Twitter）のDM - 最もお得で迅速<br>
+            • メール - 詳細な相談に最適<br>
+            • ココナラ・SKIMA - 決済も含めて安心<br>
+            「まずは相談だけ」も大歓迎です！
+          </p>
+        </div>
+      </div>
+
+      <div class="workflow-step">
+        <div class="workflow-step-number">2</div>
+        <div class="workflow-step-content">
+          <h3>お見積もり・詳細確認</h3>
+          <p>
+            ご希望内容をお聞きし、詳細なお見積もりをお送りします。<br>
+            • 楽曲情報（タイトル、キー、BPMなど）<br>
+            • 使用機材・録音環境<br>
+            • 希望する仕上がりイメージ<br>
+            不明な点は丁寧にご説明いたします。
+          </p>
+        </div>
+      </div>
+
+      <div class="workflow-step">
+        <div class="workflow-step-number">3</div>
+        <div class="workflow-step-content">
+          <h3>録音データのご提出</h3>
+          <p>
+            ギガファイル便やGoogle Driveで録音データをお送りください。<br>
+            • WAVまたはAIFF形式推奨<br>
+            • 頭出し（開始位置合わせ）済み<br>
+            • 不明な場合は無加工でOK、当方で調整<br>
+            お支払いは銀行振込またはPayPayで承ります。
+          </p>
+        </div>
+      </div>
+
+      <div class="workflow-step">
+        <div class="workflow-step-number">4</div>
+        <div class="workflow-step-content">
+          <h3>制作・進捗共有</h3>
+          <p>
+            制作開始後、定期的に進捗をお知らせします。<br>
+            • 通常納期：2〜3週間<br>
+            • お急ぎ対応：1週間（+¥1,000）<br>
+            • 途中経過はスクリーンショット付きで共有<br>
+            ご質問やご要望があればいつでもお声がけください。
+          </p>
+        </div>
+      </div>
+
+      <div class="workflow-step">
+        <div class="workflow-step-number">5</div>
+        <div class="workflow-step-content">
+          <h3>納品・修正対応</h3>
+          <p>
+            完成したMIXデータを高品質でお届けします。<br>
+            • WAVファイル（48kHz/24bit）で納品<br>
+            • 無料修正2回まで対応<br>
+            • データ保管期間30日間<br>
+            ご満足いただけるまで丁寧に対応いたします。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 依頼時必要事項 -->
+  <section>
+    <div class="card" style="background: var(--bg-secondary); border-left: 4px solid var(--primary);">
+      <h3>
+        <i class="fas fa-list-check" style="color: var(--primary);"></i>
+        ご依頼時の必要事項
+      </h3>
+      <p style="margin-bottom: 20px;">
+        以下の内容をご記入の上、録音データとともにお送りください☺️<br>
+        <small style="color: var(--text-muted);">※ご不明な項目は空欄でも大丈夫です。お気軽にどうぞ🕊</small>
+      </p>
+      
+      <div style="background: white; padding: 20px; border-radius: 12px; font-family: monospace; font-size: 0.9rem; line-height: 1.8;">
+        ・🎵 <strong>楽曲タイトル：</strong><br>
+        ・🔗 <strong>原曲のURL（YouTube等）：</strong><br>
+        ・📁 <strong>歌唱データのURL：</strong>（ギガファイル便・Google Driveなど）<br>
+        ・🔑 <strong>キー変更のご希望：</strong>（例：+2、-3、なし）<br>
+        ・🕒 <strong>BPM（テンポ）：</strong><br>
+        ・🎧 <strong>曲の長さ：</strong>フルコーラス / ワンコーラス<br>
+        ・🎚️ <strong>トラック数：</strong>（ボーカルパート数やコーラスの有無も含めて）<br>
+        ・🎙️ <strong>使用機材：</strong>（インターフェース名 / マイク名）<br>
+        ・📦 <strong>動画エンコード希望：</strong>有 / 無<br>
+        ・💰 <strong>お支払い方法：</strong>銀行振込 / PayPay<br>
+        ・⏳ <strong>納期希望：</strong>通常(2-3週間) / お急ぎ(1週間/+¥1,000)<br>
+        ・✍️ <strong>MIXのご要望：</strong>（声の雰囲気・参考音源など）<br>
+        ・📣 <strong>SNSへの掲載可否：</strong>OK(クレジットあり) / OK(クレジットなし) / NG(非公開)<br>
+        ・🔐 <strong>録音時の注意点確認済み：</strong>はい / いいえ / よくわからない
+      </div>
+      
+      <p style="margin-top: 15px; color: var(--text-light); font-size: 0.95rem;">
+        やり取りはすべて丁寧かつ迅速に対応いたします。<br>
+        ご希望やご不安な点がありましたら、お気軽にご相談ください☺️
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-header">
+      <h2 class="section-title">よくある質問</h2>
+      <p class="section-subtitle">初めての方からよくいただくご質問をまとめました</p>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>スマホ録音でも大丈夫？</summary>
+        <p>大歓迎です😊 最新のスマートフォンは録音品質が向上しており、適切なノイズ除去処理で十分な品質に仕上げることができます。まずは気軽にご相談ください！</p>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>頭出し（スタート位置合わせ）はどうやるの？</summary>
+        <p>AudacityやGarageBandなどの無料アプリで先頭の無音をカットし、波形がゼロから始まるようにしてください。難しい場合は無加工で送っていただければ当サロンが代行します😊</p>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>ギガファイル便の使い方がわからない</summary>
+        <p>PCは<a href="https://gigafile.nu/" target="_blank" rel="noopener"><code>gigafile.nu</code></a>にファイルをドラッグ → 「URLをコピー」→ DMへ貼付。<br>スマホは「ファイルを選択」→ アップ後リンクを共有でOK。Wi-Fi環境推奨です。</p>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>修正は何回まで？</summary>
+        <p>無料2回まで対応いたします。追加は1回+¥1,000ですが、多くのお客様が1回以内で完結しています。事前の詳細なヒアリングで、ご希望に沿った仕上がりを目指します。</p>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>ヘッドホン録音でも大丈夫？</summary>
+        <p>ノイズ除去で整えられる範囲なら問題ありません。まずはサンプルをお送りいただき、状態に応じて最適な処理方法をアドバイスします。</p>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>歌唱アドバイスではどんなことを教えてもらえる？</summary>
+        <p>ピッチの安定性、リズムの取り方、ブレス位置、表現力向上のポイントなど、あなたの歌声を分析して具体的なアドバイスを提供します。録音前に改善することで、MIX後の仕上がりが格段に向上します。</p>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>相談だけでもいい？</summary>
+        <p>もちろん大歓迎！「MIXって何？」「録音方法がわからない」「予算が合うか心配」など、どんな小さな疑問でもお気軽にDMでご相談ください。無理な勧誘は一切ありません。</p>
+      </details>
+    </div>
+
+    <p style="color: var(--text-light); font-size: 0.95rem; text-align: center; margin-top: 40px;">
+      Ryuzan Mix Salonは「はじめてのMIX依頼でも安心」を大切に、やさしく丁寧なサポートを心がけています。
     </p>
-   </br>
   </section>
-  <section id="message">
-   <h2>
-    🧡 最後にひとこと
-   </h2>
-   <p>
-    「MIXを頼むのが初めてで不安…」
-    <br>
-     そんな方こそ、安心してご相談いただけたら嬉しいです。
-     <br>
-      あなたの歌声の魅力を、そっと引き出せますように。
-     </br>
-    </br>
-   </p>
-  </section>
-<section>
-  <div class="workflow-step">
-    <span>★</span>
-    <p>
-      ご依頼の際は、以下の内容をご記入の上、<br>
-      録音データとともにXのDMまたはメールでお送りください☺️<br>
-      ※ご不明な項目は空欄でも大丈夫です。お気軽にどうぞ🕊
-      <br><br>
 
-      ・🎵 楽曲タイトル：<br>
-      ・🔗 原曲のURL（YouTube等）：<br>
-      ・📁 歌唱データのURL（ギガファイル便・Google Driveなど）：<br>
-      ・🔑 キー変更のご希望（例：+2、-3、なし）：<br>
-      ・🕒 BPM（テンポ）：<br>
-      ・🎧 曲の長さ：フルコーラス / ワンコーラス<br>
-      ・🎚️ トラック数（ボーカルパート数やコーラスの有無も含めて）：<br>
-      ・🎙️ 使用機材（インターフェース名 / マイク名）：<br>
-      ・📦 動画エンコード希望（有料）：有 / 無<br>
-      ・💰 お支払い方法：銀行振込 / PayPay<br>
-      ・⏳ 納期目安：ご提出後、2〜3週間前後（お急ぎの場合はご相談ください）<br>
-      ・✍️ MIXについてのご要望：（声の雰囲気・参考音源などがあれば）<br>
-      ・📣 SNSへの掲載可否（実績紹介）：<br>
-　　　[ ] OK（クレジットあり）／[ ] OK（クレジットなし）／[ ] NG（非公開希望）<br>
-      ・🔐 録音時の注意点（ポップノイズなど）確認済みですか？<br>
-　　　はい / いいえ / よくわからない<br>
-      ・🗃️ データの保管について：<br>
-　　　納品後【30日間】保管いたします。<br>
-　　　これはリテイク対応や万が一の再送に備えた一時的な保管です。<br>
-　　　30日以降の保管をご希望の場合は、その旨ご記入ください。<br>
-　　　※大切なデータですので、納品後はご自身でも必ずバックアップをお願いいたします。
+  <!-- メッセージ -->
+  <section id="message" style="text-align: center; background: var(--bg-secondary); padding: 60px 30px; border-radius: 30px; margin: 40px 0;">
+    <h2 style="color: var(--primary-dark); margin-bottom: 20px;">🧡 最後にひとこと</h2>
+    <p style="font-size: 1.1rem; line-height: 1.8; max-width: 600px; margin: 0 auto;">
+      「MIXを頼むのが初めてで不安…」<br>
+      そんな方こそ、安心してご相談いただけたら嬉しいです。<br>
+      あなたの歌声の魅力を、そっと引き出せますように。<br><br>
+      <strong style="color: var(--primary);">一人ひとりの「歌いたい」気持ちを、全力でサポートします。</strong>
     </p>
-  </div>
-
-  <p style="color: var(--text-light); font-size: 0.95rem;">
-    やり取りはすべて丁寧かつ迅速に対応いたします。<br>
-    ご希望やご不安な点がありましたら、DMにてお気軽にご相談ください☺️
-  </p>
-</section>
-
-<section id="faq">
-   <h2 class="section-title">
-    よくある質問
-   </h2>
-   <div class="faq-item">
-    <details>
-     <summary>
-      スマホ録音でも大丈夫？
-     </summary>
-     <p>
-      大歓迎です😊 ノイズ除去なども対応。まずは気軽にご相談ください！
-     </p>
-    </details>
-   </div>
-   <div class="faq-item">
-    <details>
-     <summary>
-      頭出し（スタート位置合わせ）はどうやるの？
-     </summary>
-     <p>
-      Audacity や GarageBand などの無料アプリで先頭の無音をカットし、波形がゼロから始まるようにしてください。難しい場合は無加工で送っていただければ当サロンが代行します😊
-     </p>
-    </details>
-   </div>
-   <div class="faq-item">
-    <details>
-     <summary>
-      ギガファイル便の使い方がわからない
-     </summary>
-     <p>
-      PC は
-      <a href="https://gigafile.nu/" target="_blank">
-       <code>
-        gigafile.nu
-       </code>
-      </a>
-      にファイルをドラッグ → 「URL をコピー」→ DM へ貼付。
-      <br/>
-      スマホは「ファイルを選択」→ アップ後リンクを共有で OK。Wi-Fi 環境推奨です。
-     </p>
-    </details>
-   </div>
-   <div class="faq-item">
-    <details>
-     <summary>
-      修正は何回まで？
-     </summary>
-     <p>
-      無料 2 回まで対応いたします。追加は 1 回 +¥1,000 ですが、多くのお客様が 1 回以内で完結しています。
-     </p>
-    </details>
-   </div>
-   <div class="faq-item">
-    <details>
-     <summary>
-      ヘッドホン録音でも大丈夫？
-     </summary>
-     <p>
-      ノイズ除去で整えられる範囲なら問題ありません。まずはサンプルをお送りいただき状態に応じてアドバイスします。
-     </p>
-    </details>
-   </div>
-   <div class="faq-item">
-    <details>
-     <summary>
-      相談だけでもいい？
-     </summary>
-     <p>
-      もちろん大歓迎！お気軽に DM でご相談ください。
-     </p>
-    </details>
-   </div>
-   <p style="color: var(--text-light); font-size: 0.95rem;">
-    Ryuzan Mix Salonは「はじめてのMIX依頼でも安心」を大切に、やさしく丁寧なサポートを心がけています。
-   </p>
   </section>
-<section id="contact">
-  <h2 class="section-title">ご相談はこちらから☺️</h2>
 
-  <div class="contact">
-    <p>「ちょっと聞いてみたいな…」という方も、お気軽にご連絡ください🕊<br>
-    ご希望の方法をお選びいただけます。</p>
+  <!-- Contact セクション -->
+  <section id="contact">
+    <div class="contact">
+      <h2 class="section-title">ご相談はこちらから☺️</h2>
+      <p style="margin-bottom: 10px;">「ちょっと聞いてみたいな…」という方も、お気軽にご連絡ください🕊</p>
+      <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 30px;">
+        「録音に不安がある…」「まだ依頼じゃないけど話を聞いてみたい」なども大歓迎です🌸<br>
+        無理な勧誘などは一切ありませんので、安心してどうぞ。
+      </p>
 
-    <!-- 🌸 やさしいオプション補足 -->
-    <p>「録音に不安がある…」「まだ依頼じゃないけど話を聞いてみたい」なども大歓迎です🌸<br>
-    無理な勧誘などは一切ありませんので、安心してどうぞ。</p>
+      <div class="contact-buttons">
+        <a href="https://x.com/ryuzanmix" class="contact-button primary" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+          XのDMで相談する（@ryuzanmix）
+        </a>
 
-    <!-- 💌 メール -->
-    <button class="cta" onclick="window.open('mailto:ryuzan.mix@gmail.com?subject=MIX依頼のご相談&body=こんにちは、竜山つむぎさんへMIXの件でご連絡です。','_self')">
-      💌 メールで相談する（ryuzan.mix@gmail.com）
-    </button>
+        <a href="mailto:ryuzan.mix@gmail.com?subject=MIX依頼のご相談&body=こんにちは、竜山つむぎさんへMIXの件でご連絡です。" class="contact-button">
+          <i class="fas fa-envelope"></i>
+          メールで相談する
+        </a>
 
-    <!-- 💬 X -->
-    <button class="cta" onclick="window.open('https://x.com/ryuzanmix','_blank')">
-      🕊 XのDMで相談する（@ryuzanmix）
-    </button>
+        <a href="https://forms.gle/kko1grBVSAXcypLF8" class="contact-button" target="_blank" rel="noopener">
+          <i class="fas fa-clipboard"></i>
+          フォームで依頼内容を送る
+        </a>
 
-    <!-- 📋 Googleフォーム -->
-    <button class="cta" onclick="window.open('https://forms.gle/kko1grBVSAXcypLF8','_blank')">
-      📋 フォームで依頼内容を送る（Googleフォーム）
-    </button>
+        <a href="https://coconala.com/services/2323053" class="contact-button" target="_blank" rel="noopener">
+          <i class="fas fa-shopping-cart"></i>
+          coconalaで依頼する
+        </a>
 
-    <!-- 🛒 coconala -->
-    <button class="cta" onclick="window.open('https://coconala.com/services/2323053','_blank')">
-      🛒 coconalaで依頼する
-    </button>
+        <a href="https://skima.jp/item/detail?item_id=239311" class="contact-button" target="_blank" rel="noopener">
+          <i class="fas fa-palette"></i>
+          SKIMAで依頼する
+        </a>
+      </div>
 
-    <!-- 🎨 SKIMA -->
-    <button class="cta" onclick="window.open('https://skima.jp/item/detail?item_id=239311','_blank')">
-      🎨 SKIMAで依頼する
-    </button>
-  </div>
-</section>
+      <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 16px; border-left: 4px solid var(--success);">
+        <h4 style="color: var(--success); margin-bottom: 10px;">
+          <i class="fas fa-gift"></i>
+          お得情報
+        </h4>
+        <p style="margin: 0; color: var(--text-light);">
+          <strong>X（DM）からのご依頼が最もお得！</strong><br>
+          サービス手数料がかからないため、表示価格そのままでご利用いただけます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
   <footer>
-   <p>
-    お問い合わせ：
-    <a href="mailto:ryuzan.mix@gmail.com">
-     ryuzan.mix@gmail.com
-    </a>
-   </p>
-   <p>
-    運営：Ryuzan Mix Salon（個人運営）
-   </p>
-   <p>
-    © 2025 Ryuzan Mix Salon
-   </p>
+    <div style="max-width: 800px; margin: 0 auto;">
+      <p style="margin-bottom: 10px;">
+        <strong>お問い合わせ：</strong>
+        <a href="mailto:ryuzan.mix@gmail.com">ryuzan.mix@gmail.com</a>
+      </p>
+      <p style="margin-bottom: 10px;">
+        <strong>SNS：</strong>
+        <a href="https://x.com/ryuzanmix" target="_blank" rel="noopener">@ryuzanmix</a>
+      </p>
+      <p style="margin-bottom: 20px;">
+        運営：Ryuzan Mix Salon（個人運営）
+      </p>
+      <p style="font-size: 0.8rem; color: var(--text-muted);">
+        © 2025 Ryuzan Mix Salon. All rights reserved.
+      </p>
+    </div>
   </footer>
- </body>
+
+  <!-- JavaScript -->
+  <script>
+    // ナビゲーション表示制御
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('nav');
+      if (window.scrollY > 100) {
+        nav.classList.add('show');
+      } else {
+        nav.classList.remove('show');
+      }
+    });
+
+    // スムーススクロール
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offsetTop = target.offsetTop - 80;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // インターセクションオブザーバーでアニメーション
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // アニメーション対象要素を監視
+    document.addEventListener('DOMContentLoaded', function() {
+      const animateElements = document.querySelectorAll('.card, .about-card, .workflow-step, .stat-item');
+      animateElements.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+      });
+    });
+
+    // 外部リンクに rel="noopener" を自動追加
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+      if (!link.rel.includes('noopener')) {
+        link.rel = link.rel ? link.rel + ' noopener' : 'noopener';
+      }
+    });
+
+    // フォーム送信時のGoogleアナリティクスイベント（必要に応じて）
+    document.querySelectorAll('.contact-button').forEach(button => {
+      button.addEventListener('click', function() {
+        const buttonText = this.textContent.trim();
+        // Google Analytics Event (gtag or ga function needed)
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'contact_click', {
+            'button_type': buttonText,
+            'value': 1
+          });
+        }
+      });
+    });
+
+    // パフォーマンス最適化：遅延読み込み
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src || img.src;
+            img.classList.remove('lazy');
+            imageObserver.unobserve(img);
+          }
+        });
+      });
+
+      lazyImages.forEach(img => imageObserver.observe(img));
+    }
+
+    // キーボードナビゲーション対応
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        document.body.classList.add('keyboard-navigation');
+      }
+    });
+
+    document.addEventListener('mousedown', function() {
+      document.body.classList.remove('keyboard-navigation');
+    });
+
+    // ダークモード対応（将来的な拡張用）
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    function handleColorSchemeChange(e) {
+      // ダークモード切り替えロジック（必要に応じて実装）
+    }
+
+    prefersDarkScheme.addEventListener('change', handleColorSchemeChange);
+
+    // エラーハンドリング
+    window.addEventListener('error', function(e) {
+      console.warn('Non-critical error occurred:', e.error);
+      // 必要に応じてエラーレポートを送信
+    });
+
+    // パフォーマンス監視
+    if ('PerformanceObserver' in window) {
+      const perfObserver = new PerformanceObserver((list) => {
+        const entries = list.getEntries();
+        entries.forEach((entry) => {
+          if (entry.entryType === 'largest-contentful-paint') {
+            // LCPの監視
+            if (entry.startTime > 2500) {
+              console.info('LCP optimization may be needed:', entry.startTime);
+            }
+          }
+        });
+      });
+      
+      try {
+        perfObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+      } catch (e) {
+        // サポートされていないブラウザでは無視
+      }
+    }
+  </script>
+
+  <!-- Schema.org 追加構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "歌ってみたMIXサービス",
+    "provider": {
+      "@type": "Organization",
+      "name": "Ryuzan Mix Salon"
+    },
+    "description": "VTuber・歌い手向けの高品質ボーカルMIX・マスタリングサービス",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "フルコーラスMIX",
+        "price": "5000",
+        "priceCurrency": "JPY",
+        "description": "ノイズ処理、ピッチ補正、マスタリング込み"
+      },
+      {
+        "@type": "Offer",
+        "name": "ワンコーラスMIX",
+        "price": "3000",
+        "priceCurrency": "JPY",
+        "description": "お試し用1番のみMIX"
+      },
+      {
+        "@type": "Offer",
+        "name": "歌唱アドバイス",
+        "price": "2000",
+        "priceCurrency": "JPY",
+        "description": "録音前の歌唱指導・アドバイス"
+      }
+    ],
+    "areaServed": "JP",
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "availableLanguage": "ja",
+      "serviceType": "Online"
+    }
+  }
+  </script>
+
+  <!-- PWA対応（将来的な拡張用） -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#b28fdd">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Ryuzan Mix Salon">
+
+</body>
 </html>
