@@ -3,7 +3,7 @@
   <!-- メインページ -->
   <url>
     <loc>https://ryuzanmix.github.io/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,7 +11,7 @@
   <!-- 簡単依頼フォーム -->
   <url>
     <loc>https://ryuzanmix.github.io/request-form.html</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -19,42 +19,42 @@
   <!-- セクション別URL（アンカーリンク） -->
   <url>
     <loc>https://ryuzanmix.github.io/#playlist</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://ryuzanmix.github.io/#about</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://ryuzanmix.github.io/#pricing</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://ryuzanmix.github.io/#workflow</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://ryuzanmix.github.io/#faq</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://ryuzanmix.github.io/#contact</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
