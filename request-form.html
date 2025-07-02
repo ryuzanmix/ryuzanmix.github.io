@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>簡単依頼フォーム - Ryuzan Mix Salon</title>
-  <meta content="選ぶだけで依頼文章を自動生成！Ryuzan Mix Salonの簡単依頼フォーム。初心者も安心の歌ってみたMIX依頼。" name="description"/>
-  <meta content="歌ってみた,MIX,依頼,フォーム,VTuber,ボカロ,簡単,自動生成,DM" name="keywords">
+  <title>詳細依頼フォーム - Ryuzan Mix Salon</title>
+  <meta content="プロ仕様の詳細設定で理想のMIXを実現！録音音源情報、ピッチ補正、ハモリ方向性など、具体的な楽曲例付きで簡単設定。" name="description"/>
+  <meta content="歌ってみた,MIX,依頼,フォーム,VTuber,ボカロ,詳細,自動生成,DM,プロ仕様" name="keywords">
   
   <!-- ファビコン -->
   <link href="favicon256.png" rel="icon" sizes="32x32" type="image/png"/>
@@ -24,8 +24,8 @@
   <!-- OGP -->
   <meta content="website" property="og:type"/>
   <meta content="https://ryuzanmix.github.io/request-form.html" property="og:url"/>
-  <meta content="簡単依頼フォーム - Ryuzan Mix Salon" property="og:title"/>
-  <meta content="選ぶだけで依頼文章を自動生成！初心者も安心の歌ってみたMIX依頼フォーム。" property="og:description"/>
+  <meta content="詳細依頼フォーム - Ryuzan Mix Salon" property="og:title"/>
+  <meta content="詳細な設定で依頼文章を自動生成！プロ仕様の歌ってみたMIX依頼フォーム。" property="og:description"/>
   <meta content="https://ryuzanmix.github.io/og-image.png" property="og:image"/>
 
   <style>
@@ -62,7 +62,7 @@
     }
 
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
@@ -136,6 +136,12 @@
       color: var(--text);
     }
 
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
     .required {
       color: var(--accent);
       font-size: 0.9rem;
@@ -146,7 +152,7 @@
       font-size: 0.9rem;
     }
 
-    input[type="text"], input[type="url"], select, textarea {
+    input[type="text"], input[type="url"], input[type="email"], input[type="number"], select, textarea {
       width: 100%;
       padding: 12px 16px;
       border: 2px solid var(--border);
@@ -156,7 +162,7 @@
       background: white;
     }
 
-    input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus {
+    input[type="text"]:focus, input[type="url"]:focus, input[type="email"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
       outline: none;
       border-color: var(--primary);
     }
@@ -396,6 +402,10 @@
         padding: 20px;
       }
       
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
       .checkbox-group, .radio-group {
         grid-template-columns: 1fr;
       }
@@ -410,6 +420,15 @@
         justify-content: center;
       }
     }
+
+    .section-indicator {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
   </style>
 </head>
 
@@ -420,55 +439,303 @@
         <i class="fas fa-arrow-left"></i>
         メインページに戻る
       </a>
-      <h1>🎵 簡単依頼フォーム</h1>
-      <p>必要最小限の項目を選ぶだけで、DM用の文章を自動生成します！</p>
+      <h1>🎵 詳細依頼フォーム</h1>
+      <p>プロ仕様の詳細設定で、理想通りのMIXを実現します</p>
     </div>
 
     <form id="requestForm">
-      <!-- 基本情報 -->
+      <!-- 依頼者情報 -->
       <div class="form-card">
         <div class="form-section">
-          <h3>📝 基本情報</h3>
+          <h3>👤 依頼者情報 <span class="section-indicator">必須</span></h3>
           
-          <div class="form-group">
-            <label for="songTitle">楽曲タイトル <span class="required">※必須</span></label>
-            <input type="text" id="songTitle" placeholder="例：千本桜、残酷な天使のテーゼ">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="clientName">依頼者名 <span class="required">※必須</span></label>
+              <input type="text" id="clientName" placeholder="例：桜音みつき、@sakura_mix、みつきちゃん">
+            </div>
+            <div class="form-group">
+              <label for="clientContact">連絡先 <span class="required">※必須</span></label>
+              <input type="text" id="clientContact" placeholder="例：sakura@example.com、@sakura_mix">
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="songUrl">原曲のURL <span class="optional">任意</span></label>
-            <input type="url" id="songUrl" placeholder="https://www.youtube.com/watch?v=...">
-            <div class="help-text">YouTubeなどの原曲リンクがあると、より正確にMIXできます</div>
+            <label for="contactMethod">希望連絡方法 <span class="required">※必須</span></label>
+            <select id="contactMethod">
+              <option value="">選択してください</option>
+              <option value="twitter">X（Twitter）DM</option>
+              <option value="email">メール</option>
+              <option value="discord">Discord</option>
+              <option value="line">LINE</option>
+              <option value="other">その他</option>
+            </select>
           </div>
         </div>
       </div>
 
-      <!-- メインプラン -->
+      <!-- 楽曲情報 -->
       <div class="form-card">
         <div class="form-section">
-          <h3>🎵 メインプラン</h3>
+          <h3>🎵 楽曲情報 <span class="section-indicator">必須</span></h3>
           
-          <div class="radio-group">
-            <label class="radio-item">
-              <input type="radio" name="mainService" value="full" data-price="5000" checked>
-              <span class="radio-label">⭐ フルコーラス MIX<br><small>¥5,000</small></span>
-            </label>
-            <label class="radio-item">
-              <input type="radio" name="mainService" value="one" data-price="3000">
-              <span class="radio-label">ワンコーラス MIX<br><small>¥3,000</small></span>
-            </label>
-            <label class="radio-item">
-              <input type="radio" name="mainService" value="guide-single" data-price="5000">
-              <span class="radio-label">🎤 仮歌作成（単体）<br><small>¥5,000</small></span>
-            </label>
-            <label class="radio-item">
-              <input type="radio" name="mainService" value="advice" data-price="2000">
-              <span class="radio-label">🎓 歌唱アドバイス<br><small>¥2,000</small></span>
-            </label>
-            <label class="radio-item">
-              <input type="radio" name="mainService" value="consultation" data-price="0">
-              <span class="radio-label">まずは相談<br><small>無料</small></span>
-            </label>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="songTitle">楽曲タイトル <span class="required">※必須</span></label>
+              <input type="text" id="songTitle" placeholder="例：千本桜、残酷な天使のテーゼ、夜に駆ける">
+            </div>
+            <div class="form-group">
+              <label for="artist">アーティスト <span class="required">※必須</span></label>
+              <input type="text" id="artist" placeholder="例：初音ミク、高橋洋子、YOASOBI">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sourceType">使用音源 <span class="required">※必須</span></label>
+              <select id="sourceType">
+                <option value="">選択してください</option>
+                <option value="original-karaoke">公式カラオケ音源</option>
+                <option value="nicokaraoke">ニコカラオケ</option>
+                <option value="youtube-karaoke">YouTube カラオケ</option>
+                <option value="instrumental">インストゥルメンタル</option>
+                <option value="midi">MIDI・自作音源</option>
+                <option value="other">その他</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="bpm">BPM <span class="optional">任意</span></label>
+              <input type="number" id="bpm" placeholder="例：120、140、90" min="60" max="200">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="songKey">キー <span class="optional">任意</span></label>
+              <input type="text" id="songKey" placeholder="例：C、G、Am、F#m、原キー">
+            </div>
+            <div class="form-group">
+              <label for="vocalistCount">歌唱人数 <span class="required">※必須</span></label>
+              <select id="vocalistCount">
+                <option value="">選択してください</option>
+                <option value="1">1人（ソロ）</option>
+                <option value="2">2人（デュエット）</option>
+                <option value="3">3人</option>
+                <option value="4">4人</option>
+                <option value="5+">5人以上</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 制作・納期情報 -->
+      <div class="form-card">
+        <div class="form-section">
+          <h3>⚙️ 制作・納期情報 <span class="section-indicator">必須</span></h3>
+          
+          <div class="form-group">
+            <label>メインプラン <span class="required">※必須</span></label>
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" name="mainService" value="full" data-price="5000" checked>
+                <span class="radio-label">⭐ フルコーラス MIX<br><small>¥5,000（ハモリ2トラック込み）</small></span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="mainService" value="one" data-price="3000">
+                <span class="radio-label">ワンコーラス MIX<br><small>¥3,000（ハモリ2トラック込み）</small></span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="mainService" value="guide-single" data-price="5000">
+                <span class="radio-label">🎤 ガイドボーカル作成（単体）<br><small>¥5,000</small></span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="mainService" value="consultation" data-price="0">
+                <span class="radio-label">まずは相談<br><small>無料</small></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="deadline">希望納期 <span class="optional">任意</span></label>
+            <select id="deadline">
+              <option value="">選択してください</option>
+              <option value="standard">標準納期（2-3週間）</option>
+              <option value="rush-1week">お急ぎ（1週間）+¥1,000</option>
+              <option value="rush-3days">超特急（3日）要相談</option>
+              <option value="specific">特定日指定</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 録音音源情報 -->
+      <div class="form-card">
+        <div class="form-section">
+          <h3>🎤 録音音源情報 <span class="section-indicator">重要</span></h3>
+          
+          <div class="form-group">
+            <label>録音状況 <span class="required">※必須</span></label>
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" name="recordingStatus" value="recorded" checked>
+                <span class="radio-label">録音済み<br><small>音源データをお送りできます</small></span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="recordingStatus" value="not-recorded">
+                <span class="radio-label">録音前<br><small>これから録音予定です</small></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group" id="audioUrlSection">
+            <label for="audioUrl">録音音源URL <span class="required">※必須（録音済みの場合）</span></label>
+            <input type="url" id="audioUrl" placeholder="例：https://gigafile.nu/〇〇〇、https://drive.google.com/〇〇〇">
+            <div class="help-text">
+              ギガファイル便、Google Drive、Dropbox等のURLをご入力ください<br>
+              ※ファイル形式：WAV、AIFF、MP3等（WAV/AIFF推奨）
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="recordingNotes">録音音源についての追記事項 <span class="optional">任意</span></label>
+            <textarea id="recordingNotes" placeholder="例：2分30秒あたりでノイズが入ってしまった、サビ部分だけ音量が小さい、複数テイク録音済み（Aメロ・サビ別々）、録音時にエアコンの音が少し入っている、iPhone12で録音・距離約30cm、ヘッドホン録音のためリークあり、特定の高音部分で音割れがある、間奏部分で息継ぎのタイミングがずれた"></textarea>
+            <div class="help-text">録音時の問題点、環境、使用機材、気になる箇所など、MIX時に注意してほしい点があればご記入ください</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 参考音源 -->
+      <div class="form-card">
+        <div class="form-section">
+          <h3>🎧 参考音源 <span class="section-indicator">推奨</span></h3>
+          
+          <div class="form-group">
+            <label for="refUrlFull">参考音源URL（全体） <span class="optional">任意</span></label>
+            <input type="url" id="refUrlFull" placeholder="例：https://www.youtube.com/watch?v=abc123（理想の仕上がりに近い楽曲）">
+            <div class="help-text">全体的な仕上がりの参考にしたい楽曲のURL</div>
+          </div>
+
+          <div class="form-group">
+            <label for="refUrlPart">参考音源URL（部分） <span class="optional">任意</span></label>
+            <input type="url" id="refUrlPart" placeholder="例：https://youtu.be/def456?t=45（特定の処理の参考）">
+            <div class="help-text">特定の処理（ハモリ、エフェクトなど）の参考にしたい部分</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MIX詳細設定 -->
+      <div class="form-card">
+        <div class="form-section">
+          <h3>🎛️ MIX詳細設定 <span class="section-indicator">重要</span></h3>
+          
+          <div class="form-group">
+            <label>ピッチ補正 <span class="required">※必須</span></label>
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" name="pitchCorrection" value="complete" checked>
+                <span class="radio-label">完全に揃える<br><small>機械的でも正確に</small></span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="pitchCorrection" value="natural">
+                <span class="radio-label">自然に揃える<br><small>自然さ重視</small></span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="pitchCorrection" value="minimal">
+                <span class="radio-label">ほぼ原音のまま<br><small>最小限の補正</small></span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="pitchCorrection" value="custom">
+                <span class="radio-label">その他<br><small>具体的に指定</small></span>
+              </label>
+            </div>
+            <div class="form-group" id="pitchCustom" style="display: none; margin-top: 10px;">
+              <input type="text" placeholder="具体的なピッチ補正の指示を入力してください">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>タイミング補正 <span class="required">※必須</span></label>
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" name="timingCorrection" value="tight" checked>
+                <span class="radio-label">しっかり揃える<br><small>リズム重視</small></span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="timingCorrection" value="loose">
+                <span class="radio-label">ゆるめに揃える<br><small>人間らしさ重視</small></span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="timingCorrection" value="custom">
+                <span class="radio-label">その他<br><small>具体的に指定</small></span>
+              </label>
+            </div>
+            <div class="form-group" id="timingCustom" style="display: none; margin-top: 10px;">
+              <input type="text" placeholder="具体的なタイミング補正の指示を入力してください">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>ブレス処理 <span class="required">※必須</span></label>
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" name="breathProcessing" value="remove" checked>
+                <span class="radio-label">削除<br><small>クリーンな仕上がり</small></span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="breathProcessing" value="keep">
+                <span class="radio-label">残す<br><small>自然な仕上がり</small></span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="breathProcessing" value="custom">
+                <span class="radio-label">その他<br><small>部分的など</small></span>
+              </label>
+            </div>
+            <div class="form-group" id="breathCustom" style="display: none; margin-top: 10px;">
+              <input type="text" placeholder="具体的なブレス処理の指示を入力してください">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>ロングトーンの処理 <span class="optional">任意</span></label>
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" name="longTone" value="natural" checked>
+                <span class="radio-label">自然な長さ<br><small>歌唱データの長さ重視</small></span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="longTone" value="reference">
+                <span class="radio-label">リファレンスに合わせる<br><small>原曲の長さ重視</small></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ハモリ・エフェクト -->
+      <div class="form-card">
+        <div class="form-section">
+          <h3>🎼 ハモリ・エフェクト <span class="section-indicator">任意</span></h3>
+          
+          <div class="form-group">
+            <label for="harmonyDirection">ハモリの方向性 <span class="optional">任意</span></label>
+            <textarea id="harmonyDirection" placeholder="例：「千本桜」サビ部分のような厚めのハモリ、「残酷な天使のテーゼ」Aメロのような控えめなハモリ、「夜に駆ける」サビの高音ハモリのような感じで、YOASOBI「アイドル」のサビのようなユニゾン風ハモリ
+
+文字での指定例：高めのハモリを多用、低音ハモリでエモい雰囲気、サビだけ厚めのハモリ、3度上と5度上のダブルハモリ、控えめで自然なハモリ"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="effects">エフェクト <span class="optional">任意</span></label>
+            <textarea id="effects" placeholder="例：「砂の惑星」のようなボコーダー風エフェクト、「ロキ」のようなディストーション系エフェクト、「怪物」のようなダークな雰囲気のリバーブ、「香水」のような爽やかなディレイ効果、Ado「うっせぇわ」のようなパンチの効いたコンプ
+
+文字での指定例：リバーブ多めで幻想的に、ディストーション要素を入れて、エコー効果でサビを盛り上げて、ビンテージ感のあるエフェクト、クリアで抜けの良いサウンド"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="specialEffects">特殊演出 <span class="optional">任意</span></label>
+            <textarea id="specialEffects" placeholder="例：「シャルル」間奏部分のようなボーカルチョップ、「ドライフラワー」サビ前のようなビルドアップ、「紅蓮華」アウトロのようなフェードアウト、「炎」特定箇所でのブレイクダウン効果、「白日」のような自然なダイナミクス
+
+文字での指定例：間奏でボーカルチョップ、サビ前でビルドアップ、アウトロでフェードアウト、特定箇所でボコーダー効果、ブレス音を活かした演出"></textarea>
           </div>
         </div>
       </div>
@@ -476,12 +743,12 @@
       <!-- 追加オプション -->
       <div class="form-card">
         <div class="form-section">
-          <h3>🎚️ 追加オプション <span class="optional">任意</span></h3>
+          <h3>🎚️ 追加オプション <span class="section-indicator">任意</span></h3>
           
           <div class="checkbox-group">
             <label class="checkbox-item">
               <input type="checkbox" name="options" value="harmony" data-price="1000">
-              <span>ハモリ追加・生成（1トラック） (+¥1,000)</span>
+              <span>ハモリ追加（3トラック目から） (+¥1,000/トラック)</span>
             </label>
             <label class="checkbox-item">
               <input type="checkbox" name="options" value="encode" data-price="1000">
@@ -501,24 +768,21 @@
             </label>
             <label class="checkbox-item">
               <input type="checkbox" name="options" value="guide-with-mix" data-price="3000">
-              <span>🎤 仮歌作成（MIX同時依頼） (+¥3,000)</span>
+              <span>🎤 ガイドボーカル作成（MIX同時依頼） (+¥3,000)</span>
             </label>
             <label class="checkbox-item">
               <input type="checkbox" name="options" value="guide-pdf" data-price="500">
               <span>📑 ガイド譜 PDF (+¥500)</span>
             </label>
-            <label class="checkbox-item">
-              <input type="checkbox" name="options" value="rush" data-price="1000">
-              <span>⏰ お急ぎ対応（1週間） (+¥1,000)</span>
-            </label>
           </div>
+          <div class="help-text">※基本プランにはハモリ2トラックまで含まれています</div>
         </div>
       </div>
 
       <!-- 割引・調整オプション -->
       <div class="form-card">
         <div class="form-section">
-          <h3>💰 割引・調整オプション <span class="optional">任意</span></h3>
+          <h3>💰 割引・調整オプション <span class="section-indicator">任意</span></h3>
           
           <div class="checkbox-group">
             <label class="checkbox-item">
@@ -527,38 +791,21 @@
             </label>
             <label class="checkbox-item">
               <input type="checkbox" name="discounts" value="repeater" data-price="-500">
-              <span>🎁 リピーター割 (-¥500) <small>初回無料MIXでもOK</small></span>
+              <span>🎁 リピーター割 (-¥500)</span>
             </label>
           </div>
           <div class="help-text">※ピッチ補正なしは"手直し不要"なテイクのみ対象</div>
         </div>
       </div>
 
-      <!-- その他情報 -->
+      <!-- その他要望 -->
       <div class="form-card">
         <div class="form-section">
-          <h3>🔧 その他の情報 <span class="optional">任意</span></h3>
+          <h3>📝 その他要望 <span class="section-indicator">任意</span></h3>
           
           <div class="form-group">
-            <label for="equipment">録音環境</label>
-            <select id="equipment">
-              <option value="">選択してください</option>
-              <option value="smartphone">スマートフォン</option>
-              <option value="headset">ヘッドセット</option>
-              <option value="usb-mic">USBマイク</option>
-              <option value="audio-interface">オーディオインターフェース</option>
-              <option value="unknown">よくわからない</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="requests">MIXのご要望・参考音源など</label>
-            <textarea id="requests" placeholder="例：声を可愛らしく仕上げたい、○○さんの歌ってみたのような感じで、など"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="concerns">不安な点・相談したいこと</label>
-            <textarea id="concerns" placeholder="例：録音に失敗がある、初めてで何もわからない、予算について相談したい、など"></textarea>
+            <label for="additionalRequests">その他のご要望・特記事項</label>
+            <textarea id="additionalRequests" placeholder="例：声の印象を可愛らしく仕上げたい、アニソン系の爽やかな仕上がり希望、録音時のノイズが気になる箇所が○分○秒あたりにあります、初めての依頼で不安なので丁寧にサポートしてください"></textarea>
           </div>
         </div>
       </div>
@@ -637,6 +884,37 @@
     const twitterBtn = document.getElementById('twitterBtn');
     const emailBtn = document.getElementById('emailBtn');
 
+    // カスタム入力フィールドと録音状況の表示制御
+    document.addEventListener('change', function(e) {
+      if (e.target.name === 'pitchCorrection') {
+        document.getElementById('pitchCustom').style.display = 
+          e.target.value === 'custom' ? 'block' : 'none';
+      }
+      if (e.target.name === 'timingCorrection') {
+        document.getElementById('timingCustom').style.display = 
+          e.target.value === 'custom' ? 'block' : 'none';
+      }
+      if (e.target.name === 'breathProcessing') {
+        document.getElementById('breathCustom').style.display = 
+          e.target.value === 'custom' ? 'block' : 'none';
+      }
+      
+      // 録音状況による音源URL欄の表示制御
+      if (e.target.name === 'recordingStatus') {
+        const audioUrlSection = document.getElementById('audioUrlSection');
+        const audioUrlInput = document.getElementById('audioUrl');
+        
+        if (e.target.value === 'recorded') {
+          audioUrlSection.style.display = 'block';
+          audioUrlInput.required = true;
+        } else {
+          audioUrlSection.style.display = 'none';
+          audioUrlInput.required = false;
+          audioUrlInput.value = '';
+        }
+      }
+    });
+
     // 料金計算
     function calculatePrice() {
       let total = 0;
@@ -652,6 +930,13 @@
         }
       }
 
+      // お急ぎ対応
+      const deadline = document.getElementById('deadline').value;
+      if (deadline === 'rush-1week') {
+        total += 1000;
+        breakdown.push('お急ぎ対応（1週間） +¥1,000');
+      }
+
       // 追加オプション
       const options = document.querySelectorAll('input[name="options"]:checked');
       options.forEach(option => {
@@ -663,7 +948,7 @@
           const collabCount = document.getElementById('collabCount').value;
           if (collabCount === '5+') {
             optionText = '👥 コラボ追加 5名以上 (要相談)';
-            price = 0; // 要相談なので0円表示
+            price = 0;
           } else {
             const count = parseInt(collabCount);
             price = count * 2000;
@@ -683,130 +968,250 @@
       const discounts = document.querySelectorAll('input[name="discounts"]:checked');
       discounts.forEach(discount => {
         const price = parseInt(discount.dataset.price);
-        total += price; // マイナス値なので加算
+        total += price;
         breakdown.push(`${discount.parentElement.textContent.trim()}`);
       });
 
-      // 最低金額は0円
       total = Math.max(0, total);
 
       totalPriceEl.textContent = total > 0 ? `¥${total.toLocaleString()}` : '無料相談';
       priceBreakdownEl.textContent = breakdown.length > 0 ? breakdown.join(' + ') : 'まずはお気軽にご相談ください';
 
       // ボタンの有効/無効
+      const clientName = document.getElementById('clientName').value.trim();
       const songTitle = document.getElementById('songTitle').value.trim();
-      generateBtn.disabled = !songTitle && mainService.value !== 'consultation';
+      const mainServiceVal = mainService ? mainService.value : '';
+      const recordingStatus = document.querySelector('input[name="recordingStatus"]:checked')?.value;
+      const audioUrl = document.getElementById('audioUrl').value.trim();
+      
+      // 基本必須項目のチェック
+      let isValid = (clientName && songTitle) || mainServiceVal === 'consultation';
+      
+      // 録音済みの場合は音源URLも必須
+      if (recordingStatus === 'recorded' && !audioUrl && mainServiceVal !== 'consultation') {
+        isValid = false;
+      }
+      
+      generateBtn.disabled = !isValid;
     }
 
     // 文章生成
     function generateDMText() {
+      const clientName = document.getElementById('clientName').value.trim();
+      const clientContact = document.getElementById('clientContact').value.trim();
+      const contactMethod = document.getElementById('contactMethod').value;
       const songTitle = document.getElementById('songTitle').value.trim();
-      const songUrl = document.getElementById('songUrl').value.trim();
+      const artist = document.getElementById('artist').value.trim();
+      const sourceType = document.getElementById('sourceType').value;
+      const bpm = document.getElementById('bpm').value;
+      const songKey = document.getElementById('songKey').value.trim();
+      const vocalistCount = document.getElementById('vocalistCount').value;
       const mainService = document.querySelector('input[name="mainService"]:checked');
-      const options = Array.from(document.querySelectorAll('input[name="options"]:checked'));
-      const equipment = document.getElementById('equipment').value;
-      const requests = document.getElementById('requests').value.trim();
-      const concerns = document.getElementById('concerns').value.trim();
+      const deadline = document.getElementById('deadline').value;
+      const recordingStatus = document.querySelector('input[name="recordingStatus"]:checked').value;
+      const audioUrl = document.getElementById('audioUrl').value.trim();
+      const recordingNotes = document.getElementById('recordingNotes').value.trim();
+      const refUrlFull = document.getElementById('refUrlFull').value.trim();
+      const refUrlPart = document.getElementById('refUrlPart').value.trim();
+      const pitchCorrection = document.querySelector('input[name="pitchCorrection"]:checked').value;
+      const timingCorrection = document.querySelector('input[name="timingCorrection"]:checked').value;
+      const breathProcessing = document.querySelector('input[name="breathProcessing"]:checked').value;
+      const longTone = document.querySelector('input[name="longTone"]:checked').value;
+      const harmonyDirection = document.getElementById('harmonyDirection').value.trim();
+      const effects = document.getElementById('effects').value.trim();
+      const specialEffects = document.getElementById('specialEffects').value.trim();
+      const additionalRequests = document.getElementById('additionalRequests').value.trim();
 
       let text = '';
 
       // 挨拶
       text += 'こんにちは！Ryuzan Mix Salonの件でご連絡いたします☺️\n\n';
 
-      // サービス種別に応じた文章
+      // 依頼者情報
+      text += '【依頼者情報】\n';
+      text += `依頼者名：${clientName || '未入力'}\n`;
+      if (clientContact) text += `連絡先：${clientContact}\n`;
+      if (contactMethod) {
+        const methodMap = {
+          'twitter': 'X（Twitter）DM',
+          'email': 'メール',
+          'discord': 'Discord',
+          'line': 'LINE',
+          'other': 'その他'
+        };
+        text += `希望連絡方法：${methodMap[contactMethod]}\n`;
+      }
+      text += '\n';
+
+      // 楽曲情報
+      text += '【楽曲情報】\n';
+      text += `楽曲タイトル：${songTitle || '未入力'}\n`;
+      if (artist) text += `アーティスト：${artist}\n`;
+      if (sourceType) {
+        const sourceMap = {
+          'original-karaoke': '公式カラオケ音源',
+          'nicokaraoke': 'ニコカラオケ',
+          'youtube-karaoke': 'YouTube カラオケ',
+          'instrumental': 'インストゥルメンタル',
+          'midi': 'MIDI・自作音源',
+          'other': 'その他'
+        };
+        text += `使用音源：${sourceMap[sourceType]}\n`;
+      }
+      if (bpm) text += `BPM：${bpm}\n`;
+      if (songKey) text += `キー：${songKey}\n`;
+      if (vocalistCount) {
+        const countMap = {
+          '1': '1人（ソロ）',
+          '2': '2人（デュエット）',
+          '3': '3人',
+          '4': '4人',
+          '5+': '5人以上'
+        };
+        text += `歌唱人数：${countMap[vocalistCount]}\n`;
+      }
+      text += '\n';
+
+      // 録音音源情報
+      text += '【録音音源情報】\n';
+      const statusMap = {
+        'recorded': '録音済み',
+        'not-recorded': '録音前'
+      };
+      text += `録音状況：${statusMap[recordingStatus]}\n`;
+      if (recordingStatus === 'recorded' && audioUrl) {
+        text += `録音音源URL：${audioUrl}\n`;
+      }
+      if (recordingNotes) {
+        text += `録音についての追記事項：${recordingNotes}\n`;
+      }
+      text += '\n';
+
+      // サービス内容
       if (mainService.value === 'consultation') {
         text += '【ご相談内容】\n';
         text += 'MIXについて相談したいことがあります。\n\n';
-        
-        if (songTitle) {
-          text += `楽曲：${songTitle}\n`;
-        }
-        if (concerns) {
-          text += `相談内容：${concerns}\n`;
-        } else {
-          text += '相談内容：初めてのMIX依頼で、何から始めればよいかわからないため、詳しく教えていただきたいです。\n';
-        }
       } else {
-        text += '【依頼内容】\n';
-        text += `楽曲タイトル：${songTitle}\n`;
-        
-        if (songUrl) {
-          text += `原曲URL：${songUrl}\n`;
-        }
-        
-        // サービス内容
+        text += '【ご希望サービス】\n';
         const serviceMap = {
-          'full': '⭐ フルコーラス MIX',
-          'one': 'ワンコーラス MIX',
-          'guide-single': '🎤 仮歌作成（単体）',
-          'advice': '🎓 歌唱アドバイス'
+          'full': '⭐ フルコーラス MIX（ハモリ2トラック込み）',
+          'one': 'ワンコーラス MIX（ハモリ2トラック込み）',
+          'guide-single': '🎤 ガイドボーカル作成（単体）'
         };
-        text += `ご希望サービス：${serviceMap[mainService.value]}\n`;
+        text += `${serviceMap[mainService.value]}\n`;
+        
+        if (deadline) {
+          const deadlineMap = {
+            'standard': '標準納期（2-3週間）',
+            'rush-1week': 'お急ぎ対応（1週間）',
+            'rush-3days': '超特急（3日）',
+            'specific': '特定日指定'
+          };
+          text += `希望納期：${deadlineMap[deadline]}\n`;
+        }
+        text += '\n';
+
+        // 参考音源
+        if (refUrlFull || refUrlPart) {
+          text += '【参考音源】\n';
+          if (refUrlFull) text += `全体参考：${refUrlFull}\n`;
+          if (refUrlPart) text += `部分参考：${refUrlPart}\n`;
+          text += '\n';
+        }
+
+        // MIX詳細設定
+        text += '【MIX詳細設定】\n';
+        const pitchMap = {
+          'complete': '完全に揃える',
+          'natural': '自然に揃える',
+          'minimal': 'ほぼ原音のまま',
+          'custom': 'その他（具体的に）'
+        };
+        text += `ピッチ補正：${pitchMap[pitchCorrection]}\n`;
+        
+        const timingMap = {
+          'tight': 'しっかり揃える',
+          'loose': 'ゆるめに揃える',
+          'custom': 'その他'
+        };
+        text += `タイミング補正：${timingMap[timingCorrection]}\n`;
+        
+        const breathMap = {
+          'remove': '削除',
+          'keep': '残す',
+          'custom': 'その他'
+        };
+        text += `ブレス処理：${breathMap[breathProcessing]}\n`;
+        
+        const longToneMap = {
+          'natural': '自然な長さ',
+          'reference': 'リファレンスに合わせる'
+        };
+        text += `ロングトーン処理：${longToneMap[longTone]}\n`;
+        text += '\n';
+
+        // ハモリ・エフェクト
+        if (harmonyDirection || effects || specialEffects) {
+          text += '【ハモリ・エフェクト】\n';
+          if (harmonyDirection) text += `ハモリの方向性：${harmonyDirection}\n`;
+          if (effects) text += `エフェクト：${effects}\n`;
+          if (specialEffects) text += `特殊演出：${specialEffects}\n`;
+          text += '\n';
+        }
 
         // 追加オプション
+        const options = Array.from(document.querySelectorAll('input[name="options"]:checked'));
         if (options.length > 0) {
-          text += '追加オプション：';
-          const optionTexts = [];
-          
+          text += '【追加オプション】\n';
           options.forEach(opt => {
             const optionMap = {
-              'harmony': 'ハモリ追加・生成',
+              'harmony': 'ハモリ追加（3トラック目から）',
               'encode': '🎬 動画エンコード',
               'collab': '👥 コラボ追加',
-              'guide-with-mix': '🎤 仮歌作成（MIX同時依頼）',
-              'guide-pdf': '📑 ガイド譜 PDF',
-              'rush': '⏰ お急ぎ対応'
+              'guide-with-mix': '🎤 ガイドボーカル作成（MIX同時依頼）',
+              'guide-pdf': '📑 ガイド譜 PDF'
             };
             
             if (opt.value === 'collab') {
               const collabCount = document.getElementById('collabCount').value;
-              optionTexts.push(`👥 コラボ追加（${collabCount}名）`);
+              text += `👥 コラボ追加（${collabCount}名）\n`;
             } else {
-              optionTexts.push(optionMap[opt.value]);
+              text += `${optionMap[opt.value]}\n`;
             }
           });
-          
-          text += optionTexts.join('、') + '\n';
+          text += '\n';
         }
 
         // 割引・調整オプション
         const discounts = Array.from(document.querySelectorAll('input[name="discounts"]:checked'));
         if (discounts.length > 0) {
-          text += '割引・調整：';
+          text += '【割引・調整】\n';
           const discountMap = {
             'no-pitch': '🔈 ピッチ補正なし',
             'repeater': '🎁 リピーター割'
           };
-          text += discounts.map(disc => discountMap[disc.value]).join('、') + '\n';
+          discounts.forEach(disc => {
+            text += `${discountMap[disc.value]}\n`;
+          });
+          text += '\n';
         }
 
-        if (equipment) {
-          const equipmentMap = {
-            'smartphone': 'スマートフォン',
-            'headset': 'ヘッドセット',
-            'usb-mic': 'USBマイク',
-            'audio-interface': 'オーディオインターフェース',
-            'unknown': 'よくわからない'
-          };
-          text += `録音環境：${equipmentMap[equipment]}\n`;
-        }
-
-        if (requests) {
-          text += `MIXのご要望：${requests}\n`;
-        }
-
-        if (concerns) {
-          text += `不安な点：${concerns}\n`;
+        // その他要望
+        if (additionalRequests) {
+          text += '【その他要望】\n';
+          text += `${additionalRequests}\n\n`;
         }
       }
-
-      text += '\n';
 
       // 締めの文章
       if (mainService.value === 'consultation') {
         text += 'お時間のあるときに、詳しく教えていただけると嬉しいです。\n';
       } else {
-        text += '録音データのご提出方法や詳細については、お返事をいただいてからご案内いただければと思います。\n';
+        if (recordingStatus === 'not-recorded') {
+          text += '録音完了後に音源データをお送りいたします。録音前のご相談も可能ですので、お気軽にお声がけください。\n';
+        } else {
+          text += '上記URLから音源データをご確認いただけます。ご質問やご要望があればお気軽にお声がけください。\n';
+        }
       }
       
       text += 'よろしくお願いいたします🌸';
@@ -826,10 +1231,8 @@
       if (e.target.name === 'mainService') {
         const serviceValue = e.target.value;
         
-        // 各オプションの要素を取得
         const harmonyCheckbox = document.querySelector('input[value="harmony"]');
         const collabCheckbox = document.querySelector('input[value="collab"]');
-        const noPitchCheckbox = document.querySelector('input[value="no-pitch"]');
         const guideWithMixCheckbox = document.querySelector('input[value="guide-with-mix"]');
         const allOptions = document.querySelectorAll('input[name="options"]');
         const allDiscounts = document.querySelectorAll('input[name="discounts"]');
@@ -847,7 +1250,7 @@
         // サービス別制御
         switch(serviceValue) {
           case 'consultation':
-            // まずは相談：追加オプション・割引調整を全て無効化
+            // まずは相談：全て無効化
             allOptions.forEach(option => {
               option.disabled = true;
               option.checked = false;
@@ -861,7 +1264,7 @@
             break;
 
           case 'guide-single':
-            // 仮歌作成（単体）：ハモリ追加・コラボ追加・仮歌作成（MIX同時依頼）を無効化
+            // ガイドボーカル作成（単体）：ハモリ追加・コラボ追加・ガイドボーカル作成（MIX同時依頼）を無効化
             [harmonyCheckbox, collabCheckbox, guideWithMixCheckbox].forEach(checkbox => {
               if (checkbox) {
                 checkbox.disabled = true;
@@ -869,21 +1272,6 @@
                 checkbox.closest('.checkbox-item').style.opacity = '0.5';
               }
             });
-            break;
-
-          case 'advice':
-            // 歌唱アドバイス：ハモリ追加・コラボ追加を無効化
-            [harmonyCheckbox, collabCheckbox].forEach(checkbox => {
-              if (checkbox) {
-                checkbox.disabled = true;
-                checkbox.checked = false;
-                checkbox.closest('.checkbox-item').style.opacity = '0.5';
-              }
-            });
-            break;
-
-          default:
-            // フルコーラス・ワンコーラス：制御なし
             break;
         }
         
@@ -930,13 +1318,23 @@
       }
     });
 
-    // 初期計算
+    // 初期計算と表示制御
     calculatePrice();
+    
+    // 初期状態での録音状況表示制御
+    const initialRecordingStatus = document.querySelector('input[name="recordingStatus"]:checked').value;
+    const audioUrlSection = document.getElementById('audioUrlSection');
+    const audioUrlInput = document.getElementById('audioUrl');
+    
+    if (initialRecordingStatus === 'not-recorded') {
+      audioUrlSection.style.display = 'none';
+      audioUrlInput.required = false;
+    }
 
     // ページ読み込み時のアナリティクス（必要に応じて）
     if (typeof gtag !== 'undefined') {
       gtag('event', 'page_view', {
-        'page_title': '簡単依頼フォーム',
+        'page_title': '詳細依頼フォーム',
         'page_location': window.location.href
       });
     }
@@ -947,8 +1345,8 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "簡単依頼フォーム - Ryuzan Mix Salon",
-    "description": "選ぶだけで依頼文章を自動生成！初心者も安心の歌ってみたMIX依頼フォーム。",
+    "name": "詳細依頼フォーム - Ryuzan Mix Salon",
+    "description": "詳細な設定で依頼文章を自動生成！プロ仕様の歌ってみたMIX依頼フォーム。",
     "url": "https://ryuzanmix.github.io/request-form.html",
     "isPartOf": {
       "@type": "WebSite",
