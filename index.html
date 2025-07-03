@@ -1,9 +1,4 @@
-    <div class="faq-item">
-      <details>
-        <summary>ガイドボーカル作成とは何ですか？</summary>
-        <p>MIDIデータや楽譜から、練習用・参考用のガイドボーカルを制作するサービスです。シンセボイスまたはセルフ歌唱で対応し、録音前の練習やメロディ確認にご活用いただけます。</p>
-      </details>
-    </div><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="utf-8"/>
@@ -70,7 +65,7 @@
 
 <body>
   <!-- ナビゲーション -->
-  <nav class="nav" id="nav">
+  <nav class="nav" id="nav" aria-label="メインナビゲーション">
     <div class="nav-inner">
       <a href="#home">ホーム</a>
       <a href="#playlist">実績</a>
@@ -95,18 +90,19 @@
           そんな方の"はじめの一歩"を、丁寧にサポートします。
         </p>
         <div class="cta-group">
-          <a href="request-form.html" class="cta accent">
-            <i class="fas fa-magic"></i>
+          <a href="request-form.html" class="cta accent" aria-describedby="cta-help">
+            <i class="fas fa-magic" aria-hidden="true"></i>
             詳細依頼フォーム
           </a>
           <a href="#contact" class="cta">
-            <i class="fas fa-envelope"></i>
+            <i class="fas fa-envelope" aria-hidden="true"></i>
             ご相談・ご依頼はこちら
           </a>
           <a href="#pricing" class="cta-secondary">
             ▶︎ 詳しい料金・進行の流れはこちら
           </a>
         </div>
+        <div id="cta-help" class="sr-only">プロ仕様の詳細設定で依頼文章を自動生成</div>
       </div>
 
       <div class="hero-illust">
@@ -115,15 +111,17 @@
           <p class="playlist-subtitle">仕上がりをYouTubeで公開中！</p>
           
           <a href="https://www.youtube.com/playlist?list=PL2_Tymt_5rAqeauBL94ZcWzlmo4m7FrV9" 
-             class="playlist-button" target="_blank" rel="noopener">
+             class="playlist-button" target="_blank" rel="noopener noreferrer"
+             aria-describedby="playlist-help">
             🎧 YouTube - MIXサンプルプレイリスト
           </a>
+          <div id="playlist-help" class="sr-only">新しいタブでYouTubeプレイリストを開きます</div>
 
           <div class="playlist-wrapper">
             <iframe 
-              src="https://www.youtube.com/embed/videoseries?list=PL2_Tymt_5rAqeauBL94ZcWzlmo4m7FrV9&rel=0" 
-              title="YouTube video playlist" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              src="https://www.youtube.com/embed/videoseries?list=PL2_Tymt_5rAqeauBL94ZcWzlmo4m7FrV9&rel=0&autoplay=0" 
+              title="Ryuzan Mix Salon - MIXサンプルプレイリスト" 
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowfullscreen 
               loading="lazy">
             </iframe>
@@ -138,494 +136,497 @@
     </div>
   </header>
 
-  <!-- 統計セクション -->
-  <section>
-    <div class="stats">
-      <div class="stat-item">
-        <span class="stat-number">24時間</span>
-        <div class="stat-label">以内のDM返信</div>
+  <div class="container">
+    <!-- 統計セクション -->
+    <section class="section" aria-labelledby="stats-title">
+      <h2 id="stats-title" class="sr-only">サービス統計</h2>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number" aria-label="24時間">24時間</span>
+          <div class="stat-label">以内のDM返信</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" aria-label="2から3週間">2-3週間</span>
+          <div class="stat-label">標準納期</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" aria-label="100パーセント">100%</span>
+          <div class="stat-label">満足度評価</div>
+        </div>
       </div>
-      <div class="stat-item">
-        <span class="stat-number">2-3週間</span>
-        <div class="stat-label">標準納期</div>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">100%</span>
-        <div class="stat-label">満足度評価</div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About セクション -->
-  <section id="about">
-    <div class="section-header">
-      <h2 class="section-title">サロンについて</h2>
-      <p class="section-subtitle">やさしさで"声"を整える、歌声トリートメント専門のMIX師として、あなたの歌声の魅力を最大限に引き出します。</p>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-card">
-        <h3>
-          <i class="fas fa-heart" style="color: #ff6b9d;"></i>
-          竜山つむぎについて
-        </h3>
-        <p>
-          やさしさで"声"を整える、歌声トリートメント専門のMIX師です。<br>
-          「録音ミスがある」「リズムやピッチに自信がない」そんな不安も、まるごと大丈夫。<br>
-          自然体のあなたの歌を、そっと支えるように仕上げます😊<br><br>
-          <strong>専門技術:</strong> Cubase Pro, Melodyne, iZotope RX, Neutron, Ozone<br>
-          <strong>対応ジャンル:</strong> ボカロ、J-POP、アニソン、洋楽カバー
-        </p>
+    <!-- About セクション -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="section-header">
+        <h2 id="about-title" class="section-title">サロンについて</h2>
+        <p class="section-subtitle">やさしさで"声"を整える、歌声トリートメント専門のMIX師として、あなたの歌声の魅力を最大限に引き出します。</p>
       </div>
 
-      <div class="about-card">
-        <h3>
-          <i class="fas fa-star" style="color: #ffd700;"></i>
-          活動実績と対応範囲
-        </h3>
-        <p>
-          <strong>歌ってみたMIX:</strong> ボカロ・J-POP中心<br>
-          <strong>SNSアカウント:</strong> <a href="https://x.com/ryuzanmix" target="_blank">@ryuzanmix</a><br>
-          <strong>対応レベル:</strong> 初心者〜上級者・オーディション提出音源まで<br>
-          <strong>特殊対応:</strong> ライブ音源補正、デュエット・コラボ、ガイドボーカル制作<br>
-          <strong>納期実績:</strong> 平均2週間、最短1週間対応可能
-        </p>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>
+            <i class="fas fa-heart" style="color: #ff6b9d;" aria-hidden="true"></i>
+            竜山つむぎについて
+          </h3>
+          <p>
+            やさしさで"声"を整える、歌声トリートメント専門のMIX師です。<br>
+            「録音ミスがある」「リズムやピッチに自信がない」そんな不安も、まるごと大丈夫。<br>
+            自然体のあなたの歌を、そっと支えるように仕上げます😊<br><br>
+            <strong>専門技術:</strong> Cubase Pro, Melodyne, iZotope RX, Neutron, Ozone<br>
+            <strong>対応ジャンル:</strong> ボカロ、J-POP、アニソン、洋楽カバー
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h3>
+            <i class="fas fa-star" style="color: #ffd700;" aria-hidden="true"></i>
+            活動実績と対応範囲
+          </h3>
+          <p>
+            <strong>歌ってみたMIX:</strong> ボカロ・J-POP中心<br>
+            <strong>SNSアカウント:</strong> <a href="https://x.com/ryuzanmix" target="_blank" rel="noopener noreferrer">@ryuzanmix</a><br>
+            <strong>対応レベル:</strong> 初心者〜上級者・オーディション提出音源まで<br>
+            <strong>特殊対応:</strong> ライブ音源補正、デュエット・コラボ、ガイドボーカル制作<br>
+            <strong>納期実績:</strong> 平均2週間、最短1週間対応可能
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 選ばれる理由 -->
-  <section id="reasons">
-    <div class="section-header">
-      <h2 class="section-title">選ばれる 5 つの理由</h2>
-      <p class="section-subtitle">初心者から上級者まで、安心してご依頼いただける理由があります</p>
-    </div>
-
-    <div class="cards">
-      <article class="card">
-        <h3>
-          <i class="fas fa-tags" style="color: #2e8b57;"></i>
-          明確で安心の料金体系
-        </h3>
-        <p>税込み固定価格で予算オーバーの心配なし。追加オプションも事前見積もりで透明性を重視。業界最安水準でプロ品質をお届けします。</p>
-      </article>
-
-      <article class="card">
-        <h3>
-          <i class="fas fa-comments" style="color: #c39bd3;"></i>
-          やさしいコミュニケーション
-        </h3>
-        <p>DMは<strong>24時間以内</strong>に返信。敬語＋絵文字で初心者さんにも安心感を。専門用語を使わず、分かりやすい説明を心がけています。</p>
-      </article>
-
-      <article class="card">
-        <h3>
-          <i class="fas fa-music" style="color: #3498db;"></i>
-          豊富な実績とサンプル
-        </h3>
-        <p>サンプルをプレイリストで公開。仕上がりを耳で確認できるから安心。様々なジャンル・声質に対応した実績をご覧いただけます。</p>
-      </article>
-
-      <article class="card">
-        <h3>
-          <i class="fas fa-clock" style="color: #34495e;"></i>
-          明確な納期と修正対応
-        </h3>
-        <p>通常納期2〜3週間、お急ぎ対応も可能。無料修正2回付き。進捗はスクリーンショット付きで共有し、安心してお待ちいただけます。</p>
-      </article>
-
-      <article class="card">
-        <h3>
-          <i class="fas fa-gem" style="color: #8e44ad;"></i>
-          プロ仕様の高品質MIX
-        </h3>
-        <p>有料プラグイン多数使用でスタジオクオリティを実現。ピッチ補正からマスタリングまで、お手頃価格で艶やかに仕上げます。</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- お客様の声 -->
-  <section id="reviews">
-    <div class="section-header">
-      <h2 class="section-title">💬 お客様の声</h2>
-      <p class="section-subtitle">実際にご依頼いただいた方々からの温かいお言葉</p>
-    </div>
-
-    <div class="cards">
-      <article class="card">
-        <h3>「パーフェクトです！」</h3>
-        <p>対応やクオリティ全てにおいて完璧でした！初めてのMIX依頼で不安でしたが、丁寧な説明と素早い対応で安心してお任せできました。</p>
-        <small style="color: var(--text-muted); font-style: italic;">- 初心者Vtuberさま</small>
-      </article>
-
-      <article class="card">
-        <h3>「希望通りの仕上がり」</h3>
-        <p>何度も丁寧に修正していただき、安心して依頼できました！細かい要望も快く聞いてくださり、想像以上の仕上がりに感動しています。</p>
-        <small style="color: var(--text-muted); font-style: italic;">- 歌い手活動2年目さま</small>
-      </article>
-
-      <article class="card">
-        <h3>「MIX初心者でも安心」</h3>
-        <p>録音や動画のことも教えていただき、初めてでも迷わず依頼できました。専門知識がなくても分かりやすく説明してくださいます。</p>
-        <small style="color: var(--text-muted); font-style: italic;">- 配信者さま</small>
-      </article>
-    </div>
-  </section>
-
-  <!-- 料金セクション -->
-  <section id="pricing">
-    <div class="section-header">
-      <h2 class="section-title">🛠 料金プラン</h2>
-      <p class="section-subtitle">明確な料金体系で、予算に合わせてお選びいただけます</p>
-    </div>
-
-    <div class="pricing-container">
-      <div class="pricing-header">
-        <h3>Ryuzan Mix Salon 料金表</h3>
-        <p>全て税込価格・追加料金なしの安心価格</p>
+    <!-- 選ばれる理由 -->
+    <section class="section" id="reasons" aria-labelledby="reasons-title">
+      <div class="section-header">
+        <h2 id="reasons-title" class="section-title">選ばれる 5 つの理由</h2>
+        <p class="section-subtitle">初心者から上級者まで、安心してご依頼いただける理由があります</p>
       </div>
 
-      <div class="pricing-content">
-        <!-- メインプラン -->
-        <div class="price-section">
-          <h4 class="price-section-title">🎵 メインプラン</h4>
-          <div class="price-grid">
-            <div class="price-item featured">
-              <div class="price-name">⭐ フルコーラス MIX</div>
-              <div class="price-description">ノイズ処理／ピッチ&リズム補正／マスタリング／ハモリ2トラックまで込み</div>
-              <div class="price-amount">¥5,000</div>
-              <div class="price-note">初心者の方におすすめ◎</div>
+      <div class="cards">
+        <article class="card">
+          <h3>
+            <i class="fas fa-tags" style="color: #2e8b57;" aria-hidden="true"></i>
+            明確で安心の料金体系
+          </h3>
+          <p>税込み固定価格で予算オーバーの心配なし。追加オプションも事前見積もりで透明性を重視。業界最安水準でプロ品質をお届けします。</p>
+        </article>
+
+        <article class="card">
+          <h3>
+            <i class="fas fa-comments" style="color: #c39bd3;" aria-hidden="true"></i>
+            やさしいコミュニケーション
+          </h3>
+          <p>DMは<strong>24時間以内</strong>に返信。敬語＋絵文字で初心者さんにも安心感を。専門用語を使わず、分かりやすい説明を心がけています。</p>
+        </article>
+
+        <article class="card">
+          <h3>
+            <i class="fas fa-music" style="color: #3498db;" aria-hidden="true"></i>
+            豊富な実績とサンプル
+          </h3>
+          <p>サンプルをプレイリストで公開。仕上がりを耳で確認できるから安心。様々なジャンル・声質に対応した実績をご覧いただけます。</p>
+        </article>
+
+        <article class="card">
+          <h3>
+            <i class="fas fa-clock" style="color: #34495e;" aria-hidden="true"></i>
+            明確な納期と修正対応
+          </h3>
+          <p>通常納期2〜3週間、お急ぎ対応も可能。無料修正2回付き。進捗はスクリーンショット付きで共有し、安心してお待ちいただけます。</p>
+        </article>
+
+        <article class="card">
+          <h3>
+            <i class="fas fa-gem" style="color: #8e44ad;" aria-hidden="true"></i>
+            プロ仕様の高品質MIX
+          </h3>
+          <p>有料プラグイン多数使用でスタジオクオリティを実現。ピッチ補正からマスタリングまで、お手頃価格で艶やかに仕上げます。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- お客様の声 -->
+    <section class="section" id="reviews" aria-labelledby="reviews-title">
+      <div class="section-header">
+        <h2 id="reviews-title" class="section-title">💬 お客様の声</h2>
+        <p class="section-subtitle">実際にご依頼いただいた方々からの温かいお言葉</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>「パーフェクトです！」</h3>
+          <p>対応やクオリティ全てにおいて完璧でした！初めてのMIX依頼で不安でしたが、丁寧な説明と素早い対応で安心してお任せできました。</p>
+          <small style="color: var(--label-secondary); font-style: italic;">- 初心者Vtuberさま</small>
+        </article>
+
+        <article class="card">
+          <h3>「希望通りの仕上がり」</h3>
+          <p>何度も丁寧に修正していただき、安心して依頼できました！細かい要望も快く聞いてくださり、想像以上の仕上がりに感動しています。</p>
+          <small style="color: var(--label-secondary); font-style: italic;">- 歌い手活動2年目さま</small>
+        </article>
+
+        <article class="card">
+          <h3>「MIX初心者でも安心」</h3>
+          <p>録音や動画のことも教えていただき、初めてでも迷わず依頼できました。専門知識がなくても分かりやすく説明してくださいます。</p>
+          <small style="color: var(--label-secondary); font-style: italic;">- 配信者さま</small>
+        </article>
+      </div>
+    </section>
+
+    <!-- 料金セクション -->
+    <section class="section" id="pricing" aria-labelledby="pricing-title">
+      <div class="section-header">
+        <h2 id="pricing-title" class="section-title">🛠 料金プラン</h2>
+        <p class="section-subtitle">明確な料金体系で、予算に合わせてお選びいただけます</p>
+      </div>
+
+      <div class="pricing-container">
+        <div class="pricing-header">
+          <h3>Ryuzan Mix Salon 料金表</h3>
+          <p>全て税込価格・追加料金なしの安心価格</p>
+        </div>
+
+        <div class="pricing-content">
+          <!-- メインプラン -->
+          <div class="price-section">
+            <h4 class="price-section-title">🎵 メインプラン</h4>
+            <div class="price-grid">
+              <div class="price-item featured">
+                <div class="price-name">⭐ フルコーラス MIX</div>
+                <div class="price-description">ノイズ処理／ピッチ&リズム補正／マスタリング／ハモリ2トラックまで込み</div>
+                <div class="price-amount">¥5,000</div>
+                <div class="price-note">初心者の方におすすめ◎</div>
+              </div>
+
+              <div class="price-item">
+                <div class="price-name">ワンコーラス MIX</div>
+                <div class="price-description">1番のみをMIX（ハモリ2トラックまで込み・お試し用）</div>
+                <div class="price-amount">¥3,000</div>
+                <div class="price-note">まずは気軽にクオリティ確認</div>
+              </div>
+
+              <div class="price-item">
+                <div class="price-name">🎤 ガイドボーカル作成（単体）</div>
+                <div class="price-description">MIDIからガイドボーカルを制作（シンセ or セルフ歌唱）</div>
+                <div class="price-amount">¥5,000</div>
+                <div class="price-note">デモ・練習用に便利</div>
+              </div>
             </div>
+          </div>
 
-            <div class="price-item">
-              <div class="price-name">ワンコーラス MIX</div>
-              <div class="price-description">1番のみをMIX（ハモリ2トラックまで込み・お試し用）</div>
-              <div class="price-amount">¥3,000</div>
-              <div class="price-note">まずは気軽にクオリティ確認</div>
+          <!-- 追加オプション -->
+          <div class="price-section">
+            <h4 class="price-section-title">🎚️ 追加オプション</h4>
+            <div class="price-grid">
+              <div class="price-item">
+                <div class="price-name">ハモリ追加（3トラック目から）</div>
+                <div class="price-description">3トラック目からの追加ハモリ（1トラックごと）</div>
+                <div class="price-amount">+¥1,000</div>
+                <div class="price-note">2トラックまでは基本料金に含む</div>
+              </div>
+
+              <div class="price-item">
+                <div class="price-name">🎬 動画エンコード</div>
+                <div class="price-description">YouTube／X向けに高画質エンコード（音圧調整込み）</div>
+                <div class="price-amount">+¥1,000</div>
+                <div class="price-note">尺・形式はご相談可</div>
+              </div>
+
+              <div class="price-item">
+                <div class="price-name">👥 コラボ追加（1名）</div>
+                <div class="price-description">デュエット・ユニゾンなど追加ボーカル1名まで対応</div>
+                <div class="price-amount">+¥2,000</div>
+                <div class="price-note">2名以上は別途お見積もり</div>
+              </div>
+
+              <div class="price-item">
+                <div class="price-name">🎤 ガイドボーカル作成（MIX同時依頼）</div>
+                <div class="price-description">フル or ワンコーラスMIXと同時ご依頼でガイドボーカル制作</div>
+                <div class="price-amount">+¥3,000</div>
+                <div class="price-note">セット割でお得</div>
+              </div>
             </div>
+          </div>
 
-            <div class="price-item">
-              <div class="price-name">🎤 ガイドボーカル作成（単体）</div>
-              <div class="price-description">MIDIからガイドボーカルを制作（シンセ or セルフ歌唱）</div>
-              <div class="price-amount">¥5,000</div>
-              <div class="price-note">デモ・練習用に便利</div>
+          <!-- 割引・調整 -->
+          <div class="price-section">
+            <h4 class="price-section-title">💰 割引・調整オプション</h4>
+            <div class="price-grid">
+              <div class="price-item">
+                <div class="price-name">🔈 ピッチ補正なし</div>
+                <div class="price-description">ピッチ補正を行わない自然仕上げ</div>
+                <div class="price-amount">-¥1,000</div>
+                <div class="price-note">"手直し不要"なテイク限定</div>
+              </div>
+
+              <div class="price-item">
+                <div class="price-name">🎁 リピーター割</div>
+                <div class="price-description">2回目以降のご依頼時に適用</div>
+                <div class="price-amount">-¥500</div>
+                <div class="price-note">感謝のリピート特典✨</div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- 追加オプション -->
-        <div class="price-section">
-          <h4 class="price-section-title">🎚️ 追加オプション</h4>
-          <div class="price-grid">
-            <div class="price-item">
-              <div class="price-name">ハモリ追加（3トラック目から）</div>
-              <div class="price-description">3トラック目からの追加ハモリ（1トラックごと）</div>
-              <div class="price-amount">+¥1,000</div>
-              <div class="price-note">2トラックまでは基本料金に含む</div>
-            </div>
-
-            <div class="price-item">
-              <div class="price-name">🎬 動画エンコード</div>
-              <div class="price-description">YouTube／X向けに高画質エンコード（音圧調整込み）</div>
-              <div class="price-amount">+¥1,000</div>
-              <div class="price-note">尺・形式はご相談可</div>
-            </div>
-
-            <div class="price-item">
-              <div class="price-name">👥 コラボ追加（1名）</div>
-              <div class="price-description">デュエット・ユニゾンなど追加ボーカル1名まで対応</div>
-              <div class="price-amount">+¥2,000</div>
-              <div class="price-note">2名以上は別途お見積もり</div>
-            </div>
-
-            <div class="price-item">
-              <div class="price-name">🎤 ガイドボーカル作成（MIX同時依頼）</div>
-              <div class="price-description">フル or ワンコーラスMIXと同時ご依頼でガイドボーカル制作</div>
-              <div class="price-amount">+¥3,000</div>
-              <div class="price-note">セット割でお得</div>
-            </div>
-
-            <div class="price-item">
-              <div class="price-name">📑 ガイド譜 PDF</div>
-              <div class="price-description">視覚的にわかりやすいメロディ譜をPDFで提供</div>
-              <div class="price-amount">+¥500</div>
-              <div class="price-note">楽譜が苦手でも安心♪</div>
-            </div>
-          </div>
+        <div class="pricing-note">
+          <strong>💡 ココナラ・SKIMA経由の料金について</strong><br>
+          サービス手数料が加算されるため、表示価格が異なります。X（DM）からのご依頼では、上記の通常価格でご案内しています。
         </div>
+      </div>
 
-        <!-- 割引・調整 -->
-        <div class="price-section">
-          <h4 class="price-section-title">💰 割引・調整オプション</h4>
-          <div class="price-grid">
-            <div class="price-item">
-              <div class="price-name">🔈 ピッチ補正なし</div>
-              <div class="price-description">ピッチ補正を行わない自然仕上げ</div>
-              <div class="price-amount">-¥1,000</div>
-              <div class="price-note">"手直し不要"なテイク限定</div>
-            </div>
-
-            <div class="price-item">
-              <div class="price-name">🎁 リピーター割</div>
-              <div class="price-description">2回目以降のご依頼時に適用</div>
-              <div class="price-amount">-¥500</div>
-              <div class="price-note">感謝のリピート特典✨</div>
-            </div>
+      <!-- よくあるご依頼例 -->
+      <div class="card" style="margin: 30px 0;">
+        <h3>💬 よくあるご依頼例</h3>
+        <div style="display: grid; gap: 15px; margin-top: 15px;">
+          <div style="padding: 15px; background: var(--system-background-secondary); border-radius: 8px;">
+            <strong>初心者スタンダード:</strong> フルコーラス MIX (¥5,000) + 動画エンコード (+¥1,000) = <span style="color: var(--purple-primary); font-weight: bold;">¥6,000</span>
+          </div>
+          <div style="padding: 15px; background: var(--system-background-secondary); border-radius: 8px;">
+            <strong>お試しプラン:</strong> ワンコーラス MIX (¥3,000) + ピッチ補正なし (-¥1,000) = <span style="color: var(--purple-primary); font-weight: bold;">¥2,000</span>
+          </div>
+          <div style="padding: 15px; background: var(--system-background-secondary); border-radius: 8px;">
+            <strong>コラボ対応:</strong> フルコーラス MIX (¥5,000) + コラボ追加 (+¥2,000) + エンコード (+¥1,000) = <span style="color: var(--purple-primary); font-weight: bold;">¥8,000</span>
+          </div>
+          <div style="padding: 15px; background: var(--system-background-secondary); border-radius: 8px;">
+            <strong>ハモリ多用プラン:</strong> フルコーラス MIX (¥5,000) + ハモリ追加 3-4トラック目 (+¥2,000) = <span style="color: var(--purple-primary); font-weight: bold;">¥7,000</span>
           </div>
         </div>
       </div>
 
-      <div class="pricing-note">
-        <strong>💡 ココナラ・SKIMA経由の料金について</strong><br>
-        サービス手数料が加算されるため、表示価格が異なります。X（DM）からのご依頼では、上記の通常価格でご案内しています。
+      <!-- 詳細依頼フォーム案内 -->
+      <div class="card" style="background: linear-gradient(135deg, var(--accent-pink), #ff8fb3); color: white; border: none; margin: 30px 0;">
+        <h3 style="color: white; margin-bottom: 15px;">
+          <i class="fas fa-magic" aria-hidden="true"></i>
+          プロ仕様の詳細設定で依頼したい方へ
+        </h3>
+        <p style="color: white; margin-bottom: 20px;">
+          「細かい設定まで指定したい」「理想の仕上がりを伝えたい」そんな方には、詳細依頼フォームがおすすめ！<br>
+          プロ仕様の詳細設定で、DM用の文章を自動生成します。
+        </p>
+        <a href="request-form.html" style="display: inline-flex; align-items: center; gap: 8px; background: white; color: var(--accent-pink); padding: 12px 24px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
+          <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          詳細依頼フォームを使う
+        </a>
       </div>
-    </div>
+    </section>
 
-    <!-- よくあるご依頼例 -->
-    <div class="card" style="margin: 30px 0;">
-      <h3>💬 よくあるご依頼例</h3>
-      <div style="display: grid; gap: 15px; margin-top: 15px;">
-        <div style="padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
-          <strong>初心者スタンダード:</strong> フルコーラス MIX (¥5,000) + 動画エンコード (+¥1,000) = <span style="color: var(--primary); font-weight: bold;">¥6,000</span>
+    <!-- ご依頼の流れ -->
+    <section class="section" id="workflow" aria-labelledby="workflow-title">
+      <div class="section-header">
+        <h2 id="workflow-title" class="section-title">📩 ご依頼の流れ</h2>
+        <p class="section-subtitle">初めての方でも安心してご依頼いただけるよう、シンプルで分かりやすい流れです</p>
+      </div>
+
+      <div class="workflow">
+        <div class="workflow-step">
+          <div class="workflow-step-number" aria-label="ステップ1">1</div>
+          <div class="workflow-step-content">
+            <h3>お問い合わせ・ご相談</h3>
+            <p>
+              下記のいずれかの方法でお気軽にご連絡ください。<br>
+              • <strong><a href="request-form.html" style="color: var(--purple-primary);">詳細依頼フォーム</a></strong> - 詳細設定で文章自動生成<br>
+              • <a href="https://x.com/ryuzanmix" target="_blank" rel="noopener noreferrer" style="color: var(--purple-primary);">X（Twitter）のDM</a> - 最もお得で迅速<br>
+              • <a href="mailto:ryuzan.mix@gmail.com?subject=MIX依頼のご相談&body=こんにちは、竜山つむぎさんへMIXの件でご連絡です。" style="color: var(--purple-primary);">メール</a> - 詳細な相談に最適<br>
+              • <a href="https://coconala.com/services/2323053" target="_blank" rel="noopener noreferrer" style="color: var(--purple-primary);">ココナラ</a>・<a href="https://skima.jp/item/detail?item_id=239311" target="_blank" rel="noopener noreferrer" style="color: var(--purple-primary);">SKIMA</a> - 決済も含めて安心<br>
+              「まずは相談だけ」も大歓迎です！
+            </p>
+          </div>
         </div>
-        <div style="padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
-          <strong>お試しプラン:</strong> ワンコーラス MIX (¥3,000) + ピッチ補正なし (-¥1,000) = <span style="color: var(--primary); font-weight: bold;">¥2,000</span>
+
+        <div class="workflow-step">
+          <div class="workflow-step-number" aria-label="ステップ2">2</div>
+          <div class="workflow-step-content">
+            <h3>お見積もり・詳細確認</h3>
+            <p>
+              ご希望内容をお聞きし、詳細なお見積もりをお送りします。<br>
+              • 楽曲情報（タイトル、キー、BPMなど）<br>
+              • 使用機材・録音環境<br>
+              • 希望する仕上がりイメージ<br>
+              不明な点は丁寧にご説明いたします。
+            </p>
+          </div>
         </div>
-        <div style="padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
-          <strong>コラボ対応:</strong> フルコーラス MIX (¥5,000) + コラボ追加 (+¥2,000) + エンコード (+¥1,000) = <span style="color: var(--primary); font-weight: bold;">¥8,000</span>
+
+        <div class="workflow-step">
+          <div class="workflow-step-number" aria-label="ステップ3">3</div>
+          <div class="workflow-step-content">
+            <h3>録音データのご提出</h3>
+            <p>
+              <a href="https://gigafile.nu/" target="_blank" rel="noopener noreferrer" style="color: var(--purple-primary);">ギガファイル便</a>やGoogle Driveで録音データをお送りください。<br>
+              • WAVまたはAIFF形式推奨<br>
+              • 頭出し（開始位置合わせ）済み<br>
+              • 不明な場合は無加工でOK、当方で調整<br>
+              お支払いは銀行振込またはPayPayで承ります。
+            </p>
+          </div>
         </div>
-        <div style="padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
-          <strong>ハモリ多用プラン:</strong> フルコーラス MIX (¥5,000) + ハモリ追加 3-4トラック目 (+¥2,000) = <span style="color: var(--primary); font-weight: bold;">¥7,000</span>
+
+        <div class="workflow-step">
+          <div class="workflow-step-number" aria-label="ステップ4">4</div>
+          <div class="workflow-step-content">
+            <h3>制作・進捗共有</h3>
+            <p>
+              制作開始後、定期的に進捗をお知らせします。<br>
+              • 通常納期：2〜3週間<br>
+              • お急ぎ対応：1週間（+¥1,000）<br>
+              • 途中経過はスクリーンショット付きで共有<br>
+              ご質問やご要望があればいつでもお声がけください。
+            </p>
+          </div>
+        </div>
+
+        <div class="workflow-step">
+          <div class="workflow-step-number" aria-label="ステップ5">5</div>
+          <div class="workflow-step-content">
+            <h3>納品・修正対応</h3>
+            <p>
+              完成したMIXデータを高品質でお届けします。<br>
+              • WAVファイル（48kHz/24bit）で納品<br>
+              • 無料修正2回まで対応<br>
+              • データ保管期間30日間<br>
+              ご満足いただけるまで丁寧に対応いたします。
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- 詳細依頼フォーム案内 -->
-    <div class="card" style="background: linear-gradient(135deg, var(--accent), #ff8fb3); color: white; border: none; margin: 30px 0;">
-      <h3 style="color: white; margin-bottom: 15px;">
-        <i class="fas fa-magic"></i>
-        プロ仕様の詳細設定で依頼したい方へ
-      </h3>
-      <p style="color: white; margin-bottom: 20px;">
-        「細かい設定まで指定したい」「理想の仕上がりを伝えたい」そんな方には、詳細依頼フォームがおすすめ！<br>
-        プロ仕様の詳細設定で、DM用の文章を自動生成します。
+    <!-- FAQ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="section-header">
+        <h2 id="faq-title" class="section-title">よくある質問</h2>
+        <p class="section-subtitle">初めての方からよくいただくご質問をまとめました</p>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>スマホ録音でも大丈夫？</summary>
+          <p>大歓迎です😊 最新のスマートフォンは録音品質が向上しており、適切なノイズ除去処理で十分な品質に仕上げることができます。まずは気軽にご相談ください！</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>頭出し（スタート位置合わせ）はどうやるの？</summary>
+          <p>AudacityやGarageBandなどの無料アプリで先頭の無音をカットし、波形がゼロから始まるようにしてください。難しい場合は無加工で送っていただければ当サロンが代行します😊</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>ギガファイル便の使い方がわからない</summary>
+          <p>PCは<a href="https://gigafile.nu/" target="_blank" rel="noopener noreferrer"><code>gigafile.nu</code></a>にファイルをドラッグ → 「URLをコピー」→ DMへ貼付。<br>スマホは「ファイルを選択」→ アップ後リンクを共有でOK。Wi-Fi環境推奨です。</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>修正は何回まで？</summary>
+          <p>無料2回まで対応いたします。追加は1回+¥1,000ですが、多くのお客様が1回以内で完結しています。事前の詳細なヒアリングで、ご希望に沿った仕上がりを目指します。</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>ヘッドホン録音でも大丈夫？</summary>
+          <p>ノイズ除去で整えられる範囲なら問題ありません。まずはサンプルをお送りいただき、状態に応じて最適な処理方法をアドバイスします。</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>ハモリは何トラックまで？</summary>
+          <p>基本料金には2トラックまでのハモリが含まれています。3トラック目からは1トラックごとに+¥1,000で追加できます。ご希望に応じて何トラックでも対応可能です。</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>ガイドボーカル作成とは何ですか？</summary>
+          <p>MIDIデータや楽譜から、練習用・参考用のガイドボーカルを制作するサービスです。シンセボイスまたはセルフ歌唱で対応し、録音前の練習やメロディ確認にご活用いただけます。</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>相談だけでもいい？</summary>
+          <p>もちろん大歓迎！「MIXって何？」「録音方法がわからない」「予算が合うか心配」など、どんな小さな疑問でもお気軽にDMでご相談ください。無理な勧誘は一切ありません。</p>
+        </details>
+      </div>
+
+      <p style="color: var(--label-secondary); font-size: 0.95rem; text-align: center; margin-top: 40px;">
+        Ryuzan Mix Salonは「はじめてのMIX依頼でも安心」を大切に、やさしく丁寧なサポートを心がけています。
       </p>
-      <a href="request-form.html" style="display: inline-flex; align-items: center; gap: 8px; background: white; color: var(--accent); padding: 12px 24px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
-        <i class="fas fa-arrow-right"></i>
-        詳細依頼フォームを使う
-      </a>
-    </div>
-  </section>
+    </section>
 
-  <!-- ご依頼の流れ -->
-  <section id="workflow">
-    <div class="section-header">
-      <h2 class="section-title">📩 ご依頼の流れ</h2>
-      <p class="section-subtitle">初めての方でも安心してご依頼いただけるよう、シンプルで分かりやすい流れです</p>
-    </div>
-
-    <div class="workflow">
-      <div class="workflow-step">
-        <div class="workflow-step-number">1</div>
-        <div class="workflow-step-content">
-          <h3>お問い合わせ・ご相談</h3>
-          <p>
-            下記のいずれかの方法でお気軽にご連絡ください。<br>
-            • <strong><a href="request-form.html" style="color: var(--primary);">詳細依頼フォーム</a></strong> - 詳細設定で文章自動生成<br>
-            • <a href="https://x.com/ryuzanmix" target="_blank" rel="noopener" style="color: var(--primary);">X（Twitter）のDM</a> - 最もお得で迅速<br>
-            • <a href="mailto:ryuzan.mix@gmail.com?subject=MIX依頼のご相談&body=こんにちは、竜山つむぎさんへMIXの件でご連絡です。" style="color: var(--primary);">メール</a> - 詳細な相談に最適<br>
-            • <a href="https://coconala.com/services/2323053" target="_blank" rel="noopener" style="color: var(--primary);">ココナラ</a>・<a href="https://skima.jp/item/detail?item_id=239311" target="_blank" rel="noopener" style="color: var(--primary);">SKIMA</a> - 決済も含めて安心<br>
-            「まずは相談だけ」も大歓迎です！
-          </p>
-        </div>
-      </div>
-
-      <div class="workflow-step">
-        <div class="workflow-step-number">2</div>
-        <div class="workflow-step-content">
-          <h3>お見積もり・詳細確認</h3>
-          <p>
-            ご希望内容をお聞きし、詳細なお見積もりをお送りします。<br>
-            • 楽曲情報（タイトル、キー、BPMなど）<br>
-            • 使用機材・録音環境<br>
-            • 希望する仕上がりイメージ<br>
-            不明な点は丁寧にご説明いたします。
-          </p>
-        </div>
-      </div>
-
-      <div class="workflow-step">
-        <div class="workflow-step-number">3</div>
-        <div class="workflow-step-content">
-          <h3>録音データのご提出</h3>
-          <p>
-            <a href="https://gigafile.nu/" target="_blank" rel="noopener" style="color: var(--primary);">ギガファイル便</a>やGoogle Driveで録音データをお送りください。<br>
-            • WAVまたはAIFF形式推奨<br>
-            • 頭出し（開始位置合わせ）済み<br>
-            • 不明な場合は無加工でOK、当方で調整<br>
-            お支払いは銀行振込またはPayPayで承ります。
-          </p>
-        </div>
-      </div>
-
-      <div class="workflow-step">
-        <div class="workflow-step-number">4</div>
-        <div class="workflow-step-content">
-          <h3>制作・進捗共有</h3>
-          <p>
-            制作開始後、定期的に進捗をお知らせします。<br>
-            • 通常納期：2〜3週間<br>
-            • お急ぎ対応：1週間（+¥1,000）<br>
-            • 途中経過はスクリーンショット付きで共有<br>
-            ご質問やご要望があればいつでもお声がけください。
-          </p>
-        </div>
-      </div>
-
-      <div class="workflow-step">
-        <div class="workflow-step-number">5</div>
-        <div class="workflow-step-content">
-          <h3>納品・修正対応</h3>
-          <p>
-            完成したMIXデータを高品質でお届けします。<br>
-            • WAVファイル（48kHz/24bit）で納品<br>
-            • 無料修正2回まで対応<br>
-            • データ保管期間30日間<br>
-            ご満足いただけるまで丁寧に対応いたします。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="section-header">
-      <h2 class="section-title">よくある質問</h2>
-      <p class="section-subtitle">初めての方からよくいただくご質問をまとめました</p>
-    </div>
-
-    <div class="faq-item">
-      <details>
-        <summary>スマホ録音でも大丈夫？</summary>
-        <p>大歓迎です😊 最新のスマートフォンは録音品質が向上しており、適切なノイズ除去処理で十分な品質に仕上げることができます。まずは気軽にご相談ください！</p>
-      </details>
-    </div>
-
-    <div class="faq-item">
-      <details>
-        <summary>頭出し（スタート位置合わせ）はどうやるの？</summary>
-        <p>AudacityやGarageBandなどの無料アプリで先頭の無音をカットし、波形がゼロから始まるようにしてください。難しい場合は無加工で送っていただければ当サロンが代行します😊</p>
-      </details>
-    </div>
-
-    <div class="faq-item">
-      <details>
-        <summary>ギガファイル便の使い方がわからない</summary>
-        <p>PCは<a href="https://gigafile.nu/" target="_blank" rel="noopener"><code>gigafile.nu</code></a>にファイルをドラッグ → 「URLをコピー」→ DMへ貼付。<br>スマホは「ファイルを選択」→ アップ後リンクを共有でOK。Wi-Fi環境推奨です。</p>
-      </details>
-    </div>
-
-    <div class="faq-item">
-      <details>
-        <summary>修正は何回まで？</summary>
-        <p>無料2回まで対応いたします。追加は1回+¥1,000ですが、多くのお客様が1回以内で完結しています。事前の詳細なヒアリングで、ご希望に沿った仕上がりを目指します。</p>
-      </details>
-    </div>
-
-    <div class="faq-item">
-      <details>
-        <summary>ヘッドホン録音でも大丈夫？</summary>
-        <p>ノイズ除去で整えられる範囲なら問題ありません。まずはサンプルをお送りいただき、状態に応じて最適な処理方法をアドバイスします。</p>
-      </details>
-    </div>
-
-    <div class="faq-item">
-      <details>
-        <summary>ハモリは何トラックまで？</summary>
-        <p>基本料金には2トラックまでのハモリが含まれています。3トラック目からは1トラックごとに+¥1,000で追加できます。ご希望に応じて何トラックでも対応可能です。</p>
-      </details>
-    </div>
-
-    <div class="faq-item">
-      <details>
-        <summary>相談だけでもいい？</summary>
-        <p>もちろん大歓迎！「MIXって何？」「録音方法がわからない」「予算が合うか心配」など、どんな小さな疑問でもお気軽にDMでご相談ください。無理な勧誘は一切ありません。</p>
-      </details>
-    </div>
-
-    <p style="color: var(--text-light); font-size: 0.95rem; text-align: center; margin-top: 40px;">
-      Ryuzan Mix Salonは「はじめてのMIX依頼でも安心」を大切に、やさしく丁寧なサポートを心がけています。
-    </p>
-  </section>
-
-  <!-- メッセージ -->
-  <section id="message">
-    <div style="text-align: center; background: var(--bg-secondary); padding: 60px 30px; border-radius: 30px; margin: 40px 0;">
-      <h2 style="color: var(--primary-dark); margin-bottom: 20px;">🧡 最後にひとこと</h2>
-      <p style="font-size: 1.1rem; line-height: 1.8; max-width: 600px; margin: 0 auto;">
-        「MIXを頼むのが初めてで不安…」<br>
-        そんな方こそ、安心してご相談いただけたら嬉しいです。<br>
-        あなたの歌声の魅力を、そっと引き出せますように。<br><br>
-        <strong style="color: var(--primary);">一人ひとりの「歌いたい」気持ちを、全力でサポートします。</strong>
-      </p>
-    </div>
-  </section>
-
-  <!-- Contact セクション -->
-  <section id="contact">
-    <div class="contact">
-      <h2 class="section-title">ご相談はこちらから☺️</h2>
-      <p style="margin-bottom: 10px;">「ちょっと聞いてみたいな…」という方も、お気軽にご連絡ください🕊</p>
-      <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 30px;">
-        「録音に不安がある…」「まだ依頼じゃないけど話を聞いてみたい」なども大歓迎です🌸<br>
-        無理な勧誘などは一切ありませんので、安心してどうぞ。
-      </p>
-
-      <div class="contact-buttons">
-        <a href="request-form.html" class="contact-button accent">
-          <i class="fas fa-magic"></i>
-          詳細依頼フォーム
-        </a>
-
-        <a href="https://x.com/ryuzanmix" class="contact-button primary" target="_blank" rel="noopener">
-          <i class="fab fa-twitter"></i>
-          XのDMで相談する（@ryuzanmix）
-        </a>
-
-        <a href="mailto:ryuzan.mix@gmail.com?subject=MIX依頼のご相談&body=こんにちは、竜山つむぎさんへMIXの件でご連絡です。" class="contact-button">
-          <i class="fas fa-envelope"></i>
-          メールで相談する
-        </a>
-
-        <a href="https://forms.gle/kko1grBVSAXcypLF8" class="contact-button" target="_blank" rel="noopener">
-          <i class="fas fa-clipboard"></i>
-          フォームで依頼内容を送る
-        </a>
-
-        <a href="https://coconala.com/services/2323053" class="contact-button" target="_blank" rel="noopener">
-          <i class="fas fa-shopping-cart"></i>
-          coconalaで依頼する
-        </a>
-
-        <a href="https://skima.jp/item/detail?item_id=239311" class="contact-button" target="_blank" rel="noopener">
-          <i class="fas fa-palette"></i>
-          SKIMAで依頼する
-        </a>
-      </div>
-
-      <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 16px; border-left: 4px solid var(--success);">
-        <h4 style="color: var(--success); margin-bottom: 10px;">
-          <i class="fas fa-gift"></i>
-          お得情報
-        </h4>
-        <p style="margin: 0; color: var(--text-light);">
-          <strong>X（DM）からのご依頼が最もお得！</strong><br>
-          サービス手数料がかからないため、表示価格そのままでご利用いただけます。
+    <!-- メッセージ -->
+    <section class="section" id="message" aria-labelledby="message-title">
+      <div style="text-align: center; background: var(--system-background-secondary); padding: 60px 30px; border-radius: 30px; margin: 40px 0;">
+        <h2 id="message-title" style="color: var(--purple-primary); margin-bottom: 20px;">🧡 最後にひとこと</h2>
+        <p style="font-size: 1.1rem; line-height: 1.8; max-width: 600px; margin: 0 auto;">
+          「MIXを頼むのが初めてで不安…」<br>
+          そんな方こそ、安心してご相談いただけたら嬉しいです。<br>
+          あなたの歌声の魅力を、そっと引き出せますように。<br><br>
+          <strong style="color: var(--purple-primary);">一人ひとりの「歌いたい」気持ちを、全力でサポートします。</strong>
         </p>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Contact セクション -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="contact">
+        <h2 id="contact-title" class="section-title">ご相談はこちらから☺️</h2>
+        <p style="margin-bottom: 10px;">「ちょっと聞いてみたいな…」という方も、お気軽にご連絡ください🕊</p>
+        <p style="font-size: 0.9rem; color: var(--label-secondary); margin-bottom: 30px;">
+          「録音に不安がある…」「まだ依頼じゃないけど話を聞いてみたい」なども大歓迎です🌸<br>
+          無理な勧誘などは一切ありませんので、安心してどうぞ。
+        </p>
+
+        <div class="contact-buttons">
+          <a href="request-form.html" class="contact-button accent">
+            <i class="fas fa-magic" aria-hidden="true"></i>
+            詳細依頼フォーム
+          </a>
+
+          <a href="https://x.com/ryuzanmix" class="contact-button primary" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter" aria-hidden="true"></i>
+            XのDMで相談する（@ryuzanmix）
+          </a>
+
+          <a href="mailto:ryuzan.mix@gmail.com?subject=MIX依頼のご相談&body=こんにちは、竜山つむぎさんへMIXの件でご連絡です。" class="contact-button">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            メールで相談する
+          </a>
+
+          <a href="https://forms.gle/kko1grBVSAXcypLF8" class="contact-button" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-clipboard" aria-hidden="true"></i>
+            フォームで依頼内容を送る
+          </a>
+
+          <a href="https://coconala.com/services/2323053" class="contact-button" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+            coconalaで依頼する
+          </a>
+
+          <a href="https://skima.jp/item/detail?item_id=239311" class="contact-button" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-palette" aria-hidden="true"></i>
+            SKIMAで依頼する
+          </a>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 16px; border-left: 4px solid var(--system-green);">
+          <h4 style="color: var(--system-green); margin-bottom: 10px;">
+            <i class="fas fa-gift" aria-hidden="true"></i>
+            お得情報
+          </h4>
+          <p style="margin: 0; color: var(--label-secondary);">
+            <strong>X（DM）からのご依頼が最もお得！</strong><br>
+            サービス手数料がかからないため、表示価格そのままでご利用いただけます。
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <!-- フッター -->
   <footer>
@@ -636,154 +637,21 @@
       </p>
       <p style="margin-bottom: 10px;">
         <strong>SNS：</strong>
-        <a href="https://x.com/ryuzanmix" target="_blank" rel="noopener">@ryuzanmix</a>
+        <a href="https://x.com/ryuzanmix" target="_blank" rel="noopener noreferrer">@ryuzanmix</a>
       </p>
       <p style="margin-bottom: 20px;">
         運営：Ryuzan Mix Salon（個人運営）
       </p>
-      <p style="font-size: 0.8rem; color: var(--text-muted);">
+      <p style="font-size: 0.8rem; color: var(--label-tertiary);">
         © 2025 Ryuzan Mix Salon. All rights reserved.
       </p>
     </div>
   </footer>
 
   <!-- JavaScript -->
-  <script>
-    // ナビゲーション表示制御
-    window.addEventListener('scroll', function() {
-      const nav = document.getElementById('nav');
-      if (window.scrollY > 100) {
-        nav.classList.add('show');
-      } else {
-        nav.classList.remove('show');
-      }
-    });
+  <script src="main.js"></script>
 
-    // スムーススクロール
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          const offsetTop = target.offsetTop - 80;
-          window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // インターセクションオブザーバーでアニメーション
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    // アニメーション対象要素を監視
-    document.addEventListener('DOMContentLoaded', function() {
-      const animateElements = document.querySelectorAll('.card, .about-card, .workflow-step, .stat-item');
-      animateElements.forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
-      });
-    });
-
-    // 外部リンクに rel="noopener" を自動追加
-    document.querySelectorAll('a[target="_blank"]').forEach(link => {
-      if (!link.rel.includes('noopener')) {
-        link.rel = link.rel ? link.rel + ' noopener' : 'noopener';
-      }
-    });
-
-    // フォーム送信時のGoogleアナリティクスイベント（必要に応じて）
-    document.querySelectorAll('.contact-button').forEach(button => {
-      button.addEventListener('click', function() {
-        const buttonText = this.textContent.trim();
-        // Google Analytics Event (gtag or ga function needed)
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'contact_click', {
-            'button_type': buttonText,
-            'value': 1
-          });
-        }
-      });
-    });
-
-    // パフォーマンス最適化：遅延読み込み
-    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-    if ('IntersectionObserver' in window) {
-      const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.dataset.src || img.src;
-            img.classList.remove('lazy');
-            imageObserver.unobserve(img);
-          }
-        });
-      });
-
-      lazyImages.forEach(img => imageObserver.observe(img));
-    }
-
-    // キーボードナビゲーション対応
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Tab') {
-        document.body.classList.add('keyboard-navigation');
-      }
-    });
-
-    document.addEventListener('mousedown', function() {
-      document.body.classList.remove('keyboard-navigation');
-    });
-
-    // ダークモード対応（将来的な拡張用）
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    function handleColorSchemeChange(e) {
-      // ダークモード切り替えロジック（必要に応じて実装）
-    }
-
-    prefersDarkScheme.addEventListener('change', handleColorSchemeChange);
-
-    // エラーハンドリング
-    window.addEventListener('error', function(e) {
-      console.warn('Non-critical error occurred:', e.error);
-      // 必要に応じてエラーレポートを送信
-    });
-
-    // パフォーマンス監視
-    if ('PerformanceObserver' in window) {
-      const perfObserver = new PerformanceObserver((list) => {
-        const entries = list.getEntries();
-        entries.forEach((entry) => {
-          if (entry.entryType === 'largest-contentful-paint') {
-            // LCPの監視
-            if (entry.startTime > 2500) {
-              console.info('LCP optimization may be needed:', entry.startTime);
-            }
-          }
-        });
-      });
-      
-      try {
-        perfObserver.observe({ entryTypes: ['largest-contentful-paint'] });
-      } catch (e) {
-        // サポートされていないブラウザでは無視
-      }
-    }
-  </script>
-
-  <!-- Schema.org 追加構造化データ -->
+  <!-- 追加構造化データ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -828,7 +696,7 @@
 
   <!-- PWA対応（将来的な拡張用） -->
   <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#b28fdd">
+  <meta name="theme-color" content="#8B5A9F">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Ryuzan Mix Salon">
