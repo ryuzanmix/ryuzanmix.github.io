@@ -21,15 +21,415 @@
   <link href="https://fonts.googleapis.com/" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet"/>
   
-  <!-- スタイルシート -->
-  <link href="request-form.css" rel="stylesheet"/>
-  
   <!-- OGP -->
   <meta content="website" property="og:type"/>
   <meta content="https://ryuzanmix.github.io/request-form.html" property="og:url"/>
   <meta content="詳細依頼フォーム - Ryuzan Mix Salon" property="og:title"/>
   <meta content="詳細な設定で依頼文章を自動生成！プロ仕様の歌ってみたMIX依頼フォーム。" property="og:description"/>
   <meta content="https://ryuzanmix.github.io/og-image.png" property="og:image"/>
+
+  <style>
+    :root{
+      --primary: #b28fdd;
+      --primary-dark: #9f79d2;
+      --primary-light: #d4c4e8;
+      --secondary: #ffd6e8;
+      --accent: #ff6b9d;
+      --bg: #fdfafc;
+      --bg-secondary: #f8f5fa;
+      --card: #ffffff;
+      --text: #2c2c2c;
+      --text-light: #666666;
+      --text-muted: #999999;
+      --border: #e8e0f0;
+      --shadow: 0 4px 20px rgba(178, 143, 221, 0.15);
+      --success: #4caf50;
+      --warning: #ff9800;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 30px;
+      background: var(--card);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--primary-dark);
+    }
+
+    .header h1 {
+      color: var(--primary-dark);
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+
+    .form-card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .form-section {
+      margin-bottom: 30px;
+    }
+
+    .form-section h3 {
+      color: var(--primary-dark);
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .required {
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .optional {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    input[type="text"], input[type="url"], input[type="email"], input[type="number"], select, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      background: white;
+    }
+
+    input[type="text"]:focus, input[type="url"]:focus, input[type="email"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .checkbox-item:hover {
+      background: var(--primary-light);
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: auto;
+      margin: 0;
+    }
+
+    .radio-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .radio-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .radio-item:hover {
+      background: var(--primary-light);
+    }
+
+    .radio-item input[type="radio"]:checked + .radio-label {
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .radio-item:has(input[type="radio"]:checked) {
+      background: var(--primary-light);
+      border-color: var(--primary);
+    }
+
+    .radio-item input[type="radio"] {
+      width: auto;
+      margin: 0;
+    }
+
+    .help-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+
+    .price-preview {
+      background: var(--bg-secondary);
+      border: 2px solid var(--primary);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .price-preview h4 {
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    .price-amount {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .generate-btn {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 16px 24px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .generate-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .generate-btn:disabled {
+      background: var(--text-muted);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .output-section {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .output-section.show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .output-card {
+      background: var(--card);
+      border: 2px solid var(--success);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .output-header {
+      background: var(--success);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .output-content {
+      padding: 30px;
+    }
+
+    .copy-area {
+      background: #f8f8f8;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      font-family: monospace;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .copy-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .copy-btn.copied {
+      background: var(--success);
+    }
+
+    .contact-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid var(--primary);
+      background: white;
+      color: var(--primary);
+    }
+
+    .contact-btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .contact-btn.primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .contact-btn.primary:hover {
+      background: var(--primary-dark);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+      
+      .form-card {
+        padding: 20px;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .checkbox-group, .radio-group {
+        grid-template-columns: 1fr;
+      }
+      
+      .price-amount {
+        font-size: 1.5rem;
+      }
+
+      .back-link {
+        position: static;
+        margin-bottom: 20px;
+        justify-content: center;
+      }
+    }
+
+    .section-indicator {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+  </style>
 </head>
 
 <body>
@@ -88,12 +488,6 @@
               <label for="artist">アーティスト <span class="required">※必須</span></label>
               <input type="text" id="artist" placeholder="例：初音ミク、高橋洋子、YOASOBI">
             </div>
-          </div>
-
-          <div class="form-group">
-            <label for="songUrl">楽曲URL <span class="optional">任意</span></label>
-            <input type="url" id="songUrl" placeholder="例：https://www.youtube.com/watch?v=abc123、https://nico.ms/sm123456">
-            <div class="help-text">参考用の楽曲URL（YouTube、ニコニコ動画など）をご入力いただくと、より正確な仕上がりが可能です</div>
           </div>
 
           <div class="form-row">
@@ -166,11 +560,14 @@
             <label for="deadline">希望納期 <span class="optional">任意</span></label>
             <select id="deadline">
               <option value="">選択してください</option>
-              <option value="standard">標準納期（2-3週間）</option>
-              <option value="rush-1week">お急ぎ（1週間）+¥1,000</option>
-              <option value="rush-3days">超特急（3日）要相談</option>
-              <option value="specific">特定日指定</option>
+              <option value="standard">現在の標準納期（1か月前後）</option>
+              <option value="consultation" style="color: var(--text-muted);" disabled>お急ぎ対応（現在停止中）</option>
+              <option value="specific" style="color: var(--text-muted);" disabled>特定日指定（現在停止中）</option>
             </select>
+            <div class="help-text" style="color: var(--warning); font-weight: 600;">
+              ※依頼数増加により、従来の2-3週間から1か月前後に変更となりました<br>
+              お急ぎ対応・特定日指定は現在停止しております
+            </div>
           </div>
         </div>
       </div>
@@ -376,7 +773,10 @@
               <input type="checkbox" name="options" value="guide-with-mix" data-price="3000">
               <span>🎤 ガイドボーカル作成（MIX同時依頼） (+¥3,000)</span>
             </label>
-
+            <label class="checkbox-item">
+              <input type="checkbox" name="options" value="guide-pdf" data-price="500">
+              <span>📑 ガイド譜 PDF (+¥500)</span>
+            </label>
           </div>
           <div class="help-text">※基本プランにはハモリ2トラックまで含まれています</div>
         </div>
@@ -476,8 +876,489 @@
     </div>
   </div>
 
-  <!-- JavaScript -->
-  <script src="request-form.js"></script>
+  <script>
+    const form = document.getElementById('requestForm');
+    const totalPriceEl = document.getElementById('totalPrice');
+    const priceBreakdownEl = document.getElementById('priceBreakdown');
+    const generateBtn = document.getElementById('generateBtn');
+    const outputSection = document.getElementById('outputSection');
+    const dmTextEl = document.getElementById('dmText');
+    const copyBtn = document.getElementById('copyBtn');
+    const twitterBtn = document.getElementById('twitterBtn');
+    const emailBtn = document.getElementById('emailBtn');
+
+    // カスタム入力フィールドと録音状況の表示制御
+    document.addEventListener('change', function(e) {
+      if (e.target.name === 'pitchCorrection') {
+        document.getElementById('pitchCustom').style.display = 
+          e.target.value === 'custom' ? 'block' : 'none';
+      }
+      if (e.target.name === 'timingCorrection') {
+        document.getElementById('timingCustom').style.display = 
+          e.target.value === 'custom' ? 'block' : 'none';
+      }
+      if (e.target.name === 'breathProcessing') {
+        document.getElementById('breathCustom').style.display = 
+          e.target.value === 'custom' ? 'block' : 'none';
+      }
+      
+      // 録音状況による音源URL欄の表示制御
+      if (e.target.name === 'recordingStatus') {
+        const audioUrlSection = document.getElementById('audioUrlSection');
+        const audioUrlInput = document.getElementById('audioUrl');
+        
+        if (e.target.value === 'recorded') {
+          audioUrlSection.style.display = 'block';
+          audioUrlInput.required = true;
+        } else {
+          audioUrlSection.style.display = 'none';
+          audioUrlInput.required = false;
+          audioUrlInput.value = '';
+        }
+      }
+    });
+
+    // 料金計算
+    function calculatePrice() {
+      let total = 0;
+      let breakdown = [];
+
+      // メインサービス
+      const mainService = document.querySelector('input[name="mainService"]:checked');
+      if (mainService) {
+        const price = parseInt(mainService.dataset.price);
+        total += price;
+        if (price > 0) {
+          breakdown.push(`${mainService.parentElement.querySelector('.radio-label').textContent.split('¥')[0]} ¥${price.toLocaleString()}`);
+        }
+      }
+
+      // お急ぎ対応（現在停止中）
+      const deadline = document.getElementById('deadline').value;
+      // if (deadline === 'rush-1week') {
+      //   total += 1000;
+      //   breakdown.push('お急ぎ対応（1週間） +¥1,000');
+      // }
+
+      // 追加オプション
+      const options = document.querySelectorAll('input[name="options"]:checked');
+      options.forEach(option => {
+        let price = parseInt(option.dataset.price);
+        let optionText = option.parentElement.textContent.trim();
+        
+        // コラボ追加の場合、人数に応じて価格調整
+        if (option.value === 'collab') {
+          const collabCount = document.getElementById('collabCount').value;
+          if (collabCount === '5+') {
+            optionText = '👥 コラボ追加 5名以上 (要相談)';
+            price = 0;
+          } else {
+            const count = parseInt(collabCount);
+            price = count * 2000;
+            optionText = `👥 コラボ追加 ${count}名 (+¥${price.toLocaleString()})`;
+          }
+        }
+        
+        total += price;
+        if (price > 0) {
+          breakdown.push(optionText);
+        } else if (option.value === 'collab' && collabCount === '5+') {
+          breakdown.push(optionText);
+        }
+      });
+
+      // 割引
+      const discounts = document.querySelectorAll('input[name="discounts"]:checked');
+      discounts.forEach(discount => {
+        const price = parseInt(discount.dataset.price);
+        total += price;
+        breakdown.push(`${discount.parentElement.textContent.trim()}`);
+      });
+
+      total = Math.max(0, total);
+
+      totalPriceEl.textContent = total > 0 ? `¥${total.toLocaleString()}` : '無料相談';
+      priceBreakdownEl.textContent = breakdown.length > 0 ? breakdown.join(' + ') : 'まずはお気軽にご相談ください';
+
+      // ボタンの有効/無効
+      const clientName = document.getElementById('clientName').value.trim();
+      const songTitle = document.getElementById('songTitle').value.trim();
+      const mainServiceVal = mainService ? mainService.value : '';
+      const recordingStatus = document.querySelector('input[name="recordingStatus"]:checked')?.value;
+      const audioUrl = document.getElementById('audioUrl').value.trim();
+      
+      // 基本必須項目のチェック
+      let isValid = (clientName && songTitle) || mainServiceVal === 'consultation';
+      
+      // 録音済みの場合は音源URLも必須
+      if (recordingStatus === 'recorded' && !audioUrl && mainServiceVal !== 'consultation') {
+        isValid = false;
+      }
+      
+      generateBtn.disabled = !isValid;
+    }
+
+    // 文章生成
+    function generateDMText() {
+      const clientName = document.getElementById('clientName').value.trim();
+      const clientContact = document.getElementById('clientContact').value.trim();
+      const contactMethod = document.getElementById('contactMethod').value;
+      const songTitle = document.getElementById('songTitle').value.trim();
+      const artist = document.getElementById('artist').value.trim();
+      const sourceType = document.getElementById('sourceType').value;
+      const bpm = document.getElementById('bpm').value;
+      const songKey = document.getElementById('songKey').value.trim();
+      const vocalistCount = document.getElementById('vocalistCount').value;
+      const mainService = document.querySelector('input[name="mainService"]:checked');
+      const deadline = document.getElementById('deadline').value;
+      const recordingStatus = document.querySelector('input[name="recordingStatus"]:checked').value;
+      const audioUrl = document.getElementById('audioUrl').value.trim();
+      const recordingNotes = document.getElementById('recordingNotes').value.trim();
+      const refUrlFull = document.getElementById('refUrlFull').value.trim();
+      const refUrlPart = document.getElementById('refUrlPart').value.trim();
+      const pitchCorrection = document.querySelector('input[name="pitchCorrection"]:checked').value;
+      const timingCorrection = document.querySelector('input[name="timingCorrection"]:checked').value;
+      const breathProcessing = document.querySelector('input[name="breathProcessing"]:checked').value;
+      const longTone = document.querySelector('input[name="longTone"]:checked').value;
+      const harmonyDirection = document.getElementById('harmonyDirection').value.trim();
+      const effects = document.getElementById('effects').value.trim();
+      const specialEffects = document.getElementById('specialEffects').value.trim();
+      const additionalRequests = document.getElementById('additionalRequests').value.trim();
+
+      let text = '';
+
+      // 挨拶
+      text += 'こんにちは！Ryuzan Mix Salonの件でご連絡いたします☺️\n\n';
+
+      // 依頼者情報
+      text += '【依頼者情報】\n';
+      text += `依頼者名：${clientName || '未入力'}\n`;
+      if (clientContact) text += `連絡先：${clientContact}\n`;
+      if (contactMethod) {
+        const methodMap = {
+          'twitter': 'X（Twitter）DM',
+          'email': 'メール',
+          'discord': 'Discord',
+          'line': 'LINE',
+          'other': 'その他'
+        };
+        text += `希望連絡方法：${methodMap[contactMethod]}\n`;
+      }
+      text += '\n';
+
+      // 楽曲情報
+      text += '【楽曲情報】\n';
+      text += `楽曲タイトル：${songTitle || '未入力'}\n`;
+      if (artist) text += `アーティスト：${artist}\n`;
+      if (sourceType) {
+        const sourceMap = {
+          'original-karaoke': '公式カラオケ音源',
+          'nicokaraoke': 'ニコカラオケ',
+          'youtube-karaoke': 'YouTube カラオケ',
+          'instrumental': 'インストゥルメンタル',
+          'midi': 'MIDI・自作音源',
+          'other': 'その他'
+        };
+        text += `使用音源：${sourceMap[sourceType]}\n`;
+      }
+      if (bpm) text += `BPM：${bpm}\n`;
+      if (songKey) text += `キー：${songKey}\n`;
+      if (vocalistCount) {
+        const countMap = {
+          '1': '1人（ソロ）',
+          '2': '2人（デュエット）',
+          '3': '3人',
+          '4': '4人',
+          '5+': '5人以上'
+        };
+        text += `歌唱人数：${countMap[vocalistCount]}\n`;
+      }
+      text += '\n';
+
+      // 録音音源情報
+      text += '【録音音源情報】\n';
+      const statusMap = {
+        'recorded': '録音済み',
+        'not-recorded': '録音前'
+      };
+      text += `録音状況：${statusMap[recordingStatus]}\n`;
+      if (recordingStatus === 'recorded' && audioUrl) {
+        text += `録音音源URL：${audioUrl}\n`;
+      }
+      if (recordingNotes) {
+        text += `録音についての追記事項：${recordingNotes}\n`;
+      }
+      text += '\n';
+
+      // サービス内容
+      if (mainService.value === 'consultation') {
+        text += '【ご相談内容】\n';
+        text += 'MIXについて相談したいことがあります。\n\n';
+      } else {
+        text += '【ご希望サービス】\n';
+        const serviceMap = {
+          'full': '⭐ フルコーラス MIX（ハモリ2トラック込み）',
+          'one': 'ワンコーラス MIX（ハモリ2トラック込み）',
+          'guide-single': '🎤 ガイドボーカル作成（単体）'
+        };
+        text += `${serviceMap[mainService.value]}\n`;
+        
+        if (deadline) {
+          const deadlineMap = {
+            'standard': '現在の標準納期（1か月前後）',
+            'consultation': 'お急ぎ対応（現在停止中）',
+            'specific': '特定日指定（現在停止中）'
+          };
+          text += `希望納期：${deadlineMap[deadline]}\n`;
+        }
+        text += '\n';
+
+        // 参考音源
+        if (refUrlFull || refUrlPart) {
+          text += '【参考音源】\n';
+          if (refUrlFull) text += `全体参考：${refUrlFull}\n`;
+          if (refUrlPart) text += `部分参考：${refUrlPart}\n`;
+          text += '\n';
+        }
+
+        // MIX詳細設定
+        text += '【MIX詳細設定】\n';
+        const pitchMap = {
+          'complete': '完全に揃える',
+          'natural': '自然に揃える',
+          'minimal': 'ほぼ原音のまま',
+          'custom': 'その他（具体的に）'
+        };
+        text += `ピッチ補正：${pitchMap[pitchCorrection]}\n`;
+        
+        const timingMap = {
+          'tight': 'しっかり揃える',
+          'loose': 'ゆるめに揃える',
+          'custom': 'その他'
+        };
+        text += `タイミング補正：${timingMap[timingCorrection]}\n`;
+        
+        const breathMap = {
+          'remove': '削除',
+          'keep': '残す',
+          'custom': 'その他'
+        };
+        text += `ブレス処理：${breathMap[breathProcessing]}\n`;
+        
+        const longToneMap = {
+          'natural': '自然な長さ',
+          'reference': 'リファレンスに合わせる'
+        };
+        text += `ロングトーン処理：${longToneMap[longTone]}\n`;
+        text += '\n';
+
+        // ハモリ・エフェクト
+        if (harmonyDirection || effects || specialEffects) {
+          text += '【ハモリ・エフェクト】\n';
+          if (harmonyDirection) text += `ハモリの方向性：${harmonyDirection}\n`;
+          if (effects) text += `エフェクト：${effects}\n`;
+          if (specialEffects) text += `特殊演出：${specialEffects}\n`;
+          text += '\n';
+        }
+
+        // 追加オプション
+        const options = Array.from(document.querySelectorAll('input[name="options"]:checked'));
+        if (options.length > 0) {
+          text += '【追加オプション】\n';
+          options.forEach(opt => {
+            const optionMap = {
+              'harmony': 'ハモリ追加（3トラック目から）',
+              'encode': '🎬 動画エンコード',
+              'collab': '👥 コラボ追加',
+              'guide-with-mix': '🎤 ガイドボーカル作成（MIX同時依頼）',
+              'guide-pdf': '📑 ガイド譜 PDF'
+            };
+            
+            if (opt.value === 'collab') {
+              const collabCount = document.getElementById('collabCount').value;
+              text += `👥 コラボ追加（${collabCount}名）\n`;
+            } else {
+              text += `${optionMap[opt.value]}\n`;
+            }
+          });
+          text += '\n';
+        }
+
+        // 割引・調整オプション
+        const discounts = Array.from(document.querySelectorAll('input[name="discounts"]:checked'));
+        if (discounts.length > 0) {
+          text += '【割引・調整】\n';
+          const discountMap = {
+            'no-pitch': '🔈 ピッチ補正なし',
+            'repeater': '🎁 リピーター割'
+          };
+          discounts.forEach(disc => {
+            text += `${discountMap[disc.value]}\n`;
+          });
+          text += '\n';
+        }
+
+        // その他要望
+        if (additionalRequests) {
+          text += '【その他要望】\n';
+          text += `${additionalRequests}\n\n`;
+        }
+
+        // 支払い方法
+        text += '【お支払い方法】\n';
+        text += 'Amazonギフトカード（現在利用可能な支払い方法）\n\n';
+
+        // 修正についての注意事項
+        text += '【修正について】\n';
+        text += '無料修正2回まで対応（3回目以降：+¥1,000/回）\n';
+        text += '※修正依頼は一度にすべて詳細にご指示ください\n';
+        text += '（複数回に分けると全体バランスが崩れ、納期延長の原因となります）\n\n';
+      }
+
+      // 締めの文章
+      if (mainService.value === 'consultation') {
+        text += 'お時間のあるときに、詳しく教えていただけると嬉しいです。\n';
+      } else {
+        if (recordingStatus === 'not-recorded') {
+          text += '録音完了後に音源データをお送りいたします。録音前のご相談も可能ですので、お気軽にお声がけください。\n\n';
+        } else {
+          text += '上記URLから音源データをご確認いただけます。\n\n';
+        }
+        
+        text += '【ご依頼の流れについて】\n';
+        text += '1. 1番確認後、お見積もりを提出いたします\n';
+        text += '2. ご承諾後、作業開始（この日から1か月の作業期間）\n';
+        text += '3. 仮MIX音源を提出\n';
+        text += '4. 修正確認後、ご入金（Amazonギフトカード）\n';
+        text += '5. ご入金確認後、正式なMIX音源を納品\n\n';
+      }
+      
+      text += 'ご質問やご要望があればお気軽にお声がけください。\n';
+      text += 'よろしくお願いいたします🌸';
+
+      return text;
+    }
+
+    // イベントリスナー
+    form.addEventListener('change', calculatePrice);
+    form.addEventListener('input', calculatePrice);
+
+    // コラボ人数選択時の価格更新
+    document.getElementById('collabCount').addEventListener('change', calculatePrice);
+
+    // サービス選択時の制御
+    document.addEventListener('change', function(e) {
+      if (e.target.name === 'mainService') {
+        const serviceValue = e.target.value;
+        
+        const harmonyCheckbox = document.querySelector('input[value="harmony"]');
+        const collabCheckbox = document.querySelector('input[value="collab"]');
+        const guideWithMixCheckbox = document.querySelector('input[value="guide-with-mix"]');
+        const allOptions = document.querySelectorAll('input[name="options"]');
+        const allDiscounts = document.querySelectorAll('input[name="discounts"]');
+
+        // 全て有効化（デフォルト）
+        allOptions.forEach(option => {
+          option.disabled = false;
+          option.closest('.checkbox-item').style.opacity = '1';
+        });
+        allDiscounts.forEach(discount => {
+          discount.disabled = false;
+          discount.closest('.checkbox-item').style.opacity = '1';
+        });
+
+        // サービス別制御
+        switch(serviceValue) {
+          case 'consultation':
+            // まずは相談：全て無効化
+            allOptions.forEach(option => {
+              option.disabled = true;
+              option.checked = false;
+              option.closest('.checkbox-item').style.opacity = '0.5';
+            });
+            allDiscounts.forEach(discount => {
+              discount.disabled = true;
+              discount.checked = false;
+              discount.closest('.checkbox-item').style.opacity = '0.5';
+            });
+            break;
+
+          case 'guide-single':
+            // ガイドボーカル作成（単体）：ハモリ追加・コラボ追加・ガイドボーカル作成（MIX同時依頼）を無効化
+            [harmonyCheckbox, collabCheckbox, guideWithMixCheckbox].forEach(checkbox => {
+              if (checkbox) {
+                checkbox.disabled = true;
+                checkbox.checked = false;
+                checkbox.closest('.checkbox-item').style.opacity = '0.5';
+              }
+            });
+            break;
+        }
+        
+        calculatePrice();
+      }
+    });
+
+    generateBtn.addEventListener('click', () => {
+      const dmText = generateDMText();
+      dmTextEl.textContent = dmText;
+      outputSection.classList.add('show');
+      outputSection.scrollIntoView({ behavior: 'smooth' });
+
+      // URLを生成
+      const encodedText = encodeURIComponent(dmText);
+      twitterBtn.href = `https://x.com/messages/compose?recipient_id=ryuzanmix&text=${encodedText}`;
+      emailBtn.href = `mailto:ryuzan.mix@gmail.com?subject=MIX依頼のご相談&body=${encodedText}`;
+    });
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(dmTextEl.textContent);
+        copyBtn.textContent = '✅ コピー完了！';
+        copyBtn.classList.add('copied');
+        setTimeout(() => {
+          copyBtn.textContent = '📋 コピー';
+          copyBtn.classList.remove('copied');
+        }, 2000);
+      } catch (err) {
+        // フォールバック
+        const textArea = document.createElement('textarea');
+        textArea.value = dmTextEl.textContent;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        copyBtn.textContent = '✅ コピー完了！';
+        copyBtn.classList.add('copied');
+        setTimeout(() => {
+          copyBtn.textContent = '📋 コピー';
+          copyBtn.classList.remove('copied');
+        }, 2000);
+      }
+    });
+
+    // 初期計算と表示制御
+    calculatePrice();
+    
+    // 初期状態での録音状況表示制御
+    const initialRecordingStatus = document.querySelector('input[name="recordingStatus"]:checked').value;
+    const audioUrlSection = document.getElementById('audioUrlSection');
+    const audioUrlInput = document.getElementById('audioUrl');
+    
+    if (initialRecordingStatus === 'not-recorded') {
+      audioUrlSection.style.display = 'none';
+      audioUrlInput.required = false;
+    }
+
+    // ページ読み込み時のアナリティクス（必要に応じて）
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_view', {
+        'page_title': '詳細依頼フォーム',
+        'page_location': window.location.href
+      });
+    }
+  </script>
 
   <!-- 構造化データ -->
   <script type="application/ld+json">
