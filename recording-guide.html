@@ -386,6 +386,11 @@
     <div class="guide-nav">
       <h3>📱 お使いのデバイスを選んでください</h3>
       <div class="nav-grid">
+        <div class="nav-item" onclick="scrollToSection('basics')">
+          <i class="fas fa-star"></i>
+          <div>録音の基本</div>
+          <small>まず読む</small>
+        </div>
         <div class="nav-item" onclick="scrollToSection('iphone')">
           <i class="fab fa-apple"></i>
           <div>iPhone</div>
@@ -406,6 +411,399 @@
           <div>音源提出方法</div>
           <small>必読</small>
         </div>
+      </div>
+    </div>
+
+    <!-- 録音の基本セクション -->
+    <div id="basics" class="platform-section">
+      <div class="platform-header">
+        <i class="fas fa-star platform-icon"></i>
+        <div>
+          <h2 class="platform-title">録音の基本知識</h2>
+          <span class="usage-rate">最重要</span>
+        </div>
+      </div>
+
+      <div class="warning-box">
+        <div class="warning-title">
+          <i class="fas fa-lightbulb"></i>
+          MIXの正しい理解 - 魔法ではありません
+        </div>
+        <p style="margin-bottom: 15px;">
+          <strong>MIXは「録音された素材を最大限に活かし、楽曲として完成させる技術」です。</strong><br>
+          決して魔法ではなく、元の録音品質を超えた結果を生み出すことはできません。
+        </p>
+        <div class="do-dont">
+          <div class="do-card">
+            <div class="do-title">
+              <i class="fas fa-check-circle"></i>
+              MIXでできること ✨
+            </div>
+            <ul>
+              <li>録音された歌声の魅力を最大限に引き出す</li>
+              <li>音質を整え、聞きやすくする</li>
+              <li>楽曲全体のバランスを調整する</li>
+              <li>軽微なタイミングズレの修正</li>
+              <li>自然なエコーやエフェクトの追加</li>
+              <li>ノイズの除去・軽減</li>
+            </ul>
+          </div>
+          <div class="dont-card">
+            <div class="dont-title">
+              <i class="fas fa-times-circle"></i>
+              MIXでできないこと 🚫
+            </div>
+            <ul>
+              <li>歌唱力そのものを根本的に変える</li>
+              <li>極端に音質の悪い録音を完全に修復</li>
+              <li>大幅なタイミングズレを自然に修正</li>
+              <li>存在しないハモリや歌声を作り出す</li>
+              <li>録音されていない音を追加する</li>
+              <li>感情表現や歌い方を変える</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: #e3f2fd; border: 2px solid #1976d2; border-radius: 12px; padding: 20px; margin: 20px 0;">
+        <h4 style="color: #1976d2; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+          <i class="fas fa-info-circle"></i>
+          つまり、録音品質がMIXの仕上がりを決める
+        </h4>
+        <p style="margin-bottom: 10px; line-height: 1.6;">
+          <strong>良い録音 × 良いMIX = 素晴らしい仕上がり</strong><br>
+          <strong>悪い録音 × 良いMIX = 限界のある仕上がり</strong><br><br>
+          だからこそ、このガイドの録音方法が重要なのです。
+          MIX師は皆さんの録音素材を最大限に活かすために全力を尽くしますが、
+          <strong>元の録音品質を超えた奇跡は起こせません</strong>。
+        </p>
+        <p style="margin: 0; font-size: 0.9rem; color: #666;">
+          💡 このガイドの録音方法を実践していただければ、MIXで十分に美しく仕上げることができます！
+        </p>
+      </div>
+
+      <div class="warning-box">
+        <div class="warning-title">
+          <i class="fas fa-exclamation-triangle"></i>
+          まずはここから！高品質録音の3つのポイント
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+          <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary);">
+            <h4 style="color: var(--primary); margin-bottom: 10px;">🎯 タイミング</h4>
+            <p style="margin: 0; font-size: 0.9rem;">カラオケ音源と完全に合わせる</p>
+          </div>
+          <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent);">
+            <h4 style="color: var(--accent); margin-bottom: 10px;">📏 距離</h4>
+            <p style="margin: 0; font-size: 0.9rem;">マイクから20-30cm離れる</p>
+          </div>
+          <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid var(--success);">
+            <h4 style="color: var(--success); margin-bottom: 10px;">🏠 環境</h4>
+            <p style="margin: 0; font-size: 0.9rem;">静かで反響の少ない場所</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin: 30px 0 20px;">🎤 マイクとの距離・角度</h3>
+      <div class="app-grid">
+        <div class="app-card">
+          <div class="app-header">
+            <div class="app-icon" style="background: var(--success);">✅</div>
+            <h3 class="app-name">理想的な録音スタイル</h3>
+          </div>
+          <ul style="margin: 0;">
+            <li><strong>距離：</strong>マイクから20-30cm（握りこぶし2-3個分）</li>
+            <li><strong>角度：</strong>口とマイクが正面になるように</li>
+            <li><strong>高さ：</strong>口の高さに合わせる</li>
+            <li><strong>姿勢：</strong>まっすぐ立って、リラックス</li>
+          </ul>
+        </div>
+        
+        <div class="app-card">
+          <div class="app-header">
+            <div class="app-icon" style="background: var(--error);">❌</div>
+            <h3 class="app-name">避けるべきNG録音</h3>
+          </div>
+          <ul style="margin: 0;">
+            <li><strong>近すぎ：</strong>5cm以内は息づかいやノイズが入る</li>
+            <li><strong>遠すぎ：</strong>50cm以上は声が小さく反響する</li>
+            <li><strong>横向き：</strong>斜めからの録音は音質が不安定</li>
+            <li><strong>手で覆う：</strong>スマホを手で覆うと音がこもる</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin: 30px 0 20px;">⏰ タイミング・テンポの重要性</h3>
+      <div class="tips-box">
+        <div class="tips-title">
+          <i class="fas fa-clock"></i>
+          なぜタイミングが重要？
+        </div>
+        <p style="margin-bottom: 15px;">
+          カラオケ音源と歌のタイミングがずれていると、MIX時に大幅な修正が必要になり、
+          自然な仕上がりが困難になります。<strong>一定のテンポで、音源に合わせて歌う</strong>ことが最も重要です。
+        </p>
+        <div class="do-dont">
+          <div class="do-card">
+            <div class="do-title">
+              <i class="fas fa-check-circle"></i>
+              良いタイミング
+            </div>
+            <ul>
+              <li>カラオケ音源をしっかり聞きながら歌う</li>
+              <li>メトロノームを意識して一定のテンポ</li>
+              <li>楽曲の「入り」を正確に合わせる</li>
+              <li>ブレス（息継ぎ）のタイミングも計算</li>
+            </ul>
+          </div>
+          <div class="dont-card">
+            <div class="dont-title">
+              <i class="fas fa-times-circle"></i>
+              悪いタイミング
+            </div>
+            <ul>
+              <li>音源を聞かずに自分勝手なテンポで歌う</li>
+              <li>走る（早くなる）・もたる（遅くなる）</li>
+              <li>歌詞の出だしがバラバラ</li>
+              <li>間奏や前奏を無視して歌い出す</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin: 30px 0 20px;">🏠 録音環境の整え方</h3>
+      <div class="app-grid">
+        <div class="app-card">
+          <div class="app-header">
+            <div class="app-icon" style="background: #4caf50;">🏡</div>
+            <h3 class="app-name">理想的な場所</h3>
+          </div>
+          <ul style="margin: 0;">
+            <li><strong>寝室：</strong>布団やカーテンが音を吸収</li>
+            <li><strong>クローゼット：</strong>衣類が自然なリバーブを作る</li>
+            <li><strong>畳の部屋：</strong>畳が適度に音を吸収</li>
+            <li><strong>カーペット敷きの部屋：</strong>足音や反響を軽減</li>
+          </ul>
+        </div>
+        
+        <div class="app-card">
+          <div class="app-header">
+            <div class="app-icon" style="background: #f44336;">🚫</div>
+            <h3 class="app-name">避けるべき場所</h3>
+          </div>
+          <ul style="margin: 0;">
+            <li><strong>お風呂・トイレ：</strong>反響が強すぎる</li>
+            <li><strong>キッチン：</strong>冷蔵庫や換気扇の音</li>
+            <li><strong>窓際：</strong>外からの騒音が入る</li>
+            <li><strong>エアコンの下：</strong>風切り音が録音される</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin: 30px 0 20px;">🔊 音量バランスの調整</h3>
+      <div class="warning-box">
+        <div class="warning-title">
+          <i class="fas fa-volume-up"></i>
+          適切な音量で録音するコツ
+        </div>
+        <div style="display: grid; gap: 15px; margin-top: 15px;">
+          <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid var(--primary);">
+            <strong>🎵 普通の話し声の1.5倍程度</strong><br>
+            <small>大きすぎず小さすぎず、自然な歌声で録音してください</small>
+          </div>
+          <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid var(--warning);">
+            <strong>⚠️ 音量を一定に保つ</strong><br>
+            <small>サビで急に大きくなったり、Aメロで小さくなりすぎないよう注意</small>
+          </div>
+          <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid var(--success);">
+            <strong>✅ 録音レベルをチェック</strong><br>
+            <small>アプリの録音レベルメーターが赤くならない範囲で調整</small>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin: 30px 0 20px;">🎯 録音前の準備チェックリスト</h3>
+      <div class="tips-box">
+        <div class="tips-title">
+          <i class="fas fa-list-check"></i>
+          録音開始前に必ず確認！
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+          <div>
+            <h4 style="color: var(--primary); margin-bottom: 10px;">🔧 機器設定</h4>
+            <ul style="margin: 0;">
+              <li>✅ 機内モードON（通知防止）</li>
+              <li>✅ 録音アプリの音質設定確認</li>
+              <li>✅ マイクの向きと距離調整</li>
+              <li>✅ 録音スペースの確保</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: var(--accent); margin-bottom: 10px;">🎤 準備状態</h4>
+            <ul style="margin: 0;">
+              <li>✅ 楽曲の練習完了</li>
+              <li>✅ 歌詞の確認</li>
+              <li>✅ 喉の調子を整える</li>
+              <li>✅ 水分補給</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin: 30px 0 20px;">✅ 録音後のチェックリスト</h3>
+      <div class="warning-box">
+        <div class="warning-title">
+          <i class="fas fa-clipboard-check"></i>
+          録音完了後に必ず確認してください！
+        </div>
+        <p style="margin-bottom: 15px;">
+          以下の項目をチェックすることで、MIX時の修正を最小限に抑え、
+          より自然で美しい仕上がりを実現できます。
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+          <div>
+            <h4 style="color: var(--primary); margin-bottom: 10px;">🎵 音質・音量チェック</h4>
+            <ul style="margin: 0;">
+              <li>✅ 録音全体を通して聞いてみる</li>
+              <li>✅ 自分自身が聞いて問題なく聞こえるか</li>
+              <li>✅ 音量が一定に保たれているか</li>
+              <li>✅ 極端に大きい・小さい部分がないか</li>
+              <li>✅ 音割れ（クリップ）していないか</li>
+              <li>✅ 背景ノイズが少ないか</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: var(--accent); margin-bottom: 10px;">⏰ タイミング・テンポチェック</h4>
+            <ul style="margin: 0;">
+              <li>✅ カラオケ音源と同時再生してズレがないか</li>
+              <li>✅ 歌い出しのタイミングが合っているか</li>
+              <li>✅ サビ・Aメロなど各パートの入りが正確か</li>
+              <li>✅ 走り・もたりがないか</li>
+              <li>✅ ブレス（息継ぎ）が自然か</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tips-box">
+        <div class="tips-title">
+          <i class="fas fa-search"></i>
+          詳細チェックポイント
+        </div>
+        <div style="display: grid; gap: 15px; margin-top: 15px;">
+          <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid var(--primary);">
+            <strong>🎤 声質・歌い方チェック</strong><br>
+            <small>• 自然な歌声になっているか（力みすぎていないか）<br>
+            • 歌詞が聞き取りやすいか（滑舌は明瞭か）<br>
+            • 感情表現が楽曲に合っているか</small>
+          </div>
+          <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid var(--success);">
+            <strong>📁 ファイル管理チェック</strong><br>
+            <small>• ファイル形式がWAVまたはAIFFか<br>
+            • ファイル名が分かりやすいか<br>
+            • 頭出し（無音部分のカット）ができているか<br>
+            • 複数テイクがある場合は整理されているか</small>
+          </div>
+          <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid var(--accent);">
+            <strong>🎵 一気に歌いきれない場合</strong><br>
+            <small>• Aメロ、Bメロ、サビなどパートごとに分けて録音OK<br>
+            • 各パートの最初と最後に少し余裕を持たせる<br>
+            • ファイル名で区別（例：rec_vo_verse1.wav、rec_vo_chorus.wav）<br>
+            • どの部分をどのファイルに録音したかメモを残す</small>
+          </div>
+          <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid var(--warning);">
+            <strong>⚠️ 再録音が必要な場合</strong><br>
+            <small>• 音量が極端に小さい/大きい<br>
+            • 明らかなタイミングのズレ<br>
+            • 背景ノイズが多すぎる<br>
+            • 音割れが頻発している<br>
+            • 自分で聞いて違和感がある</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="warning-box">
+        <div class="warning-title">
+          <i class="fas fa-headphones"></i>
+          客観的な聞き返しのコツ
+        </div>
+        <div style="display: grid; gap: 15px; margin-top: 15px;">
+          <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid var(--primary);">
+            <strong>🎧 聞き返しの手順</strong><br>
+            <small>1. 録音完了後、5-10分休憩を取る<br>
+            2. ヘッドホンまたはイヤホンで全体を通して聞く<br>
+            3. 「他の人が聞いたらどう思うか」を意識する<br>
+            4. 気になる部分があれば時間を記録しておく</small>
+          </div>
+          <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid var(--success);">
+            <strong>✅ 合格基準</strong><br>
+            <small>• 自分が聞いて「これなら人に聞かせられる」と感じる<br>
+            • 楽曲の世界観を損なわない自然な歌声<br>
+            • 歌詞が明確に聞き取れる<br>
+            • 全体的に安定した音質</small>
+          </div>
+          <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid var(--warning);">
+            <strong>🔄 パート別録音の例</strong><br>
+            <small>• イントロ＋Aメロ → rec_vo_verse1.wav<br>
+            • Bメロ → rec_vo_bridge.wav<br>
+            • サビ → rec_vo_chorus.wav<br>
+            • 2番Aメロ → rec_vo_verse2.wav<br>
+            • 大サビ → rec_vo_final_chorus.wav</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-grid">
+        <div class="app-card">
+          <div class="app-header">
+            <div class="app-icon" style="background: var(--success);">🎯</div>
+            <h3 class="app-name">理想的な録音データ</h3>
+          </div>
+          <ul style="margin: 0;">
+            <li><strong>音質：</strong>クリア（背景ノイズ最小）</li>
+            <li><strong>音量：</strong>一定レベル（-12dB～-6dB程度）</li>
+            <li><strong>タイミング：</strong>カラオケ音源と完全同期</li>
+            <li><strong>形式：</strong>WAV/AIFF（44.1kHz/24bit以上）</li>
+            <li><strong>頭出し：</strong>無音部分カット済み</li>
+          </ul>
+        </div>
+        
+        <div class="app-card">
+          <div class="app-header">
+            <div class="app-icon" style="background: var(--error);">🚨</div>
+            <h3 class="app-name">要注意な録音データ</h3>
+          </div>
+          <ul style="margin: 0;">
+            <li><strong>音割れ：</strong>レベルオーバーで音が歪む</li>
+            <li><strong>タイミングズレ：</strong>テンポが不安定</li>
+            <li><strong>ノイズ混入：</strong>エアコン、車の音等</li>
+            <li><strong>音量変動：</strong>大きすぎる/小さすぎる部分</li>
+            <li><strong>圧縮形式：</strong>MP3等の音質劣化</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background: #e8f5e8; border: 2px solid var(--success); border-radius: 12px; padding: 20px; margin: 20px 0;">
+        <h4 style="color: var(--success); margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+          <i class="fas fa-thumbs-up"></i>
+          チェック完了後の最終確認
+        </h4>
+        <p style="margin-bottom: 10px;">すべての項目をチェックし、問題がなければ：</p>
+        <ol style="margin: 0; padding-left: 20px;">
+          <li>ファイル名を適切にリネーム</li>
+          <li>不要なテイクを削除して整理</li>
+          <li>アップロード用フォルダにまとめる</li>
+          <li>提出時のメモを準備（録音環境、使用機器、特記事項など）</li>
+        </ol>
+      </div>
+
+      <div style="background: var(--primary-light); padding: 20px; border-radius: 12px; margin-top: 30px;">
+        <h4 style="color: var(--primary-dark); margin-bottom: 15px;">💡 プロからのアドバイス</h4>
+        <p style="margin: 0; line-height: 1.6;">
+          <strong>「完璧を目指さず、自然体で」</strong><br>
+          多少の息継ぎや小さなミスは後から修正できます。緊張しすぎず、
+          普段通りの歌声で録音してください。<strong>一番大切なのは、楽しみながら歌うこと</strong>です😊<br><br>
+          <strong>チェックリストで不安な点があれば、遠慮なくご相談を！</strong>
+        </p>
       </div>
     </div>
 
