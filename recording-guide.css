@@ -1,5 +1,98 @@
 /* recording-guide.html専用スタイル */
 
+/* 確実なCSS counters設定とリストスタイル無効化 */
+
+/* step-list専用のカウンター設定 */
+.step-list {
+  counter-reset: step-counter;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.step-list li {
+  background: white;
+  margin: 8px 0;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 3px solid var(--primary);
+  position: relative;
+  padding-left: 40px;
+  list-style: none;
+  counter-increment: step-counter;
+}
+
+.step-list li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary);
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* step-list以外のすべてのリストスタイル無効化 */
+.guide-main ul:not(.step-list) {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.guide-main li:not(.step-list li) {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 8px;
+}
+
+/* 全体的なリストスタイル無効化（step-list除く） */
+.guide-main ul:not(.step-list),
+.platform-section ul:not(.step-list),
+.warning-box ul,
+.tips-box ul,
+.app-card ul:not(.step-list),
+.do-card ul,
+.dont-card ul,
+.file-naming ul,
+.naming-examples ul {
+  list-style: none !important;
+  list-style-type: none !important;
+  padding-left: 0 !important;
+  margin: 0;
+}
+
+.guide-main li:not(.step-list li),
+.platform-section li:not(.step-list li),
+.warning-box li,
+.tips-box li,
+.app-card li:not(.step-list li),
+.do-card li,
+.dont-card li,
+.file-naming li,
+.naming-examples li {
+  list-style: none !important;
+  list-style-type: none !important;
+  padding-left: 0 !important;
+  margin-bottom: 8px;
+}
+
+/* detailsタグ内のリストスタイル無効化 */
+.guide-main details ul,
+.guide-main details li {
+  list-style: none !important;
+  list-style-type: none !important;
+  padding-left: 0 !important;
+  margin-bottom: 8px;
+}
+
 /* 録音ガイドページ用の統一されたナビゲーション */
 .guide-header-nav {
   position: fixed;
@@ -184,43 +277,6 @@
   margin-left: auto;
 }
 
-.step-list {
-  list-style: none;
-  padding: 0;
-}
-
-.step-list li {
-  background: white;
-  margin: 8px 0;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border-left: 3px solid var(--primary);
-  position: relative;
-  padding-left: 40px;
-}
-
-.step-list li::before {
-  content: counter(step-counter);
-  counter-increment: step-counter;
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  background: var(--primary);
-  color: white;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.step-list {
-  counter-reset: step-counter;
-}
-
 .warning-box {
   background: #fff3cd;
   border: 2px solid var(--warning);
@@ -315,6 +371,7 @@
   color: var(--error);
 }
 
+/* モバイル対応 */
 @media (max-width: 768px) {
   .do-dont {
     grid-template-columns: 1fr;
@@ -328,5 +385,15 @@
     flex-direction: column;
     text-align: center;
     gap: 10px;
+  }
+
+  .guide-header-nav .nav-inner {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .guide-header-nav a {
+    padding: 8px 12px;
+    font-size: 13px;
   }
 }
