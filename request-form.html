@@ -42,6 +42,7 @@
       <a href="index.html#about">サロンについて</a>
       <a href="index.html#pricing">料金</a>
       <a href="recording-guide.html">録音ガイド</a>
+      <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank">簡単依頼</a>
       <a href="request-form.html" class="current">詳細依頼</a>
       <a href="index.html#faq">よくある質問</a>
       <a href="index.html#contact">お問い合わせ</a>
@@ -57,6 +58,21 @@
         </a>
         <h1>🎵 詳細依頼フォーム</h1>
         <p>プロ仕様の詳細設定で、理想通りのMIXを実現します</p>
+      </div>
+
+      <div style="background: #e3f2fd; border: 2px solid #1976d2; border-radius: 20px; padding: 30px; margin-bottom: 30px; text-align: center;">
+        <h3 style="color: #1976d2; margin-bottom: 20px;">
+          <i class="fas fa-info-circle"></i>
+          簡単に依頼したい方へ
+        </h3>
+        <p style="color: #1976d2; font-weight: 500; margin-bottom: 15px;">
+          「とりあえず依頼したい」「シンプルに進めたい」という方は、<br>
+          <strong>簡単依頼フォーム</strong>をご利用ください。必要最小限の項目で簡単にご依頼いただけます。
+        </p>
+        <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #1976d2; color: white; padding: 12px 24px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
+          <i class="fas fa-rocket"></i>
+          簡単依頼フォームを使う
+        </a>
       </div>
 
       <div style="background: #fff3cd; border: 2px solid var(--warning); border-radius: 20px; padding: 30px; margin-bottom: 30px; text-align: center;">
@@ -509,9 +525,12 @@
                 その他のお問い合わせ方法
               </h4>
               <p style="color: var(--text-light); margin-bottom: 15px;">
-                上記以外にも、ココナラ・SKIMAからもご依頼いただけます
+                上記以外にも、簡単依頼フォーム・ココナラ・SKIMAからもご依頼いただけます
               </p>
               <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="color: var(--primary); text-decoration: none;">
+                  <i class="fas fa-rocket"></i> 簡単依頼フォーム
+                </a>
                 <a href="https://coconala.com/services/2323053" target="_blank" style="color: var(--primary); text-decoration: none;">
                   <i class="fas fa-shopping-cart"></i> ココナラ
                 </a>
@@ -657,10 +676,62 @@
       generateBtn.disabled = !isValid;
     }
 
-    // 文章生成（関数は長いので簡略化）
+    // 文章生成
     function generateDMText() {
-      // [前回と同じ実装] 
-      return 'こんにちは！Ryuzan Mix Salonの件でご連絡いたします☺️\n\n[実際の実装では詳細な文章生成ロジック]';
+      const formData = new FormData(form);
+      const clientName = document.getElementById('clientName').value.trim();
+      const clientContact = document.getElementById('clientContact').value.trim();
+      const contactMethod = document.getElementById('contactMethod').value;
+      const songTitle = document.getElementById('songTitle').value.trim();
+      const artist = document.getElementById('artist').value.trim();
+      const mainService = document.querySelector('input[name="mainService"]:checked')?.value;
+      const recordingStatus = document.querySelector('input[name="recordingStatus"]:checked')?.value;
+      const audioUrl = document.getElementById('audioUrl').value.trim();
+      const totalPrice = totalPriceEl.textContent;
+
+      let text = `こんにちは！Ryuzan Mix Salonの件でご連絡いたします☺️\n\n`;
+      
+      // 依頼者情報
+      text += `【依頼者情報】\n`;
+      text += `お名前：${clientName}\n`;
+      text += `連絡先：${clientContact}\n`;
+      text += `希望連絡方法：${contactMethod}\n\n`;
+      
+      // 楽曲情報
+      text += `【楽曲情報】\n`;
+      text += `楽曲タイトル：${songTitle}\n`;
+      text += `アーティスト：${artist}\n\n`;
+      
+      // プラン
+      text += `【ご希望プラン】\n`;
+      const serviceNames = {
+        'full': 'フルコーラス MIX（¥5,000）',
+        'one': 'ワンコーラス MIX（¥3,000）',
+        'consultation': 'まずは相談（無料）'
+      };
+      text += `メインプラン：${serviceNames[mainService] || mainService}\n`;
+      text += `お見積もり：${totalPrice}\n\n`;
+      
+      // 録音状況
+      text += `【録音音源について】\n`;
+      if (recordingStatus === 'recorded') {
+        text += `録音状況：録音済み\n`;
+        if (audioUrl) {
+          text += `音源URL：${audioUrl}\n`;
+        }
+      } else {
+        text += `録音状況：これから録音予定\n`;
+      }
+      
+      // PayPay支払い優先の案内
+      text += `\n【お支払い方法】\n`;
+      text += `PayPay決済を希望いたします（手数料なし・安全・簡単）\n`;
+      text += `PayPayが使えない場合は、Amazonギフトカードでも対応可能です\n\n`;
+      
+      text += `何かご不明な点がございましたら、お気軽にお声がけください。\n`;
+      text += `どうぞよろしくお願いいたします🌸`;
+      
+      return text;
     }
 
     // イベントリスナー
