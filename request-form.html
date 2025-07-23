@@ -29,8 +29,630 @@
   <meta content="https://ryuzanmix.github.io/og-image.png" property="og:image"/>
 
   <!-- スタイルシート -->
-  <link href="styles.css" rel="stylesheet"/>
-  <link href="request-form.css" rel="stylesheet"/>
+  <style>
+    :root{
+      /* 画像に基づく正確なイメージカラー（紫系） */
+      --primary: #b28fdd;           /* メインの薄紫（ロゴ・ブランドカラー） */
+      --primary-dark: #9f79d2;      /* 濃い紫（ホバー・アクティブ状態） */
+      --primary-light: #d4c4e8;     /* さらに薄い紫（背景・ハイライト） */
+      --primary-pale: #f0e8f7;      /* 極薄紫（セクション背景） */
+      
+      /* セカンダリカラー（ピンク系） */
+      --secondary: #ffd6e8;         /* 薄いピンク */
+      --accent: #ff6b9d;            /* アクセントピンク（CTA・強調） */
+      --accent-light: #ffb3d1;      /* 薄いアクセントピンク */
+      
+      /* 背景色（紫のトーンに合わせて調整） */
+      --bg: #fdfafc;                /* 極薄紫がかった白 */
+      --bg-secondary: #f8f5fa;      /* 薄紫がかったグレー */
+      --card: #ffffff;              /* 純白（コントラスト確保） */
+      
+      /* テキストカラー（WCAG AAコントラスト比準拠） */
+      --text: #2c2c2c;              /* 濃いグレー（背景白に対して15.8:1） */
+      --text-light: #666666;        /* ミディアムグレー（背景白に対して5.7:1） */
+      --text-muted: #999999;        /* 薄いグレー（背景白に対して2.8:1） */
+      
+      /* ボーダーとシャドウ（紫のトーンに調整） */
+      --border: #e8e0f0;            /* 薄紫がかったボーダー */
+      --shadow: 0 4px 20px rgba(178, 143, 221, 0.15);        /* 紫がかったシャドウ */
+      --shadow-hover: 0 8px 30px rgba(178, 143, 221, 0.25);  /* ホバー時の濃いシャドウ */
+      
+      /* グラデーション（画像の背景に合わせて） */
+      --gradient: linear-gradient(135deg, #c9b4e8 0%, #ece4f7 40%, #ffffff 100%);
+      --gradient-accent: linear-gradient(135deg, var(--accent), #ff8fb3);
+      
+      /* 状態色（意味を持つ色・紫系に調和） */
+      --success: #4caf50;
+      --warning: #ff9800;
+      --error: #f44336;
+      --info: #2196f3;
+      
+      /* タッチターゲットサイズ（Apple HIG準拠） */
+      --touch-target-min: 44px;
+      
+      /* フォントサイズ（アクセシビリティ考慮） */
+      --font-size-base: 16px;      /* 基本サイズ */
+      --font-size-small: 14px;     /* 最小サイズ */
+      --font-size-large: 18px;
+      --font-size-xl: 24px;
+      --font-size-xxl: 32px;
+      
+      /* 行間（読みやすさ向上） */
+      --line-height-tight: 1.4;
+      --line-height-normal: 1.6;
+      --line-height-loose: 1.8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: var(--line-height-normal);
+      font-size: var(--font-size-base);
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* フォーカス表示の改善（アクセシビリティ） */
+    *:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    /* フォーム専用スタイル */
+    .form-main {
+      margin-top: 80px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 30px;
+      background: var(--card);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.3s ease;
+      min-height: var(--touch-target-min);
+    }
+
+    .back-link:hover, .back-link:focus {
+      color: var(--primary-dark);
+    }
+
+    .header h1 {
+      color: var(--primary-dark);
+      font-size: clamp(1.8rem, 4vw, 2rem);
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      color: var(--text-light);
+      font-size: var(--font-size-large);
+    }
+
+    .form-card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .form-section {
+      margin-bottom: 30px;
+    }
+
+    .form-section h3 {
+      color: var(--primary-dark);
+      font-size: var(--font-size-large);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text);
+      font-size: var(--font-size-base);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .required {
+      color: var(--accent);
+      font-size: var(--font-size-small);
+    }
+
+    .optional {
+      color: var(--text-muted);
+      font-size: var(--font-size-small);
+    }
+
+    input[type="text"], input[type="url"], input[type="email"], input[type="number"], select, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      font-size: var(--font-size-base);
+      transition: border-color 0.3s ease;
+      background: white;
+      min-height: var(--touch-target-min);
+      line-height: var(--line-height-normal);
+    }
+
+    input[type="text"]:focus, input[type="url"]:focus, input[type="email"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(178, 143, 221, 0.2);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+      line-height: var(--line-height-normal);
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      min-height: var(--touch-target-min);
+    }
+
+    .checkbox-item:hover, .checkbox-item:focus-within {
+      background: var(--primary-light);
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: auto;
+      margin: 0;
+      min-height: auto;
+    }
+
+    .radio-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .radio-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      min-height: var(--touch-target-min);
+    }
+
+    .radio-item:hover, .radio-item:focus-within {
+      background: var(--primary-light);
+    }
+
+    .radio-item input[type="radio"]:checked + .radio-label {
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .radio-item:has(input[type="radio"]:checked) {
+      background: var(--primary-light);
+      border-color: var(--primary);
+    }
+
+    .radio-item input[type="radio"] {
+      width: auto;
+      margin: 0;
+      min-height: auto;
+    }
+
+    .help-text {
+      font-size: var(--font-size-small);
+      color: var(--text-muted);
+      margin-top: 5px;
+      line-height: var(--line-height-normal);
+    }
+
+    .generate-btn {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 16px 24px;
+      border-radius: 50px;
+      font-size: var(--font-size-large);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+      min-height: var(--touch-target-min);
+    }
+
+    .generate-btn:hover, .generate-btn:focus {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(178, 143, 221, 0.4);
+    }
+
+    .generate-btn:disabled {
+      background: var(--text-muted);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .output-section {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .output-section.show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .output-card {
+      background: var(--card);
+      border: 2px solid var(--success);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .output-header {
+      background: var(--success);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .output-content {
+      padding: 30px;
+    }
+
+    .copy-area {
+      background: #f8f8f8;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      font-family: monospace;
+      font-size: var(--font-size-small);
+      line-height: var(--line-height-loose);
+      white-space: pre-wrap;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: var(--font-size-small);
+      cursor: pointer;
+      transition: background 0.3s ease;
+      min-height: 36px;
+    }
+
+    .copy-btn:hover, .copy-btn:focus {
+      background: var(--primary-dark);
+    }
+
+    .copy-btn.copied {
+      background: var(--success);
+    }
+
+    .contact-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid var(--primary);
+      background: white;
+      color: var(--primary);
+      min-height: var(--touch-target-min);
+      font-size: var(--font-size-small);
+    }
+
+    .contact-btn:hover, .contact-btn:focus {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .contact-btn.primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .contact-btn.primary:hover, .contact-btn.primary:focus {
+      background: var(--primary-dark);
+    }
+
+    .section-indicator {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: var(--font-size-small);
+      font-weight: 600;
+    }
+
+    /* 準備中アイテムのスタイル（共通） */
+    .preparing-item {
+      opacity: 0.5 !important;
+      background: #f8f8f8 !important;
+      cursor: not-allowed !important;
+      position: relative;
+    }
+
+    .preparing-item:hover {
+      background: #f8f8f8 !important;
+    }
+
+    .preparing-item::after {
+      content: "準備中";
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      background: var(--warning);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      z-index: 10;
+    }
+
+    /* ナビゲーション */
+    .guide-header-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-inner a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .nav-inner a:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .nav-inner a.current {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+      .form-main {
+        margin-top: 70px;
+      }
+
+      .container {
+        padding: 15px;
+      }
+      
+      .form-card {
+        padding: 20px;
+        border-radius: 16px;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      
+      .checkbox-group, .radio-group {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .radio-item, .checkbox-item {
+        padding: 16px;
+        min-height: 56px;
+        font-size: 16px;
+      }
+
+      .back-link {
+        position: static;
+        margin-bottom: 20px;
+        justify-content: center;
+        padding: 12px;
+        border-radius: 8px;
+        background: var(--bg-secondary);
+      }
+
+      .header h1 {
+        font-size: var(--font-size-xl);
+      }
+
+      .contact-buttons {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .form-section h3 {
+        font-size: 1.1rem;
+        line-height: 1.4;
+      }
+
+      .section-indicator {
+        display: block;
+        margin-top: 5px;
+      }
+
+      /* モバイルでのタッチ対応強化 */
+      input, select, textarea {
+        font-size: 16px;
+        min-height: 48px;
+        padding: 14px 16px;
+      }
+
+      textarea {
+        min-height: 100px;
+      }
+
+      .generate-btn {
+        min-height: 56px;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .help-text {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px;
+      }
+
+      .form-card {
+        padding: 16px;
+      }
+
+      .header {
+        padding: 20px;
+      }
+
+      .nav-inner {
+        gap: 8px;
+        padding: 0 10px;
+      }
+
+      .nav-inner a {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+    }
+
+    .status-message {
+      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .status-success {
+      background: #e8f5e8;
+      color: #4caf50;
+      border: 2px solid #4caf50;
+    }
+
+    .status-error {
+      background: #ffebee;
+      color: #f44336;
+      border: 2px solid #f44336;
+    }
+
+    .status-processing {
+      background: #e3f2fd;
+      color: #1976d2;
+      border: 2px solid #1976d2;
+    }
+  </style>
 </head>
 
 <body>
@@ -42,7 +664,6 @@
       <a href="index.html#about">サロンについて</a>
       <a href="index.html#pricing">料金</a>
       <a href="recording-guide.html">録音ガイド</a>
-      <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank">簡単依頼</a>
       <a href="request-form.html" class="current">詳細依頼</a>
       <a href="index.html#faq">よくある質問</a>
       <a href="index.html#contact">お問い合わせ</a>
@@ -60,36 +681,20 @@
         <p>プロ仕様の詳細設定で、理想通りのMIXを実現します</p>
       </div>
 
-      <div style="background: #e3f2fd; border: 2px solid #1976d2; border-radius: 20px; padding: 30px; margin-bottom: 30px; text-align: center;">
-        <h3 style="color: #1976d2; margin-bottom: 20px;">
-          <i class="fas fa-info-circle"></i>
-          簡単に依頼したい方へ
-        </h3>
-        <p style="color: #1976d2; font-weight: 500; margin-bottom: 15px;">
-          「とりあえず依頼したい」「シンプルに進めたい」という方は、<br>
-          <strong>簡単依頼フォーム</strong>をご利用ください。必要最小限の項目で簡単にご依頼いただけます。
-        </p>
-        <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #1976d2; color: white; padding: 12px 24px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
-          <i class="fas fa-rocket"></i>
-          簡単依頼フォームを使う
-        </a>
-      </div>
-
-      <div style="background: #fff3cd; border: 2px solid var(--warning); border-radius: 20px; padding: 30px; margin-bottom: 30px; text-align: center;">
-        <h3 style="color: var(--warning); margin-bottom: 20px;">
+      <div style="background: #fff3cd; border: 2px solid var(--warning); border-radius: 20px; padding: 25px; margin-bottom: 30px; text-align: center;">
+        <h3 style="color: var(--warning); margin-bottom: 15px;">
           <i class="fas fa-exclamation-triangle"></i>
           フォーム入力前の重要なお知らせ
         </h3>
-        <p style="color: var(--warning); font-weight: 600; margin-bottom: 15px;">
-          <strong>ご依頼の際は、<a href="recording-guide.html" style="color: var(--warning); text-decoration: underline;">📱 録音方法ガイド</a>を必ずご確認の上ご依頼ください。</strong>
+        <p style="color: var(--warning); font-weight: 600; margin-bottom: 12px;">
+          <strong>ご依頼の際は、<a href="recording-guide.html" style="color: var(--warning); text-decoration: underline;">📱 録音方法ガイド</a>を必ずご確認ください。</strong>
         </p>
         <p style="color: var(--warning); font-size: 0.9rem; margin: 0;">
-          録音方法により、MIXの仕上がりが大きく左右されます。<br>
-          適切な録音方法を事前にご確認いただくことで、より理想的な仕上がりを実現できます。
+          適切な録音方法により、MIXの仕上がりが大きく向上します。
         </p>
       </div>
 
-      <form id="requestForm">
+      <div id="requestForm">
         <!-- 依頼者情報 -->
         <div class="form-card">
           <div class="form-section">
@@ -116,6 +721,30 @@
                 <option value="line">LINE</option>
                 <option value="other">その他</option>
               </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- ポートフォリオ掲載可否 -->
+        <div class="form-card">
+          <div class="form-section">
+            <h3>📂 ポートフォリオ掲載について <span class="section-indicator">必須</span></h3>
+            
+            <div class="form-group">
+              <label>完成作品のポートフォリオ掲載 <span class="required">※必須</span></label>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="portfolioConsent" value="allowed" checked>
+                  <span class="radio-label">掲載可<br><small>ポートフォリオとして掲載を許可</small></span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="portfolioConsent" value="denied">
+                  <span class="radio-label">掲載不可<br><small>Webサイト・X・YouTube等での掲載を禁止</small></span>
+                </label>
+              </div>
+              <div class="help-text">
+                完成したMIX作品を、当Webサイトや、X（Twitter）、YouTube等の動画サイトにポートフォリオとして掲載することの可否をお選びください。
+              </div>
             </div>
           </div>
         </div>
@@ -164,7 +793,7 @@
                 <label for="vocalistCount">歌唱人数 <span class="required">※必須</span></label>
                 <select id="vocalistCount">
                   <option value="">選択してください</option>
-                  <option value="1">1人（ソロ）</option>
+                  <option value="1" selected>1人（ソロ）</option>
                   <option value="2">2人（デュエット）</option>
                   <option value="3">3人</option>
                   <option value="4">4人</option>
@@ -191,28 +820,39 @@
                   <input type="radio" name="mainService" value="one" data-price="3000">
                   <span class="radio-label">ワンコーラス MIX<br><small>¥3,000（ハモリ2トラック込み）</small></span>
                 </label>
-                <label class="radio-item" style="opacity: 0.5; background: #f5f5f5;">
-                  <input type="radio" name="mainService" value="guide-single" data-price="0" disabled>
-                  <span class="radio-label" style="color: var(--text-muted);">🎤 ガイドボーカル作成（単体）<br><small style="color: var(--text-muted);">準備中</small></span>
-                </label>
-                <label class="radio-item">
-                  <input type="radio" name="mainService" value="consultation" data-price="0">
-                  <span class="radio-label">まずは相談<br><small>無料</small></span>
+                <label class="radio-item preparing-item">
+                  <input type="radio" name="mainService" value="guide-single" disabled>
+                  <span class="radio-label">🎤 ガイドボーカル作成（単体）<br><small>準備中</small></span>
                 </label>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="deadline">希望納期 <span class="optional">任意</span></label>
+              <label for="deadline">希望納期 <span class="required">※必須</span></label>
               <select id="deadline">
-                <option value="">選択してください</option>
-                <option value="standard">現在の標準納期（1か月前後）</option>
+                <option value="standard" selected>現在の標準納期（1か月前後）</option>
                 <option value="consultation" style="color: var(--text-muted);" disabled>お急ぎ対応（現在停止中）</option>
                 <option value="specific" style="color: var(--text-muted);" disabled>特定日指定（現在停止中）</option>
               </select>
               <div class="help-text" style="color: var(--warning); font-weight: 600;">
-                ※依頼数増加により、従来の2-3週間から1か月前後に変更となりました<br>
-                お急ぎ対応・特定日指定は現在停止しております
+                ※依頼数増加により現在1か月前後のお時間をいただいております
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>お支払い方法 <span class="required">※必須</span></label>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="paymentMethod" value="paypay" checked>
+                  <span class="radio-label">💰 PayPay<br><small>推奨・手数料なし</small></span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="paymentMethod" value="amazon-gift">
+                  <span class="radio-label">🎁 Amazonギフトカード<br><small>PayPay使用不可の場合</small></span>
+                </label>
+              </div>
+              <div class="help-text">
+                お支払いは仮MIX確認・修正完了後となります。PayPay決済を推奨しております。
               </div>
             </div>
           </div>
@@ -228,10 +868,17 @@
                 <i class="fas fa-exclamation-triangle"></i>
                 録音前の方は必ずご確認ください
               </div>
-              <p style="margin: 0; color: var(--warning); font-size: 0.9rem;">
+              <p style="margin: 0 0 15px 0; color: var(--warning); font-size: 0.9rem;">
                 <strong>ご依頼の際は、<a href="recording-guide.html" style="color: var(--warning); text-decoration: underline;">📱 録音方法ガイド</a>を必ずご確認の上ご依頼ください。</strong><br>
                 適切な録音方法により、MIXの仕上がりが大きく向上します。
               </p>
+              
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="checkbox-item" style="background: white; border: 2px solid var(--warning); margin: 0;">
+                  <input type="checkbox" id="recordingGuideConfirm">
+                  <span style="font-weight: 600; color: var(--warning);">📱 録音方法ガイドを確認しました <span class="required">※推奨</span></span>
+                </label>
+              </div>
             </div>
             
             <div class="form-group">
@@ -249,7 +896,7 @@
             </div>
 
             <div class="form-group" id="audioUrlSection">
-              <label for="audioUrl">録音音源URL <span class="required">※必須（録音済みの場合）</span></label>
+              <label for="audioUrl">録音音源URL <span class="optional">※録音済みの場合</span></label>
               <input type="url" id="audioUrl" placeholder="例：https://gigafile.nu/〇〇〇、https://drive.google.com/〇〇〇">
               <div class="help-text">
                 ギガファイル便、Google Drive、Dropbox等のURLをご入力ください<br>
@@ -291,14 +938,41 @@
             <h3>🎛️ MIX詳細設定 <span class="section-indicator">重要</span></h3>
             
             <div class="form-group">
+              <label>ハモリ音源 <span class="required">※必須</span></label>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="harmonySource" value="none" checked>
+                  <span class="radio-label">ハモリなし<br><small>メインボーカルのみでMIXを行います</small></span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="harmonySource" value="available">
+                  <span class="radio-label">音源あり<br><small>録音済みのハモリ音源があります</small></span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="harmonySource" value="generate">
+                  <span class="radio-label">音源無し（生成希望）<br><small>原曲に近い形でハモリを生成</small></span>
+                </label>
+              </div>
+              <div class="form-group" id="harmonyGenerate" style="display: none; margin-top: 15px;">
+                <label class="checkbox-item" style="background: #e3f2fd; border: 2px solid #1976d2;">
+                  <input type="checkbox" id="harmonyAutoGenerate">
+                  <span style="font-weight: 600; color: #1976d2;">原曲に近い形で+3+5-3-5（オクターブ上/下）を必要に応じて生成</span>
+                </label>
+                <div class="help-text" style="margin-top: 10px;">
+                  楽曲の雰囲気に合わせて、適切なハモリ（3度上、5度上、3度下、5度下、オクターブ上下）を自動生成いたします
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
               <label>ピッチ補正 <span class="required">※必須</span></label>
               <div class="radio-group">
                 <label class="radio-item">
-                  <input type="radio" name="pitchCorrection" value="complete" checked>
+                  <input type="radio" name="pitchCorrection" value="complete">
                   <span class="radio-label">完全に揃える<br><small>機械的でも正確に</small></span>
                 </label>
                 <label class="radio-item">
-                  <input type="radio" name="pitchCorrection" value="natural">
+                  <input type="radio" name="pitchCorrection" value="natural" checked>
                   <span class="radio-label">自然に揃える<br><small>自然さ重視</small></span>
                 </label>
                 <label class="radio-item">
@@ -311,7 +985,7 @@
                 </label>
               </div>
               <div class="form-group" id="pitchCustom" style="display: none; margin-top: 10px;">
-                <input type="text" placeholder="具体的なピッチ補正の指示を入力してください">
+                <input type="text" id="pitchCustomInput" placeholder="具体的なピッチ補正の指示を入力してください">
               </div>
             </div>
 
@@ -319,11 +993,11 @@
               <label>タイミング補正 <span class="required">※必須</span></label>
               <div class="radio-group">
                 <label class="radio-item">
-                  <input type="radio" name="timingCorrection" value="tight" checked>
+                  <input type="radio" name="timingCorrection" value="tight">
                   <span class="radio-label">しっかり揃える<br><small>リズム重視</small></span>
                 </label>
                 <label class="radio-item">
-                  <input type="radio" name="timingCorrection" value="loose">
+                  <input type="radio" name="timingCorrection" value="loose" checked>
                   <span class="radio-label">ゆるめに揃える<br><small>人間らしさ重視</small></span>
                 </label>
                 <label class="radio-item">
@@ -332,7 +1006,7 @@
                 </label>
               </div>
               <div class="form-group" id="timingCustom" style="display: none; margin-top: 10px;">
-                <input type="text" placeholder="具体的なタイミング補正の指示を入力してください">
+                <input type="text" id="timingCustomInput" placeholder="具体的なタイミング補正の指示を入力してください">
               </div>
             </div>
 
@@ -340,11 +1014,11 @@
               <label>ブレス処理 <span class="required">※必須</span></label>
               <div class="radio-group">
                 <label class="radio-item">
-                  <input type="radio" name="breathProcessing" value="remove" checked>
+                  <input type="radio" name="breathProcessing" value="remove">
                   <span class="radio-label">削除<br><small>クリーンな仕上がり</small></span>
                 </label>
                 <label class="radio-item">
-                  <input type="radio" name="breathProcessing" value="keep">
+                  <input type="radio" name="breathProcessing" value="keep" checked>
                   <span class="radio-label">残す<br><small>自然な仕上がり</small></span>
                 </label>
                 <label class="radio-item">
@@ -353,19 +1027,19 @@
                 </label>
               </div>
               <div class="form-group" id="breathCustom" style="display: none; margin-top: 10px;">
-                <input type="text" placeholder="具体的なブレス処理の指示を入力してください">
+                <input type="text" id="breathCustomInput" placeholder="具体的なブレス処理の指示を入力してください">
               </div>
             </div>
 
             <div class="form-group">
-              <label>ロングトーンの処理 <span class="optional">任意</span></label>
+              <label>ロングトーンの処理 <span class="required">※必須</span></label>
               <div class="radio-group">
                 <label class="radio-item">
-                  <input type="radio" name="longTone" value="natural" checked>
+                  <input type="radio" name="longTone" value="natural">
                   <span class="radio-label">自然な長さ<br><small>歌唱データの長さ重視</small></span>
                 </label>
                 <label class="radio-item">
-                  <input type="radio" name="longTone" value="reference">
+                  <input type="radio" name="longTone" value="reference" checked>
                   <span class="radio-label">リファレンスに合わせる<br><small>原曲の長さ重視</small></span>
                 </label>
               </div>
@@ -380,23 +1054,20 @@
             
             <div class="form-group">
               <label for="harmonyDirection">ハモリの方向性 <span class="optional">任意</span></label>
-              <textarea id="harmonyDirection" placeholder="例：「千本桜」サビ部分のような厚めのハモリ、「残酷な天使のテーゼ」Aメロのような控えめなハモリ、「夜に駆ける」サビの高音ハモリのような感じで、YOASOBI「アイドル」のサビのようなユニゾン風ハモリ
-
-文字での指定例：高めのハモリを多用、低音ハモリでエモい雰囲気、サビだけ厚めのハモリ、3度上と5度上のダブルハモリ、控えめで自然なハモリ"></textarea>
+              <textarea id="harmonyDirection" placeholder="例：「千本桜」サビのような厚めのハモリ、「夜に駆ける」の高音ハモリ風、3度上と5度上のダブルハモリ、控えめで自然なハモリ"></textarea>
+              <div class="help-text">楽曲例や音楽理論での指定など、お好みの方法でご指定ください</div>
             </div>
 
             <div class="form-group">
               <label for="effects">エフェクト <span class="optional">任意</span></label>
-              <textarea id="effects" placeholder="例：「砂の惑星」のようなボコーダー風エフェクト、「ロキ」のようなディストーション系エフェクト、「怪物」のようなダークな雰囲気のリバーブ、「香水」のような爽やかなディレイ効果、Ado「うっせぇわ」のようなパンチの効いたコンプ
-
-文字での指定例：リバーブ多めで幻想的に、ディストーション要素を入れて、エコー効果でサビを盛り上げて、ビンテージ感のあるエフェクト、クリアで抜けの良いサウンド"></textarea>
+              <textarea id="effects" placeholder="例：「ロキ」のようなディストーション、「怪物」のようなダークなリバーブ、爽やかなディレイ効果、ビンテージ感のあるエフェクト"></textarea>
+              <div class="help-text">参考楽曲やエフェクトの種類でご指定ください</div>
             </div>
 
             <div class="form-group">
               <label for="specialEffects">特殊演出 <span class="optional">任意</span></label>
-              <textarea id="specialEffects" placeholder="例：「シャルル」間奏部分のようなボーカルチョップ、「ドライフラワー」サビ前のようなビルドアップ、「紅蓮華」アウトロのようなフェードアウト、「炎」特定箇所でのブレイクダウン効果、「白日」のような自然なダイナミクス
-
-文字での指定例：間奏でボーカルチョップ、サビ前でビルドアップ、アウトロでフェードアウト、特定箇所でボコーダー効果、ブレス音を活かした演出"></textarea>
+              <textarea id="specialEffects" placeholder="例：間奏でボーカルチョップ、サビ前でビルドアップ、アウトロでフェードアウト、特定箇所でボコーダー効果"></textarea>
+              <div class="help-text">楽曲の特定部分での演出効果をご指定ください</div>
             </div>
           </div>
         </div>
@@ -424,19 +1095,6 @@
                     <option value="3">3名 (+¥6,000)</option>
                     <option value="4">4名 (+¥8,000)</option>
                     <option value="5+">5名以上 (要相談)</option>
-                  </select>
-                </span>
-              </label>
-              <label class="checkbox-item">
-                <input type="checkbox" name="options" value="fx-processing" data-price="2000">
-                <span>🎛️ FX処理
-                  <select id="fxCount" style="margin-left: 8px; padding: 2px 6px; border-radius: 4px;">
-                    <option value="1">1か所 (+¥2,000)</option>
-                    <option value="2">2か所 (+¥4,000)</option>
-                    <option value="3">3か所 (+¥6,000)</option>
-                    <option value="4">4か所 (+¥8,000)</option>
-                    <option value="5">5か所 (+¥10,000)</option>
-                    <option value="other">その他 (要相談)</option>
                   </select>
                 </span>
               </label>
@@ -481,26 +1139,44 @@
               <label for="additionalRequests">その他のご要望・特記事項</label>
               <textarea id="additionalRequests" placeholder="例：声の印象を可愛らしく仕上げたい、アニソン系の爽やかな仕上がり希望、録音時のノイズが気になる箇所が○分○秒あたりにあります、初めての依頼で不安なので丁寧にサポートしてください"></textarea>
             </div>
+
+            <div class="form-group" style="margin-top: 25px;">
+              <label class="checkbox-item" style="background: #f0e8f7; border: 2px solid var(--primary); margin: 0;">
+                <input type="checkbox" id="optimalDirectionConsent">
+                <span style="font-weight: 600; color: var(--primary-dark);">任意のご要望が未記入の場合、最適な方向で進めます <span class="optional">※推奨</span></span>
+              </label>
+              <div class="help-text" style="margin-top: 8px;">
+                特別なご要望がない場合は、楽曲の特性と録音状況を考慮して、最も適切なMIX方向性で仕上げさせていただきます
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- 料金プレビュー -->
-        <div class="price-preview">
-          <h4>📊 お見積もり</h4>
-          <div class="price-amount" id="totalPrice">¥0</div>
-          <div class="help-text" id="priceBreakdown"></div>
+        <button type="button" class="generate-btn" id="generateBtn">
+          📝 依頼用文章を生成する
+        </button>
+
+        <div id="statusMessage" class="status-message">
+          <!-- ステータス表示エリア -->
         </div>
 
-        <button type="button" class="generate-btn" id="generateBtn">
-          📝 DM用文章を生成する
-        </button>
-      </form>
+        <div style="margin-top: 20px; padding: 20px; background: #e3f2fd; border-radius: 12px; text-align: center;">
+          <h4 style="color: #1976d2; margin-bottom: 10px;">
+            <i class="fas fa-info-circle"></i>
+            生成後の流れ
+          </h4>
+          <p style="margin: 0; color: #1976d2; font-size: 0.9rem; line-height: 1.5;">
+            文章生成後、コピーしてXのDMまたはメールでお送りください。<br>
+            24時間以内にお見積もりと詳細をご返信いたします。
+          </p>
+        </div>
+      </div>
 
       <!-- 生成結果 -->
       <div class="output-section" id="outputSection">
         <div class="output-card">
           <div class="output-header">
-            <h3>✅ DM用文章が完成しました！</h3>
+            <h3>✅ 依頼用文章が完成しました！</h3>
             <p>下記をコピーして、お好きな方法でご連絡ください</p>
           </div>
           
@@ -525,17 +1201,17 @@
                 その他のお問い合わせ方法
               </h4>
               <p style="color: var(--text-light); margin-bottom: 15px;">
-                上記以外にも、簡単依頼フォーム・ココナラ・SKIMAからもご依頼いただけます
+                上記以外にも、ココナラ・SKIMAからもご依頼いただけます
               </p>
               <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="color: var(--primary); text-decoration: none;">
-                  <i class="fas fa-rocket"></i> 簡単依頼フォーム
-                </a>
                 <a href="https://coconala.com/services/2323053" target="_blank" style="color: var(--primary); text-decoration: none;">
                   <i class="fas fa-shopping-cart"></i> ココナラ
                 </a>
                 <a href="https://skima.jp/item/detail?item_id=239311" target="_blank" style="color: var(--primary); text-decoration: none;">
                   <i class="fas fa-palette"></i> SKIMA
+                </a>
+                <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="color: var(--primary); text-decoration: none;">
+                  <i class="fas fa-paper-plane"></i> 簡単フォーム
                 </a>
                 <a href="index.html" style="color: var(--primary); text-decoration: none;">
                   <i class="fas fa-home"></i> メインページ
@@ -549,256 +1225,477 @@
   </div>
 
   <script>
-    const form = document.getElementById('requestForm');
-    const totalPriceEl = document.getElementById('totalPrice');
-    const priceBreakdownEl = document.getElementById('priceBreakdown');
-    const generateBtn = document.getElementById('generateBtn');
-    const outputSection = document.getElementById('outputSection');
-    const dmTextEl = document.getElementById('dmText');
-    const copyBtn = document.getElementById('copyBtn');
-    const twitterBtn = document.getElementById('twitterBtn');
-    const emailBtn = document.getElementById('emailBtn');
+    // 🚀 修正版JavaScript - 確実に動作するシンプルなコード
 
-    // カスタム入力フィールドと録音状況の表示制御
-    document.addEventListener('change', function(e) {
-      if (e.target.name === 'pitchCorrection') {
-        document.getElementById('pitchCustom').style.display = 
-          e.target.value === 'custom' ? 'block' : 'none';
+    console.log('🎯 修正版フォームJavaScript開始');
+
+    // DOM要素を安全に取得する関数
+    function safeGetElement(id) {
+      const element = document.getElementById(id);
+      if (!element) {
+        console.warn(`⚠️ 要素が見つかりません: ${id}`);
       }
-      if (e.target.name === 'timingCorrection') {
-        document.getElementById('timingCustom').style.display = 
-          e.target.value === 'custom' ? 'block' : 'none';
+      return element;
+    }
+
+    // メイン処理
+    function initializeForm() {
+      console.log('📋 フォーム初期化開始');
+
+      // 重要な要素の取得
+      const generateBtn = safeGetElement('generateBtn');
+      const outputSection = safeGetElement('outputSection');
+      const dmTextEl = safeGetElement('dmText');
+      const copyBtn = safeGetElement('copyBtn');
+      const statusMessage = safeGetElement('statusMessage');
+
+      if (!generateBtn) {
+        console.error('❌ 生成ボタンが見つかりません');
+        return;
       }
-      if (e.target.name === 'breathProcessing') {
-        document.getElementById('breathCustom').style.display = 
-          e.target.value === 'custom' ? 'block' : 'none';
-      }
-      
-      // 録音状況による音源URL欄の表示制御
-      if (e.target.name === 'recordingStatus') {
-        const audioUrlSection = document.getElementById('audioUrlSection');
-        const audioUrlInput = document.getElementById('audioUrl');
+
+      console.log('✅ 重要な要素の取得完了');
+
+      // フォーム制御の設定
+      setupFormControls();
+
+      // 生成ボタンのクリックイベント
+      generateBtn.addEventListener('click', function() {
+        console.log('🔥 生成ボタンがクリックされました！');
         
-        if (e.target.value === 'recorded') {
-          audioUrlSection.style.display = 'block';
-          audioUrlInput.required = true;
-        } else {
-          audioUrlSection.style.display = 'none';
-          audioUrlInput.required = false;
-          audioUrlInput.value = '';
-        }
-      }
-    });
+        try {
+          // ボタンを無効化
+          generateBtn.disabled = true;
+          generateBtn.textContent = '⏳ 処理中...';
+          generateBtn.style.background = '#999999';
 
-    // 料金計算
-    function calculatePrice() {
-      let total = 0;
-      let breakdown = [];
+          // ステータス表示
+          if (statusMessage) {
+            statusMessage.className = 'status-message status-processing';
+            statusMessage.style.display = 'block';
+            statusMessage.textContent = '📝 依頼用文章を生成しています...';
+          }
 
-      // メインサービス
-      const mainService = document.querySelector('input[name="mainService"]:checked');
-      if (mainService) {
-        const price = parseInt(mainService.dataset.price);
-        total += price;
-        if (price > 0) {
-          breakdown.push(`${mainService.parentElement.querySelector('.radio-label').textContent.split('¥')[0]} ¥${price.toLocaleString()}`);
+          // 短い遅延後に処理実行（UIの更新を確実にするため）
+          setTimeout(() => {
+            try {
+              const dmText = generateDMText();
+              console.log('✅ 依頼文章生成完了');
+
+              // 結果表示
+              if (dmTextEl) {
+                dmTextEl.textContent = dmText;
+              }
+
+              if (outputSection) {
+                outputSection.classList.add('show');
+                outputSection.scrollIntoView({ behavior: 'smooth' });
+              }
+
+              // リンク設定
+              setupContactLinks(dmText);
+
+              // 成功表示
+              if (statusMessage) {
+                statusMessage.className = 'status-message status-success';
+                statusMessage.textContent = '🎉 依頼用文章が生成されました！下にスクロールしてご確認ください';
+                setTimeout(() => {
+                  statusMessage.style.display = 'none';
+                }, 3000);
+              }
+
+            } catch (error) {
+              console.error('❌ 依頼文章生成エラー:', error);
+              
+              if (statusMessage) {
+                statusMessage.className = 'status-message status-error';
+                statusMessage.textContent = '❌ 文章生成でエラーが発生しました';
+                setTimeout(() => {
+                  statusMessage.style.display = 'none';
+                }, 5000);
+              }
+            } finally {
+              // ボタンを元に戻す
+              generateBtn.disabled = false;
+              generateBtn.textContent = '📝 依頼用文章を生成する';
+              generateBtn.style.background = '';
+            }
+          }, 100);
+
+        } catch (error) {
+          console.error('❌ ボタンクリックエラー:', error);
+          generateBtn.disabled = false;
+          generateBtn.textContent = '📝 依頼用文章を生成する';
+          generateBtn.style.background = '';
         }
+      });
+
+      // コピーボタンの設定
+      if (copyBtn) {
+        copyBtn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(dmTextEl.textContent);
+            copyBtn.textContent = '✅ コピー完了！';
+            copyBtn.classList.add('copied');
+            setTimeout(() => {
+              copyBtn.textContent = '📋 コピー';
+              copyBtn.classList.remove('copied');
+            }, 2000);
+          } catch (err) {
+            // フォールバック
+            const textArea = document.createElement('textarea');
+            textArea.value = dmTextEl.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            copyBtn.textContent = '✅ コピー完了！';
+            copyBtn.classList.add('copied');
+            setTimeout(() => {
+              copyBtn.textContent = '📋 コピー';
+              copyBtn.classList.remove('copied');
+            }, 2000);
+          }
+        });
       }
+
+      console.log('🎉 フォーム初期化完了');
+    }
+
+    // フォーム制御の設定
+    function setupFormControls() {
+      console.log('🎛️ フォーム制御設定開始');
+
+      // 録音状況による表示制御
+      const recordingRadios = document.querySelectorAll('input[name="recordingStatus"]');
+      recordingRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+          const audioUrlSection = safeGetElement('audioUrlSection');
+          if (audioUrlSection) {
+            if (this.value === 'recorded') {
+              audioUrlSection.style.display = 'block';
+            } else {
+              audioUrlSection.style.display = 'none';
+            }
+          }
+        });
+      });
+
+      // ハモリ音源による表示制御
+      const harmonyRadios = document.querySelectorAll('input[name="harmonySource"]');
+      harmonyRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+          const harmonyGenerate = safeGetElement('harmonyGenerate');
+          if (harmonyGenerate) {
+            harmonyGenerate.style.display = this.value === 'generate' ? 'block' : 'none';
+          }
+        });
+      });
+
+      // カスタム入力フィールドの表示制御
+      const customControls = [
+        { name: 'pitchCorrection', elementId: 'pitchCustom' },
+        { name: 'timingCorrection', elementId: 'timingCustom' },
+        { name: 'breathProcessing', elementId: 'breathCustom' }
+      ];
+
+      customControls.forEach(control => {
+        const radios = document.querySelectorAll(`input[name="${control.name}"]`);
+        radios.forEach(radio => {
+          radio.addEventListener('change', function() {
+            const customElement = safeGetElement(control.elementId);
+            if (customElement) {
+              customElement.style.display = this.value === 'custom' ? 'block' : 'none';
+            }
+          });
+        });
+      });
+
+      console.log('✅ フォーム制御設定完了');
+    }
+
+    // 依頼文章生成関数
+    function generateDMText() {
+      console.log('📝 依頼文章生成開始');
+
+      const getValue = (id, defaultValue = '') => {
+        const element = safeGetElement(id);
+        return element ? (element.value || '').trim() : defaultValue;
+      };
+
+      const getCheckedValue = (name, defaultValue = '') => {
+        const element = document.querySelector(`input[name="${name}"]:checked`);
+        return element ? element.value : defaultValue;
+      };
+
+      const getCheckedBox = (id) => {
+        const element = safeGetElement(id);
+        return element ? element.checked : false;
+      };
+
+      // フォームデータ収集
+      const formData = {
+        clientName: getValue('clientName'),
+        clientContact: getValue('clientContact'),
+        contactMethod: getValue('contactMethod'),
+        portfolioConsent: getCheckedValue('portfolioConsent'),
+        songTitle: getValue('songTitle'),
+        artist: getValue('artist'),
+        sourceType: getValue('sourceType'),
+        bpm: getValue('bpm'),
+        songKey: getValue('songKey'),
+        vocalistCount: getValue('vocalistCount'),
+        mainService: getCheckedValue('mainService'),
+        deadline: getValue('deadline'),
+        recordingStatus: getCheckedValue('recordingStatus'),
+        recordingGuideConfirm: getCheckedBox('recordingGuideConfirm'),
+        audioUrl: getValue('audioUrl'),
+        recordingNotes: getValue('recordingNotes'),
+        refUrlFull: getValue('refUrlFull'),
+        refUrlPart: getValue('refUrlPart'),
+        harmonySource: getCheckedValue('harmonySource'),
+        harmonyAutoGenerate: getCheckedBox('harmonyAutoGenerate'),
+        pitchCorrection: getCheckedValue('pitchCorrection'),
+        pitchCustom: getValue('pitchCustomInput'),
+        timingCorrection: getCheckedValue('timingCorrection'),
+        timingCustom: getValue('timingCustomInput'),
+        breathProcessing: getCheckedValue('breathProcessing'),
+        breathCustom: getValue('breathCustomInput'),
+        longTone: getCheckedValue('longTone'),
+        harmonyDirection: getValue('harmonyDirection'),
+        effects: getValue('effects'),
+        specialEffects: getValue('specialEffects'),
+        additionalRequests: getValue('additionalRequests'),
+        optimalDirectionConsent: getCheckedBox('optimalDirectionConsent'),
+        paymentMethod: getCheckedValue('paymentMethod')
+      };
+
+      console.log('📊 フォームデータ収集完了:', formData);
+
+      // 依頼文章作成（作業・確認しやすい順序で構成）
+      let dmText = 'こんにちは！Ryuzan Mix Salonの件でご連絡いたします☺️\n\n';
+
+      // 1. 依頼者情報（連絡先等の基本情報）
+      dmText += '【依頼者情報】\n';
+      dmText += `お名前：${formData.clientName || '未入力'}\n`;
+      dmText += `連絡先：${formData.clientContact || '未入力'}\n`;
+      
+      const contactMethods = {
+        'twitter': 'X（Twitter）DM',
+        'email': 'メール',
+        'discord': 'Discord',
+        'line': 'LINE',
+        'other': 'その他'
+      };
+      dmText += `希望連絡方法：${contactMethods[formData.contactMethod] || '未選択'}\n`;
+      
+      const portfolioConsents = {
+        'allowed': '掲載可（ポートフォリオとして使用許可）',
+        'denied': '掲載不可（ポートフォリオとして使用禁止）'
+      };
+      dmText += `ポートフォリオ掲載：${portfolioConsents[formData.portfolioConsent] || '未選択'}\n\n`;
+
+      // 2. 楽曲情報（何をMIXするか）
+      dmText += '【楽曲情報】\n';
+      dmText += `楽曲タイトル：${formData.songTitle || '未入力'}\n`;
+      dmText += `アーティスト：${formData.artist || '未入力'}\n`;
+      
+      const sourceTypes = {
+        'original-karaoke': '公式カラオケ音源',
+        'nicokaraoke': 'ニコカラオケ',
+        'youtube-karaoke': 'YouTube カラオケ',
+        'instrumental': 'インストゥルメンタル',
+        'midi': 'MIDI・自作音源',
+        'other': 'その他'
+      };
+      dmText += `使用音源：${sourceTypes[formData.sourceType] || '未選択'}\n`;
+      dmText += `BPM：${formData.bpm || '未入力'}\n`;
+      dmText += `キー：${formData.songKey || '未入力'}\n`;
+
+      const vocalistCounts = {
+        '1': '1人（ソロ）',
+        '2': '2人（デュエット）',
+        '3': '3人',
+        '4': '4人',
+        '5+': '5人以上'
+      };
+      dmText += `歌唱人数：${vocalistCounts[formData.vocalistCount] || '未選択'}\n\n`;
+
+      // 3. 録音音源について（素材の確認）
+      dmText += '【録音音源について】\n';
+      dmText += `録音ガイド確認：${formData.recordingGuideConfirm ? '確認済み' : '未確認'}\n`;
+      
+      const recordingStatuses = {
+        'recorded': '録音済み',
+        'not-recorded': 'これから録音予定'
+      };
+      dmText += `録音状況：${recordingStatuses[formData.recordingStatus] || '未選択'}\n`;
+      
+      if (formData.recordingStatus === 'recorded') {
+        dmText += `音源URL：${formData.audioUrl || '未入力'}\n`;
+      }
+      dmText += `録音についての追記：${formData.recordingNotes || 'なし'}\n\n`;
+
+      // 4. ご希望プラン・お支払い方法（料金関連）
+      dmText += '【ご希望プラン・お支払い】\n';
+      const mainServices = {
+        'full': 'フルコーラス MIX（¥5,000）',
+        'one': 'ワンコーラス MIX（¥3,000）'
+      };
+      dmText += `メインプラン：${mainServices[formData.mainService] || '未選択'}\n`;
 
       // 追加オプション
-      const options = document.querySelectorAll('input[name="options"]:checked:not([disabled])');
-      options.forEach(option => {
-        let price = parseInt(option.dataset.price);
-        let optionText = option.parentElement.textContent.trim();
-        
-        // コラボ追加の場合、人数に応じて価格調整
-        if (option.value === 'collab') {
-          const collabCount = document.getElementById('collabCount').value;
-          if (collabCount === '5+') {
-            optionText = '👥 コラボ追加 5名以上 (要相談)';
-            price = 0;
+      const selectedOptions = document.querySelectorAll('input[name="options"]:checked:not([disabled])');
+      if (selectedOptions.length > 0) {
+        dmText += '追加オプション：';
+        const optionTexts = [];
+        selectedOptions.forEach(option => {
+          if (option.value === 'collab') {
+            const collabCount = getValue('collabCount', '1');
+            if (collabCount === '5+') {
+              optionTexts.push('コラボ追加（5名以上・要相談）');
+            } else {
+              optionTexts.push(`コラボ追加（${collabCount}名）`);
+            }
           } else {
-            const count = parseInt(collabCount);
-            price = count * 2000;
-            optionText = `👥 コラボ追加 ${count}名 (+¥${price.toLocaleString()})`;
+            const optionNames = {
+              'harmony': 'ハモリ追加',
+              'encode': '動画エンコード'
+            };
+            optionTexts.push(optionNames[option.value] || option.value);
           }
-        }
-        
-        // FX処理の場合、箇所数に応じて価格調整
-        if (option.value === 'fx-processing') {
-          const fxCount = document.getElementById('fxCount').value;
-          if (fxCount === 'other') {
-            optionText = '🎛️ FX処理 その他 (要相談)';
-            price = 0;
-          } else {
-            const count = parseInt(fxCount);
-            price = count * 2000;
-            optionText = `🎛️ FX処理 ${count}か所 (+¥${price.toLocaleString()})`;
-          }
-        }
-        
-        total += price;
-        if (price > 0) {
-          breakdown.push(optionText);
-        } else if ((option.value === 'collab' && collabCount === '5+') || (option.value === 'fx-processing' && fxCount === 'other')) {
-          breakdown.push(optionText);
-        }
-      });
+        });
+        dmText += optionTexts.join('、') + '\n';
+      } else {
+        dmText += '追加オプション：なし\n';
+      }
 
       // 割引
-      const discounts = document.querySelectorAll('input[name="discounts"]:checked');
-      discounts.forEach(discount => {
-        const price = parseInt(discount.dataset.price);
-        total += price;
-        breakdown.push(`${discount.parentElement.textContent.trim()}`);
-      });
-
-      total = Math.max(0, total);
-
-      totalPriceEl.textContent = total > 0 ? `¥${total.toLocaleString()}` : '無料相談';
-      priceBreakdownEl.textContent = breakdown.length > 0 ? breakdown.join(' + ') : 'まずはお気軽にご相談ください';
-
-      // ボタンの有効/無効
-      const clientName = document.getElementById('clientName').value.trim();
-      const songTitle = document.getElementById('songTitle').value.trim();
-      const mainServiceVal = mainService ? mainService.value : '';
-      const recordingStatus = document.querySelector('input[name="recordingStatus"]:checked')?.value;
-      const audioUrl = document.getElementById('audioUrl').value.trim();
-      
-      // 基本必須項目のチェック
-      let isValid = (clientName && songTitle) || mainServiceVal === 'consultation';
-      
-      // 録音済みの場合は音源URLも必須
-      if (recordingStatus === 'recorded' && !audioUrl && mainServiceVal !== 'consultation') {
-        isValid = false;
-      }
-      
-      generateBtn.disabled = !isValid;
-    }
-
-    // 文章生成
-    function generateDMText() {
-      const formData = new FormData(form);
-      const clientName = document.getElementById('clientName').value.trim();
-      const clientContact = document.getElementById('clientContact').value.trim();
-      const contactMethod = document.getElementById('contactMethod').value;
-      const songTitle = document.getElementById('songTitle').value.trim();
-      const artist = document.getElementById('artist').value.trim();
-      const mainService = document.querySelector('input[name="mainService"]:checked')?.value;
-      const recordingStatus = document.querySelector('input[name="recordingStatus"]:checked')?.value;
-      const audioUrl = document.getElementById('audioUrl').value.trim();
-      const totalPrice = totalPriceEl.textContent;
-
-      let text = `こんにちは！Ryuzan Mix Salonの件でご連絡いたします☺️\n\n`;
-      
-      // 依頼者情報
-      text += `【依頼者情報】\n`;
-      text += `お名前：${clientName}\n`;
-      text += `連絡先：${clientContact}\n`;
-      text += `希望連絡方法：${contactMethod}\n\n`;
-      
-      // 楽曲情報
-      text += `【楽曲情報】\n`;
-      text += `楽曲タイトル：${songTitle}\n`;
-      text += `アーティスト：${artist}\n\n`;
-      
-      // プラン
-      text += `【ご希望プラン】\n`;
-      const serviceNames = {
-        'full': 'フルコーラス MIX（¥5,000）',
-        'one': 'ワンコーラス MIX（¥3,000）',
-        'consultation': 'まずは相談（無料）'
-      };
-      text += `メインプラン：${serviceNames[mainService] || mainService}\n`;
-      text += `お見積もり：${totalPrice}\n\n`;
-      
-      // 録音状況
-      text += `【録音音源について】\n`;
-      if (recordingStatus === 'recorded') {
-        text += `録音状況：録音済み\n`;
-        if (audioUrl) {
-          text += `音源URL：${audioUrl}\n`;
-        }
+      const selectedDiscounts = document.querySelectorAll('input[name="discounts"]:checked');
+      if (selectedDiscounts.length > 0) {
+        dmText += '割引：';
+        const discountTexts = [];
+        selectedDiscounts.forEach(discount => {
+          const discountNames = {
+            'no-pitch': 'ピッチ補正なし',
+            'repeater': 'リピーター割'
+          };
+          discountTexts.push(discountNames[discount.value] || discount.value);
+        });
+        dmText += discountTexts.join('、') + '\n';
       } else {
-        text += `録音状況：これから録音予定\n`;
+        dmText += '割引：なし\n';
       }
+
+      // お支払い方法
+      const paymentMethods = {
+        'paypay': 'PayPay（推奨）',
+        'amazon-gift': 'Amazonギフトカード'
+      };
+      dmText += `希望支払い方法：${paymentMethods[formData.paymentMethod] || 'PayPay（推奨）'}\n`;
+      dmText += '※仮MIX確認・修正完了後のお支払いとなります\n\n';
+
+      // 5. 納期
+      dmText += '【納期】\n';
+      const deadlines = {
+        'standard': '標準納期（1か月前後）',
+        'consultation': 'お急ぎ対応希望（要相談）',
+        'specific': '特定日指定（要相談）'
+      };
+      dmText += `希望納期：${deadlines[formData.deadline] || '未選択'}\n\n`;
+
+      // 6. MIX詳細設定（技術的な指示）
+      dmText += '【MIX詳細設定】\n';
       
-      // PayPay支払い優先の案内
-      text += `\n【お支払い方法】\n`;
-      text += `PayPay決済を希望いたします（手数料なし・安全・簡単）\n`;
-      text += `PayPayが使えない場合は、Amazonギフトカードでも対応可能です\n\n`;
+      const harmonySources = {
+        'none': 'ハモリなし（メインボーカルのみ）',
+        'available': '音源あり（録音済み）',
+        'generate': `音源無し（生成希望${formData.harmonyAutoGenerate ? '・自動ハモリ生成' : ''}）`
+      };
+      dmText += `ハモリ音源：${harmonySources[formData.harmonySource] || '未選択'}\n`;
       
-      text += `何かご不明な点がございましたら、お気軽にお声がけください。\n`;
-      text += `どうぞよろしくお願いいたします🌸`;
-      
-      return text;
+      const pitchCorrections = {
+        'complete': '完全に揃える',
+        'natural': '自然に揃える',
+        'minimal': 'ほぼ原音のまま',
+        'custom': `その他（${formData.pitchCustom || '詳細未入力'}）`
+      };
+      dmText += `ピッチ補正：${pitchCorrections[formData.pitchCorrection] || '未選択'}\n`;
+
+      const timingCorrections = {
+        'tight': 'しっかり揃える',
+        'loose': 'ゆるめに揃える',
+        'custom': `その他（${formData.timingCustom || '詳細未入力'}）`
+      };
+      dmText += `タイミング補正：${timingCorrections[formData.timingCorrection] || '未選択'}\n`;
+
+      const breathProcessings = {
+        'remove': '削除',
+        'keep': '残す',
+        'custom': `その他（${formData.breathCustom || '詳細未入力'}）`
+      };
+      dmText += `ブレス処理：${breathProcessings[formData.breathProcessing] || '未選択'}\n`;
+
+      const longTones = {
+        'natural': '自然な長さ',
+        'reference': 'リファレンスに合わせる'
+      };
+      dmText += `ロングトーン処理：${longTones[formData.longTone] || '未選択'}\n\n`;
+
+      // 7. ハモリ・エフェクト（技術的な指示続き）
+      dmText += '【ハモリ・エフェクト】\n';
+      dmText += `ハモリの方向性：${formData.harmonyDirection || 'なし'}\n`;
+      dmText += `エフェクト：${formData.effects || 'なし'}\n`;
+      dmText += `特殊演出：${formData.specialEffects || 'なし'}\n\n`;
+
+      // 8. 参考音源（参考資料）
+      dmText += '【参考音源】\n';
+      dmText += `全体参考URL：${formData.refUrlFull || 'なし'}\n`;
+      dmText += `部分参考URL：${formData.refUrlPart || 'なし'}\n\n`;
+
+      // 9. その他ご要望（最終的な要望・注意事項）
+      dmText += '【その他ご要望・確認事項】\n';
+      dmText += `追加要望：${formData.additionalRequests || 'なし'}\n`;
+      dmText += `最適な方向での進行同意：${formData.optimalDirectionConsent ? '同意済み' : '未同意'}\n\n`;
+
+      dmText += '何かご不明な点がございましたら、お気軽にお声がけください。\n';
+      dmText += 'どうぞよろしくお願いいたします☺️';
+
+      console.log('✅ 依頼文章生成完了');
+      return dmText;
     }
 
-    // イベントリスナー
-    form.addEventListener('change', calculatePrice);
-    form.addEventListener('input', calculatePrice);
+    // 連絡先リンクの設定
+    function setupContactLinks(dmText) {
+      console.log('🔗 連絡先リンク設定開始');
 
-    document.getElementById('collabCount').addEventListener('change', calculatePrice);
-    document.getElementById('fxCount').addEventListener('change', calculatePrice);
+      const twitterBtn = safeGetElement('twitterBtn');
+      const emailBtn = safeGetElement('emailBtn');
 
-    // サービス選択時の制御
-    document.addEventListener('change', function(e) {
-      if (e.target.name === 'mainService') {
-        calculatePrice();
-      }
-    });
-
-    generateBtn.addEventListener('click', () => {
-      const dmText = generateDMText();
-      dmTextEl.textContent = dmText;
-      outputSection.classList.add('show');
-      outputSection.scrollIntoView({ behavior: 'smooth' });
-
-      // URLを生成
-      const encodedText = encodeURIComponent(dmText);
-      twitterBtn.href = `https://x.com/messages/compose?recipient_id=ryuzanmix&text=${encodedText}`;
-      emailBtn.href = `mailto:ryuzan.mix@gmail.com?subject=MIX依頼のご相談&body=${encodedText}`;
-    });
-
-    copyBtn.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(dmTextEl.textContent);
-        copyBtn.textContent = '✅ コピー完了！';
-        copyBtn.classList.add('copied');
-        setTimeout(() => {
-          copyBtn.textContent = '📋 コピー';
-          copyBtn.classList.remove('copied');
-        }, 2000);
-      } catch (err) {
-        // フォールバック
-        const textArea = document.createElement('textarea');
-        textArea.value = dmTextEl.textContent;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
+      if (twitterBtn || emailBtn) {
+        const encodedText = encodeURIComponent(dmText);
         
-        copyBtn.textContent = '✅ コピー完了！';
-        copyBtn.classList.add('copied');
-        setTimeout(() => {
-          copyBtn.textContent = '📋 コピー';
-          copyBtn.classList.remove('copied');
-        }, 2000);
+        if (twitterBtn) {
+          twitterBtn.href = `https://x.com/messages/compose?recipient_id=ryuzanmix&text=${encodedText}`;
+        }
+        
+        if (emailBtn) {
+          emailBtn.href = `mailto:ryuzan.mix@gmail.com?subject=MIX依頼のご相談&body=${encodedText}`;
+        }
       }
-    });
 
-    // 初期計算と表示制御
-    calculatePrice();
-    
-    // 初期状態での録音状況表示制御
-    const initialRecordingStatus = document.querySelector('input[name="recordingStatus"]:checked').value;
-    const audioUrlSection = document.getElementById('audioUrlSection');
-    const audioUrlInput = document.getElementById('audioUrl');
-    
-    if (initialRecordingStatus === 'not-recorded') {
-      audioUrlSection.style.display = 'none';
-      audioUrlInput.required = false;
+      console.log('✅ 連絡先リンク設定完了');
     }
+
+    // DOMContentLoaded時の初期化
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeForm);
+    } else {
+      initializeForm();
+    }
+
+    console.log('🎯 修正版JavaScriptの読み込み完了');
   </script>
 
   <!-- 構造化データ -->
