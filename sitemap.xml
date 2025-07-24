@@ -3,7 +3,7 @@
   <!-- メインページ -->
   <url>
     <loc>https://ryuzanmix.github.io/</loc>
-    <lastmod>2025-07-22</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,7 +11,7 @@
   <!-- 詳細依頼フォーム -->
   <url>
     <loc>https://ryuzanmix.github.io/request-form.html</loc>
-    <lastmod>2025-07-22</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -19,54 +19,8 @@
   <!-- 録音・音源提出ガイド -->
   <url>
     <loc>https://ryuzanmix.github.io/recording-guide.html</loc>
-    <lastmod>2025-07-22</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- 簡単依頼フォーム（外部リンク、参考用） -->
-  <!-- https://forms.gle/u6KXppEsxdnw6g3W8 -->
-  
-  <!-- セクション別URL（アンカーリンク） -->
-  <url>
-    <loc>https://ryuzanmix.github.io/#playlist</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://ryuzanmix.github.io/#about</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://ryuzanmix.github.io/#pricing</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <url>
-    <loc>https://ryuzanmix.github.io/#workflow</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://ryuzanmix.github.io/#faq</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://ryuzanmix.github.io/#contact</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
