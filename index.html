@@ -64,6 +64,33 @@
 </head>
 
 <body>
+  <!-- 料金改定トップ告知バナー -->
+  <div style="background: linear-gradient(135deg, var(--warning), #ff8c00); color: white; padding: 15px 20px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(255, 140, 0, 0.3); border-bottom: 2px solid rgba(255, 255, 255, 0.2);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem;">
+        <i class="fas fa-bell" style="animation: pulse 2s infinite;"></i>
+        <span>料金改定のお知らせ</span>
+      </div>
+      <div style="font-size: 0.95rem; opacity: 0.95;">
+        現在価格でのご依頼は<strong>8月31日まで</strong>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="#pricing-update" style="background: white; color: var(--warning); padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 5px;"
+           onmouseover="this.style.transform='scale(1.05)'"
+           onmouseout="this.style.transform='scale(1)'">
+          <i class="fas fa-info-circle"></i>
+          詳細を確認
+        </a>
+        <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="background: rgba(255, 255, 255, 0.2); color: white; border: 1px solid white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 5px;"
+           onmouseover="this.style.background='white'; this.style.color='var(--warning)'"
+           onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.color='white'">
+          <i class="fas fa-rocket"></i>
+          今すぐ依頼
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- ナビゲーション -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
@@ -72,7 +99,7 @@
       <a href="#about">サロンについて</a>
       <a href="#pricing">料金</a>
       <a href="recording-guide.html">録音ガイド</a>
-      <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" class="cta-nav">簡単依頼</a>
+      <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" class="cta-nav">ご依頼&ご相談</a>
       <a href="#faq">よくある質問</a>
       <a href="#contact">お問い合わせ</a>
     </div>
@@ -98,7 +125,7 @@
           </a>
           <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" class="cta">
             <i class="fas fa-paper-plane"></i>
-            🚀 簡単依頼フォーム
+            🚀 ご依頼＆ご相談フォーム
           </a>
           <a href="recording-guide.html" class="cta">
             <i class="fas fa-book-open"></i>
@@ -137,11 +164,11 @@
             </p>
           </div>
 
-          <!-- YouTube完全版プレイリストへの誘導 -->
+          <!-- YouTube公開ポートフォリオへの誘導 -->
           <div style="background: white; padding: 25px; border-radius: 16px; border: 2px solid var(--primary-light); box-shadow: var(--shadow); text-align: center; margin-bottom: 30px;">
             <h4 style="color: var(--primary-dark); margin-bottom: 15px; font-size: 1.2rem;">
               <i class="fab fa-youtube" style="color: #ff0000;"></i>
-              YouTube完全版プレイリスト
+              YouTube公開ポートフォリオ
             </h4>
             <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 20px; line-height: 1.6;">
               より多くのサンプル音源を<br>YouTubeで直接確認
@@ -192,7 +219,7 @@
                 <div style="font-size: 1.4rem; font-weight: 700; color: var(--success); margin-bottom: 5px;">
                   <i class="fas fa-star"></i> 高評価
                 </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">お客様満足度100%</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">お客様から高いご評価</div>
               </div>
               <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 12px; border: 1px solid var(--border);">
                 <div style="font-size: 1.4rem; font-weight: 700; color: var(--accent); margin-bottom: 5px;">
@@ -220,7 +247,7 @@
                  onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 107, 157, 0.5)'"
                  onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(255, 107, 157, 0.4)'">
                 <i class="fas fa-rocket"></i>
-                今すぐ簡単依頼する
+                今すぐご依頼する
               </a>
               
               <a href="#contact" 
@@ -301,7 +328,7 @@
         <p>
           やさしさで"声"を整える、歌声トリートメント専門のMIX師です。<br>
           「録音ミスがある」「リズムやピッチに自信がない」そんな不安も、まるごと大丈夫。<br>
-          自然体のあなたの歌を、そっと支えるように仕上げます😊<br><br>
+          自然体のあなたの歌を、きっと支えるように仕上げます😊<br><br>
           <strong>専門技術:</strong> Cubase Pro, Melodyne, iZotope RX, Neutron, Ozone<br>
           <strong>対応ジャンル:</strong> ボカロ、J-POP、アニソン、洋楽カバー
         </p>
@@ -407,6 +434,112 @@
     </div>
   </section>
 
+  <!-- 料金改定について -->
+  <section id="pricing-update" style="background: var(--gradient); margin: 40px 0; padding: 40px 30px; border-radius: 20px; border: 2px solid var(--warning); box-shadow: var(--shadow);">
+    <div class="section-header" style="text-align: center; margin-bottom: 30px;">
+      <h2 style="color: var(--warning); margin-bottom: 15px; font-size: 1.5rem;">
+        <i class="fas fa-bell"></i>
+        料金改定について
+      </h2>
+      <p style="color: var(--primary-dark); font-size: 1.1rem; line-height: 1.6; max-width: 800px; margin: 0 auto;">
+        培った技術力と豊富な実績を踏まえ、より高品質なサービス提供のため、料金体系を改定いたします。<br>
+        <strong style="color: var(--warning);">2025年8月31日までは移行期間として特別料金でご提供中です。</strong>
+      </p>
+    </div>
+
+    <!-- 現在価格と新価格の比較 -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 30px;">
+      <!-- 現在価格（特別料金） -->
+      <div style="background: white; padding: 25px; border-radius: 15px; border: 3px solid var(--success); position: relative; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);">
+        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--success); color: white; padding: 8px 20px; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">
+          <i class="fas fa-clock"></i> 8月31日まで
+        </div>
+        <h3 style="color: var(--success); text-align: center; margin-bottom: 20px; margin-top: 15px; font-size: 1.3rem;">
+          現在価格（特別料金）
+        </h3>
+        <div style="text-align: center; margin-bottom: 20px;">
+          <div style="font-size: 1.1rem; margin-bottom: 8px; color: var(--text);">
+            <strong>フルコーラス MIX：</strong>
+            <span style="color: var(--success); font-weight: 700; font-size: 1.2rem;">¥5,000</span>
+          </div>
+          <div style="font-size: 1.1rem; margin-bottom: 8px; color: var(--text);">
+            <strong>ワンコーラス MIX：</strong>
+            <span style="color: var(--success); font-weight: 700; font-size: 1.2rem;">¥3,000</span>
+          </div>
+          <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border);">
+            • ハモリ追加（3トラック目〜）：+¥1,000<br>
+            • 動画エンコード：+¥1,000
+          </div>
+        </div>
+        <div style="background: var(--success); color: white; padding: 12px; border-radius: 10px; text-align: center; font-weight: 600;">
+          <i class="fas fa-star"></i> 現在価格でのご依頼は8月31日まで
+        </div>
+      </div>
+
+      <!-- 新価格 -->
+      <div style="background: white; padding: 25px; border-radius: 15px; border: 3px solid var(--warning); position: relative; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2);">
+        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--warning); color: white; padding: 8px 20px; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">
+          <i class="fas fa-calendar"></i> 9月1日から
+        </div>
+        <h3 style="color: var(--warning); text-align: center; margin-bottom: 20px; margin-top: 15px; font-size: 1.3rem;">
+          9月1日より新価格
+        </h3>
+        <div style="text-align: center; margin-bottom: 20px;">
+          <div style="font-size: 1.1rem; margin-bottom: 8px; color: var(--text);">
+            <strong>フルコーラス MIX：</strong>
+            <span style="color: var(--warning); font-weight: 700; font-size: 1.2rem;">¥8,000</span>
+          </div>
+          <div style="font-size: 1.1rem; margin-bottom: 8px; color: var(--text);">
+            <strong>ワンコーラス MIX：</strong>
+            <span style="color: var(--warning); font-weight: 700; font-size: 1.2rem;">¥6,000</span>
+          </div>
+          <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border);">
+            • ハモリ追加（3トラック目〜）：<strong style="color: var(--warning);">+¥3,000</strong><br>
+            • 動画エンコード：+¥1,000
+          </div>
+        </div>
+        <div style="background: var(--warning); color: white; padding: 12px; border-radius: 10px; text-align: center; font-weight: 600;">
+          <i class="fas fa-info-circle"></i> 2025年9月1日からの新価格
+        </div>
+      </div>
+    </div>
+
+    <!-- 今すぐご依頼を促すCTA -->
+    <div style="background: linear-gradient(135deg, var(--accent), #ff8fb3); color: white; padding: 25px; border-radius: 15px; text-align: center; margin-bottom: 20px; box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);">
+      <h3 style="margin-bottom: 15px; font-size: 1.2rem;">
+        <i class="fas fa-rocket"></i>
+        特別料金でのご依頼はお早めに
+      </h3>
+      <p style="margin-bottom: 20px; font-size: 1rem; opacity: 0.95;">
+        現在価格でのご依頼受付は<strong>2025年8月31日</strong>までとなります。<br>
+        この機会にぜひRyuzan Mix Salonの高品質MIXをお試しください。
+      </p>
+      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" 
+           style="background: white; color: var(--accent); padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);"
+           onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 15px rgba(255, 255, 255, 0.4)'"
+           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(255, 255, 255, 0.3)'">
+          <i class="fas fa-paper-plane"></i>
+          簡単依頼フォーム
+        </a>
+        <a href="#contact" 
+           style="background: transparent; color: white; border: 2px solid white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease;"
+           onmouseover="this.style.background='white'; this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--accent')"
+           onmouseout="this.style.background='transparent'; this.style.color='white'">
+          <i class="fas fa-comments"></i>
+          まずは相談する
+        </a>
+      </div>
+    </div>
+
+    <div style="text-align: center; color: var(--text-light); font-size: 0.9rem;">
+      <p style="margin: 0;">
+        <i class="fas fa-info-circle"></i>
+        料金改定に関するご質問やご不明な点がございましたら、お気軽にお問い合わせください。
+      </p>
+    </div>
+  </section>
+
   <!-- 料金セクション -->
   <section id="pricing">
     <div class="section-header">
@@ -467,7 +600,7 @@
             </div>
 
             <div class="price-item">
-              <div class="price-name">👥 コラボ追加（1名）</div>
+              <div class="price-name">💥 コラボ追加（1名）</div>
               <div class="price-description">デュエット・ユニゾンなど追加ボーカル1名まで対応</div>
               <div class="price-amount">+¥2,000</div>
               <div class="price-note">2名以上は別途お見積もり</div>
@@ -488,7 +621,7 @@
             </div>
 
             <div class="price-item" style="opacity: 0.5; background: #f5f5f5;">
-              <div class="price-name" style="color: var(--text-muted);">📒 ガイド譜 PDF</div>
+              <div class="price-name" style="color: var(--text-muted);">📝 ガイド譜 PDF</div>
               <div class="price-description" style="color: var(--text-muted);">視覚的にわかりやすいメロディ譜をPDFで提供</div>
               <div class="price-amount" style="color: var(--text-muted);">準備中</div>
               <div class="price-note" style="color: var(--text-muted);">近日提供予定</div>
@@ -563,13 +696,6 @@
               <div class="price-note">スマートフォンから簡単決済</div>
             </div>
 
-            <div class="price-item">
-              <div class="price-name">🎁 Amazonギフトカード</div>
-              <div class="price-description">上記がご利用いただけない場合の代替手段</div>
-              <div class="price-amount">第3優先</div>
-              <div class="price-note">番号がわかるように両面の写真をお送りください</div>
-            </div>
-
             <div class="price-item" style="opacity: 0.7; background: #f8f9fa;">
               <div class="price-name" style="color: var(--text-muted);">💳 その他決済</div>
               <div class="price-description" style="color: var(--text-muted);">上記以外をご希望の場合はご相談ください</div>
@@ -582,9 +708,9 @@
 
       <div class="pricing-note">
         <strong>💡 ココナラ・SKIMA経由の料金について</strong><br>
-        サービス手数料が加算されるため、表示価格が異なります。X（DM）や簡単依頼フォームからのご依頼では、上記の通常価格でご案内しています。<br><br>
+        現在こちらのページ価格に各サイトの手数料を含ませた料金になります。X（DM）やご依頼＆ご相談フォームからのご依頼では、上記の通常価格でご案内しています。<br><br>
         <strong>🎁 お支払い方法について</strong><br>
-        <strong style="color: var(--success);">銀行振込を最も推奨</strong>しており（手数料はご負担ください）、次にPayPay決済、Amazonギフトカードの順となります。<br>
+        <strong style="color: var(--success);">銀行振込を最も推奨</strong>しており（手数料はご負担ください）、次にPayPay決済の順となります。<br>
         その他の決済方法をご希望の場合は、お気軽にご相談ください。
       </div>
     </div>
@@ -621,12 +747,12 @@
         簡単にご依頼されたい方へ
       </h3>
       <p style="color: var(--primary-dark); margin-bottom: 20px;">
-        「とりあえず依頼したい」「シンプルに進めたい」そんな方には、簡単依頼フォームがおすすめ！<br>
+        「とりあえず依頼したい」「シンプルに進めたい」そんな方には、ご依頼＆ご相談フォームがおすすめ！<br>
         必要最小限の項目で、スムーズにご依頼いただけます。
       </p>
       <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: white; padding: 12px 24px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
         <i class="fas fa-rocket"></i>
-        簡単依頼フォームを使う
+        ご依頼＆ご相談フォームを使う
       </a>
     </div>
   </section>
@@ -645,7 +771,7 @@
           <h3>ご依頼・MIX方針ご要望・音源受領</h3>
           <p>
             下記のいずれかの方法でお気軽にご連絡ください。<br>
-            • <strong><a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="color: var(--primary);">🚀 簡単依頼フォーム</a></strong> - 必要最小限で簡単<br>
+            • <strong><a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="color: var(--primary);">🚀 ご依頼＆ご相談フォーム</a></strong> - 必要最小限で簡単<br>
             • <a href="https://x.com/ryuzanmix" target="_blank" rel="noopener" style="color: var(--primary);">X（Twitter）のDM</a> - 迅速な対応<br>
             • <a href="mailto:ryuzan.mix@gmail.com?subject=MIX依頼のご相談&body=こんにちは、竜山つむぎさんへMIXの件でご連絡です。" style="color: var(--primary);">メール</a> - 詳細な相談に最適<br>
             録音音源は<a href="https://gigafile.nu/" target="_blank" rel="noopener" style="color: var(--primary);">ギガファイル便</a>やGoogle Driveでお送りください。MIX方針やご要望も詳しくお聞かせください。<br>
@@ -692,7 +818,6 @@
             • ノイズ除去・ピッチ補正・タイミング調整<br>
             • ハモリ作成・エフェクト処理<br>
             • マスタリング・最終調整<br>
-            途中経過はスクリーンショット付きで共有いたします。
           </p>
         </div>
       </div>
@@ -703,7 +828,7 @@
           <h3>仮MIX音源提出</h3>
           <p>
             完成した仮MIX音源をお送りし、ご確認いただきます。<br>
-            • 高品質なWAVファイルでの提出<br>
+            • mp3ファイルでの提出（納品前のものですので公開はお控えください）<br>
             • 全体的な仕上がり・バランスの確認<br>
             • 修正箇所があればお気軽にお申し付けください<br>
             しっかりとお聞きいただき、ご感想をお聞かせください。
@@ -735,7 +860,6 @@
             • 修正なしの場合は仮MIX確認後にご入金<br>
             • 銀行振込の場合は口座情報をお伝えします（手数料ご負担ください）<br>
             • PayPayの場合はQRコードまたは送金リンクをお送りします<br>
-            • Amazonギフトカードの場合は番号両面の写真をお送りください<br>
             ご入金確認後、正式な音源準備に入ります。
           </p>
         </div>
@@ -787,7 +911,7 @@
           <strong style="color: var(--success);">支払い方法：</strong>銀行振込推奨、PayPay・Amazonギフトカードも対応
         </div>
         <div style="padding: 12px; background: rgba(255, 255, 255, 0.9); border-radius: 8px; border-left: 4px solid #dc3545;">
-          <strong style="color: #dc3545;">修正について：</strong>一度にすべて詳細にご指示ください（無料2回まで）
+          <strong style="color: #dc3545);">修正について：</strong>一度にすべて詳細にご指示ください（無料2回まで）
         </div>
       </div>
     </div>
@@ -830,8 +954,8 @@
     <div class="faq-item">
       <details>
         <summary>簡単依頼フォームはどう使うの？</summary>
-        <p><strong>簡単依頼フォーム：</strong>必要最小限の項目で、すぐに依頼したい方向け。Googleフォームで簡単入力できます。<br><br>
-        初めての方や「とりあえず依頼したい」方は<a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="color: var(--primary);">簡単依頼フォーム</a>をお使いください。必要な情報を入力するだけで、スムーズにご依頼いただけます。</p>
+        <p><strong>ご依頼＆ご相談フォーム：</strong>必要最小限の項目で、すぐに依頼したい方向け。Googleフォームで簡単入力できます。<br><br>
+        初めての方や「とりあえず依頼したい」方は<a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="color: var(--primary);">ご依頼＆ご相談フォーム</a>をお使いください。必要な情報を入力するだけで、スムーズにご依頼いただけます。</p>
       </details>
     </div>
 
@@ -963,7 +1087,7 @@
       <div class="contact-buttons">
         <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" class="contact-button primary">
           <i class="fas fa-rocket"></i>
-          🚀 簡単依頼フォーム
+          🚀 ご依頼＆ご相談フォーム
         </a>
 
         <a href="https://x.com/ryuzanmix" class="contact-button accent" target="_blank" rel="noopener">
@@ -998,7 +1122,7 @@
           お得情報
         </h4>
         <p style="margin: 0; color: var(--text-light);">
-          <strong>X（DM）・簡単依頼フォームからのご依頼が最もお得！</strong><br>
+          <strong>X（DM）・ご依頼＆ご相談フォームからのご依頼が最もお得！</strong><br>
           サービス手数料がかからないため、表示価格そのままでご利用いただけます。<br>
           <strong style="color: var(--success);">銀行振込またはPayPay決済推奨</strong>で、さらにスムーズなお取引が可能です。
         </p>
