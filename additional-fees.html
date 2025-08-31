@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>MIX受注後追加料金表 - Ryuzan Mix Salon</title>
+  <meta content="Ryuzan Mix SalonのMIX受注後に発生する可能性のある追加料金を明確に記載。修正・変更・オプション追加など、透明性のある料金体系でお客様に安心をお届けします。" name="description"/>
+  <meta content="MIX追加料金,修正料金,トラック差し替え,ハモリ追加,キャンセル料,歌ってみたMIX,料金表,追加オプション" name="keywords">
+  
+  <!-- ファビコン -->
+  <link href="favicon256.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="favicon256.png" rel="icon" sizes="192x192" type="image/png"/>
+  <link href="favicon256.png" rel="apple-touch-icon"/>
+  
+  <!-- SEO -->
+  <link href="https://ryuzanmix.github.io/additional-fees.html" rel="canonical"/>
+  <meta content="index,follow" name="robots"/>
+  
+  <!-- 外部リソース -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  
+  <!-- OGP -->
+  <meta content="website" property="og:type"/>
+  <meta content="https://ryuzanmix.github.io/additional-fees.html" property="og:url"/>
+  <meta content="MIX受注後追加料金表 - Ryuzan Mix Salon" property="og:title"/>
+  <meta content="透明性のある料金体系で安心してご依頼いただけます。修正・変更・オプション追加料金を明確に記載。" property="og:description"/>
+  <meta content="https://ryuzanmix.github.io/og-image.png" property="og:image"/>
+
+  <!-- 統一スタイルシート -->
+  <link href="styles.css" rel="stylesheet"/>
+
+  <style>
+    /* 追加料金表専用スタイル */
+    
+    /* ページ固有のマージン調整 */
+    .fees-main {
+      margin-top: 80px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+    }
+
+    /* ヒーローセクション - メインページと統一 */
+    .fees-hero {
+      background: var(--gradient);
+      padding: 60px 30px;
+      border-radius: 30px;
+      margin-bottom: 60px;
+      text-align: center;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fees-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="80" r="1.5" fill="%23ffffff" opacity="0.1"/></svg>');
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    .back-link:hover {
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    /* 料金セクション - メインページと統一感 */
+    .fees-section {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .fees-section h2 {
+      color: var(--primary-dark);
+      margin-bottom: 25px;
+      font-size: 1.5rem;
+      text-align: center;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 15px;
+    }
+
+    .fees-grid {
+      display: grid;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .fee-item {
+      background: var(--bg-secondary);
+      border: 2px solid var(--border);
+      border-radius: 15px;
+      padding: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .fee-item:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .fee-item.warning {
+      border-color: var(--warning);
+      background: #fff3cd;
+    }
+
+    .fee-item.danger {
+      border-color: var(--error);
+      background: #f8d7da;
+    }
+
+    .fee-item.success {
+      border-color: var(--success);
+      background: #d1edcc;
+    }
+
+    .fee-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .fee-amount {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .fee-item.warning .fee-amount {
+      color: var(--warning);
+    }
+
+    .fee-item.danger .fee-amount {
+      color: var(--error);
+    }
+
+    .fee-description {
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .fee-conditions {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 8px;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border-left: 4px solid var(--primary);
+    }
+
+    .fee-item.warning .fee-conditions {
+      border-left-color: var(--warning);
+    }
+
+    .fee-item.danger .fee-conditions {
+      border-left-color: var(--error);
+    }
+
+    /* 重要な注意事項 */
+    .important-notice {
+      background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+      border: 3px solid var(--warning);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 40px 0;
+      position: relative;
+      text-align: center;
+    }
+
+    .important-notice::before {
+      content: "⚠️";
+      font-size: 2rem;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+
+    .important-notice h3 {
+      color: var(--warning);
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+      .fees-main {
+        margin-top: 70px;
+        padding: 15px;
+      }
+
+      .fees-hero {
+        padding: 40px 20px;
+        border-radius: 20px;
+        margin-bottom: 40px;
+      }
+
+      .fees-section {
+        padding: 25px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+      }
+
+      .fees-section h2 {
+        font-size: 1.3rem;
+      }
+
+      .fee-item {
+        padding: 20px;
+      }
+
+      .fee-name {
+        font-size: 1.1rem;
+      }
+
+      .fee-amount {
+        font-size: 1.3rem;
+      }
+
+      .important-notice {
+        padding: 25px;
+        border-radius: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fees-hero {
+        padding: 25px 15px;
+      }
+
+      .fees-section {
+        padding: 20px;
+      }
+
+      .important-notice {
+        padding: 20px;
+      }
+    }
+
+    /* アニメーション - メインページと統一 */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 統一ナビゲーション -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html">ホーム</a>
+      <a href="index.html#playlist">実績</a>
+      <a href="index.html#about">サロンについて</a>
+      <a href="index.html#pricing">料金</a>
+      <a href="recording-guide.html">録音ガイド</a>
+      <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" rel="noopener" class="cta-nav">依頼フォーム</a>
+      <a href="additional-fees.html" class="current" aria-current="page">追加料金表</a>
+      <a href="index.html#faq">よくある質問</a>
+      <a href="index.html#contact">お問い合わせ</a>
+    </div>
+  </nav>
+
+  <main class="fees-main" id="main-content">
+    <!-- ヒーローセクション -->
+    <header class="fees-hero">
+      <a href="index.html" class="back-link" aria-label="メインページに戻る">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+        メインページに戻る
+      </a>
+      <h1>MIX受注後追加料金表</h1>
+      <p>透明性のある料金体系で、安心してご依頼いただけます</p>
+      <div style="margin-top: 20px; font-size: 0.9rem; color: var(--text-light);">
+        <strong>※基本料金については</strong> <a href="index.html#pricing" style="color: var(--primary-dark); text-decoration: underline;">メインページの料金表</a> <strong>をご確認ください</strong>
+      </div>
+    </header>
+
+    <!-- 重要な注意事項 -->
+    <section class="important-notice">
+      <h3>料金に関する重要なお知らせ</h3>
+      <p style="font-size: 1rem; line-height: 1.7; color: var(--warning);">
+        <strong>以下の追加料金は、MIX受注後に発生する可能性のあるものです。</strong><br>
+        基本料金に含まれていない作業や、お客様のご要望による変更・追加に対して適用されます。<br>
+        事前にご相談いただければ、可能な限り追加料金を避ける方法をご提案いたします。
+      </p>
+    </section>
+
+    <!-- 修正・変更に関する追加料金 -->
+    <section class="fees-section">
+      <h2><i class="fas fa-edit" style="color: var(--warning);"></i> 修正・変更に関する追加料金</h2>
+      
+      <div class="fees-grid">
+        <article class="fee-item warning">
+          <div class="fee-name">
+            <i class="fas fa-redo-alt"></i>
+            3回目以降の修正
+          </div>
+          <div class="fee-amount">+¥1,600 / 回</div>
+          <div class="fee-description">
+            無料修正は2回まで。3回目以降は1回につき追加料金が発生します。
+          </div>
+          <div class="fee-conditions">
+            <strong>避けるコツ：</strong>修正依頼は一度にまとめて、具体的にご指示ください。「もう少し明るく」ではなく「○○の部分をもう少しボリュームアップして」など詳細に。
+          </div>
+        </article>
+
+        <article class="fee-item warning">
+          <div class="fee-name">
+            <i class="fas fa-exchange-alt"></i>
+            音源差し替え（録り直し）
+          </div>
+          <div class="fee-amount">+¥3,200</div>
+          <div class="fee-description">
+            MIX作業開始後に、録音音源を別のテイクに差し替える場合。
+          </div>
+          <div class="fee-conditions">
+            <strong>適用条件：</strong>MIX作業開始後の音源変更。作業進行度により料金調整の場合あり。
+          </div>
+        </article>
+
+        <article class="fee-item warning">
+          <div class="fee-name">
+            <i class="fas fa-music"></i>
+            楽曲変更
+          </div>
+          <div class="fee-amount">+¥4,800</div>
+          <div class="fee-description">
+            ご依頼後に楽曲そのものを変更する場合。
+          </div>
+          <div class="fee-conditions">
+            <strong>適用条件：</strong>MIX方針・設定が大幅に変わる楽曲変更の場合。類似楽曲への変更は個別相談。
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- オプション追加料金 -->
+    <section class="fees-section">
+      <h2><i class="fas fa-plus-circle" style="color: var(--primary);"></i> 後から追加するオプション</h2>
+      
+      <div class="fees-grid">
+        <article class="fee-item">
+          <div class="fee-name">
+            <i class="fas fa-layer-group"></i>
+            ハモリ追加（3トラック目から）
+          </div>
+          <div class="fee-amount">+¥1,600 / トラック</div>
+          <div class="fee-description">
+            基本料金に含まれるハモリ2トラックを超えて、追加でハモリを作成する場合。
+          </div>
+          <div class="fee-conditions">
+            <strong>作業条件：</strong>MIX途中での追加は、全体バランス再調整のため納期が延長される場合があります。
+          </div>
+        </article>
+
+        <article class="fee-item">
+          <div class="fee-name">
+            <i class="fas fa-video"></i>
+            動画エンコード（後追加）
+          </div>
+          <div class="fee-amount">+¥2,400</div>
+          <div class="fee-description">
+            音源MIX完了後に動画エンコードを追加依頼する場合。
+          </div>
+          <div class="fee-conditions">
+            <strong>注意：</strong>同時依頼の場合は+¥1,600ですが、後追加は音圧調整等の再作業が必要なため割増料金となります。
+          </div>
+        </article>
+
+        <article class="fee-item">
+          <div class="fee-name">
+            <i class="fas fa-magic"></i>
+            FX処理（後追加）
+          </div>
+          <div class="fee-amount">+¥4,000 / 箇所</div>
+          <div class="fee-description">
+            ボコーダー、ディストーション等のエフェクト処理を後から追加する場合。
+          </div>
+          <div class="fee-conditions">
+            <strong>注意：</strong>同時依頼の場合は+¥3,200ですが、後追加は全体ミックス見直しが必要なため割増料金となります。
+          </div>
+        </article>
+
+        <article class="fee-item">
+          <div class="fee-name">
+            <i class="fas fa-users"></i>
+            コラボ相手追加
+          </div>
+          <div class="fee-amount">+¥4,000 / 人</div>
+          <div class="fee-description">
+            ソロでの依頼後に、デュエット・コラボに変更する場合。
+          </div>
+          <div class="fee-conditions">
+            <strong>注意：</strong>同時依頼の場合は+¥3,200ですが、後追加は構成変更が大幅になるため割増料金となります。
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 緊急・特急対応料金 -->
+    <section class="fees-section">
+      <h2><i class="fas fa-clock" style="color: var(--warning);"></i> 緊急・特急対応料金</h2>
+      
+      <div class="fees-grid">
+        <article class="fee-item warning">
+          <div class="fee-name">
+            <i class="fas fa-bolt"></i>
+            特急仕上げ（2週間以内）
+          </div>
+          <div class="fee-amount">+¥3,200</div>
+          <div class="fee-description">
+            通常納期（約1ヶ月）を2週間以内に短縮する場合。
+          </div>
+          <div class="fee-conditions">
+            <strong>適用条件：</strong>スケジュール調整可能な場合のみ。繁忙期や他案件との関係で対応できない場合があります。
+          </div>
+        </article>
+
+        <article class="fee-item warning">
+          <div class="fee-name">
+            <i class="fas fa-fire"></i>
+            超特急仕上げ（1週間以内）
+          </div>
+          <div class="fee-amount">+¥6,400</div>
+          <div class="fee-description">
+            通常納期を1週間以内に大幅短縮する場合。
+          </div>
+          <div class="fee-conditions">
+            <strong>適用条件：</strong>作業スケジュール次第で対応不可の場合が多いです。必ず事前にご相談ください。
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 問題のある音源への対処料金 -->
+    <section class="fees-section">
+      <h2><i class="fas fa-tools" style="color: var(--info);"></i> 音源品質による追加作業料金</h2>
+      
+      <div class="fees-grid">
+        <article class="fee-item">
+          <div class="fee-name">
+            <i class="fas fa-volume-mute"></i>
+            重度ノイズ除去
+          </div>
+          <div class="fee-amount">+¥2,400</div>
+          <div class="fee-description">
+            標準的なノイズ除去を超える、大幅なノイズ除去作業が必要な場合。
+          </div>
+          <div class="fee-conditions">
+            <strong>判定基準：</strong>エアコン音、生活音、電子機器ノイズが常時入っている、音源の50%以上にノイズが混入している場合など。
+          </div>
+        </article>
+
+        <article class="fee-item">
+          <div class="fee-name">
+            <i class="fas fa-wave-square"></i>
+            音割れ・クリッピング修復
+          </div>
+          <div class="fee-amount">+¥3,200</div>
+          <div class="fee-description">
+            録音レベルオーバーによる音割れを修復する高度な処理。
+          </div>
+          <div class="fee-conditions">
+            <strong>注意：</strong>完全な修復は困難な場合があります。録音ガイドの音量設定をご確認ください。
+          </div>
+        </article>
+
+        <article class="fee-item">
+          <div class="fee-name">
+            <i class="fas fa-compress-arrows-alt"></i>
+            極端な音量レベル調整
+          </div>
+          <div class="fee-amount">+¥1,600</div>
+          <div class="fee-description">
+            極端に小さい・大きい音量や、楽曲内での音量変動が激しい場合の調整作業。
+          </div>
+          <div class="fee-conditions">
+            <strong>適用基準：</strong>楽曲中の最大音量と最小音量の差が40dB以上ある場合など。
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- キャンセル・中止料金 -->
+    <section class="fees-section">
+      <h2><i class="fas fa-ban" style="color: var(--error);"></i> キャンセル・中止料金</h2>
+      
+      <div class="fees-grid">
+        <article class="fee-item danger">
+          <div class="fee-name">
+            <i class="fas fa-times-circle"></i>
+            作業開始前キャンセル
+          </div>
+          <div class="fee-amount">無料</div>
+          <div class="fee-description">
+            MIX作業開始前（音源受領・見積もり段階）でのキャンセル。
+          </div>
+          <div class="fee-conditions">
+            <strong>適用条件：</strong>作業開始前であれば、理由を問わずキャンセル料は発生しません。
+          </div>
+        </article>
+
+        <article class="fee-item danger">
+          <div class="fee-name">
+            <i class="fas fa-pause-circle"></i>
+            作業途中キャンセル
+          </div>
+          <div class="fee-amount">作業進行度に応じて</div>
+          <div class="fee-description">
+            MIX作業開始後のキャンセル。作業進行度に応じた料金をご請求します。
+          </div>
+          <div class="fee-conditions">
+            <strong>料金算定：</strong>30%進行で30%料金、50%進行で50%料金など。仮MIX完成後は70%料金を適用します。
+          </div>
+        </article>
+
+        <article class="fee-item danger">
+          <div class="fee-name">
+            <i class="fas fa-clock"></i>
+            長期放置による自動キャンセル
+          </div>
+          <div class="fee-amount">作業進行度に応じて</div>
+          <div class="fee-description">
+            お客様からの連絡が90日間途絶えた場合の自動キャンセル。
+          </div>
+          <div class="fee-conditions">
+            <strong>適用条件：</strong>修正依頼待ち、追加情報待ちの状態で90日間連絡が取れない場合。事前に3回まで催促連絡を行います。
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- その他の追加料金 -->
+    <section class="fees-section">
+      <h2><i class="fas fa-ellipsis-h" style="color: var(--text-muted);"></i> その他の追加料金</h2>
+      
+      <div class="fees-grid">
+        <article class="fee-item">
+          <div class="fee-name">
+            <i class="fas fa-file-archive"></i>
+            過去データの再処理
+          </div>
+          <div class="fee-amount">+¥1,600</div>
+          <div class="fee-description">
+            納品後30日を過ぎたデータの再MIX・再エンコード等。
+          </div>
+          <div class="fee-conditions">
+            <strong>データ保管期間：</strong>納品後30日間は無料で保管。以降は別途保管料が発生する場合があります。
+          </div>
+        </article>
+
+        <article class="fee-item">
+          <div class="fee-name">
+            <i class="fas fa-file-export"></i>
+            異なる形式での再書き出し
+          </div>
+          <div class="fee-amount">+¥800</div>
+          <div class="fee-description">
+            納品形式以外のファイル形式（別サンプルレート・ビット深度等）での書き出し。
+          </div>
+          <div class="fee-conditions">
+            <strong>例：</strong>WAV 48kHz/24bitで納品後、mp3 320kbpsでの追加書き出しなど。
+          </div>
+        </article>
+
+        <article class="fee-item success">
+          <div class="fee-name">
+            <i class="fas fa-gift"></i>
+            リピーター割引
+          </div>
+          <div class="fee-amount">-¥800</div>
+          <div class="fee-description">
+            2回目以降のご依頼時に適用される割引。
+          </div>
+          <div class="fee-conditions">
+            <strong>適用条件：</strong>過去に当サロンでMIX作業を完了したお客様。基本料金から割引適用。
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 追加料金を避けるためのアドバイス -->
+    <section class="fees-section" style="background: linear-gradient(135deg, #d1ecf1, #a8e6cf); border-color: var(--success);">
+      <h2 style="color: var(--success);"><i class="fas fa-lightbulb"></i> 追加料金を避けるためのコツ</h2>
+      
+      <div style="background: rgba(255, 255, 255, 0.8); border-radius: 15px; padding: 25px; margin-top: 25px;">
+        <div style="display: grid; gap: 20px;">
+          <div style="display: flex; gap: 15px; align-items: flex-start;">
+            <div style="background: var(--success); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">1</div>
+            <div>
+              <strong style="color: var(--success);">事前の詳細相談</strong><br>
+              <span style="color: var(--text-light);">ご希望の仕上がりイメージ、必要なオプションを最初にお聞かせください</span>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 15px; align-items: flex-start;">
+            <div style="background: var(--success); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">2</div>
+            <div>
+              <strong style="color: var(--success);">録音ガイドの確認</strong><br>
+              <span style="color: var(--text-light);"><a href="recording-guide.html" style="color: var(--success); text-decoration: underline;">録音ガイド</a>に従って録音していただくと、追加処理料金を避けられます</span>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 15px; align-items: flex-start;">
+            <div style="background: var(--success); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">3</div>
+            <div>
+              <strong style="color: var(--success);">修正依頼は一度にまとめて</strong><br>
+              <span style="color: var(--text-light);">複数の修正点がある場合は、一度にすべて詳細にご指示ください</span>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 15px; align-items: flex-start;">
+            <div style="background: var(--success); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">4</div>
+            <div>
+              <strong style="color: var(--success);">納期に余裕を持って</strong><br>
+              <span style="color: var(--text-light);">特急料金を避けるため、できるだけ早めにご依頼ください</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 最終的な案内 -->
+    <section class="important-notice" style="background: linear-gradient(135deg, var(--primary-pale), #f0f0f0); border-color: var(--primary);">
+      <h3 style="color: var(--primary-dark);">ご不明な点がございましたら</h3>
+      <p style="color: var(--primary-dark); font-size: 1rem; line-height: 1.7;">
+        追加料金に関してご不明な点や、回避方法についてのご相談など、<br>
+        お気軽にお問い合わせください。事前にご相談いただければ、<br>
+        可能な限り追加料金が発生しないよう対応いたします。
+      </p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; max-width: 500px; margin: 25px auto 0;">
+        <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" rel="noopener" 
+           style="background: var(--accent); color: white; padding: 14px 20px; border-radius: 25px; text-decoration: none; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s ease;">
+          <i class="fas fa-paper-plane"></i>
+          ご相談フォーム
+        </a>
+        
+        <a href="https://x.com/ryuzanmix" target="_blank" rel="noopener"
+           style="background: var(--primary); color: white; padding: 14px 20px; border-radius: 25px; text-decoration: none; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s ease;">
+          <i class="fab fa-twitter"></i>
+          DMで相談
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター（簡略版） -->
+  <footer style="background: var(--bg-secondary); padding: 40px 20px; text-align: center; border-top: 1px solid var(--border);">
+    <div style="max-width: 600px; margin: 0 auto;">
+      <p style="margin-bottom: 15px;">
+        <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">← Ryuzan Mix Salon メインページに戻る</a>
+      </p>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        透明性のある料金体系で、安心してご依頼いただけます
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // ナビゲーション表示制御（メインページと統一）
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('nav');
+      if (window.scrollY > 100) {
+        nav.classList.add('show');
+      } else {
+        nav.classList.remove('show');
+      }
+    });
+
+    // スムーススクロール
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offsetTop = target.offsetTop - 100;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // アニメーション
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // アニメーション対象要素を監視
+    document.addEventListener('DOMContentLoaded', function() {
+      const animateElements = document.querySelectorAll('.fees-section, .fee-item, .important-notice');
+      animateElements.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+      });
+    });
+
+    // 外部リンクに rel="noopener" を自動追加
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+      if (!link.rel.includes('noopener')) {
+        link.rel = link.rel ? link.rel + ' noopener' : 'noopener';
+      }
+    });
+
+    // 料金項目のホバーエフェクト強化
+    document.querySelectorAll('.fee-item').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-3px)';
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+</body>
+</html>
