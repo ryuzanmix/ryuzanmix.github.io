@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>既存お客様専用料金表 | Ryuzan Mix Salon</title>
+  <meta content="2025年8月31日以前にご相談・ご依頼をいただいた既存のお客様専用の料金表です。改定前の料金でご利用いただけます。" name="description"/>
+  
+  <!-- 外部リソース -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  
+  <style>
+    :root {
+      --primary: #b28fdd;
+      --primary-dark: #9366c7;
+      --success: #4caf50;
+      --warning: #ff9800;
+      --danger: #f44336;
+      --text: #333333;
+      --text-light: #666666;
+      --text-muted: #999999;
+      --bg: #fafafa;
+      --bg-secondary: #f5f5f5;
+      --border: #e0e0e0;
+      --shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .guarantee-box {
+      background: var(--success);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .pricing-table {
+      background: white;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .pricing-header {
+      background: var(--primary);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .pricing-content {
+      padding: 30px;
+    }
+
+    .price-section {
+      margin-bottom: 30px;
+    }
+
+    .price-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .price-list {
+      display: grid;
+      gap: 15px;
+    }
+
+    .price-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: var(--bg-secondary);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .price-item.featured {
+      background: linear-gradient(135deg, #fff5f8, var(--bg-secondary));
+      border-color: var(--primary);
+      border-width: 2px;
+    }
+
+    .price-info {
+      flex: 1;
+    }
+
+    .price-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      color: var(--primary-dark);
+    }
+
+    .price-description {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .price-amount {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--success);
+      margin-left: 20px;
+    }
+
+    .comparison-section {
+      background: #fff3cd;
+      border: 2px solid var(--warning);
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+
+    .comparison-title {
+      color: var(--warning);
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .comparison-table {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      gap: 15px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .comparison-table > div {
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .comparison-header {
+      font-weight: 700;
+      background: var(--bg-secondary);
+    }
+
+    .your-price {
+      background: #e8f5e8;
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .new-price {
+      background: #ffeaea;
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    .savings {
+      background: var(--success);
+      color: white;
+      font-weight: 700;
+    }
+
+    .examples-section {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+    }
+
+    .examples-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: var(--primary-dark);
+      text-align: center;
+    }
+
+    .example-item {
+      padding: 15px;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      margin-bottom: 10px;
+      border-left: 4px solid var(--success);
+    }
+
+    .example-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .example-calculation {
+      font-weight: 700;
+      color: var(--success);
+    }
+
+    .example-savings {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: var(--primary);
+      padding: 12px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+
+      .header h1 {
+        font-size: 1.5rem;
+      }
+
+      .comparison-table {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .price-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .price-amount {
+        margin-left: 0;
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-button {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- ヘッダー -->
+    <header class="header">
+      <h1><i class="fas fa-crown"></i> 既存お客様専用料金表</h1>
+      <p>2025年8月31日以前にご相談・ご依頼をいただいた方へ</p>
+    </header>
+
+    <!-- 料金保証 -->
+    <div class="guarantee-box">
+      <i class="fas fa-shield-alt"></i>
+      お約束通り、改定前の料金でご対応いたします
+    </div>
+
+    <!-- 料金表 -->
+    <div class="pricing-table">
+      <div class="pricing-header">
+        あなた専用の特別料金（税込・追加料金なし）
+      </div>
+      
+      <div class="pricing-content">
+        <!-- メインプラン -->
+        <div class="price-section">
+          <h3 class="section-title">
+            <i class="fas fa-music"></i>
+            基本プラン
+          </h3>
+          <div class="price-list">
+            <div class="price-item featured">
+              <div class="price-info">
+                <div class="price-name">フルコーラス MIX</div>
+                <div class="price-description">ノイズ処理・ピッチ補正・マスタリング・ハモリ2トラック込み</div>
+              </div>
+              <div class="price-amount">¥5,000</div>
+            </div>
+            
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">ワンコーラス MIX</div>
+                <div class="price-description">1番のみ・ハモリ2トラック込み（お試し用）</div>
+              </div>
+              <div class="price-amount">¥3,000</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 追加オプション -->
+        <div class="price-section">
+          <h3 class="section-title">
+            <i class="fas fa-plus"></i>
+            追加オプション
+          </h3>
+          <div class="price-list">
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">ハモリ追加（3トラック目から）</div>
+                <div class="price-description">1トラックごと</div>
+              </div>
+              <div class="price-amount">+¥1,000</div>
+            </div>
+            
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">動画エンコード</div>
+                <div class="price-description">YouTube・X向け高画質エンコード</div>
+              </div>
+              <div class="price-amount">+¥1,000</div>
+            </div>
+            
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">コラボ追加（1名）</div>
+                <div class="price-description">デュエット・ユニゾンなど</div>
+              </div>
+              <div class="price-amount">+¥2,000</div>
+            </div>
+            
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">FX処理（1ヶ所）</div>
+                <div class="price-description">ボコーダー・ディストーション・特殊エフェクト等</div>
+              </div>
+              <div class="price-amount">+¥2,000</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 受注後追加オプション（割増料金） -->
+        <div class="price-section">
+          <h3 class="section-title">
+            <i class="fas fa-exclamation-triangle"></i>
+            受注後追加オプション（割増料金）
+          </h3>
+          <div class="price-list">
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">動画エンコード（後追加）</div>
+                <div class="price-description">MIX完了後に動画エンコードを追加依頼</div>
+              </div>
+              <div class="price-amount">+¥1,500</div>
+            </div>
+            
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">FX処理（後追加）</div>
+                <div class="price-description">MIX途中でエフェクト処理を追加依頼</div>
+              </div>
+              <div class="price-amount">+¥2,500</div>
+            </div>
+            
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">コラボ相手追加（後追加）</div>
+                <div class="price-description">ソロ依頼後にデュエット・コラボに変更</div>
+              </div>
+              <div class="price-amount">+¥2,500</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 修正・変更関連 -->
+        <div class="price-section">
+          <h3 class="section-title">
+            <i class="fas fa-edit"></i>
+            修正・変更関連
+          </h3>
+          <div class="price-list">
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">3回目以降の修正</div>
+                <div class="price-description">無料修正は2回まで</div>
+              </div>
+              <div class="price-amount">+¥1,000/回</div>
+            </div>
+            
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">音源差し替え（録り直し）</div>
+                <div class="price-description">MIX作業開始後の音源変更</div>
+              </div>
+              <div class="price-amount">+¥2,000</div>
+            </div>
+            
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">楽曲変更</div>
+                <div class="price-description">依頼後に楽曲そのものを変更</div>
+              </div>
+              <div class="price-amount">+¥3,000</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 緊急・特急対応 -->
+        <div class="price-section">
+          <h3 class="section-title">
+            <i class="fas fa-clock"></i>
+            緊急・特急対応
+          </h3>
+          <div class="price-list">
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">特急仕上げ（2週間以内）</div>
+                <div class="price-description">通常納期を2週間以内に短縮</div>
+              </div>
+              <div class="price-amount">+¥2,000</div>
+            </div>
+            
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">超特急仕上げ（1週間以内）</div>
+                <div class="price-description">通常納期を1週間以内に大幅短縮</div>
+              </div>
+              <div class="price-amount">+¥4,000</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 音源品質による追加作業 -->
+        <div class="price-section">
+          <h3 class="section-title">
+            <i class="fas fa-tools"></i>
+            音源品質による追加作業
+          </h3>
+          <div class="price-list">
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">重度ノイズ除去</div>
+                <div class="price-description">エアコン音・生活音等の大幅なノイズ除去</div>
+              </div>
+              <div class="price-amount">+¥1,500</div>
+            </div>
+            
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">音割れ・クリッピング修復</div>
+                <div class="price-description">録音レベルオーバーによる音割れ修復</div>
+              </div>
+              <div class="price-amount">+¥2,000</div>
+            </div>
+            
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">極端な音量レベル調整</div>
+                <div class="price-description">極端に小さい・大きい音量の調整作業</div>
+              </div>
+              <div class="price-amount">+¥1,000</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- その他の追加料金 -->
+        <div class="price-section">
+          <h3 class="section-title">
+            <i class="fas fa-ellipsis-h"></i>
+            その他の追加料金
+          </h3>
+          <div class="price-list">
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">過去データの再処理</div>
+                <div class="price-description">納品後30日を過ぎたデータの再MIX・再エンコード</div>
+              </div>
+              <div class="price-amount">+¥1,000</div>
+            </div>
+            
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">異なる形式での再書き出し</div>
+                <div class="price-description">納品形式以外での書き出し（別サンプルレート等）</div>
+              </div>
+              <div class="price-amount">+¥500</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- キャンセル料金 -->
+        <div class="price-section">
+          <h3 class="section-title">
+            <i class="fas fa-ban"></i>
+            キャンセル料金
+          </h3>
+          <div class="price-list">
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">作業開始前キャンセル</div>
+                <div class="price-description">MIX作業開始前のキャンセル</div>
+              </div>
+              <div class="price-amount">無料</div>
+            </div>
+            
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">作業途中キャンセル</div>
+                <div class="price-description">MIX作業開始後のキャンセル</div>
+              </div>
+              <div class="price-amount">作業進行度に応じて</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 割引 -->
+        <div class="price-section">
+          <h3 class="section-title">
+            <i class="fas fa-percentage"></i>
+            割引オプション
+          </h3>
+          <div class="price-list">
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">ピッチ補正なし</div>
+                <div class="price-description">自然仕上げ（手直し不要なテイク限定）</div>
+              </div>
+              <div class="price-amount">-¥1,000</div>
+            </div>
+            
+            <div class="price-item">
+              <div class="price-info">
+                <div class="price-name">リピーター割</div>
+                <div class="price-description">2回目以降のご依頼</div>
+              </div>
+              <div class="price-amount">-¥500</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- よくある依頼例 -->
+    <div class="examples-section">
+      <h3 class="examples-title">よくあるご依頼例</h3>
+      
+      <div class="example-item">
+        <div><strong>スタンダード：</strong>フルコーラス MIX + 動画エンコード</div>
+        <div class="example-calculation">¥5,000 + ¥1,000 = ¥6,000</div>
+      </div>
+      
+      <div class="example-item">
+        <div><strong>ハモリ多用：</strong>フルコーラス MIX + ハモリ追加2トラック</div>
+        <div class="example-calculation">¥5,000 + (¥1,000×2) = ¥7,000</div>
+      </div>
+      
+      <div class="example-item">
+        <div><strong>コラボ：</strong>フルコーラス MIX + コラボ追加 + 動画エンコード</div>
+        <div class="example-calculation">¥5,000 + ¥2,000 + ¥1,000 = ¥8,000</div>
+      </div>
+      
+      <div class="example-item">
+        <div><strong>お試し：</strong>ワンコーラス MIX（ピッチ補正なし）</div>
+        <div class="example-calculation">¥3,000 - ¥1,000 = ¥2,000</div>
+      </div>
+      
+      <div class="example-item">
+        <div><strong>豪華仕様：</strong>フルコーラス MIX + ハモリ4トラック + FX処理 + エンコード</div>
+        <div class="example-calculation">¥5,000 + (¥1,000×4) + ¥2,000 + ¥1,000 = ¥12,000</div>
+      </div>
+    </div>
+
+    <!-- お問い合わせ -->
+    <div class="contact-section">
+      <h3>次回のご依頼もお待ちしております</h3>
+      <p>改定前の料金でご対応いたします</p>
+      
+      <div class="contact-buttons">
+        <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" class="contact-button">
+          <i class="fas fa-paper-plane"></i>
+          ご依頼フォーム
+        </a>
+        
+        <a href="https://x.com/ryuzanmix" target="_blank" class="contact-button">
+          <i class="fab fa-twitter"></i>
+          DMで相談
+        </a>
+        
+        <a href="mailto:ryuzan.mix@gmail.com" class="contact-button">
+          <i class="fas fa-envelope"></i>
+          メール相談
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
