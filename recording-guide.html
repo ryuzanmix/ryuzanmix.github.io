@@ -32,7 +32,9 @@
   <link href="styles.css" rel="stylesheet"/>
 
   <style>
-    /* 録音ガイド専用の追加スタイル */
+    /* 録音ガイド専用の追加スタイル - メインスタイルと統一 */
+    
+    /* ページ固有のマージン調整 */
     .guide-main {
       margin-top: 80px;
       max-width: 1200px;
@@ -41,6 +43,7 @@
       padding: 20px;
     }
 
+    /* ヒーローセクション - メインページと統一 */
     .guide-hero {
       background: var(--gradient);
       padding: 60px 30px;
@@ -52,89 +55,145 @@
       overflow: hidden;
     }
 
-    .back-link {
+    .guide-hero::before {
+      content: '';
       position: absolute;
-      top: 20px;
-      left: 20px;
-      color: var(--primary-dark);
-      text-decoration: none;
-      font-weight: 500;
-      display: flex;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="80" r="1.5" fill="%23ffffff" opacity="0.1"/></svg>');
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    .back-link {
+      display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 16px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.8);
+      color: var(--primary);
+      margin-bottom: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 30px;
       transition: all 0.3s ease;
+      min-height: var(--touch-target-min);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
     }
 
-    .back-link:hover {
-      background: white;
+    .back-link:hover, .back-link:focus {
+      background: rgba(255, 255, 255, 0.95);
+      transform: translateX(-4px);
       box-shadow: var(--shadow);
     }
 
-    /* ナビゲーショングリッド */
+    .guide-hero h1 {
+      color: var(--primary-dark);
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 20px;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+
+    .guide-hero p {
+      color: var(--text-light);
+      font-size: var(--font-size-large);
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ナビゲーションカード - メインページのカードスタイルと統一 */
     .guide-nav {
-      background: white;
+      background: var(--card);
+      border-radius: 30px;
       padding: 40px;
-      border-radius: 20px;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
+    }
+
+    .guide-nav h3 {
+      color: var(--primary-dark);
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: var(--font-size-xl);
+      font-weight: 700;
     }
 
     .nav-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      margin-top: 30px;
     }
 
     .nav-item {
-      background: var(--gradient);
-      padding: 30px 20px;
-      border-radius: 15px;
+      background: var(--bg-secondary);
+      padding: 25px 20px;
+      border-radius: 20px;
       text-align: center;
       cursor: pointer;
       transition: all 0.3s ease;
-      border: 2px solid var(--border);
-      position: relative;
-      overflow: hidden;
+      border: 2px solid transparent;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
     }
 
-    .nav-item:hover,
-    .nav-item:focus {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-hover);
+    .nav-item:hover, .nav-item:focus {
+      background: var(--primary-light);
       border-color: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
     }
 
     .nav-item i {
-      font-size: 2rem;
-      color: var(--primary-dark);
-      margin-bottom: 15px;
-      display: block;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 12px;
     }
 
     .nav-item div {
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text);
       margin-bottom: 8px;
+      font-size: var(--font-size-base);
     }
 
     .nav-item small {
-      color: var(--text-light);
-      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-size: var(--font-size-small);
+      font-weight: 500;
     }
 
-    /* プラットフォーム別セクション */
+    /* プラットフォームセクション - カードスタイル統一 */
     .platform-section {
-      background: white;
+      background: var(--card);
+      border-radius: 30px;
       padding: 40px;
-      border-radius: 20px;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
       box-shadow: var(--shadow);
+      scroll-margin-top: 100px;
       border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .platform-section:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
     }
 
     .platform-header {
@@ -143,96 +202,120 @@
       gap: 20px;
       margin-bottom: 30px;
       padding-bottom: 20px;
-      border-bottom: 2px solid var(--border);
+      border-bottom: 3px solid var(--border);
+      flex-wrap: wrap;
     }
 
     .platform-icon {
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: var(--primary);
     }
 
     .platform-title {
-      font-size: 1.8rem;
-      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 2rem);
       color: var(--primary-dark);
       margin: 0;
+      font-weight: 700;
     }
 
-    /* アプリカードグリッド */
+    .usage-rate {
+      background: var(--success);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: var(--font-size-small);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* アプリグリッド */
     .app-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 25px;
       margin-bottom: 40px;
     }
 
     .app-card {
       background: var(--bg-secondary);
-      border: 2px solid var(--border);
-      border-radius: 15px;
-      padding: 25px;
+      border-radius: 20px;
+      padding: 30px;
+      border-left: 6px solid var(--primary);
       transition: all 0.3s ease;
-      position: relative;
+      border: 1px solid var(--border);
     }
 
     .app-card:hover {
-      border-color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      background: var(--primary-pale);
     }
 
     .app-header {
       display: flex;
       align-items: center;
       gap: 15px;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .app-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 12px;
+      width: 60px;
+      height: 60px;
+      border-radius: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: white;
-      font-weight: bold;
+      flex-shrink: 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
     .app-name {
-      font-size: 1.2rem;
-      font-weight: 600;
+      font-size: var(--font-size-large);
+      font-weight: 700;
       color: var(--text);
       margin: 0;
-      flex: 1;
+      flex-grow: 1;
     }
 
     .app-rating {
-      background: var(--warning);
+      background: var(--primary);
       color: white;
-      padding: 4px 8px;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: var(--font-size-small);
+      font-weight: 700;
+      white-space: nowrap;
     }
 
-    /* ステップリスト */
+    /* ステップリスト - メインスタイルと統一 */
     .step-list {
-      list-style: none;
       counter-reset: step-counter;
+      list-style: none;
+      padding: 0;
       margin: 20px 0;
     }
 
     .step-list li {
-      counter-increment: step-counter;
-      position: relative;
-      padding: 20px 20px 20px 70px;
-      margin-bottom: 15px;
       background: white;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      line-height: 1.6;
+      margin: 15px 0;
+      padding: 20px 25px 20px 70px;
+      border-radius: 15px;
+      border-left: 6px solid var(--primary);
+      position: relative;
+      list-style: none;
+      counter-increment: step-counter;
+      transition: all 0.3s ease;
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-normal);
+      box-shadow: 0 2px 10px rgba(178, 143, 221, 0.1);
+    }
+
+    .step-list li:hover {
+      background: var(--primary-pale);
+      transform: translateX(8px);
+      box-shadow: var(--shadow);
     }
 
     .step-list li::before {
@@ -241,67 +324,56 @@
       left: 20px;
       top: 50%;
       transform: translateY(-50%);
-      width: 35px;
-      height: 35px;
       background: var(--primary);
       color: white;
+      width: 35px;
+      height: 35px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: var(--font-size-small);
       font-weight: 700;
-      font-size: 0.9rem;
+      box-shadow: 0 2px 8px rgba(178, 143, 221, 0.3);
     }
 
-    /* 重要なポイント */
+    /* 警告・ティップスボックス - メインカードスタイルと統一 */
     .warning-box {
-      background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-      border: 2px solid var(--warning);
-      border-radius: 15px;
-      padding: 25px;
+      background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+      border: 3px solid var(--warning);
+      border-radius: 20px;
+      padding: 30px;
       margin: 30px 0;
-      position: relative;
+      box-shadow: var(--shadow);
     }
 
-    .warning-box::before {
-      content: "⚠️";
-      font-size: 1.5rem;
-      position: absolute;
-      top: 15px;
-      right: 15px;
-    }
-
-    .warning-box h4 {
-      color: var(--warning);
-      margin-bottom: 15px;
-      font-size: 1.1rem;
-    }
-
-    /* ヒント・コツ */
     .tips-box {
-      background: linear-gradient(135deg, #d1ecf1, #a8e6cf);
-      border: 2px solid var(--success);
-      border-radius: 15px;
-      padding: 25px;
+      background: linear-gradient(135deg, #d1ecf1 0%, #a3d5db 100%);
+      border: 3px solid #17a2b8;
+      border-radius: 20px;
+      padding: 30px;
       margin: 30px 0;
-      position: relative;
+      box-shadow: var(--shadow);
     }
 
-    .tips-box::before {
-      content: "💡";
-      font-size: 1.5rem;
-      position: absolute;
-      top: 15px;
-      right: 15px;
+    .warning-title, .tips-title {
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: var(--font-size-large);
     }
 
-    .tips-box h4 {
-      color: var(--success);
-      margin-bottom: 15px;
-      font-size: 1.1rem;
+    .warning-title {
+      color: var(--warning);
     }
 
-    /* 良い例・悪い例 */
+    .tips-title {
+      color: #17a2b8;
+    }
+
+    /* Do/Don't カード */
     .do-dont {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -309,19 +381,48 @@
       margin: 30px 0;
     }
 
-    /* ファイル命名規則 */
-    .file-naming {
-      background: var(--primary-pale);
-      border: 2px solid var(--primary);
-      border-radius: 20px;
+    .do-card, .dont-card {
       padding: 30px;
-      margin: 40px 0;
+      border-radius: 20px;
+      border: 3px solid;
+      box-shadow: var(--shadow);
     }
 
-    .file-naming h3 {
-      color: var(--primary-dark);
+    .do-card {
+      background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+      border-color: var(--success);
+    }
+
+    .dont-card {
+      background: linear-gradient(135deg, #f8d7da 0%, #f1b0b7 100%);
+      border-color: var(--error);
+    }
+
+    .do-title, .dont-title {
+      font-weight: 700;
       margin-bottom: 20px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: var(--font-size-large);
+    }
+
+    .do-title {
+      color: var(--success);
+    }
+
+    .dont-title {
+      color: var(--error);
+    }
+
+    /* ファイル命名セクション */
+    .file-naming {
+      background: var(--card);
+      border-radius: 30px;
+      padding: 40px;
+      margin: 60px 0;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
     }
 
     .naming-examples {
@@ -397,6 +498,18 @@
         left: 15px;
         font-size: 12px;
       }
+
+      /* モバイルでのタッチ対応強化 */
+      .nav-item {
+        min-height: 80px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(178, 143, 221, 0.3);
+      }
+
+      /* iOS Safari のズーム防止 */
+      input, select, textarea {
+        font-size: 16px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -423,7 +536,7 @@
       }
     }
 
-    /* アニメーション */
+    /* アニメーション - メインページと統一 */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -461,7 +574,8 @@
       <a href="index.html#about">サロンについて</a>
       <a href="index.html#pricing">料金</a>
       <a href="recording-guide.html" class="current" aria-current="page">録音ガイド</a>
-      <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" rel="noopener" class="cta-nav">依頼フォーム</a>
+      <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" rel="noopener" class="cta-nav">簡単依頼</a>
+      <a href="request-form.html">詳細依頼</a>
       <a href="index.html#faq">よくある質問</a>
       <a href="index.html#contact">お問い合わせ</a>
     </div>
@@ -474,55 +588,126 @@
         <i class="fas fa-arrow-left" aria-hidden="true"></i>
         メインページに戻る
       </a>
-      <h1>録音・音源提出ガイド</h1>
+      <h1>🎤 録音・音源提出ガイド</h1>
       <p>初心者でも安心！デバイス別の録音方法から音源提出まで完全サポート</p>
     </header>
 
     <!-- ナビゲーション -->
     <section class="guide-nav" aria-labelledby="guide-nav-title">
-      <h3 id="guide-nav-title">お使いのデバイスを選んでください</h3>
+      <h3 id="guide-nav-title">📱 お使いのデバイスを選んでください</h3>
       <div class="nav-grid" role="group" aria-label="デバイス選択">
-        <div class="nav-item" tabindex="0" role="button" onclick="scrollToSection('basics')" aria-label="録音の基本セクションへ移動">
+        <div class="nav-item" tabindex="0" role="button" onclick="scrollToSection('basics')" onkeydown="handleKeyPress(event, 'basics')" aria-label="録音の基本セクションへ移動">
           <i class="fas fa-star" aria-hidden="true"></i>
           <div>録音の基本</div>
           <small>まず読む</small>
         </div>
-        <div class="nav-item" tabindex="0" role="button" onclick="scrollToSection('iphone')" aria-label="iPhoneセクションへ移動">
+        <div class="nav-item" tabindex="0" role="button" onclick="scrollToSection('iphone')" onkeydown="handleKeyPress(event, 'iphone')" aria-label="iPhoneセクションへ移動">
           <i class="fab fa-apple" aria-hidden="true"></i>
           <div>iPhone</div>
         </div>
-        <div class="nav-item" tabindex="0" role="button" onclick="scrollToSection('android')" aria-label="Androidセクションへ移動">
+        <div class="nav-item" tabindex="0" role="button" onclick="scrollToSection('android')" onkeydown="handleKeyPress(event, 'android')" aria-label="Androidセクションへ移動">
           <i class="fab fa-android" aria-hidden="true"></i>
           <div>Android</div>
         </div>
-        <div class="nav-item" tabindex="0" role="button" onclick="scrollToSection('pc')" aria-label="PCセクションへ移動">
+        <div class="nav-item" tabindex="0" role="button" onclick="scrollToSection('pc')" onkeydown="handleKeyPress(event, 'pc')" aria-label="PCセクションへ移動">
           <i class="fas fa-desktop" aria-hidden="true"></i>
           <div>PC</div>
         </div>
-        <div class="nav-item" tabindex="0" role="button" onclick="scrollToSection('submission')" aria-label="音源提出方法セクションへ移動">
+        <div class="nav-item" tabindex="0" role="button" onclick="scrollToSection('submission')" onkeydown="handleKeyPress(event, 'submission')" aria-label="音源提出方法セクションへ移動">
           <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
           <div>音源提出方法</div>
+          <small>必読</small>
         </div>
       </div>
     </section>
 
-    <!-- 録音の基本 -->
+    <!-- 録音の基本セクション -->
     <section id="basics" class="platform-section" aria-labelledby="basics-title">
       <div class="platform-header">
         <i class="fas fa-star platform-icon" aria-hidden="true"></i>
         <div>
           <h2 id="basics-title" class="platform-title">録音の基本知識</h2>
+          <span class="usage-rate">最重要</span>
         </div>
       </div>
 
-      <div class="warning-box">
-        <h4>なぜ録音方法が重要なの？</h4>
-        <p><strong>録音品質がMIXの最終仕上がりを大きく左右します。</strong><br>
-        良い録音 × 良いMIX = 素晴らしい仕上がり<br>
-        悪い録音 × 良いMIX = 限界のある仕上がり<br><br>
-        MIXは「録音された素材を最大限に活かす技術」であり、元の録音品質を超えた結果を生み出すことは困難です。このガイドの録音方法を実践していただければ、MIXで十分に美しく仕上げることができます。</p>
+      <!-- 録音サンプル動画 -->
+      <div style="margin-bottom: 40px; text-align: center;">
+        <h3 style="color: var(--primary-dark); margin-bottom: 20px; font-size: var(--font-size-xl);">
+          <i class="fas fa-play-circle" aria-hidden="true"></i>
+          実際の録音例を見てみよう
+        </h3>
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; box-shadow: var(--shadow); margin-bottom: 20px;">
+          <iframe 
+            src="https://www.youtube.com/embed/bnzPJhW9XQg?si=aYq9nmVaVbGVGd_u" 
+            title="録音方法の実例" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          </iframe>
+        </div>
+        <p style="color: var(--text-light); font-size: var(--font-size-small); line-height: 1.6;">
+          💡 この動画では実際のレコーディング中のマイク位置・距離などを確認できます。<br>
+          文章だけでは分からない適切な録音環境や姿勢を、実際の映像で理解できます。
+        </p>
       </div>
 
+      <div class="warning-box" role="region" aria-labelledby="mix-understanding-title">
+        <div class="warning-title" id="mix-understanding-title">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          MIXの正しい理解
+        </div>
+        <p><strong>MIXは録音された素材を最大限に活かす技術です。</strong>元の録音品質を超えた結果は生み出せません。</p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+          <div style="background: #d4edda; padding: 20px; border-radius: 12px; border-left: 4px solid var(--success);">
+            <h4 style="color: var(--success); margin-bottom: 10px;">✅ できること</h4>
+            <div style="color: var(--success); font-size: 14px; line-height: 1.6;">
+              歌声の魅力を引き出す・音質を整える・軽微な修正・エフェクト追加
+            </div>
+          </div>
+          <div style="background: #f8d7da; padding: 20px; border-radius: 12px; border-left: 4px solid var(--error);">
+            <h4 style="color: var(--error); margin-bottom: 10px;">❌ できないこと</h4>
+            <div style="color: var(--error); font-size: 14px; line-height: 1.6;">
+              歌唱力を根本的に変える・極端に悪い録音の完全修復・大幅なズレ修正
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tips-box" role="region" aria-labelledby="recording-importance-title">
+        <h4 id="recording-importance-title" class="tips-title">
+          <i class="fas fa-info-circle" aria-hidden="true"></i>
+          つまり、録音品質がMIXの仕上がりを決める
+        </h4>
+        <p><strong>良い録音 = 品質の高い仕上がり</strong><br>
+        このガイドの録音方法を実践していただければ、MIXで美しく仕上げることができます！</p>
+      </div>
+
+      <div class="warning-box" role="region" aria-labelledby="key-points-title">
+        <div class="warning-title" id="key-points-title">
+          <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+          まずはここから！高品質録音の3つのポイント
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+          <div style="background: white; padding: 25px; border-radius: 15px; border-left: 6px solid var(--primary); box-shadow: var(--shadow);">
+            <h4 style="color: var(--primary); margin-bottom: 15px; font-size: var(--font-size-large);">🎯 タイミング</h4>
+            <p style="margin: 0; font-size: var(--font-size-base); line-height: 1.6;">カラオケ音源と完全に合わせる</p>
+          </div>
+          <div style="background: white; padding: 25px; border-radius: 15px; border-left: 6px solid var(--accent); box-shadow: var(--shadow);">
+            <h4 style="color: var(--accent); margin-bottom: 15px; font-size: var(--font-size-large);">📏 距離</h4>
+            <p style="margin: 0; font-size: var(--font-size-base); line-height: 1.6;">マイクから20-30cm離れる</p>
+          </div>
+          <div style="background: white; padding: 25px; border-radius: 15px; border-left: 6px solid var(--success); box-shadow: var(--shadow);">
+            <h4 style="color: var(--success); margin-bottom: 15px; font-size: var(--font-size-large);">🏠 環境</h4>
+            <p style="margin: 0; font-size: var(--font-size-base); line-height: 1.6;">静かで反響の少ない場所</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin: 40px 0 25px; font-size: var(--font-size-xl);">🎤 マイクとの距離・角度</h3>
       <div class="app-grid">
         <div class="app-card">
           <div class="app-header">
@@ -570,44 +755,54 @@
             <span class="app-rating">おすすめ★★★</span>
           </div>
           <p><strong>無料・高音質・操作簡単で初心者に最適</strong><br>
-          <small style="color: #666;">↑ iPhoneに標準搭載で追加費用なし、プロレベルの音質で録音可能</small></p>
+          <small style="color: #666;">→ iPhoneに標準搭載で追加費用なし、プロレベルの音質で録音可能</small></p>
           <ol class="step-list">
             <li>GarageBandを開く</li>
             <li>「+」→「AUDIO RECORDER」を選択</li>
             <li>カラオケ音源を別のアプリ（YouTube等）で再生開始</li>
-            <li>音楽に合わせて歌いながら赤いボタンで録音</li>
-            <li>録音終了後、左上のファイルマークから「書き出し」</li>
-            <li>「オーディオファイルの書き出し」でWAVを選択</li>
+            <li>音楽に合わせて赤い録音ボタンをタップし、歌唱開始</li>
+            <li>歌い終わったら停止ボタンをタップ</li>
+            <li>録音完了後「↓」→「書き出し」→「オーディオ」</li>
+            <li>ファイル形式を「AIFF」に設定して書き出し</li>
           </ol>
         </article>
 
         <!-- ボイスメモ -->
         <article class="app-card">
           <div class="app-header">
-            <div class="app-icon" style="background: #34495e;">🎙️</div>
+            <div class="app-icon" style="background: #007aff;">🎙️</div>
             <h3 class="app-name">ボイスメモ</h3>
             <span class="app-rating">簡単★★☆</span>
           </div>
-          <p><strong>最も簡単だが音質は標準的</strong><br>
-          <small style="color: #666;">↑ とりあえず試してみたい場合に</small></p>
+          <p><strong>標準アプリで手軽に録音可能</strong><br>
+          <small style="color: #666;">→ 新たにアプリをダウンロードする必要がなく、すぐに録音を始められる</small></p>
           <ol class="step-list">
             <li>ボイスメモアプリを開く</li>
-            <li>別デバイスでカラオケ音源を再生</li>
-            <li>赤い録音ボタンを押して録音開始</li>
-            <li>歌い終わったら停止ボタン</li>
-            <li>録音ファイルを選択→共有→「ファイルに保存」</li>
+            <li>カラオケ音源を別のアプリ（YouTube等）で再生開始</li>
+            <li>音楽に合わせて赤い録音ボタンをタップし、歌唱開始</li>
+            <li>歌い終わったら停止ボタンをタップ</li>
+            <li>録音データの「共有」ボタンから、ギガファイル便等にアップロード</li>
           </ol>
         </article>
       </div>
 
-      <div class="tips-box">
-        <h4>iPhoneでの録音のコツ</h4>
-        <ul>
-          <li><strong>Wi-Fi環境推奨：</strong>大きなファイルの転送のため</li>
-          <li><strong>充電を確認：</strong>録音中にバッテリー切れを防ぐ</li>
-          <li><strong>通知をオフ：</strong>録音中の通知音を避ける</li>
-          <li><strong>スマホスタンド使用：</strong>手振れによる音の変化を防ぐ</li>
-        </ul>
+      <div class="tips-box" role="region" aria-labelledby="iphone-tips-title">
+        <div class="tips-title" id="iphone-tips-title">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          iPhone録音のコツ
+        </div>
+        <div style="color: #17a2b8; font-weight: 500; line-height: 1.8;">
+          <strong>マイク位置：</strong>口から20-30cm離して録音<br>
+          <small style="color: #666;">→ 近すぎると息づかいが入り、遠すぎると声が小さく反響してしまうため</small><br><br>
+          <strong>録音環境：</strong>静かな部屋で、カーテンや布団で音を吸収<br>
+          <small style="color: #666;">→ 硬い壁だと声が反響し、生活音が入ると除去が困難になるため</small><br><br>
+          <strong>通知対策：</strong>機内モードまたはおやすみモードに設定<br>
+          <small style="color: #666;">→ 録音中にLINEやメール通知が入ると、その音も一緒に録音されてしまうため</small><br><br>
+          <strong>音質設定：</strong>GarageBandなら44.1kHz/24bitで自動録音<br>
+          <small style="color: #666;">→ CDと同じ高音質で録音でき、MIX時の音質劣化を防げるため</small><br><br>
+          <strong>モニタリング：</strong>録音中はイヤホンでカラオケ音源を聞く<br>
+          <small style="color: #666;">→ スピーカーから音を出すと、その音も一緒に録音されてしまうため</small>
+        </div>
       </div>
     </section>
 
@@ -621,48 +816,62 @@
       </div>
 
       <div class="app-grid">
-        <!-- FL Studio Mobile -->
+        <!-- RecForge II -->
         <article class="app-card">
           <div class="app-header">
-            <div class="app-icon" style="background: #ff6b35;">🎛️</div>
-            <h3 class="app-name">FL Studio Mobile</h3>
-            <span class="app-rating">高音質★★★</span>
+            <div class="app-icon" style="background: #4caf50;">📱</div>
+            <h3 class="app-name">RecForge II</h3>
+            <span class="app-rating">おすすめ★★★</span>
           </div>
-          <p><strong>プロ仕様の音質・機能豊富（有料アプリ）</strong><br>
-          <small style="color: #666;">↑ 本格的な録音を望む方に</small></p>
+          <p><strong>Android最高品質・無料版あり</strong><br>
+          <small style="color: #666;">→ Android機種による音質差を最小限に抑え、WAV形式で高品質録音が可能</small></p>
           <ol class="step-list">
-            <li>FL Studio Mobileをインストール</li>
-            <li>新規プロジェクト作成</li>
-            <li>「AUDIO」→「Record」を選択</li>
-            <li>カラオケ音源を別アプリで再生</li>
-            <li>録音ボタンで録音開始</li>
-            <li>完了後、WAVファイルとして書き出し</li>
+            <li>Google PlayからRecForge IIをダウンロード・インストール</li>
+            <li>アプリを開き、設定で「WAV 44.1kHz 16bit」を選択</li>
+            <li>カラオケ音源を別のアプリ（YouTube等）で再生開始</li>
+            <li>音楽に合わせて「録音」ボタンをタップし、歌唱開始</li>
+            <li>歌い終わったら停止ボタンをタップ</li>
+            <li>録音リストから該当ファイルを選択し「共有」→「ファイルで共有」</li>
           </ol>
         </article>
 
-        <!-- 標準録音アプリ -->
+        <!-- Smart Recorder -->
         <article class="app-card">
           <div class="app-header">
-            <div class="app-icon" style="background: #2ecc71;">📱</div>
-            <h3 class="app-name">標準録音アプリ</h3>
+            <div class="app-icon" style="background: #ff5722;">🎤</div>
+            <h3 class="app-name">Smart Recorder</h3>
             <span class="app-rating">簡単★★☆</span>
           </div>
-          <p><strong>機種標準のレコーダー（機種により名称が異なる）</strong><br>
-          <small style="color: #666;">↑ Samsung、HUAWEI、Xiaomi等に標準搭載</small></p>
+          <p><strong>シンプルで使いやすい</strong><br>
+          <small style="color: #666;">→ 複雑な設定が不要で、録音に集中できるシンプルな操作画面</small></p>
           <ol class="step-list">
-            <li>「録音」「レコーダー」アプリを開く</li>
-            <li>設定で音質を「高音質」「WAV」に変更</li>
-            <li>別デバイスでカラオケ音源を再生</li>
-            <li>録音ボタンで録音開始</li>
-            <li>録音終了後、ファイルを保存</li>
+            <li>Smart Recorderをダウンロード・インストール</li>
+            <li>アプリを開き、設定で最高音質モードを選択</li>
+            <li>カラオケ音源を別のアプリ（YouTube等）で再生開始</li>
+            <li>音楽に合わせてマイクアイコンをタップし、歌唱開始</li>
+            <li>歌い終わったら停止ボタンをタップ</li>
+            <li>録音リストから該当ファイルを選択し共有</li>
           </ol>
         </article>
       </div>
 
-      <div class="warning-box">
-        <h4>Androidでの注意点</h4>
-        <p><strong>機種によって標準アプリが異なります。</strong><br>
-        Galaxy（Samsung Voice Recorder）、AQUOS（サウンドレコーダー）、Xperia（音声レコーダー）など、機種により名称・操作方法が変わります。設定で音質を最高レベルに変更することが重要です。</p>
+      <div class="warning-box" role="region" aria-labelledby="android-caution-title">
+        <div class="warning-title" id="android-caution-title">
+          <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+          Android録音の注意点
+        </div>
+        <div style="color: var(--warning); font-weight: 500; line-height: 1.8;">
+          <strong>アプリ権限：</strong>マイクとストレージのアクセス許可が必要<br>
+          <small style="color: #666;">→ 許可しないと録音できず、ファイル保存もできないため</small><br><br>
+          <strong>機種差：</strong>メーカーによって録音アプリの種類や操作が異なります<br>
+          <small style="color: #666;">→ Samsung、SONY、SHARP等で標準アプリが違うため、推奨アプリの使用が安全</small><br><br>
+          <strong>音質設定：</strong>必ず最高音質モード（WAV 44.1kHz推奨）に設定<br>
+          <small style="color: #666;">→ 低音質だとMIX時に音質向上が困難になり、仕上がりに差が出るため</small><br><br>
+          <strong>容量確保：</strong>録音前にストレージ容量を確認<br>
+          <small style="color: #666;">→ 容量不足で録音が途中で停止すると、最初からやり直しになるため</small><br><br>
+          <strong>通知対策：</strong>録音中は通知をOFFにするか機内モードに設定<br>
+          <small style="color: #666;">→ 通知音が録音に混入すると除去が困難になるため</small>
+        </div>
       </div>
     </section>
 
@@ -679,217 +888,213 @@
         <!-- Audacity -->
         <article class="app-card">
           <div class="app-header">
-            <div class="app-icon" style="background: #0000ff;">🎚️</div>
+            <div class="app-icon" style="background: #0000cf;">🎛️</div>
             <h3 class="app-name">Audacity</h3>
             <span class="app-rating">おすすめ★★★</span>
           </div>
-          <p><strong>無料・高機能・マルチプラットフォーム対応</strong><br>
-          <small style="color: #666;">↑ Windows/Mac両対応、編集機能も充実</small></p>
+          <p><strong>無料・多機能・Windows/Mac対応</strong><br>
+          <small style="color: #666;">→ プロの音楽制作でも使用される本格ソフトが完全無料で利用可能</small></p>
           <ol class="step-list">
-            <li>Audacityをダウンロード・インストール</li>
-            <li>「生成」→「トーン」で440Hz・5秒の基準音を作成</li>
-            <li>YouTube等でカラオケ音源を再生</li>
-            <li>新規プロジェクトで「録音」ボタン（赤丸）をクリック</li>
-            <li>歌い終わったら停止ボタン</li>
-            <li>「ファイル」→「書き出し」→「WAVの書き出し」</li>
+            <li>公式サイト（audacityteam.org）からAudacityをダウンロード・インストール</li>
+            <li>Audacityを起動し、マイクが認識されているか確認</li>
+            <li>カラオケ音源を別の音楽プレイヤーで再生開始</li>
+            <li>音楽に合わせて赤い録音ボタンをクリックし、歌唱開始</li>
+            <li>歌い終わったら停止ボタンをクリック</li>
+            <li>「ファイル」→「書き出し」→「オーディオの書き出し」</li>
+            <li>ファイル形式を「WAV」に設定して保存</li>
           </ol>
         </article>
 
-        <!-- Windows標準 -->
+        <!-- GarageBand (Mac) -->
         <article class="app-card">
           <div class="app-header">
-            <div class="app-icon" style="background: #00a1f1;">🎤</div>
-            <h3 class="app-name">Windows ボイスレコーダー</h3>
-            <span class="app-rating">簡単★★☆</span>
+            <div class="app-icon" style="background: #ff6b35;">🍎</div>
+            <h3 class="app-name">GarageBand (Mac)</h3>
+            <span class="app-rating">Mac専用★★★</span>
           </div>
-          <p><strong>Windows標準アプリ・操作が簡単</strong><br>
-          <small style="color: #666;">↑ 追加ソフト不要、すぐに使える</small></p>
+          <p><strong>Mac標準・プロ級品質</strong><br>
+          <small style="color: #666;">→ Macに標準搭載されており、音楽業界でも使用されるプロ仕様の録音品質</small></p>
           <ol class="step-list">
-            <li>スタートメニューから「ボイスレコーダー」を起動</li>
-            <li>別ブラウザでカラオケ音源を再生</li>
-            <li>マイクボタンで録音開始</li>
-            <li>録音終了後、停止ボタン</li>
-            <li>ファイルを右クリック→「ファイルの場所を開く」</li>
+            <li>GarageBandを起動</li>
+            <li>「空のプロジェクト」を選択</li>
+            <li>「Audio」→「マイク」を選択してオーディオトラックを作成</li>
+            <li>カラオケ音源を別の音楽プレイヤーで再生開始</li>
+            <li>音楽に合わせて録音ボタンをクリックし、歌唱開始</li>
+            <li>歌い終わったら停止ボタンをクリック</li>
+            <li>「共有」→「曲をディスクに書き出す」</li>
+            <li>ファイル形式を「AIFF」に設定して書き出し</li>
           </ol>
         </article>
       </div>
 
-      <div class="tips-box">
-        <h4>PCでの録音のコツ</h4>
-        <ul>
-          <li><strong>マイクの選択：</strong>内蔵マイクよりUSBマイクがおすすめ</li>
-          <li><strong>環境音の除去：</strong>エアコン・PC冷却ファンを可能な限り停止</li>
-          <li><strong>録音レベル調整：</strong>音量が大きすぎて波形が赤くなっていないか確認</li>
-          <li><strong>モニターオフ：</strong>録音中はモニター画面をオフにしてノイズ軽減</li>
-        </ul>
+      <div class="tips-box" role="region" aria-labelledby="pc-tips-title">
+        <div class="tips-title" id="pc-tips-title">
+          <i class="fas fa-microphone" aria-hidden="true"></i>
+          PC録音のコツ
+        </div>
+        <div style="color: #17a2b8; font-weight: 500; line-height: 1.8;">
+          <strong>マイク選択：</strong>USB/XLRマイク推奨（内蔵マイクは音質が劣る）<br>
+          <small style="color: #666;">→ 内蔵マイクはキーボード音やファンノイズを拾いやすく、音質が不安定なため</small><br><br>
+          <strong>音質設定：</strong>44.1kHz/24bit または 48kHz/24bit に設定<br>
+          <small style="color: #666;">→ CD品質以上で録音することで、MIX時の音質劣化を防げるため</small><br><br>
+          <strong>録音環境：</strong>静かな部屋で、エアコンやPCファンの音に注意<br>
+          <small style="color: #666;">→ 継続的なノイズは歌声と混ざり、後から完全に除去することが困難なため</small><br><br>
+          <strong>モニタリング：</strong>ヘッドホンでカラオケ音源を聞きながら録音<br>
+          <small style="color: #666;">→ スピーカーから音を出すと、その音も録音されてしまい音質が悪化するため</small><br><br>
+          <strong>ソフト設定：</strong>録音レベルを事前に調整し、音割れを防ぐ<br>
+          <small style="color: #666;">→ 音割れした部分は修復不可能で、録音し直しが必要になるため</small>
+        </div>
       </div>
     </section>
 
-    <!-- ファイル命名規則 -->
-    <section id="naming" class="file-naming">
-      <h3>📝 ファイル命名規則（重要）</h3>
-      <p>音源ファイルには、<strong>分かりやすい名前</strong>をつけてください。下記の形式を参考にしてください：</p>
-
-      <div class="naming-examples">
-        <div class="naming-example">
-          <strong>【推奨】歌手名_楽曲名_録音日.wav</strong><br>
-          例：田中花子_夜に駆ける_20250831.wav<br>
-          例：VTuber_Alice_Tell_Your_World_20250831.wav
-        </div>
-
-        <div class="naming-example">
-          <strong>【推奨】楽曲名_歌手名.wav</strong><br>
-          例：夜に駆ける_田中花子.wav<br>
-          例：Tell_Your_World_Alice.wav
-        </div>
-
-        <div class="naming-example">
-          <strong>【避けるべき】意味不明なファイル名</strong><br>
-          ❌ 録音001.wav<br>
-          ❌ audio_20250831.wav<br>
-          ❌ untitled.wav
-        </div>
-      </div>
-
-      <div style="margin-top: 25px; padding: 20px; background: rgba(255, 255, 255, 0.8); border-radius: 12px;">
-        <strong>なぜ命名規則が重要？</strong>
-        <ul style="margin-top: 10px; color: var(--text-light);">
-          <li>複数の音源を扱う際の管理効率化</li>
-          <li>MIX作業時の取り違え防止</li>
-          <li>納品時のファイル特定の簡素化</li>
-          <li>トラブル発生時の迅速な対応</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 音源提出方法 -->
+    <!-- 音源提出方法セクション -->
     <section id="submission" class="platform-section" aria-labelledby="submission-title">
       <div class="platform-header">
         <i class="fas fa-cloud-upload-alt platform-icon" aria-hidden="true"></i>
         <div>
           <h2 id="submission-title" class="platform-title">音源提出方法</h2>
+          <span class="usage-rate">必読</span>
         </div>
       </div>
 
-      <div class="app-grid">
-        <article class="app-card">
-          <div class="app-header">
-            <div class="app-icon" style="background: #ff6b35;">📤</div>
-            <h3 class="app-name">ギガファイル便（推奨）</h3>
-            <span class="app-rating">おすすめ★★★</span>
+      <div class="warning-box" role="region" aria-labelledby="must-check-title">
+        <div class="warning-title" id="must-check-title">
+          <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+          提出前のMUST CHECK
+        </div>
+        <div class="do-dont">
+          <div class="do-card">
+            <div class="do-title" id="do-list">
+              <i class="fas fa-check-circle" aria-hidden="true"></i>
+              やること ✅
+            </div>
+            <div style="color: var(--success); font-weight: 500; line-height: 1.8;">
+              <strong>頭出し：</strong>カラオケ音源と歌声のタイミングを完全に一致させる<br>
+              <small style="color: #666;">→ タイミングがずれていると、MIX時に楽器と歌がバラバラに聞こえてしまうため</small><br><br>
+              <strong>ファイル名：</strong>内容が分かる名前をつける<br>
+              <small style="color: #666;">→ 「録音1.wav」では、どの曲のどの部分か分からず、MIX作業で混乱するため</small><br><br>
+              <strong>トラック分け：</strong>メイン・ハモリを別ファイルで<br>
+              <small style="color: #666;">→ 1つのファイルに混ざっていると、個別の音量調整やエフェクトが適用できないため</small><br><br>
+              <strong>音質確認：</strong>WAV/AIFF形式で保存<br>
+              <small style="color: #666;">→ MP3は圧縮により音質が劣化し、MIX時にさらに劣化が重なってしまうため</small>
+            </div>
           </div>
-          <p><strong>大容量ファイル対応・登録不要・無料</strong></p>
-          <ol class="step-list">
-            <li><a href="https://gigafile.nu/" target="_blank" rel="noopener">ギガファイル便</a>にアクセス</li>
-            <li>録音ファイルをドラッグ&ドロップ</li>
-            <li>アップロード完了後、URLをコピー</li>
-            <li>DMまたはメールでURLを送信</li>
-          </ol>
-        </article>
-
-        <article class="app-card">
-          <div class="app-header">
-            <div class="app-icon" style="background: #4285f4;">☁️</div>
-            <h3 class="app-name">Google Drive</h3>
-            <span class="app-rating">安全★★★</span>
+          <div class="dont-card">
+            <div class="dont-title" id="dont-list">
+              <i class="fas fa-times-circle" aria-hidden="true"></i>
+              やらないこと ❌
+            </div>
+            <div style="color: var(--error); font-weight: 500; line-height: 1.8;">
+              <strong>ノイズ除去：</strong>自己判断での編集は禁止<br>
+              <small style="color: #666;">→ 不適切な処理で歌声まで削ってしまい、音質が大幅に悪化する可能性があるため</small><br><br>
+              <strong>エコー追加：</strong>リバーブ等のエフェクト禁止<br>
+              <small style="color: #666;">→ 後から除去できないため、MIX時の調整が不可能になるため</small><br><br>
+              <strong>音量調整：</strong>ノーマライズ等の処理禁止<br>
+              <small style="color: #666;">→ 元の音量バランスが分からなくなり、適切なMIXができなくなるため</small><br><br>
+              <strong>MP3圧縮：</strong>非可逆圧縮は音質劣化<br>
+              <small style="color: #666;">→ 一度圧縮すると高音質に戻せず、MIX後の仕上がりに影響するため</small>
+            </div>
           </div>
-          <p><strong>Googleアカウント必要・高セキュリティ</strong></p>
-          <ol class="step-list">
-            <li>Google Driveにアクセス</li>
-            <li>「新規」→「ファイルのアップロード」</li>
-            <li>録音ファイルを選択してアップロード</li>
-            <li>アップロード後、右クリック→「リンクを取得」</li>
-            <li>「リンクを知っている全員」に変更してリンクをコピー</li>
-            <li>DMまたはメールでリンクを送信</li>
-          </ol>
-        </article>
+        </div>
       </div>
 
-      <div class="warning-box">
-        <h4>音源提出時の注意点</h4>
-        <ul>
-          <li><strong>ファイル形式：</strong>WAV推奨（mp3も可）</li>
-          <li><strong>ファイル名：</strong>上記命名規則に従ってください</li>
-          <li><strong>複数ファイル：</strong>テイク違い等は番号を付けて区別</li>
-          <li><strong>頭出し：</strong>可能であれば先頭の無音部分をカット</li>
-          <li><strong>メッセージ：</strong>楽曲名・希望する仕上がりイメージをお書きください</li>
-        </ul>
+      <!-- ファイル命名規則 -->
+      <div class="file-naming">
+        <h3 style="color: var(--primary-dark); margin-bottom: 25px; font-size: var(--font-size-xl); font-weight: 700;">
+          <i class="fas fa-file-audio" aria-hidden="true"></i>
+          ファイル命名規則
+        </h3>
+        <p style="margin-bottom: 25px; color: var(--text-light); font-size: var(--font-size-base); line-height: 1.6;">
+          MIX作業を効率化するため、以下の命名規則に従ってファイル名をつけてください
+        </p>
+        
+        <div class="naming-examples">
+          <div class="naming-example">
+            <strong style="color: var(--success);">✅ 良い例：</strong><br>
+            rec_vo_main1.wav　（メインボーカル パート1）<br>
+            rec_vo_main2.wav　（メインボーカル パート2・歌いきれなかった部分）<br>
+            rec_vo_harmony_high.wav　（高音ハモリ）<br>
+            rec_vo_harmony_low.wav　（低音ハモリ）<br>
+            rec_vo_chorus.wav　（コーラス部分）
+          </div>
+          
+          <div class="naming-example">
+            <strong style="color: var(--error);">❌ 悪い例：</strong><br>
+            録音1.wav　（内容が不明）<br>
+            voice.wav　（どのパートか不明）<br>
+            untitled.wav　（全く内容が分からない）
+          </div>
+        </div>
+
+        <div style="margin-top: 25px; padding: 25px; background: var(--primary-light); border-radius: 15px; border-left: 6px solid var(--primary);">
+          <h4 style="color: var(--primary-dark); margin-bottom: 15px; font-size: var(--font-size-large);">命名のルール：</h4>
+          <p style="margin: 0; color: var(--primary-dark); font-weight: 500; line-height: 1.6;">
+            <strong>rec_vo_[内容].wav</strong> の形式で、内容が一目で分かるように命名してください。<br>
+            複数ファイルがある場合は、番号や内容で区別してください。
+          </p>
+        </div>
+      </div>
+
+      <div class="tips-box" role="region" aria-labelledby="submission-tips-title">
+        <div class="tips-title" id="submission-tips-title">
+          <i class="fas fa-upload" aria-hidden="true"></i>
+          音源提出の流れ
+        </div>
+        <ol class="step-list">
+          <li>録音完了後、内容が分かるファイル名に変更（例：千本桜_メイン.wav）</li>
+          <li><strong>頭出し確認</strong>：カラオケ音源と歌声のタイミングが正確に合っているかチェック</li>
+          <li>ギガファイル便（gigafile.nu）またはGoogle Driveにファイルをアップロード</li>
+          <li>アップロード完了後、共有URLをコピー</li>
+          <li>X（Twitter）のDM（@ryuzanmix）またはメール（ryuzan.mix@gmail.com）でURLを送信</li>
+          <li>録音環境や気になる点があれば合わせてお知らせください</li>
+        </ol>
+        
+        <div style="margin-top: 25px; padding: 25px; background: #e3f2fd; border-radius: 15px; border-left: 6px solid #1976d2;">
+          <h4 style="color: #1976d2; margin-bottom: 15px; font-size: var(--font-size-large);">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            頭出し（タイミング合わせ）の重要性
+          </h4>
+          <div style="color: #1976d2; font-weight: 500; line-height: 1.7;">
+            <strong>目的：</strong>カラオケ音源と歌声が完全に同じタイミングで再生されるよう調整すること<br><br>
+            <strong>🎵 正しい頭出しとは：</strong><br>
+            • 原曲の歌い出しと同じタイミングで歌声が始まる<br>
+            • 楽器の音と歌声がずれていない<br>
+            • 間奏やブレイクの位置が原曲通りに合っている<br><br>
+            <strong>📱 確認方法：</strong><br>
+            録音した歌声とカラオケ音源を同時再生して、歌い出しのタイミングがぴったり合うかチェック<br>
+            （スマホの場合は、2つのアプリを同時に再生して確認）<br><br>
+            <strong style="color: var(--warning);">💡 タイミングがずれている場合：</strong><br>
+            録音状況をお知らせください。当サロンでタイミング調整いたします！
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- 最終確認 -->
-    <section class="platform-section">
-      <div class="platform-header">
-        <i class="fas fa-check-circle platform-icon" style="color: var(--success);" aria-hidden="true"></i>
-        <div>
-          <h2 class="platform-title">提出前の最終確認</h2>
-        </div>
-      </div>
-
-      <div style="background: var(--success); color: white; padding: 30px; border-radius: 20px; margin: 20px 0;">
-        <h4 style="color: white; margin-bottom: 20px; text-align: center;">✅ 提出前チェックリスト</h4>
-        <div style="display: grid; gap: 15px;">
-          <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-            <input type="checkbox" style="transform: scale(1.2);">
-            <span>ファイル名は分かりやすくつけましたか？</span>
-          </label>
-          <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-            <input type="checkbox" style="transform: scale(1.2);">
-            <span>録音音質は聞き取れるレベルですか？</span>
-          </label>
-          <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-            <input type="checkbox" style="transform: scale(1.2);">
-            <span>楽曲名・アーティスト名は伝えましたか？</span>
-          </label>
-          <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-            <input type="checkbox" style="transform: scale(1.2);">
-            <span>希望する仕上がりイメージを伝えましたか？</span>
-          </label>
-          <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-            <input type="checkbox" style="transform: scale(1.2);">
-            <span>ファイル共有リンクは正しく送信しましたか？</span>
-          </label>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 40px;">
-        <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 25px;">
-          すべて確認できたら、いよいよご依頼です！<br>
-          <strong style="color: var(--primary);">お客様の素敵な歌声をお待ちしています。</strong>
-        </p>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 600px; margin: 0 auto;">
-          <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" rel="noopener" 
-             style="background: var(--accent); color: white; padding: 16px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s ease;">
-            <i class="fas fa-rocket"></i>
-            ご依頼フォーム
-          </a>
-          
-          <a href="https://x.com/ryuzanmix" target="_blank" rel="noopener"
-             style="background: var(--primary); color: white; padding: 16px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s ease;">
-            <i class="fab fa-twitter"></i>
-            DMで相談
-          </a>
-        </div>
+    <!-- フッターセクション -->
+    <section style="text-align: center; padding: 60px 30px; background: var(--bg-secondary); border-radius: 30px; margin: 60px 0;">
+      <h2 style="color: var(--primary-dark); margin-bottom: 20px; font-size: var(--font-size-xl);">🎵 準備完了！</h2>
+      <p style="color: var(--text-light); margin-bottom: 30px; font-size: var(--font-size-large);">
+        録音方法をマスターしたら、いよいよMIX依頼です！
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 600px; margin: 0 auto;">
+        <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" class="cta primary" style="text-decoration: none;">
+          <i class="fas fa-rocket"></i>
+          簡単依頼フォーム
+        </a>
+        <a href="request-form.html" class="cta" style="text-decoration: none;">
+          <i class="fas fa-magic"></i>
+          詳細依頼フォーム
+        </a>
+        <a href="index.html" class="cta" style="text-decoration: none;">
+          <i class="fas fa-home"></i>
+          メインページへ
+        </a>
       </div>
     </section>
   </main>
 
-  <!-- フッター（簡略版） -->
-  <footer style="background: var(--bg-secondary); padding: 40px 20px; text-align: center; border-top: 1px solid var(--border);">
-    <div style="max-width: 600px; margin: 0 auto;">
-      <p style="margin-bottom: 15px;">
-        <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">← Ryuzan Mix Salon メインページに戻る</a>
-      </p>
-      <p style="color: var(--text-muted); font-size: 0.9rem;">
-        録音でご不明な点がございましたら、お気軽にお問い合わせください
-      </p>
-    </div>
-  </footer>
-
-  <!-- JavaScript -->
   <script>
-    // ナビゲーション表示制御（メインページと同じ）
+    // ナビゲーション表示制御（メインページと統一）
     window.addEventListener('scroll', function() {
       const nav = document.getElementById('nav');
       if (window.scrollY > 100) {
@@ -899,19 +1104,26 @@
       }
     });
 
-    // セクションへのスムーススクロール
+    // スムーススクロール機能
     function scrollToSection(sectionId) {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        const offsetTop = section.offsetTop - 100;
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const offsetTop = element.offsetTop - 100; // ナビゲーション分のオフセット
         window.scrollTo({
           top: offsetTop,
           behavior: 'smooth'
         });
+        
+        // フォーカス管理（アクセシビリティ）
+        element.setAttribute('tabindex', '-1');
+        element.focus();
+        element.addEventListener('blur', function() {
+          element.removeAttribute('tabindex');
+        }, { once: true });
       }
     }
 
-    // キーボード対応
+    // キーボードナビゲーション対応
     function handleKeyPress(event, sectionId) {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
@@ -919,7 +1131,7 @@
       }
     }
 
-    // スムーススクロール（アンカーリンク）
+    // スムーススクロール（リンク用）
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -934,7 +1146,7 @@
       });
     });
 
-    // アニメーション
+    // アニメーション（メインページと統一）
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -950,31 +1162,117 @@
 
     // アニメーション対象要素を監視
     document.addEventListener('DOMContentLoaded', function() {
-      const animateElements = document.querySelectorAll('.platform-section, .app-card');
+      const animateElements = document.querySelectorAll('.platform-section, .warning-box, .tips-box, .app-card');
       animateElements.forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
       });
     });
 
-    // 外部リンクに rel="noopener" を自動追加
+    // アクセシビリティ: フォーカストラップ
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        document.body.classList.add('keyboard-navigation');
+      }
+    });
+
+    document.addEventListener('mousedown', function() {
+      document.body.classList.remove('keyboard-navigation');
+    });
+
+    // 外部リンクのアクセシビリティ強化
     document.querySelectorAll('a[target="_blank"]').forEach(link => {
       if (!link.rel.includes('noopener')) {
         link.rel = link.rel ? link.rel + ' noopener' : 'noopener';
       }
+      if (!link.getAttribute('aria-label') && !link.title) {
+        link.setAttribute('aria-label', link.textContent + '（新しいタブで開きます）');
+      }
     });
 
-    // チェックボックスのローカルストレージ保存（任意）
-    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-      checkbox.addEventListener('change', function() {
-        // チェック状態の視覚的フィードバック
-        if (this.checked) {
-          this.parentElement.style.opacity = '0.8';
-        } else {
-          this.parentElement.style.opacity = '1';
-        }
-      });
+    // エラーハンドリング
+    window.addEventListener('error', function(e) {
+      console.warn('Non-critical error occurred:', e.error);
     });
+  </script>
+
+  <!-- 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "録音・音源提出ガイド",
+    "description": "初心者でも安心！iPhone・Android・PCでの録音方法から音源提出まで、分かりやすく完全ガイド。",
+    "image": "https://ryuzanmix.github.io/og-image.png",
+    "totalTime": "PT30M",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "JPY",
+      "value": "0"
+    },
+    "supply": [
+      {
+        "@type": "HowToSupply",
+        "name": "スマートフォンまたはPC"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "録音アプリ"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "カラオケ音源"
+      }
+    ],
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "GarageBand (iPhone)"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "RecForge II (Android)"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "Audacity (PC)"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "録音の基本を理解する",
+        "text": "MIXの限界を理解し、高品質録音の3つのポイント（タイミング、距離、環境）を把握する"
+      },
+      {
+        "@type": "HowToStep", 
+        "name": "デバイスに応じた録音アプリを選択",
+        "text": "iPhone、Android、PCそれぞれに最適な録音アプリを選択し、設定を調整する"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "適切な環境で録音実行",
+        "text": "静かで反響の少ない場所で、マイクから適切な距離を保って録音する"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "ファイル整理と音源提出",
+        "text": "適切なファイル名をつけ、ギガファイル便などで音源を提出する"
+      }
+    ],
+    "author": {
+      "@type": "Organization",
+      "name": "Ryuzan Mix Salon"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ryuzan Mix Salon",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ryuzanmix.github.io/ryuzan-mix-salon-logo.png"
+      }
+    }
+  }
   </script>
 </body>
 </html>
