@@ -64,36 +64,6 @@
 </head>
 
 <body>
-  <!-- 料金改定トップ告知バナー -->
-  <div style="background: linear-gradient(135deg, var(--warning), #ff8c00); color: white; padding: 15px 20px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(255, 140, 0, 0.3); border-bottom: 2px solid rgba(255, 255, 255, 0.2);">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
-      <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem;">
-        <i class="fas fa-bell" style="animation: pulse 2s infinite;"></i>
-        <span>料金改定のお知らせ</span>
-      </div>
-      <div style="font-size: 0.95rem; opacity: 0.95;">
-        現在価格でのご依頼は<strong>8月31日まで</strong>
-      </div>
-      <div style="font-size: 0.85rem; opacity: 0.9; margin-top: 5px;">
-        ※すでにご相談・ご依頼いただいている方は改定前の料金でご対応いたします
-      </div>
-      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        <a href="#pricing-update" style="background: white; color: var(--warning); padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 5px;"
-           onmouseover="this.style.transform='scale(1.05)'"
-           onmouseout="this.style.transform='scale(1)'">
-          <i class="fas fa-info-circle"></i>
-          詳細を確認
-        </a>
-        <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="background: rgba(255, 255, 255, 0.2); color: white; border: 1px solid white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 5px;"
-           onmouseover="this.style.background='white'; this.style.color='var(--warning)'"
-           onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.color='white'">
-          <i class="fas fa-rocket"></i>
-          今すぐ依頼
-        </a>
-      </div>
-    </div>
-  </div>
-
   <!-- ナビゲーション -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
@@ -102,7 +72,8 @@
       <a href="#about">サロンについて</a>
       <a href="#pricing">料金</a>
       <a href="recording-guide.html">録音ガイド</a>
-      <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" class="cta-nav">ご依頼&ご相談</a>
+      <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" class="cta-nav">簡単依頼</a>
+      <a href="request-form.html">詳細依頼</a>
       <a href="#faq">よくある質問</a>
       <a href="#contact">お問い合わせ</a>
     </div>
@@ -119,7 +90,7 @@
           初心者さんも録音ミスも、まるごと大歓迎です☺️<br>
           「MIXってなにから頼めばいいの？」「自分の声に自信がない…」<br>
           そんな方の"はじめの一歩"を、丁寧にサポートします。<br>
-          <span style="background: var(--warning); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-top: 8px; display: inline-block;">⚠️ 現在の納期：1ヶ月前後（ご相談いただけます）</span>
+          <span style="background: var(--warning); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-top: 8px; display: inline-block;">⚠️ 現在の納期：1か月前後（依頼数増加のため）</span>
         </p>
         <div class="cta-group">
           <a href="#contact" class="cta accent">
@@ -128,14 +99,18 @@
           </a>
           <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" class="cta">
             <i class="fas fa-paper-plane"></i>
-            🚀 ご依頼＆ご相談フォーム
+            🚀 簡単依頼フォーム
           </a>
           <a href="recording-guide.html" class="cta">
             <i class="fas fa-book-open"></i>
             📱 録音方法ガイド
           </a>
+          <a href="request-form.html" class="cta">
+            <i class="fas fa-magic"></i>
+            詳細依頼フォーム
+          </a>
           <a href="#pricing" class="cta-secondary">
-            ▶️ 詳しい料金・進行の流れはこちら
+            ▶︎ 詳しい料金・進行の流れはこちら
           </a>
           <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border: 2px solid var(--warning); border-radius: 12px; text-align: center;">
             <p style="margin: 0; color: var(--warning); font-weight: 600; font-size: 0.9rem;">
@@ -148,149 +123,24 @@
 
       <div class="hero-illust">
         <div class="playlist-section" id="playlist">
-          <div style="text-align: center; margin-bottom: 30px;">
-            <h2 class="section-title" style="background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 15px;">🎵 実績サンプル音源 - 品質を耳で確認</h2>
-            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
-              <div style="background: var(--success); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">
-                <i class="fas fa-check-circle"></i> 実際の納品クオリティ
-              </div>
-              <div style="background: var(--accent); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">
-                <i class="fas fa-headphones"></i> プロ仕様MIX
-              </div>
-              <div style="background: var(--warning); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">
-                <i class="fas fa-music"></i> 多様なジャンル対応
-              </div>
-            </div>
-            <p style="color: var(--text-light); font-size: 1.05rem; line-height: 1.6; max-width: 600px; margin: 0 auto;">
-              <strong style="color: var(--primary);">「本当にこのクオリティで依頼できるの？」</strong><br>
-              実際の納品音源で確認してください。同じ技術と機材で、あなたの歌声を最大限に美しく仕上げます。
-            </p>
-          </div>
+          <h2 class="section-title">歌ってみたMIXの実績・サンプル音源集</h2>
+          <p class="playlist-subtitle">準備中</p>
+          
+          <a href="https://x.com/ryuzanmix/status/1940267868761071883" 
+             class="playlist-button" target="_blank" rel="noopener">
+            🎧 サンプルはXの固定ツイートをご覧ください
+          </a>
 
-          <!-- YouTube公開ポートフォリオへの誘導 -->
-          <div style="background: white; padding: 25px; border-radius: 16px; border: 2px solid var(--primary-light); box-shadow: var(--shadow); text-align: center; margin-bottom: 30px;">
-            <h4 style="color: var(--primary-dark); margin-bottom: 15px; font-size: 1.2rem;">
-              <i class="fab fa-youtube" style="color: #ff0000;"></i>
-              YouTube公開ポートフォリオ
-            </h4>
-            <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 20px; line-height: 1.6;">
-              より多くのサンプル音源を<br>YouTubeで直接確認
-            </p>
-            <a href="https://youtube.com/playlist?list=PLhB2bHrWAh_WwV80XSU1bbz9D3pzjwz6R&si=KExYFzz2SylTtVsv" 
-               target="_blank" rel="noopener"
-               style="background: #ff0000; color: white; padding: 14px 28px; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 1rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);"
-               onmouseover="this.style.background='#cc0000'; this.style.transform='translateY(-2px)'"
-               onmouseout="this.style.background='#ff0000'; this.style.transform='translateY(0)'">
-              <i class="fab fa-youtube"></i>
-              プレイリストを開く
-            </a>
-          </div>
-
-          <!-- メインプレイリスト表示エリア -->
-          <div style="background: linear-gradient(135deg, #ffffff 0%, var(--primary-pale) 100%); border: 3px solid var(--primary); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 8px 30px rgba(178, 143, 221, 0.25); position: relative; overflow: hidden;">
-            
-            <!-- プレミアム感を演出する装飾 -->
-            <div style="position: absolute; top: -20px; right: -20px; background: var(--accent); color: white; padding: 12px 35px; border-radius: 25px; transform: rotate(15deg); font-weight: 700; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);">
-              <i class="fas fa-crown"></i> PREMIUM QUALITY
-            </div>
-
-            <!-- YouTubeプレイリスト埋め込み -->
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; box-shadow: 0 6px 25px rgba(0,0,0,0.15); margin-bottom: 25px; background: #000;">
-              <iframe 
-                width="560" 
-                height="315" 
-                src="https://www.youtube.com/embed/videoseries?si=MUsh1jPq4xVd7HmP&amp;list=PLhB2bHrWAh_WwV80XSU1bbz9D3pzjwz6R" 
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerpolicy="strict-origin-when-cross-origin" 
-                allowfullscreen
-                loading="lazy"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 16px;">
-              </iframe>
-            </div>
-
-            <!-- 信頼性を高める統計情報 -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 25px;">
-              <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 12px; border: 1px solid var(--border);">
-                <div style="font-size: 1.4rem; font-weight: 700; color: var(--primary); margin-bottom: 5px;">
-                  <i class="fas fa-music"></i> 多様性
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">ボカロ・J-POP・アニソン</div>
-              </div>
-              <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 12px; border: 1px solid var(--border);">
-                <div style="font-size: 1.4rem; font-weight: 700; color: var(--success); margin-bottom: 5px;">
-                  <i class="fas fa-star"></i> 高評価
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">お客様から高いご評価</div>
-              </div>
-              <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 12px; border: 1px solid var(--border);">
-                <div style="font-size: 1.4rem; font-weight: 700; color: var(--accent); margin-bottom: 5px;">
-                  <i class="fas fa-award"></i> 品質保証
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">プロ仕様機材使用</div>
-              </div>
-            </div>
-
-            <!-- 心理的トリガー：希少性と緊急性 -->
-            <div style="background: linear-gradient(135deg, var(--warning), #ffb347); color: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);">
-              <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">
-                <i class="fas fa-clock"></i> 
-                現在の納期：1ヶ月前後（ご相談いただけます）
-              </div>
-              <div style="font-size: 0.9rem; opacity: 0.95;">
-                お急ぎの場合はお気軽にご相談ください • 無料修正2回まで対応
-              </div>
-            </div>
-
-            <!-- 強力なCTAボタンセクション -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
-              <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" 
-                 style="background: linear-gradient(135deg, var(--accent), #ff8fb3); color: white; padding: 18px 24px; border-radius: 30px; text-decoration: none; font-weight: 700; text-align: center; font-size: 1.05rem; box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px;"
-                 onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 107, 157, 0.5)'"
-                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(255, 107, 157, 0.4)'">
-                <i class="fas fa-rocket"></i>
-                今すぐご依頼する
-              </a>
-              
-              <a href="#contact" 
-                 style="background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 18px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; text-align: center; font-size: 1.05rem; box-shadow: 0 6px 20px rgba(178, 143, 221, 0.4); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px;"
-                 onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(178, 143, 221, 0.5)'"
-                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(178, 143, 221, 0.4)'">
-                <i class="fas fa-comments"></i>
-                まずは相談する
-              </a>
+          <div class="playlist-wrapper" style="background: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 12px; padding: 40px; text-align: center;">
+            <div style="color: #6c757d; font-size: 1.1rem;">
+              <i class="fas fa-tools" style="font-size: 2rem; margin-bottom: 15px; display: block;"></i>
+              <p style="margin: 0;">YouTubeプレイリストは準備中です</p>
+              <p style="margin: 10px 0 0 0; font-size: 0.9rem;">現在、サンプル音源をXの固定ツイートでご確認いただけます</p>
             </div>
           </div>
 
-          <!-- 最終的な説得要素：安心感と品質保証 -->
-          <div style="background: linear-gradient(135deg, var(--success), #4caf50); color: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 6px 25px rgba(76, 175, 80, 0.3);">
-            <h3 style="margin-bottom: 15px; font-size: 1.2rem;">
-              <i class="fas fa-shield-alt"></i>
-              安心の品質保証システム
-            </h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
-              <div>
-                <div style="font-weight: 700; margin-bottom: 5px;">✅ 仮MIX事前確認</div>
-                <div style="font-size: 0.9rem; opacity: 0.9;">納得してからお支払い</div>
-              </div>
-              <div>
-                <div style="font-weight: 700; margin-bottom: 5px;">✅ 無料修正2回</div>
-                <div style="font-size: 0.9rem; opacity: 0.9;">理想の仕上がりまで対応</div>
-              </div>
-              <div>
-                <div style="font-weight: 700; margin-bottom: 5px;">✅ 24時間以内返信</div>
-                <div style="font-size: 0.9rem; opacity: 0.9;">迅速・丁寧なサポート</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="playlist-description" style="text-align: center; margin-top: 30px;">
-            <p style="color: var(--text-light); font-size: 1rem; line-height: 1.7; max-width: 700px; margin: 0 auto;">
-              <strong style="color: var(--primary);">「初めてでも本当に大丈夫？」</strong><br>
-              上記サンプル音源と同じ品質基準で、明確な料金体系・迅速な対応・丁寧なサポートをお約束します。<br>
-              <span style="color: var(--accent); font-weight: 600;">あなたの「歌いたい」気持ちを、全力でサポートします。</span>
-            </p>
+          <div class="playlist-description">
+            <p>初めての方も安心してご依頼いただけるよう、MIX内容・納期・価格を明確にご案内しています。</p>
           </div>
         </div>
       </div>
@@ -305,8 +155,8 @@
         <div class="stat-label">以内のDM返信</div>
       </div>
       <div class="stat-item" style="border: 3px solid var(--warning); background: #fff3cd;">
-        <span class="stat-number" style="color: var(--warning);">1ヶ月前後</span>
-        <div class="stat-label" style="color: var(--warning); font-weight: 600;">現在の納期<br><small style="font-size: 0.8rem;">※ご相談いただけます</small></div>
+        <span class="stat-number" style="color: var(--warning);">1か月前後</span>
+        <div class="stat-label" style="color: var(--warning); font-weight: 600;">現在の納期<br><small style="font-size: 0.8rem;">※依頼数増加のため</small></div>
       </div>
       <div class="stat-item">
         <span class="stat-number">プロ仕様</span>
@@ -331,7 +181,7 @@
         <p>
           やさしさで"声"を整える、歌声トリートメント専門のMIX師です。<br>
           「録音ミスがある」「リズムやピッチに自信がない」そんな不安も、まるごと大丈夫。<br>
-          自然体のあなたの歌を、きっと支えるように仕上げます😊<br><br>
+          自然体のあなたの歌を、そっと支えるように仕上げます😊<br><br>
           <strong>専門技術:</strong> Cubase Pro, Melodyne, iZotope RX, Neutron, Ozone<br>
           <strong>対応ジャンル:</strong> ボカロ、J-POP、アニソン、洋楽カバー
         </p>
@@ -347,7 +197,7 @@
           <strong>SNSアカウント:</strong> <a href="https://x.com/ryuzanmix" target="_blank">@ryuzanmix</a><br>
           <strong>対応レベル:</strong> 初心者〜上級者・オーディション提出音源まで<br>
           <strong>特殊対応:</strong> ライブ音源補正、デュエット・コラボ、ガイドボーカル制作<br>
-          <strong>納期実績:</strong> 現在1ヶ月前後（ご相談可能）
+          <strong>納期実績:</strong> 平均2週間、最短1週間対応可能
         </p>
       </div>
     </div>
@@ -366,7 +216,7 @@
           <i class="fas fa-tags" style="color: #2e8b57;"></i>
           明確で安心の料金体系
         </h3>
-        <p>税込固定価格で予算オーバーの心配なし。追加オプションも事前見積もりで透明性を重視。業界最安水準でプロ品質をお届けします。</p>
+        <p>税込み固定価格で予算オーバーの心配なし。追加オプションも事前見積もりで透明性を重視。業界最安水準でプロ品質をお届けします。</p>
       </article>
 
       <article class="card">
@@ -382,15 +232,15 @@
           <i class="fas fa-music" style="color: #3498db;"></i>
           豊富な実績とサンプル
         </h3>
-        <p>サンプルをプレイリストで公開、仕上がりを耳で確認できるから安心。様々なジャンル・声質に対応した実績をご覧いただけます。</p>
+        <p>サンプルをプレイリストで公開。仕上がりを耳で確認できるから安心。様々なジャンル・声質に対応した実績をご覧いただけます。</p>
       </article>
 
       <article class="card">
         <h3>
           <i class="fas fa-clock" style="color: #34495e;"></i>
-          柔軟な納期と修正対応
+          明確な納期と修正対応
         </h3>
-        <p>現在の納期1ヶ月前後ですが、ご相談いただけます。無料修正2回付き（3回目以降+￥1,000）。修正は一度にすべて詳細にご指示いただくことで、品質と納期を両立します。</p>
+        <p>現在の納期1か月前後でしっかりと制作。無料修正2回付き（3回目以降+¥1,000）。修正は一度にすべて詳細にご指示いただくことで、品質と納期を両立します。</p>
       </article>
 
       <article class="card">
@@ -414,143 +264,26 @@
       <article class="card">
         <h3>「終始丁寧な対応で安心」</h3>
         <p>データ確認させていただき、問題ありませんでした。終始丁寧に対応していただき、本当にありがとうございました。またお願いしたいと思いますので、よろしくお願いいたします。</p>
-        <small style="color: var(--text-muted); font-style: italic;">- 配信者様</small>
+        <small style="color: var(--text-muted); font-style: italic;">- 配信者さま</small>
       </article>
 
       <article class="card">
         <h3>「パーフェクトです！」</h3>
         <p>対応やクオリティ全てにおいて完璧でした！初めてのMIX依頼で不安でしたが、丁寧な説明と素早い対応で安心してお任せできました。</p>
-        <small style="color: var(--text-muted); font-style: italic;">- 初心者Vtuber様</small>
+        <small style="color: var(--text-muted); font-style: italic;">- 初心者Vtuberさま</small>
       </article>
 
       <article class="card">
         <h3>「希望通りの仕上がり」</h3>
         <p>何度も丁寧に修正していただき、安心して依頼できました！細かい要望も快く聞いてくださり、想像以上の仕上がりに感動しています。</p>
-        <small style="color: var(--text-muted); font-style: italic;">- 歌い手活動2年目様</small>
+        <small style="color: var(--text-muted); font-style: italic;">- 歌い手活動2年目さま</small>
       </article>
 
       <article class="card">
         <h3>「MIX初心者でも安心」</h3>
         <p>録音や動画のことも教えていただき、初めてでも迷わず依頼できました。専門知識がなくても分かりやすく説明してくださいます。</p>
-        <small style="color: var(--text-muted); font-style: italic;">- 新人Vtuber様</small>
+        <small style="color: var(--text-muted); font-style: italic;">- 新人Vtuberさま</small>
       </article>
-    </div>
-  </section>
-
-  <!-- 料金改定について -->
-  <section id="pricing-update" style="background: var(--gradient); margin: 40px auto; padding: 40px 30px; border-radius: 20px; border: 2px solid var(--warning); box-shadow: var(--shadow); max-width: 1200px;">
-    <div class="section-header" style="text-align: center; margin-bottom: 30px;">
-      <h2 style="color: var(--warning); margin-bottom: 15px; font-size: 1.5rem;">
-        <i class="fas fa-bell"></i>
-        料金改定について
-      </h2>
-      <p style="color: var(--primary-dark); font-size: 1.1rem; line-height: 1.6; max-width: 800px; margin: 0 auto;">
-        培った技術力と豊富な実績を踏まえ、より高品質なサービス提供のため、料金体系を改定いたします。<br>
-        <strong style="color: var(--warning);">2025年8月31日までは移行期間として特別料金でご提供中です。</strong><br>
-        <span style="color: var(--primary-dark); font-weight: 600; margin-top: 10px; display: block;">
-          <i class="fas fa-shield-alt"></i>
-          すでにご相談・ご依頼いただいている方は、改定前の料金でご対応させていただきます。
-        </span>
-      </p>
-    </div>
-
-    <!-- 現在価格と新価格の比較 -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 30px;">
-      <!-- 現在価格（特別料金） -->
-      <div style="background: white; padding: 25px; border-radius: 15px; border: 3px solid var(--success); position: relative; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);">
-        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--success); color: white; padding: 8px 20px; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">
-          <i class="fas fa-clock"></i> 8月31日まで
-        </div>
-        <h3 style="color: var(--success); text-align: center; margin-bottom: 20px; margin-top: 15px; font-size: 1.3rem;">
-          現在価格（特別料金）
-        </h3>
-        <div style="text-align: center; margin-bottom: 20px;">
-          <div style="font-size: 1.1rem; margin-bottom: 8px; color: var(--text);">
-            <strong>フルコーラス MIX：</strong>
-            <span style="color: var(--success); font-weight: 700; font-size: 1.2rem;">￥5,000</span>
-          </div>
-          <div style="font-size: 1.1rem; margin-bottom: 8px; color: var(--text);">
-            <strong>ワンコーラス MIX：</strong>
-            <span style="color: var(--success); font-weight: 700; font-size: 1.2rem;">￥3,000</span>
-          </div>
-          <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border);">
-            • ハモリ追加（3トラック目〜）：+￥1,000<br>
-            • 動画エンコード：+￥1,000
-          </div>
-        </div>
-        <div style="background: var(--success); color: white; padding: 12px; border-radius: 10px; text-align: center; font-weight: 600; margin-bottom: 10px;">
-          <i class="fas fa-star"></i> 現在価格でのご依頼は8月31日まで
-        </div>
-        <div style="background: #e8f5e8; color: var(--success); padding: 8px; border-radius: 8px; text-align: center; font-size: 0.85rem; font-weight: 500;">
-          すでにご相談・ご依頼いただいている方は改定前の料金でご対応いたします
-        </div>
-      </div>
-
-      <!-- 新価格 -->
-      <div style="background: white; padding: 25px; border-radius: 15px; border: 3px solid var(--warning); position: relative; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2);">
-        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--warning); color: white; padding: 8px 20px; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">
-          <i class="fas fa-calendar"></i> 9月1日から
-        </div>
-        <h3 style="color: var(--warning); text-align: center; margin-bottom: 20px; margin-top: 15px; font-size: 1.3rem;">
-          9月1日より新価格
-        </h3>
-        <div style="text-align: center; margin-bottom: 20px;">
-          <div style="font-size: 1.1rem; margin-bottom: 8px; color: var(--text);">
-            <strong>フルコーラス MIX：</strong>
-            <span style="color: var(--warning); font-weight: 700; font-size: 1.2rem;">￥8,000</span>
-          </div>
-          <div style="font-size: 1.1rem; margin-bottom: 8px; color: var(--text);">
-            <strong>ワンコーラス MIX：</strong>
-            <span style="color: var(--warning); font-weight: 700; font-size: 1.2rem;">￥6,000</span>
-          </div>
-          <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border);">
-            • ハモリ追加（3トラック目〜）：<strong style="color: var(--warning);">+￥3,000</strong><br>
-            • 動画エンコード：+￥1,000
-          </div>
-        </div>
-        <div style="background: var(--warning); color: white; padding: 12px; border-radius: 10px; text-align: center; font-weight: 600;">
-          <i class="fas fa-info-circle"></i> 2025年9月1日からの新価格
-        </div>
-      </div>
-    </div>
-
-    <!-- 今すぐご依頼を促すCTA -->
-    <div style="background: linear-gradient(135deg, var(--accent), #ff8fb3); color: white; padding: 25px; border-radius: 15px; text-align: center; margin-bottom: 20px; box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);">
-      <h3 style="margin-bottom: 15px; font-size: 1.2rem;">
-        <i class="fas fa-rocket"></i>
-        特別料金でのご依頼はお早めに
-      </h3>
-      <p style="margin-bottom: 20px; font-size: 1rem; opacity: 0.95;">
-        現在価格でのご依頼受付は<strong>2025年8月31日</strong>までとなります。<br>
-        この機会にぜひRyuzan Mix Salonの高品質MIXをお試しください。<br>
-        <span style="color: #2d5aa0; font-weight: 600; margin-top: 8px; display: block;">
-          <i class="fas fa-info-circle"></i>
-          すでにご相談・ご依頼いただいている方は、改定前の料金でご対応させていただきます。
-        </span>
-      </p>
-      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-        <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" 
-           style="background: white; color: var(--accent); padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);"
-           onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 15px rgba(255, 255, 255, 0.4)'"
-           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(255, 255, 255, 0.3)'">
-          <i class="fas fa-paper-plane"></i>
-          簡単依頼フォーム
-        </a>
-        <a href="#contact" 
-           style="background: transparent; color: white; border: 2px solid white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease;"
-           onmouseover="this.style.background='white'; this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--accent')"
-           onmouseout="this.style.background='transparent'; this.style.color='white'">
-          <i class="fas fa-comments"></i>
-          まずは相談する
-        </a>
-      </div>
-    </div>
-
-    <div style="text-align: center; color: var(--text-light); font-size: 0.9rem;">
-      <p style="margin: 0;">
-        <i class="fas fa-info-circle"></i>
-        料金改定に関するご質問やご不明な点がございましたら、お気軽にお問い合わせください。
-      </p>
     </div>
   </section>
 
@@ -565,12 +298,6 @@
       <div class="pricing-header">
         <h3>Ryuzan Mix Salon 料金表</h3>
         <p>全て税込価格・追加料金なしの安心価格</p>
-        <div style="background: #fff3cd; border: 2px solid var(--warning); border-radius: 12px; padding: 15px; margin-top: 15px; text-align: center;">
-          <p style="margin: 0; color: var(--warning); font-weight: 600; font-size: 0.95rem;">
-            <i class="fas fa-info-circle"></i>
-            <strong>すでにご相談・ご依頼いただいている方は、改定前の料金でご対応させていただきます。</strong>
-          </p>
-        </div>
       </div>
 
       <div class="pricing-content">
@@ -580,15 +307,15 @@
           <div class="price-grid">
             <div class="price-item featured">
               <div class="price-name">⭐ フルコーラス MIX</div>
-              <div class="price-description">ノイズ処理＋ピッチ&リズム補正＋マスタリング＋ハモリ2トラック込み</div>
-              <div class="price-amount">￥5,000</div>
+              <div class="price-description">ノイズ処理／ピッチ&リズム補正／マスタリング／ハモリ2トラックまで込み</div>
+              <div class="price-amount">¥5,000</div>
               <div class="price-note">初心者の方におすすめ◎</div>
             </div>
 
             <div class="price-item">
               <div class="price-name">ワンコーラス MIX</div>
-              <div class="price-description">1番のみをMIX（ハモリ2トラック込み・お試し用）</div>
-              <div class="price-amount">￥3,000</div>
+              <div class="price-description">1番のみをMIX（ハモリ2トラックまで込み・お試し用）</div>
+              <div class="price-amount">¥3,000</div>
               <div class="price-note">まずは気軽にクオリティ確認</div>
             </div>
 
@@ -608,29 +335,29 @@
             <div class="price-item">
               <div class="price-name">ハモリ追加（3トラック目から）</div>
               <div class="price-description">3トラック目からの追加ハモリ（1トラックごと）</div>
-              <div class="price-amount">+￥1,000</div>
+              <div class="price-amount">+¥1,000</div>
               <div class="price-note">2トラックまでは基本料金に含む</div>
             </div>
 
             <div class="price-item">
               <div class="price-name">🎬 動画エンコード</div>
-              <div class="price-description">YouTube・X向けに高画質エンコード（音圧調整込み）</div>
-              <div class="price-amount">+￥1,000</div>
+              <div class="price-description">YouTube／X向けに高画質エンコード（音圧調整込み）</div>
+              <div class="price-amount">+¥1,000</div>
               <div class="price-note">尺・形式はご相談可</div>
             </div>
 
             <div class="price-item">
-              <div class="price-name">💥 コラボ追加（1名）</div>
+              <div class="price-name">👥 コラボ追加（1名）</div>
               <div class="price-description">デュエット・ユニゾンなど追加ボーカル1名まで対応</div>
-              <div class="price-amount">+￥2,000</div>
+              <div class="price-amount">+¥2,000</div>
               <div class="price-note">2名以上は別途お見積もり</div>
             </div>
 
             <div class="price-item">
-              <div class="price-name">🎛️ FX処理（1ヶ所）</div>
+              <div class="price-name">🎛️ FX処理（1か所）</div>
               <div class="price-description">ボコーダー、ディストーション、特殊エフェクト等の処理</div>
-              <div class="price-amount">+￥2,000</div>
-              <div class="price-note">1ヶ所につき、複数箇所対応可</div>
+              <div class="price-amount">+¥2,000</div>
+              <div class="price-note">1か所につき、複数箇所対応可</div>
             </div>
 
             <div class="price-item" style="opacity: 0.5; background: #f5f5f5;">
@@ -641,7 +368,7 @@
             </div>
 
             <div class="price-item" style="opacity: 0.5; background: #f5f5f5;">
-              <div class="price-name" style="color: var(--text-muted);">📝 ガイド譜 PDF</div>
+              <div class="price-name" style="color: var(--text-muted);">📑 ガイド譜 PDF</div>
               <div class="price-description" style="color: var(--text-muted);">視覚的にわかりやすいメロディ譜をPDFで提供</div>
               <div class="price-amount" style="color: var(--text-muted);">準備中</div>
               <div class="price-note" style="color: var(--text-muted);">近日提供予定</div>
@@ -654,16 +381,16 @@
           <h4 class="price-section-title">💰 割引・調整オプション</h4>
           <div class="price-grid">
             <div class="price-item">
-              <div class="price-name">📈 ピッチ補正なし</div>
+              <div class="price-name">🔈 ピッチ補正なし</div>
               <div class="price-description">ピッチ補正を行わない自然仕上げ</div>
-              <div class="price-amount">-￥1,000</div>
+              <div class="price-amount">-¥1,000</div>
               <div class="price-note">"手直し不要"なテイク限定</div>
             </div>
 
             <div class="price-item">
               <div class="price-name">🎁 リピーター割</div>
               <div class="price-description">2回目以降のご依頼時に適用</div>
-              <div class="price-amount">-￥500</div>
+              <div class="price-amount">-¥500</div>
               <div class="price-note">感謝のリピート特典✨</div>
             </div>
           </div>
@@ -674,10 +401,10 @@
           <h4 class="price-section-title">⚠️ 修正・納期について</h4>
           <div class="price-grid">
             <div class="price-item" style="grid-column: 1 / -1;">
-              <div class="price-name">📄 修正回数</div>
+              <div class="price-name">🔄 修正回数</div>
               <div class="price-description">
                 <strong>無料修正：2回まで</strong><br>
-                3回目以降：1回につき+￥1,000<br>
+                3回目以降：1回につき+¥1,000<br>
                 <span style="color: var(--warning); font-weight: 600;">※修正依頼は一度にすべて詳細にご指示ください</span><br>
                 <small>複数回に分けると全体バランスが崩れ、納期延長の原因となります</small>
               </div>
@@ -688,12 +415,12 @@
             <div class="price-item" style="grid-column: 1 / -1; border: 2px solid var(--warning); background: #fff3cd;">
               <div class="price-name" style="color: var(--warning);">📅 現在の納期</div>
               <div class="price-description" style="color: var(--warning);">
-                <strong>通常納期：1ヶ月前後</strong><br>
-                お急ぎの場合やスケジュールのご相談は、お気軽にお申し付けください<br>
-                可能な限り柔軟に対応させていただきます
+                <strong>通常納期：1か月前後</strong><br>
+                ※依頼数増加により、従来の2-3週間から変更となりました<br>
+                お急ぎの場合は事前にご相談ください
               </div>
-              <div class="price-amount" style="color: var(--warning);">ご相談可</div>
-              <div class="price-note" style="color: var(--warning);">お気軽にご相談ください</div>
+              <div class="price-amount" style="color: var(--warning);">要確認</div>
+              <div class="price-note" style="color: var(--warning);">お早めのご依頼推奨</div>
             </div>
           </div>
         </div>
@@ -703,24 +430,24 @@
           <h4 class="price-section-title">💳 お支払い方法</h4>
           <div class="price-grid">
             <div class="price-item featured">
-              <div class="price-name">🏦 銀行振込</div>
-              <div class="price-description">最も推奨する支払い方法・手数料ご負担ください</div>
-              <div class="price-amount">第1優先</div>
-              <div class="price-note">安全・確実で最も推奨</div>
+              <div class="price-name">💰 PayPay</div>
+              <div class="price-description">推奨支払い方法・手数料なし</div>
+              <div class="price-amount">対応中</div>
+              <div class="price-note">QRコード決済で簡単・安全</div>
             </div>
 
             <div class="price-item">
-              <div class="price-name">💰 PayPay</div>
-              <div class="price-description">QRコード決済で簡単・手数料なし</div>
-              <div class="price-amount">第2優先</div>
-              <div class="price-note">スマートフォンから簡単決済</div>
+              <div class="price-name">🎁 Amazonギフトカード</div>
+              <div class="price-description">PayPayが使えない場合の代替手段</div>
+              <div class="price-amount">対応中</div>
+              <div class="price-note">番号がわかるように両面の写真をお送りください</div>
             </div>
 
-            <div class="price-item" style="opacity: 0.7; background: #f8f9fa;">
-              <div class="price-name" style="color: var(--text-muted);">💳 その他決済</div>
-              <div class="price-description" style="color: var(--text-muted);">上記以外をご希望の場合はご相談ください</div>
-              <div class="price-amount" style="color: var(--text-muted);">要相談</div>
-              <div class="price-note" style="color: var(--text-muted);">個別対応いたします</div>
+            <div class="price-item" style="opacity: 0.5; background: #f5f5f5;">
+              <div class="price-name" style="color: var(--text-muted);">🏦 銀行振込</div>
+              <div class="price-description" style="color: var(--text-muted);">現在停止中</div>
+              <div class="price-amount" style="color: var(--text-muted);">停止中</div>
+              <div class="price-note" style="color: var(--text-muted);">準備中</div>
             </div>
           </div>
         </div>
@@ -728,19 +455,10 @@
 
       <div class="pricing-note">
         <strong>💡 ココナラ・SKIMA経由の料金について</strong><br>
-        現在こちらのページ価格に各サイトの手数料を含ませた料金になります。X（DM）やご依頼＆ご相談フォームからのご依頼では、上記の通常価格でご案内しています。<br><br>
+        サービス手数料が加算されるため、表示価格が異なります。X（DM）からのご依頼では、上記の通常価格でご案内しています。<br><br>
         <strong>🎁 お支払い方法について</strong><br>
-        <strong style="color: var(--success);">銀行振込を最も推奨</strong>しており（手数料はご負担ください）、次にPayPay決済の順となります。<br>
-        その他の決済方法をご希望の場合は、お気軽にご相談ください。<br><br>
-        <div style="background: #e8f5e8; border: 2px solid var(--success); border-radius: 8px; padding: 15px; margin-top: 15px;">
-          <strong style="color: var(--success);">
-            <i class="fas fa-shield-alt"></i>
-            既存お客様への重要なお知らせ
-          </strong><br>
-          <span style="color: var(--success); font-size: 0.95rem;">
-            すでにご相談・ご依頼いただいている方は、改定前の料金でご対応させていただきます。
-          </span>
-        </div>
+        <strong style="color: var(--accent);">PayPay決済を推奨</strong>しております。手数料なしで安全・簡単にお支払いいただけます。<br>
+        PayPayが使えない場合は、Amazonギフトカードでも対応可能です。
       </div>
     </div>
 
@@ -749,22 +467,22 @@
       <h3>💬 よくあるご依頼例</h3>
       <div style="display: grid; gap: 15px; margin-top: 15px;">
         <div style="padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
-          <strong>初心者スタンダード:</strong> フルコーラス MIX (￥5,000) + 動画エンコード (+￥1,000) = <span style="color: var(--primary); font-weight: bold;">￥6,000</span>
+          <strong>初心者スタンダード:</strong> フルコーラス MIX (¥5,000) + 動画エンコード (+¥1,000) = <span style="color: var(--primary); font-weight: bold;">¥6,000</span>
         </div>
         <div style="padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
-          <strong>お試しプラン:</strong> ワンコーラス MIX (￥3,000) + ピッチ補正なし (-￥1,000) = <span style="color: var(--primary); font-weight: bold;">￥2,000</span>
+          <strong>お試しプラン:</strong> ワンコーラス MIX (¥3,000) + ピッチ補正なし (-¥1,000) = <span style="color: var(--primary); font-weight: bold;">¥2,000</span>
         </div>
         <div style="padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
-          <strong>コラボ対応:</strong> フルコーラス MIX (￥5,000) + コラボ追加 (+￥2,000) + エンコード (+￥1,000) = <span style="color: var(--primary); font-weight: bold;">￥8,000</span>
+          <strong>コラボ対応:</strong> フルコーラス MIX (¥5,000) + コラボ追加 (+¥2,000) + エンコード (+¥1,000) = <span style="color: var(--primary); font-weight: bold;">¥8,000</span>
         </div>
         <div style="padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
-          <strong>ハモリ多用プラン:</strong> フルコーラス MIX (￥5,000) + ハモリ追加 3-4トラック目 (+￥2,000) = <span style="color: var(--primary); font-weight: bold;">￥7,000</span>
+          <strong>ハモリ多用プラン:</strong> フルコーラス MIX (¥5,000) + ハモリ追加 3-4トラック目 (+¥2,000) = <span style="color: var(--primary); font-weight: bold;">¥7,000</span>
         </div>
         <div style="padding: 15px; background: #fff3cd; border: 2px solid var(--warning); border-radius: 8px;">
-          <strong style="color: var(--warning);">納期について:</strong> 現在すべてのプランで<span style="color: var(--warning); font-weight: bold;">1ヶ月前後</span>のお時間をいただいておりますが、ご相談いただけます
+          <strong style="color: var(--warning);">納期について:</strong> 現在すべてのプランで<span style="color: var(--warning); font-weight: bold;">1か月前後</span>のお時間をいただいております
         </div>
         <div style="padding: 15px; background: #d1ecf1; border: 2px solid #17a2b8; border-radius: 8px;">
-          <strong style="color: #17a2b8;">お支払いについて:</strong> 仮MIX確認・修正完了後のご入金で安心（銀行振込推奨）
+          <strong style="color: #17a2b8;">お支払いについて:</strong> 仮MIX確認・修正完了後のご入金で安心（PayPay推奨）
         </div>
       </div>
     </div>
@@ -773,15 +491,31 @@
     <div class="card" style="background: var(--gradient); color: var(--primary-dark); border: 2px solid var(--primary); margin: 30px 0;">
       <h3 style="color: var(--primary-dark); margin-bottom: 15px;">
         <i class="fas fa-paper-plane"></i>
-        簡単にご依頼されたい方へ
+        簡単に依頼したい方へ
       </h3>
       <p style="color: var(--primary-dark); margin-bottom: 20px;">
-        「とりあえず依頼したい」「シンプルに進めたい」そんな方には、ご依頼＆ご相談フォームがおすすめ！<br>
+        「とりあえず依頼したい」「シンプルに進めたい」そんな方には、簡単依頼フォームがおすすめ！<br>
         必要最小限の項目で、スムーズにご依頼いただけます。
       </p>
       <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: white; padding: 12px 24px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
         <i class="fas fa-rocket"></i>
-        ご依頼＆ご相談フォームを使う
+        簡単依頼フォームを使う
+      </a>
+    </div>
+
+    <!-- 詳細依頼フォーム案内 -->
+    <div class="card" style="background: var(--gradient-accent); color: white; border: none; margin: 30px 0;">
+      <h3 style="color: white; margin-bottom: 15px;">
+        <i class="fas fa-magic"></i>
+        プロ仕様の詳細設定で依頼したい方へ
+      </h3>
+      <p style="color: white; margin-bottom: 20px;">
+        「細かい設定まで指定したい」「理想の仕上がりを伝えたい」そんな方には、詳細依頼フォームがおすすめ！<br>
+        プロ仕様の詳細設定で、DM用の文章を自動生成します。
+      </p>
+      <a href="request-form.html" style="display: inline-flex; align-items: center; gap: 8px; background: white; color: var(--accent); padding: 12px 24px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
+        <i class="fas fa-arrow-right"></i>
+        詳細依頼フォームを使う
       </a>
     </div>
   </section>
@@ -800,8 +534,9 @@
           <h3>ご依頼・MIX方針ご要望・音源受領</h3>
           <p>
             下記のいずれかの方法でお気軽にご連絡ください。<br>
-            • <strong><a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="color: var(--primary);">🚀 ご依頼＆ご相談フォーム</a></strong> - 必要最小限で簡単<br>
-            • <a href="https://x.com/ryuzanmix" target="_blank" rel="noopener" style="color: var(--primary);">X（Twitter）のDM</a> - 迅速な対応<br>
+            • <strong><a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="color: var(--primary);">🚀 簡単依頼フォーム</a></strong> - 必要最小限で簡単<br>
+            • <strong><a href="request-form.html" style="color: var(--primary);">詳細依頼フォーム</a></strong> - 詳細設定で文章自動生成<br>
+            • <a href="https://x.com/ryuzanmix" target="_blank" rel="noopener" style="color: var(--primary);">X（Twitter）のDM</a> - 最もお得で迅速<br>
             • <a href="mailto:ryuzan.mix@gmail.com?subject=MIX依頼のご相談&body=こんにちは、竜山つむぎさんへMIXの件でご連絡です。" style="color: var(--primary);">メール</a> - 詳細な相談に最適<br>
             録音音源は<a href="https://gigafile.nu/" target="_blank" rel="noopener" style="color: var(--primary);">ギガファイル便</a>やGoogle Driveでお送りください。MIX方針やご要望も詳しくお聞かせください。<br>
             <strong><a href="recording-guide.html" style="color: var(--accent);">📱 録音方法がわからない方はこちらのガイドをご覧ください</a></strong>
@@ -818,7 +553,6 @@
             • 録音品質・補正レベルの確認<br>
             • 楽曲に最適なMIX方針のご提案<br>
             • 最終的な料金のご案内<br>
-            • 納期のご相談（お急ぎの場合は調整可能）<br>
             ご不明な点やご要望があれば、丁寧にご説明いたします。
           </p>
         </div>
@@ -830,9 +564,9 @@
           <h3>ご承諾・作業開始</h3>
           <p>
             お見積もりにご納得いただき、ご承諾をいただいた日から作業開始となります。<br>
+            • <strong style="color: var(--warning);">この日を起点に1か月の作業時間をいただきます</strong><br>
             • 作業内容・進行スケジュールの最終確認<br>
             • 参考音源・特別なご要望の再確認<br>
-            • 納期の最終調整（ご相談いただけます）<br>
             安心してお任せください。
           </p>
         </div>
@@ -847,6 +581,7 @@
             • ノイズ除去・ピッチ補正・タイミング調整<br>
             • ハモリ作成・エフェクト処理<br>
             • マスタリング・最終調整<br>
+            途中経過はスクリーンショット付きで共有いたします。
           </p>
         </div>
       </div>
@@ -857,7 +592,7 @@
           <h3>仮MIX音源提出</h3>
           <p>
             完成した仮MIX音源をお送りし、ご確認いただきます。<br>
-            • mp3ファイルでの提出（納品前のものですので公開はお控えください）<br>
+            • 高品質なWAVファイルでの提出<br>
             • 全体的な仕上がり・バランスの確認<br>
             • 修正箇所があればお気軽にお申し付けください<br>
             しっかりとお聞きいただき、ご感想をお聞かせください。
@@ -872,7 +607,7 @@
           <p>
             修正がある場合は、詳細にご指示ください。<br>
             • <strong style="color: var(--warning);">修正依頼は一度にすべて詳細にご指示ください</strong><br>
-            • 無料修正2回まで対応（3回目以降+￥1,000/回）<br>
+            • 無料修正2回まで対応（3回目以降+¥1,000/回）<br>
             • 具体的な箇所・内容をお教えください<br>
             修正なしの場合は、そのまま次のステップへ進みます。
           </p>
@@ -885,10 +620,10 @@
           <h3>修正完了・ご入金</h3>
           <p>
             修正作業完了後、ご入金をお願いいたします。<br>
-            • <strong>お支払い方法：銀行振込（推奨）、PayPay、Amazonギフトカード</strong><br>
+            • <strong>お支払い方法：PayPay（推奨）、Amazonギフトカード</strong><br>
             • 修正なしの場合は仮MIX確認後にご入金<br>
-            • 銀行振込の場合は口座情報をお伝えします（手数料ご負担ください）<br>
             • PayPayの場合はQRコードまたは送金リンクをお送りします<br>
+            • Amazonギフトカードの場合は番号両面の写真をお送りください<br>
             ご入金確認後、正式な音源準備に入ります。
           </p>
         </div>
@@ -923,7 +658,7 @@
       </div>
     </div>
 
-    <!-- 重要なポイント -->
+    <!-- 重要ポイント -->
     <div class="card" style="background: var(--gradient); border: 2px solid var(--primary); margin-top: 40px;">
       <h3 style="color: var(--primary-dark); margin-bottom: 15px;">
         <i class="fas fa-exclamation-triangle"></i>
@@ -931,16 +666,16 @@
       </h3>
       <div style="display: grid; gap: 15px;">
         <div style="padding: 12px; background: rgba(255, 255, 255, 0.9); border-radius: 8px; border-left: 4px solid var(--warning);">
-          <strong style="color: var(--warning);">作業期間：</strong>現在1ヶ月前後ですが、ご相談いただけます
+          <strong style="color: var(--warning);">作業期間：</strong>ご承諾日から1か月間をいただきます
         </div>
         <div style="padding: 12px; background: rgba(255, 255, 255, 0.9); border-radius: 8px; border-left: 4px solid #17a2b8;">
           <strong style="color: #17a2b8;">入金タイミング：</strong>仮MIX確認・修正完了後にご入金
         </div>
         <div style="padding: 12px; background: rgba(255, 255, 255, 0.9); border-radius: 8px; border-left: 4px solid var(--success);">
-          <strong style="color: var(--success);">支払い方法：</strong>銀行振込推奨、PayPay・Amazonギフトカードも対応
+          <strong style="color: var(--success);">支払い方法：</strong>PayPay推奨、Amazonギフトカードも対応
         </div>
         <div style="padding: 12px; background: rgba(255, 255, 255, 0.9); border-radius: 8px; border-left: 4px solid #dc3545;">
-          <strong style="color: #dc3545);">修正について：</strong>一度にすべて詳細にご指示ください（無料2回まで）
+          <strong style="color: #dc3545;">修正について：</strong>一度にすべて詳細にご指示ください（無料2回まで）
         </div>
       </div>
     </div>
@@ -972,7 +707,7 @@
         <p>録音品質がMIXの最終仕上がりを大きく左右するためです。<br>
         <strong>良い録音 × 良いMIX = 素晴らしい仕上がり</strong><br>
         <strong>悪い録音 × 良いMIX = 限界のある仕上がり</strong><br><br>
-        MIXは、「録音された素材を最大限に活かす技術」であり、元の録音品質を超えた結果を生み出すことはできません。<br>
+        MIXは「録音された素材を最大限に活かす技術」であり、元の録音品質を超えた結果を生み出すことはできません。<br>
         <strong><a href="recording-guide.html" style="color: var(--primary);">📱 録音ガイド</a></strong>の録音方法を実践していただければ、MIXで十分に美しく仕上げることができます！<br>
         <span style="color: var(--accent); font-weight: 600; margin-top: 10px; display: block;">
           💡 適切な録音方法を知ることで、理想の仕上がりに近づけます
@@ -982,29 +717,19 @@
 
     <div class="faq-item">
       <details>
-        <summary>簡単依頼フォームはどう使うの？</summary>
-        <p><strong>ご依頼＆ご相談フォーム：</strong>必要最小限の項目で、すぐに依頼したい方向け。Googleフォームで簡単入力できます。<br><br>
-        初めての方や「とりあえず依頼したい」方は<a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="color: var(--primary);">ご依頼＆ご相談フォーム</a>をお使いください。必要な情報を入力するだけで、スムーズにご依頼いただけます。</p>
+        <summary>簡単依頼フォームと詳細依頼フォームの違いは？</summary>
+        <p><strong>簡単依頼フォーム：</strong>必要最小限の項目で、すぐに依頼したい方向け。Googleフォームで簡単入力。<br>
+        <strong>詳細依頼フォーム：</strong>細かい設定まで指定したい方向け。プロ仕様の設定でDM用文章を自動生成。<br><br>
+        初めての方や「とりあえず依頼したい」方は<a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" style="color: var(--primary);">簡単依頼フォーム</a>、理想の仕上がりを細かく伝えたい方は<a href="request-form.html" style="color: var(--primary);">詳細依頼フォーム</a>をお使いください。</p>
       </details>
     </div>
 
     <div class="faq-item">
       <details>
-        <summary>支払い方法の優先順位は？</summary>
-        <p><strong>第1優先：銀行振込</strong>（最も推奨・手数料ご負担ください）<br>
-        <strong>第2優先：PayPay</strong>（QRコード決済で簡単・手数料なし）<br>
-        <strong>第3優先：Amazonギフトカード</strong>（上記が使えない場合）<br>
-        <strong>その他：</strong>上記以外をご希望の場合はご相談ください<br><br>
-        銀行振込が最も確実で推奨していますが、PayPayも手軽でおすすめです。</p>
-      </details>
-    </div>
-
-    <div class="faq-item">
-      <details>
-        <summary>納期はどのくらい？急ぎでも大丈夫？</summary>
-        <p>現在の標準納期は<strong>1ヶ月前後</strong>ですが、<strong>ご相談いただけます</strong>。<br>
-        お急ぎの場合やスケジュールのご希望がある場合は、お気軽にご相談ください。可能な限り柔軟に対応させていただきます。<br>
-        ご依頼時に希望納期をお伝えいただければ、調整可能かどうかお答えいたします。</p>
+        <summary>PayPay支払いの方法は？</summary>
+        <p>仮MIX確認・修正完了後に、PayPayのQRコードまたは送金リンクをお送りします。<br>
+        スマートフォンのPayPayアプリから簡単にお支払いいただけます。手数料もかからず、すぐに入金確認ができるため推奨しております。<br>
+        PayPayが使えない場合は、Amazonギフトカードでもお支払い可能です。</p>
       </details>
     </div>
 
@@ -1033,14 +758,14 @@
     <div class="faq-item">
       <details>
         <summary>入金のタイミングはいつですか？</summary>
-        <p>仮MIX音源をお送りし、ご確認・修正作業が完了した後にご入金をお願いしております。つまり、<strong>最終的な仕上がりにご納得いただいてからのお支払い</strong>となりますので、安心してご依頼ください。銀行振込、PayPay、Amazonギフトカードに対応しております。</p>
+        <p>仮MIX音源をお送りし、ご確認・修正作業が完了した後にご入金をお願いしております。つまり、<strong>最終的な仕上がりにご納得いただいてからのお支払い</strong>となりますので、安心してご依頼ください。PayPay、Amazonギフトカードに対応しております。</p>
       </details>
     </div>
 
     <div class="faq-item">
       <details>
         <summary>修正は何回まで？</summary>
-        <p><strong>無料2回まで対応</strong>いたします。3回目以降は1回+￥1,000です。<br>
+        <p><strong>無料2回まで対応</strong>いたします。3回目以降は1回+¥1,000です。<br>
         <span style="color: var(--warning); font-weight: 600;">重要：修正依頼は一度にすべて詳細にご指示ください。</span><br>
         複数回に分けると全体バランスが崩れ、納期延長の原因となります。事前の詳細なヒアリングで、ご希望に沿った仕上がりを目指します。</p>
       </details>
@@ -1049,14 +774,14 @@
     <div class="faq-item">
       <details>
         <summary>ヘッドホン録音でも大丈夫？</summary>
-        <p>ノイズ除去で整えられる範囲なら問題ありません。まずはサンプルをお送りいただき、状況に応じて最適な処理方法をアドバイスします。</p>
+        <p>ノイズ除去で整えられる範囲なら問題ありません。まずはサンプルをお送りいただき、状態に応じて最適な処理方法をアドバイスします。</p>
       </details>
     </div>
 
     <div class="faq-item">
       <details>
         <summary>ハモリは何トラックまで？</summary>
-        <p>基本料金には2トラックまでのハモリが含まれています。3トラック目からは1トラックごとに+￥1,000で追加できます。ご希望に応じて何トラックでも対応可能です。</p>
+        <p>基本料金には2トラックまでのハモリが含まれています。3トラック目からは1トラックごとに+¥1,000で追加できます。ご希望に応じて何トラックでも対応可能です。</p>
       </details>
     </div>
 
@@ -1075,7 +800,7 @@
     </div>
 
     <p style="color: var(--text-light); font-size: 0.95rem; text-align: center; margin-top: 40px;">
-      Ryuzan Mix Salonは、「はじめてのMIX依頼でも安心」を大切に、やさしく丁寧なサポートを心がけています。
+      Ryuzan Mix Salonは「はじめてのMIX依頼でも安心」を大切に、やさしく丁寧なサポートを心がけています。
     </p>
   </section>
 
@@ -1086,7 +811,7 @@
       <p style="font-size: 1.1rem; line-height: 1.8; max-width: 600px; margin: 0 auto;">
         「MIXを頼むのが初めてで不安…」<br>
         そんな方こそ、安心してご相談いただけたら嬉しいです。<br>
-        あなたの歌声の魅力を、きっと引き出せますように。<br><br>
+        あなたの歌声の魅力を、そっと引き出せますように。<br><br>
         <strong style="color: var(--primary);">一人ひとりの「歌いたい」気持ちを、全力でサポートします。</strong>
       </p>
     </div>
@@ -1098,7 +823,7 @@
       <h2 class="section-title">ご相談はこちらから☺️</h2>
       <p style="margin-bottom: 10px;">「ちょっと聞いてみたいな…」という方も、お気軽にご連絡ください🕊</p>
       <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px;">
-        「録音に不安がある…」「まだ依頼じゃないけど話を聞いてみたい」などもナ大歓迎です🌸<br>
+        「録音に不安がある…」「まだ依頼じゃないけど話を聞いてみたい」なども大歓迎です🌸<br>
         無理な勧誘などは一切ありませんので、安心してどうぞ。
       </p>
       
@@ -1116,12 +841,17 @@
       <div class="contact-buttons">
         <a href="https://forms.gle/u6KXppEsxdnw6g3W8" target="_blank" class="contact-button primary">
           <i class="fas fa-rocket"></i>
-          🚀 ご依頼＆ご相談フォーム
+          🚀 簡単依頼フォーム
         </a>
 
         <a href="https://x.com/ryuzanmix" class="contact-button accent" target="_blank" rel="noopener">
           <i class="fab fa-twitter"></i>
           XのDMで相談する（@ryuzanmix）
+        </a>
+
+        <a href="request-form.html" class="contact-button">
+          <i class="fas fa-magic"></i>
+          詳細依頼フォーム
         </a>
 
         <a href="recording-guide.html" class="contact-button">
@@ -1151,9 +881,9 @@
           お得情報
         </h4>
         <p style="margin: 0; color: var(--text-light);">
-          <strong>X（DM）・ご依頼＆ご相談フォームからのご依頼が最もお得！</strong><br>
+          <strong>X（DM）・簡単依頼フォームからのご依頼が最もお得！</strong><br>
           サービス手数料がかからないため、表示価格そのままでご利用いただけます。<br>
-          <strong style="color: var(--success);">銀行振込またはPayPay決済推奨</strong>で、さらにスムーズなお取引が可能です。
+          <strong style="color: var(--accent);">PayPay支払い推奨</strong>で、さらにスムーズなお取引が可能です。
         </p>
       </div>
     </div>
